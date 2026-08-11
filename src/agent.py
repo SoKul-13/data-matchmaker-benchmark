@@ -406,6 +406,31 @@ customer_id, customer_name, country, num_accounts, total_balance, num_trades, to
                 "expected_rows": len(self.ground_truth),
             }
             
+            # Save results automatically to output files
+            try:
+                output_dir = Path(__file__).parent.parent / "output"
+                output_dir.mkdir(parents=True, exist_ok=True)
+                with open(output_dir / "results.json", "w", encoding="utf-8") as f:
+                    json.dump(result, f, indent=2)
+                
+                # Export CSV summary table
+                csv_rows = [
+                    {"component": "columns", "metric": "column_schema_check", "accuracy_pct": round(details["columns"]["score"] / details["columns"]["max"] * 100, 2), "score_earned": details["columns"]["score"], "max_score": details["columns"]["max"]},
+                    {"component": "row_count", "metric": "row_count_difference", "accuracy_pct": round(details["row_count"]["score"] / details["row_count"]["max"] * 100, 2), "score_earned": details["row_count"]["score"], "max_score": details["row_count"]["max"]},
+                    {"component": "customer_coverage", "metric": "customer_id_matching", "accuracy_pct": details["customer_coverage"]["coverage_pct"], "score_earned": details["customer_coverage"]["score"], "max_score": details["customer_coverage"]["max"]},
+                ]
+                for col_name, col_data in details.get("numeric_accuracy", {}).get("columns", {}).items():
+                    csv_rows.append({"component": "numeric_accuracy", "metric": col_name, "accuracy_pct": col_data.get("accuracy_pct", 0), "score_earned": col_data.get("score", 0), "max_score": col_data.get("max", 8)})
+                for field_name, field_data in details.get("string_accuracy", {}).get("fields", {}).items():
+                    csv_rows.append({"component": "string_accuracy", "metric": field_name, "accuracy_pct": field_data.get("accuracy_pct", 0), "score_earned": field_data.get("score", 0), "max_score": field_data.get("max", 5)})
+                csv_rows.append({"component": "total", "metric": "final_score", "accuracy_pct": float(score), "score_earned": score, "max_score": 100})
+                
+                from evaluator import export_eval_results_to_csv
+                export_eval_results_to_csv(csv_rows, output_path=str(output_dir / "eval_results.csv"))
+                logger.info(f"Saved evaluation results to {output_dir / 'results.json'} and {output_dir / 'eval_results.csv'}")
+            except Exception as save_err:
+                logger.error(f"Failed to save output files: {save_err}")
+
             await updater.add_artifact(
                 parts=[
                     Part(root=TextPart(text=f"Assessment complete. Score: {score}/100")),
@@ -413,6 +438,8 @@ customer_id, customer_name, country, num_accounts, total_balance, num_trades, to
                 ],
                 name="Evaluation Result",
             )
+
+
             
         except Exception as e:
             logger.error(f"Error evaluating Purple Agent response: {e}")

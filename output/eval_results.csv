@@ -1,0 +1,13 @@
+component,metric,accuracy_pct,score_earned,max_score
+columns,column_schema_check,100.0,20,20
+row_count,row_count_difference,100.0,10,10
+customer_coverage,customer_id_matching,100.0,15,15
+numeric_accuracy,num_accounts,100.0,8,8
+numeric_accuracy,total_balance,55.0,4,8
+numeric_accuracy,num_trades,10.83,0,8
+numeric_accuracy,total_trade_volume,10.83,0,8
+numeric_accuracy,total_trade_value,11.67,0,8
+string_accuracy,customer_name,100.0,5,5
+string_accuracy,country,100.0,5,5
+string_accuracy,symbols_traded,36.11,1,5
+total,final_score,68.0,68,100
