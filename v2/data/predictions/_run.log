@@ -1,0 +1,6 @@
+19:53:52 models=['claude-haiku-4.5', 'gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gpt-4.1-mini', 'gpt-5-mini', 'gpt-5.4-mini', 'grok-4-fast', 'local-vllm', 'claude-sonnet-5', 'gemini-3.8-flash', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5', 'grok-4'] items=280 budget=$45.0
+19:53:52 dry-run: ~130416 prompt tokens per model x 14 models
+19:54:36 models=['claude-haiku-4.5', 'gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gpt-4.1-mini', 'gpt-5-mini', 'gpt-5.4-mini', 'claude-sonnet-5', 'gemini-3.8-flash', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5'] items=280 budget=$45.0
+19:54:36 dry-run: ~130416 prompt tokens per model x 11 models
+19:59:14 models=['claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5'] items=280 budget=$60.0
+19:59:14 dry-run: ~130416 prompt tokens per model x 6 models

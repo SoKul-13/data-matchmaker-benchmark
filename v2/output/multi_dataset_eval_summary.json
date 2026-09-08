@@ -1,0 +1,38 @@
+[
+  {
+    "dataset": "officeqa",
+    "metric_type": "fuzzy_numeric",
+    "data_type": "document",
+    "items_loaded": 5,
+    "eval_accuracy_pct": 100.0,
+    "avg_weighted_score": 1.0,
+    "status": "PASS"
+  },
+  {
+    "dataset": "finqa",
+    "metric_type": "fuzzy_numeric",
+    "data_type": "table",
+    "items_loaded": 5,
+    "eval_accuracy_pct": 100.0,
+    "avg_weighted_score": 1.0,
+    "status": "PASS"
+  },
+  {
+    "dataset": "tat_qa",
+    "metric_type": "fuzzy_numeric",
+    "data_type": "table",
+    "items_loaded": 5,
+    "eval_accuracy_pct": 100.0,
+    "avg_weighted_score": 1.0,
+    "status": "PASS"
+  },
+  {
+    "dataset": "tab_fact",
+    "metric_type": "binary",
+    "data_type": "table",
+    "items_loaded": 5,
+    "eval_accuracy_pct": 100.0,
+    "avg_weighted_score": 1.0,
+    "status": "PASS"
+  }
+]

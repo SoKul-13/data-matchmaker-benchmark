@@ -1,0 +1,19 @@
+FROM ghcr.io/astral-sh/uv:python3.13-bookworm
+
+ENV UV_HTTP_TIMEOUT=300
+
+RUN adduser agent
+USER agent
+WORKDIR /home/agent
+
+COPY pyproject.toml uv.lock README.md ./
+COPY src src
+COPY jan15_tasks jan15_tasks
+
+RUN \
+    --mount=type=cache,target=/home/agent/.cache/uv,uid=1000 \
+    uv sync --locked
+
+ENTRYPOINT ["uv", "run", "src/server.py"]
+CMD ["--host", "0.0.0.0"]
+EXPOSE 9009

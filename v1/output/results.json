@@ -1,0 +1,110 @@
+{
+  "score": 68,
+  "max_score": 100,
+  "details": {
+    "columns": {
+      "score": 20,
+      "max": 20,
+      "expected": [
+        "country",
+        "total_balance",
+        "total_trade_value",
+        "customer_id",
+        "symbols_traded",
+        "total_trade_volume",
+        "customer_name",
+        "num_trades",
+        "num_accounts"
+      ],
+      "submitted": [
+        "country",
+        "total_balance",
+        "total_trade_value",
+        "customer_id",
+        "symbols_traded",
+        "total_trade_volume",
+        "customer_name",
+        "num_trades",
+        "num_accounts"
+      ],
+      "missing": [],
+      "extra": []
+    },
+    "row_count": {
+      "score": 10,
+      "max": 10,
+      "expected": 120,
+      "submitted": 120,
+      "difference": 0
+    },
+    "customer_coverage": {
+      "score": 15,
+      "max": 15,
+      "expected_customers": 120,
+      "submitted_customers": 120,
+      "matching_customers": 120,
+      "coverage_pct": 100.0
+    },
+    "numeric_accuracy": {
+      "score": 12,
+      "max": 40,
+      "columns": {
+        "num_accounts": {
+          "accuracy_pct": 100.0,
+          "score": 8,
+          "max": 8
+        },
+        "total_balance": {
+          "accuracy_pct": 55.0,
+          "score": 4,
+          "max": 8
+        },
+        "num_trades": {
+          "accuracy_pct": 10.83,
+          "score": 0,
+          "max": 8
+        },
+        "total_trade_volume": {
+          "accuracy_pct": 10.83,
+          "score": 0,
+          "max": 8
+        },
+        "total_trade_value": {
+          "accuracy_pct": 11.67,
+          "score": 0,
+          "max": 8
+        }
+      }
+    },
+    "string_accuracy": {
+      "score": 11,
+      "max": 15,
+      "fields": {
+        "customer_name": {
+          "accuracy_pct": 100.0,
+          "score": 5,
+          "max": 5
+        },
+        "country": {
+          "accuracy_pct": 100.0,
+          "score": 5,
+          "max": 5
+        },
+        "symbols_traded": {
+          "accuracy_pct": 36.11,
+          "score": 1,
+          "max": 5
+        }
+      }
+    }
+  },
+  "llm_feedback": {
+    "enabled": true,
+    "model": "gemini-3.6-flash",
+    "summary": "{\n  \"summary\": \"The Purple Agent achieved an overall score of 68/100, performing flawlessly on dataset structure, customer coverage, and basic demographic attributes. However, it",
+    "parse_error": "Unterminated string starting at: line 2 column 14 (char 15)"
+  },
+  "purple_agent_url": "http://127.0.0.1:9010/",
+  "submitted_rows": 120,
+  "expected_rows": 120
+}

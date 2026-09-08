@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\small
+\caption{Per-dataset calibrated composite, common score (mean and difficulty-adjusted $z$-mean) and pooled ranks; CI from 1{,}000 item bootstraps.}
+\label{tab:leaderboard}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrrrrrrrr}
+\toprule
+Model & FeTaQA & FinanceBench & FinQA & OfficeQA & TabFact & TAT-QA & WTQ & Common & $z$-mean & Borda & Kemeny & RRF & 95\% CI & Native \\
+\midrule
+gpt-5.5 & 0.39 & 0.49 & 0.66 & 0.04 & 0.75 & 0.74 & 0.88 & 0.564 & +0.57 & 1 & 1 & 1 & [1, 2] & 1 \\
+claude-opus-5 & 0.35 & 0.46 & 0.67 & 0.00 & 0.57 & 0.79 & 0.89 & 0.534 & +0.15 & 2 & 2 & 2 & [1, 4] & 3 \\
+claude-sonnet-5 & 0.31 & 0.45 & 0.57 & 0.03 & 0.57 & 0.78 & 0.88 & 0.513 & -0.20 & 3 & 3 & 3 & [2, 4] & 2 \\
+gpt-5.4-mini & 0.24 & 0.43 & 0.61 & 0.02 & 0.75 & 0.77 & 0.83 & 0.521 & -0.52 & 4 & 4 & 4 & [2, 4] & 4 \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

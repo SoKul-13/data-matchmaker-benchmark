@@ -1,0 +1,169 @@
+dataset,provider,model,model_type,temperature,top_p,param_label,items,exact_match_pct,precision_pct,recall_pct,f1_score_pct,mean_relative_error_pct,original_rubric_score,custom_rubric_score,numeric_custom_score,latency_sec
+officeqa,Google,gemini-3.6-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,100.22%,30.00,2.86,2.856,0.344s
+officeqa,Google,gemini-3.6-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,80.79%,37.76,8.78,8.778,0.319s
+officeqa,Google,gemini-3.6-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,100.22%,30.00,2.86,2.856,0.212s
+officeqa,Google,gemini-2.5-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,61.33%,45.52,14.70,14.701999999999998,0.154s
+officeqa,Google,gemini-2.5-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,100.16%,30.00,2.86,2.862,0.272s
+officeqa,Google,gemini-2.5-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,60.62%,45.76,15.22,15.216,0.405s
+officeqa,Google,gemini-2.5-pro,Long Context / Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,100.16%,30.00,2.86,2.862,0.146s
+officeqa,Google,gemini-2.5-pro,Long Context / Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,100.16%,30.00,2.86,2.862,0.242s
+officeqa,Google,gemini-2.5-pro,Long Context / Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,80.75%,37.76,8.78,8.782,0.361s
+officeqa,OpenAI,gpt-4o,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,80.84%,37.76,8.77,8.774,0.376s
+officeqa,OpenAI,gpt-4o,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,100.25%,30.00,2.85,2.854,0.431s
+officeqa,OpenAI,gpt-4o,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,60.76%,45.76,15.21,15.206,0.167s
+officeqa,OpenAI,gpt-4o-mini,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,100.25%,30.00,2.85,2.854,0.313s
+officeqa,OpenAI,gpt-4o-mini,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,80.69%,37.76,8.78,8.784,0.156s
+officeqa,OpenAI,gpt-4o-mini,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,80.69%,37.76,8.78,8.784,0.275s
+officeqa,OpenAI,o3-mini,Deep Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,80.42%,37.83,8.81,8.806000000000001,0.208s
+officeqa,OpenAI,o3-mini,Deep Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,80.42%,37.83,8.81,8.806000000000001,0.441s
+officeqa,OpenAI,o3-mini,Deep Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,80.42%,37.83,8.81,8.806000000000001,0.171s
+officeqa,Anthropic,claude-3-7-sonnet,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,100.19%,30.00,2.86,2.8579999999999997,0.227s
+officeqa,Anthropic,claude-3-7-sonnet,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,80.67%,37.76,8.79,8.786,0.146s
+officeqa,Anthropic,claude-3-7-sonnet,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,80.78%,37.76,8.78,8.778,0.302s
+officeqa,Anthropic,claude-3-5-haiku,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,61.27%,45.52,14.71,14.706,0.342s
+officeqa,Anthropic,claude-3-5-haiku,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,80.67%,37.76,8.79,8.786,0.314s
+officeqa,Anthropic,claude-3-5-haiku,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,100.19%,30.00,2.86,2.8579999999999997,0.419s
+finqa,Google,gemini-3.6-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,3876.30%,30.00,0.52,0.522,0.164s
+finqa,Google,gemini-3.6-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,3856.13%,37.76,6.49,6.494,0.338s
+finqa,Google,gemini-3.6-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,3042.88%,45.68,13.83,13.834,0.140s
+finqa,Google,gemini-2.5-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,2722.43%,30.00,0.54,0.5399999999999999,0.166s
+finqa,Google,gemini-2.5-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,2131.69%,45.68,13.85,13.85,0.137s
+finqa,Google,gemini-2.5-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,2337.46%,45.50,12.96,12.956,0.252s
+finqa,Google,gemini-2.5-pro,Long Context / Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,451.84%,45.61,13.72,13.718,0.350s
+finqa,Google,gemini-2.5-pro,Long Context / Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,2722.43%,30.00,0.54,0.5399999999999999,0.192s
+finqa,Google,gemini-2.5-pro,Long Context / Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,2722.43%,30.00,0.54,0.5399999999999999,0.278s
+finqa,OpenAI,gpt-4o,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,4275.64%,37.76,6.49,6.494,0.143s
+finqa,OpenAI,gpt-4o,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,3444.89%,45.65,13.26,13.256,0.147s
+finqa,OpenAI,gpt-4o,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,4295.89%,30.00,0.52,0.516,0.224s
+finqa,OpenAI,gpt-4o-mini,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,4204.97%,37.79,7.07,7.066,0.123s
+finqa,OpenAI,gpt-4o-mini,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,4295.89%,30.00,0.52,0.516,0.164s
+finqa,OpenAI,gpt-4o-mini,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,4295.89%,30.00,0.52,0.516,0.299s
+finqa,OpenAI,o3-mini,Deep Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,2658.41%,45.79,13.63,13.632,0.430s
+finqa,OpenAI,o3-mini,Deep Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,3085.64%,30.26,0.73,0.728,0.320s
+finqa,OpenAI,o3-mini,Deep Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,3085.64%,30.26,0.73,0.728,0.419s
+finqa,Anthropic,claude-3-7-sonnet,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,3246.92%,30.00,0.53,0.53,0.375s
+finqa,Anthropic,claude-3-7-sonnet,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,3246.92%,30.00,0.53,0.53,0.123s
+finqa,Anthropic,claude-3-7-sonnet,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,2812.74%,37.74,6.99,6.989999999999999,0.169s
+finqa,Anthropic,claude-3-5-haiku,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,530.02%,45.61,13.71,13.708000000000002,0.340s
+finqa,Anthropic,claude-3-5-haiku,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,456.96%,53.40,20.26,20.258000000000003,0.411s
+finqa,Anthropic,claude-3-5-haiku,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,1158.01%,37.72,6.95,6.946,0.380s
+tat_qa,Google,gemini-3.6-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,25.66%,31.91%,28.29%,94.37%,40.92,22.01,22.006,0.273s
+tat_qa,Google,gemini-3.6-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,25.66%,31.91%,28.29%,94.37%,40.92,22.01,22.006,0.229s
+tat_qa,Google,gemini-3.6-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,27.51%,32.62%,29.61%,74.32%,49.31,29.28,29.28,0.444s
+tat_qa,Google,gemini-2.5-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,25.66%,31.91%,28.29%,56.03%,56.22,34.63,34.632,0.438s
+tat_qa,Google,gemini-2.5-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,25.66%,31.91%,28.29%,96.09%,40.22,21.78,21.776,0.321s
+tat_qa,Google,gemini-2.5-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,25.66%,31.91%,28.29%,96.09%,40.22,21.78,21.776,0.121s
+tat_qa,Google,gemini-2.5-pro,Long Context / Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,27.51%,32.62%,29.61%,96.09%,40.61,22.62,22.622,0.241s
+tat_qa,Google,gemini-2.5-pro,Long Context / Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,25.66%,31.91%,28.29%,80.66%,46.39,27.32,27.324,0.288s
+tat_qa,Google,gemini-2.5-pro,Long Context / Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,25.66%,31.91%,28.29%,96.09%,40.22,21.78,21.776,0.340s
+tat_qa,OpenAI,gpt-4o,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,25.66%,31.91%,28.29%,93.74%,41.18,22.10,22.1,0.396s
+tat_qa,OpenAI,gpt-4o,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,25.66%,31.91%,28.29%,93.74%,41.18,22.10,22.1,0.266s
+tat_qa,OpenAI,gpt-4o,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,25.66%,31.91%,28.29%,73.70%,49.18,28.53,28.528,0.338s
+tat_qa,OpenAI,gpt-4o-mini,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,25.66%,31.91%,28.29%,80.70%,46.39,27.32,27.321999999999996,0.343s
+tat_qa,OpenAI,gpt-4o-mini,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,25.66%,31.91%,28.29%,93.74%,41.18,22.10,22.1,0.401s
+tat_qa,OpenAI,gpt-4o-mini,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,25.66%,31.91%,28.29%,93.74%,41.18,22.10,22.1,0.284s
+tat_qa,OpenAI,o3-mini,Deep Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,25.66%,31.91%,28.29%,104.69%,38.66,21.16,21.157999999999998,0.156s
+tat_qa,OpenAI,o3-mini,Deep Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,31.06%,35.24%,33.01%,104.69%,39.97,24.12,24.118,0.203s
+tat_qa,OpenAI,o3-mini,Deep Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,27.51%,32.62%,29.61%,80.53%,46.81,28.18,28.18,0.434s
+tat_qa,Anthropic,claude-3-7-sonnet,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,25.66%,31.91%,28.29%,95.31%,40.54,21.87,21.874000000000002,0.301s
+tat_qa,Anthropic,claude-3-7-sonnet,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,25.66%,31.91%,28.29%,95.31%,40.54,21.87,21.874000000000002,0.331s
+tat_qa,Anthropic,claude-3-7-sonnet,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,25.66%,31.91%,28.29%,95.31%,40.54,21.87,21.874000000000002,0.215s
+tat_qa,Anthropic,claude-3-5-haiku,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,25.66%,31.91%,28.29%,95.31%,40.54,21.87,21.874000000000002,0.349s
+tat_qa,Anthropic,claude-3-5-haiku,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,25.66%,31.91%,28.29%,95.31%,40.54,21.87,21.874000000000002,0.189s
+tat_qa,Anthropic,claude-3-5-haiku,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,25.66%,31.91%,28.29%,60.63%,54.39,33.75,33.751999999999995,0.278s
+tab_fact,Google,gemini-3.6-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,277.20%,30.00,0.00,0.0,0.363s
+tab_fact,Google,gemini-3.6-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,368.60%,30.00,0.00,0.0,0.231s
+tab_fact,Google,gemini-3.6-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,460.00%,30.00,0.00,0.0,0.326s
+tab_fact,Google,gemini-2.5-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,350.00%,30.00,0.00,0.0,0.165s
+tab_fact,Google,gemini-2.5-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,350.00%,30.00,0.00,0.0,0.371s
+tab_fact,Google,gemini-2.5-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,280.60%,30.00,0.00,0.0,0.298s
+tab_fact,Google,gemini-2.5-pro,Long Context / Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,211.20%,30.00,0.00,0.0,0.434s
+tab_fact,Google,gemini-2.5-pro,Long Context / Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,350.00%,30.00,0.00,0.0,0.306s
+tab_fact,Google,gemini-2.5-pro,Long Context / Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,211.20%,30.00,0.00,0.0,0.377s
+tab_fact,OpenAI,gpt-4o,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,400.60%,30.00,0.00,0.0,0.356s
+tab_fact,OpenAI,gpt-4o,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,500.00%,30.00,0.00,0.0,0.401s
+tab_fact,OpenAI,gpt-4o,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,400.60%,30.00,0.00,0.0,0.242s
+tab_fact,OpenAI,gpt-4o-mini,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,301.20%,30.00,0.00,0.0,0.354s
+tab_fact,OpenAI,gpt-4o-mini,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,301.20%,30.00,0.00,0.0,0.274s
+tab_fact,OpenAI,gpt-4o-mini,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,201.80%,30.00,0.00,0.0,0.368s
+tab_fact,OpenAI,o3-mini,Deep Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,200.00%,30.00,0.00,0.0,0.281s
+tab_fact,OpenAI,o3-mini,Deep Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,160.60%,30.00,0.00,0.0,0.291s
+tab_fact,OpenAI,o3-mini,Deep Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,200.00%,30.00,0.00,0.0,0.277s
+tab_fact,Anthropic,claude-3-7-sonnet,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,400.00%,30.00,0.00,0.0,0.200s
+tab_fact,Anthropic,claude-3-7-sonnet,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,320.60%,30.00,0.00,0.0,0.236s
+tab_fact,Anthropic,claude-3-7-sonnet,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,400.00%,30.00,0.00,0.0,0.365s
+tab_fact,Anthropic,claude-3-5-haiku,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,0.00%,0.00%,0.00%,320.60%,30.00,0.00,0.0,0.371s
+tab_fact,Anthropic,claude-3-5-haiku,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,0.00%,0.00%,0.00%,320.60%,30.00,0.00,0.0,0.354s
+tab_fact,Anthropic,claude-3-5-haiku,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,0.00%,0.00%,0.00%,320.60%,30.00,0.00,0.0,0.154s
+financebench,Google,gemini-3.6-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,49.64%,54.81%,52.09%,126.44%,53.67,41.80,41.804,0.204s
+financebench,Google,gemini-3.6-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,44.64%,51.95%,47.86%,226.44%,44.49,32.14,32.142,0.347s
+financebench,Google,gemini-3.6-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,46.38%,52.62%,49.09%,192.32%,52.85,39.84,39.838,0.305s
+financebench,Google,gemini-2.5-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,44.64%,51.95%,47.86%,187.81%,44.49,32.33,32.332,0.421s
+financebench,Google,gemini-2.5-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,44.64%,51.95%,47.86%,187.81%,44.49,32.33,32.332,0.438s
+financebench,Google,gemini-2.5-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,44.64%,51.95%,47.86%,162.66%,52.25,38.55,38.548,0.303s
+financebench,Google,gemini-2.5-pro,Long Context / Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,44.64%,51.95%,47.86%,187.81%,44.49,32.33,32.332,0.216s
+financebench,Google,gemini-2.5-pro,Long Context / Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,45.99%,52.45%,48.80%,125.99%,60.53,46.09,46.086,0.327s
+financebench,Google,gemini-2.5-pro,Long Context / Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,44.64%,51.95%,47.86%,162.66%,52.25,38.55,38.548,0.209s
+financebench,OpenAI,gpt-4o,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,44.64%,51.95%,47.86%,240.49%,44.49,32.09,32.092,0.425s
+financebench,OpenAI,gpt-4o,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,44.64%,51.95%,47.86%,240.49%,44.49,32.09,32.092,0.299s
+financebench,OpenAI,gpt-4o,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,46.38%,52.62%,49.09%,204.80%,52.85,39.81,39.806,0.129s
+financebench,OpenAI,gpt-4o-mini,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,46.38%,52.62%,49.09%,204.80%,52.85,39.81,39.806,0.373s
+financebench,OpenAI,gpt-4o-mini,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,44.64%,51.95%,47.86%,221.04%,52.25,38.02,38.016,0.213s
+financebench,OpenAI,gpt-4o-mini,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,44.64%,51.95%,47.86%,221.04%,52.25,38.02,38.016,0.231s
+financebench,OpenAI,o3-mini,Deep Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,44.64%,51.95%,47.86%,87.97%,59.97,42.70,42.698,0.433s
+financebench,OpenAI,o3-mini,Deep Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,44.64%,51.95%,47.86%,87.97%,59.97,42.70,42.698,0.441s
+financebench,OpenAI,o3-mini,Deep Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,46.38%,52.62%,49.09%,79.73%,63.62,47.99,47.992000000000004,0.257s
+financebench,Anthropic,claude-3-7-sonnet,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,44.64%,51.95%,47.86%,205.36%,44.49,32.23,32.232,0.188s
+financebench,Anthropic,claude-3-7-sonnet,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,44.64%,51.95%,47.86%,179.07%,52.25,38.49,38.486000000000004,0.329s
+financebench,Anthropic,claude-3-7-sonnet,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,44.64%,51.95%,47.86%,205.36%,44.49,32.23,32.232,0.195s
+financebench,Anthropic,claude-3-5-haiku,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,45.99%,52.45%,48.80%,145.93%,60.53,45.72,45.715999999999994,0.357s
+financebench,Anthropic,claude-3-5-haiku,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,47.73%,53.12%,50.04%,133.60%,61.13,47.46,47.456,0.303s
+financebench,Anthropic,claude-3-5-haiku,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,51.38%,55.48%,53.33%,60.64%,69.79,55.81,55.81,0.258s
+fetaqa,Google,gemini-3.6-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,78.32%,89.67%,83.54%,152.48%,88.61,83.68,83.676,0.314s
+fetaqa,Google,gemini-3.6-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,78.32%,89.67%,83.54%,152.48%,88.61,83.68,83.676,0.303s
+fetaqa,Google,gemini-3.6-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,76.35%,88.90%,82.13%,172.52%,87.64,82.28,82.276,0.309s
+fetaqa,Google,gemini-2.5-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,76.35%,88.90%,82.13%,150.36%,87.64,82.28,82.276,0.388s
+fetaqa,Google,gemini-2.5-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,81.27%,90.92%,85.74%,110.05%,90.12,85.85,85.846,0.133s
+fetaqa,Google,gemini-2.5-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,81.27%,90.92%,85.74%,110.05%,90.12,85.85,85.846,0.294s
+fetaqa,Google,gemini-2.5-pro,Long Context / Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,76.35%,88.90%,82.13%,150.36%,87.64,82.28,82.276,0.276s
+fetaqa,Google,gemini-2.5-pro,Long Context / Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,81.53%,91.10%,85.99%,60.34%,90.29,86.09,86.086,0.402s
+fetaqa,Google,gemini-2.5-pro,Long Context / Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,81.53%,91.10%,85.99%,60.34%,90.29,86.09,86.086,0.408s
+fetaqa,OpenAI,gpt-4o,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,81.83%,91.24%,86.22%,60.12%,90.45,86.31,86.314,0.367s
+fetaqa,OpenAI,gpt-4o,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,78.61%,89.81%,83.77%,160.12%,88.77,83.90,83.904,0.350s
+fetaqa,OpenAI,gpt-4o,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,78.32%,89.67%,83.54%,160.54%,88.61,83.68,83.676,0.169s
+fetaqa,OpenAI,gpt-4o-mini,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,76.35%,88.90%,82.13%,180.58%,87.64,82.28,82.276,0.408s
+fetaqa,OpenAI,gpt-4o-mini,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,79.01%,90.01%,84.10%,160.54%,88.99,84.22,84.21799999999999,0.204s
+fetaqa,OpenAI,gpt-4o-mini,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,81.27%,90.92%,85.74%,140.08%,90.12,85.85,85.846,0.173s
+fetaqa,OpenAI,o3-mini,Deep Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,76.35%,88.90%,82.13%,119.57%,87.64,82.28,82.276,0.203s
+fetaqa,OpenAI,o3-mini,Deep Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,76.35%,88.90%,82.13%,119.57%,87.64,82.28,82.276,0.309s
+fetaqa,OpenAI,o3-mini,Deep Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,81.67%,91.14%,86.08%,79.94%,90.35,86.18,86.178,0.211s
+fetaqa,Anthropic,claude-3-7-sonnet,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,76.35%,88.90%,82.13%,160.43%,87.64,82.28,82.276,0.284s
+fetaqa,Anthropic,claude-3-7-sonnet,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,76.35%,88.90%,82.13%,160.43%,87.64,82.28,82.276,0.331s
+fetaqa,Anthropic,claude-3-7-sonnet,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,76.35%,88.90%,82.13%,160.43%,87.64,82.28,82.276,0.328s
+fetaqa,Anthropic,claude-3-5-haiku,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,78.32%,89.67%,83.54%,140.40%,88.61,83.68,83.676,0.362s
+fetaqa,Anthropic,claude-3-5-haiku,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,76.35%,88.90%,82.13%,160.43%,87.64,82.28,82.276,0.299s
+fetaqa,Anthropic,claude-3-5-haiku,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,83.23%,91.68%,87.15%,100.03%,91.10,87.25,87.24600000000001,0.393s
+wikitablequestions,Google,gemini-3.6-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,3.33%,6.67%,4.44%,111.24%,33.28,5.29,5.286,0.438s
+wikitablequestions,Google,gemini-3.6-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,10.00%,16.67%,12.44%,67.61%,38.98,23.17,23.168,0.381s
+wikitablequestions,Google,gemini-3.6-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,3.33%,6.67%,4.44%,111.24%,33.28,5.29,5.286,0.313s
+wikitablequestions,Google,gemini-2.5-flash,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,3.33%,6.67%,4.44%,88.41%,33.28,11.37,11.372,0.431s
+wikitablequestions,Google,gemini-2.5-flash,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,3.33%,6.67%,4.44%,107.81%,33.28,5.45,5.452,0.352s
+wikitablequestions,Google,gemini-2.5-flash,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,3.33%,6.67%,4.44%,85.47%,33.28,11.55,11.547999999999998,0.152s
+wikitablequestions,Google,gemini-2.5-pro,Long Context / Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,3.33%,6.67%,4.44%,107.81%,33.28,5.45,5.452,0.433s
+wikitablequestions,Google,gemini-2.5-pro,Long Context / Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,3.33%,6.67%,4.44%,107.81%,33.28,5.45,5.452,0.282s
+wikitablequestions,Google,gemini-2.5-pro,Long Context / Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,3.33%,6.67%,4.44%,88.41%,33.28,11.37,11.372,0.198s
+wikitablequestions,OpenAI,gpt-4o,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,10.00%,13.33%,11.43%,70.01%,38.07,22.21,22.208,0.252s
+wikitablequestions,OpenAI,gpt-4o,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,3.33%,6.67%,4.44%,112.49%,33.28,5.23,5.234,0.332s
+wikitablequestions,OpenAI,gpt-4o,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,3.33%,6.67%,4.44%,112.49%,33.28,5.23,5.234,0.307s
+wikitablequestions,OpenAI,gpt-4o-mini,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,3.33%,6.67%,4.44%,88.38%,33.28,11.41,11.408,0.376s
+wikitablequestions,OpenAI,gpt-4o-mini,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,10.00%,13.33%,11.43%,65.31%,38.07,22.46,22.462,0.384s
+wikitablequestions,OpenAI,gpt-4o-mini,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,10.00%,13.33%,11.43%,70.01%,38.07,22.21,22.208,0.227s
+wikitablequestions,OpenAI,o3-mini,Deep Reasoning,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,3.33%,6.67%,4.44%,90.63%,33.28,6.76,6.758,0.277s
+wikitablequestions,OpenAI,o3-mini,Deep Reasoning,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,3.33%,6.67%,4.44%,74.76%,33.28,12.36,12.358,0.360s
+wikitablequestions,OpenAI,o3-mini,Deep Reasoning,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,3.33%,6.67%,4.44%,90.63%,33.28,6.76,6.758,0.450s
+wikitablequestions,Anthropic,claude-3-7-sonnet,Flagship,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,3.33%,6.67%,4.44%,109.37%,33.28,5.37,5.3740000000000006,0.417s
+wikitablequestions,Anthropic,claude-3-7-sonnet,Flagship,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,3.33%,6.67%,4.44%,109.37%,33.28,5.37,5.3740000000000006,0.355s
+wikitablequestions,Anthropic,claude-3-7-sonnet,Flagship,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,3.33%,6.67%,4.44%,109.37%,33.28,5.37,5.3740000000000006,0.382s
+wikitablequestions,Anthropic,claude-3-5-haiku,Speed/Flash,0.0,1.0,Temp=0.0 (Deterministic),5,0.00%,10.00%,16.67%,12.44%,62.91%,38.98,23.43,23.428,0.269s
+wikitablequestions,Anthropic,claude-3-5-haiku,Speed/Flash,0.3,0.9,"Temp=0.3, TopP=0.9 (Balanced)",5,0.00%,3.33%,6.67%,4.44%,109.37%,33.28,5.37,5.3740000000000006,0.261s
+wikitablequestions,Anthropic,claude-3-5-haiku,Speed/Flash,0.7,0.9,"Temp=0.7, TopP=0.9 (Creative)",5,0.00%,10.00%,13.33%,11.43%,87.06%,38.07,16.39,16.387999999999998,0.395s

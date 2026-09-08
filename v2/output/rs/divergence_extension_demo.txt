@@ -1,0 +1,38 @@
+
+=== random-search calibrated ===  mean JS/ln2 = 0.777 | mean symKL = 6.641 | mean W1 = 0.264
+dataset x dataset JS (mean over models, difficulty-centred):
+                    fetaqa  financebench  finqa  officeqa  tab_fact  tat_qa  wikitablequestions
+fetaqa               0.000         0.356  0.543     0.349     0.621   0.580               0.451
+financebench         0.356         0.000  0.164     0.625     0.660   0.427               0.600
+finqa                0.543         0.164  0.000     0.655     0.544   0.491               0.527
+officeqa             0.349         0.625  0.655     0.000     0.680   0.656               0.620
+tab_fact             0.621         0.660  0.544     0.680     0.000   0.590               0.558
+tat_qa               0.580         0.427  0.491     0.656     0.590   0.000               0.618
+wikitablequestions   0.451         0.600  0.527     0.620     0.558   0.618               0.000
+per-model mean JS to other datasets: {'claude-opus-5': 0.542, 'claude-sonnet-5': 0.503, 'gpt-5.4-mini': 0.557, 'gpt-5.5': 0.554}
+
+=== EM only ===  mean JS/ln2 = 0.855 | mean symKL = 8.600 | mean W1 = 0.370
+dataset x dataset JS (mean over models, difficulty-centred):
+                    fetaqa  financebench  finqa  officeqa  tab_fact  tat_qa  wikitablequestions
+fetaqa               0.000         0.653  0.647     0.688     0.693   0.693               0.693
+financebench         0.653         0.000  0.443     0.681     0.693   0.693               0.693
+finqa                0.647         0.443  0.000     0.680     0.406   0.392               0.520
+officeqa             0.688         0.681  0.680     0.000     0.693   0.693               0.693
+tab_fact             0.693         0.693  0.406     0.693     0.000   0.006               0.550
+tat_qa               0.693         0.693  0.392     0.693     0.006   0.000               0.542
+wikitablequestions   0.693         0.693  0.520     0.693     0.550   0.542               0.000
+per-model mean JS to other datasets: {'claude-opus-5': 0.592, 'claude-sonnet-5': 0.59, 'gpt-5.4-mini': 0.598, 'gpt-5.5': 0.589}
+
+=== v1 R_custom ===  mean JS/ln2 = 0.766 | mean symKL = 6.529 | mean W1 = 0.257
+dataset x dataset JS (mean over models, difficulty-centred):
+                    fetaqa  financebench  finqa  officeqa  tab_fact  tat_qa  wikitablequestions
+fetaqa               0.000         0.294  0.600     0.273     0.656   0.489               0.437
+financebench         0.294         0.000  0.246     0.597     0.598   0.459               0.574
+finqa                0.600         0.246  0.000     0.665     0.568   0.422               0.607
+officeqa             0.273         0.597  0.665     0.000     0.657   0.606               0.638
+tab_fact             0.656         0.598  0.568     0.657     0.000   0.602               0.562
+tat_qa               0.489         0.459  0.422     0.606     0.602   0.000               0.606
+wikitablequestions   0.437         0.574  0.607     0.638     0.562   0.606               0.000
+per-model mean JS to other datasets: {'claude-opus-5': 0.546, 'claude-sonnet-5': 0.503, 'gpt-5.4-mini': 0.539, 'gpt-5.5': 0.537}
+
+Note: a binary metric (EM) can obtain LOW divergence for the wrong reason (uniform failure). Use divergences together with a ranking or known-quality anchor term (see docstring).
