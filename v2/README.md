@@ -7,7 +7,7 @@ combinations** so that the datasets rank models consistently, and per-dataset ra
 one leaderboard** (Borda / Copeland / Kemeny–Young / reciprocal-rank fusion with bootstrap
 intervals). KL/JS divergence is provided as a documented **extension only** (`extensions/`), not
 wired into the pipeline. How this differs from the earlier ladder version implementation, and what each does
-better, is in [COMPARISON_with_ladder_version.md](COMPARISON_with_ladder_version.md). Paper: [paper/main.pdf](paper/main.pdf).
+better, is in [COMPARISON_with_ladder_version.md](COMPARISON_with_ladder_version.md). Paper: [paper/main.pdf](paper/main.pdf). **The full account of what was done and why each choice was made is [METHOD_AND_DECISIONS.md](METHOD_AND_DECISIONS.md).**
 
 ## Summary
 
