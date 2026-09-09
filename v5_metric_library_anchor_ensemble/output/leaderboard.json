@@ -1,0 +1,283 @@
+{
+  "models": [
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gpt-5.4-mini",
+    "gpt-5.5"
+  ],
+  "datasets": [
+    "fetaqa",
+    "financebench",
+    "finqa",
+    "officeqa",
+    "tab_fact",
+    "tat_qa",
+    "wikitablequestions"
+  ],
+  "per_dataset": {
+    "claude-opus-5": {
+      "fetaqa": 0.5707,
+      "financebench": 0.4884,
+      "finqa": 0.8115,
+      "officeqa": 0.0174,
+      "tab_fact": 0.575,
+      "tat_qa": 0.7198,
+      "wikitablequestions": 0.9071
+    },
+    "claude-sonnet-5": {
+      "fetaqa": 0.552,
+      "financebench": 0.5544,
+      "finqa": 0.8012,
+      "officeqa": 0.1299,
+      "tab_fact": 0.575,
+      "tat_qa": 0.7199,
+      "wikitablequestions": 0.8841
+    },
+    "gpt-5.4-mini": {
+      "fetaqa": 0.3491,
+      "financebench": 0.5142,
+      "finqa": 0.7786,
+      "officeqa": 0.0589,
+      "tab_fact": 0.75,
+      "tat_qa": 0.7305,
+      "wikitablequestions": 0.8447
+    },
+    "gpt-5.5": {
+      "fetaqa": 0.6213,
+      "financebench": 0.5528,
+      "finqa": 0.8256,
+      "officeqa": 0.0367,
+      "tab_fact": 0.75,
+      "tat_qa": 0.7124,
+      "wikitablequestions": 0.8766
+    }
+  },
+  "native_per_dataset": {
+    "claude-opus-5": {
+      "fetaqa": 0.4656,
+      "financebench": 0.4374,
+      "finqa": 0.85,
+      "officeqa": 0.0,
+      "tab_fact": 0.575,
+      "tat_qa": 0.675,
+      "wikitablequestions": 0.875
+    },
+    "claude-sonnet-5": {
+      "fetaqa": 0.4383,
+      "financebench": 0.4545,
+      "finqa": 0.875,
+      "officeqa": 0.0,
+      "tab_fact": 0.575,
+      "tat_qa": 0.625,
+      "wikitablequestions": 0.875
+    },
+    "gpt-5.4-mini": {
+      "fetaqa": 0.3562,
+      "financebench": 0.4409,
+      "finqa": 0.775,
+      "officeqa": 0.0,
+      "tab_fact": 0.75,
+      "tat_qa": 0.7,
+      "wikitablequestions": 0.825
+    },
+    "gpt-5.5": {
+      "fetaqa": 0.5493,
+      "financebench": 0.4854,
+      "finqa": 0.875,
+      "officeqa": 0.025,
+      "tab_fact": 0.75,
+      "tat_qa": 0.65,
+      "wikitablequestions": 0.85
+    }
+  },
+  "common_score_z": {
+    "claude-opus-5": -0.1707,
+    "claude-sonnet-5": 0.2287,
+    "gpt-5.4-mini": -0.3298,
+    "gpt-5.5": 0.2717
+  },
+  "common_score_raw": {
+    "claude-opus-5": 0.5843,
+    "claude-sonnet-5": 0.6024,
+    "gpt-5.4-mini": 0.5751,
+    "gpt-5.5": 0.6251
+  },
+  "pooled_ranks": {
+    "mean_score": {
+      "claude-opus-5": 3.0,
+      "claude-sonnet-5": 2.0,
+      "gpt-5.4-mini": 4.0,
+      "gpt-5.5": 1.0
+    },
+    "mean_z": {
+      "claude-opus-5": 3.0,
+      "claude-sonnet-5": 2.0,
+      "gpt-5.4-mini": 4.0,
+      "gpt-5.5": 1.0
+    },
+    "mean_rank": {
+      "claude-opus-5": 3.5,
+      "claude-sonnet-5": 1.0,
+      "gpt-5.4-mini": 3.5,
+      "gpt-5.5": 2.0
+    },
+    "borda": {
+      "claude-opus-5": 3.5,
+      "claude-sonnet-5": 1.5,
+      "gpt-5.4-mini": 3.5,
+      "gpt-5.5": 1.5
+    },
+    "copeland": {
+      "claude-opus-5": 4.0,
+      "claude-sonnet-5": 1.0,
+      "gpt-5.4-mini": 3.0,
+      "gpt-5.5": 2.0
+    },
+    "rrf": {
+      "claude-opus-5": 4.0,
+      "claude-sonnet-5": 2.0,
+      "gpt-5.4-mini": 3.0,
+      "gpt-5.5": 1.0
+    },
+    "kemeny": {
+      "claude-opus-5": 4.0,
+      "claude-sonnet-5": 1.0,
+      "gpt-5.4-mini": 3.0,
+      "gpt-5.5": 2.0
+    }
+  },
+  "native_borda": {
+    "claude-opus-5": 3.0,
+    "claude-sonnet-5": 2.0,
+    "gpt-5.4-mini": 4.0,
+    "gpt-5.5": 1.0
+  },
+  "bootstrap_items": {
+    "claude-opus-5": {
+      "mean": 3.1145,
+      "ci95": [
+        1.0,
+        4.0
+      ]
+    },
+    "claude-sonnet-5": {
+      "mean": 1.9975,
+      "ci95": [
+        1.0,
+        4.0
+      ]
+    },
+    "gpt-5.4-mini": {
+      "mean": 3.515,
+      "ci95": [
+        2.0,
+        4.0
+      ]
+    },
+    "gpt-5.5": {
+      "mean": 1.373,
+      "ci95": [
+        1.0,
+        3.0
+      ]
+    }
+  },
+  "rank_over_weightings": {
+    "claude-opus-5": {
+      "min": 3.0,
+      "max": 4.0,
+      "mode_share": 0.29
+    },
+    "claude-sonnet-5": {
+      "min": 1.0,
+      "max": 2.0,
+      "mode_share": 0.03
+    },
+    "gpt-5.4-mini": {
+      "min": 3.0,
+      "max": 4.0,
+      "mode_share": 0.29
+    },
+    "gpt-5.5": {
+      "min": 1.0,
+      "max": 2.0,
+      "mode_share": 0.03
+    }
+  },
+  "dataset_agreement": {
+    "fetaqa": 0.4082482904638631,
+    "financebench": 0.8164965809277261,
+    "finqa": 0.4082482904638631,
+    "officeqa": 0.4082482904638631,
+    "tab_fact": 0.0,
+    "tat_qa": -0.4082482904638631,
+    "wikitablequestions": 0.0
+  },
+  "mean_pairwise_dataset_tau": -0.0706268213140187,
+  "rule_agreement": {
+    "mean_score": {
+      "mean_score": 1.0,
+      "mean_z": 1.0,
+      "mean_rank": 0.5477225575051662,
+      "borda": 0.8164965809277261,
+      "copeland": 0.3333333333333334,
+      "rrf": 0.6666666666666669,
+      "kemeny": 0.3333333333333334
+    },
+    "mean_z": {
+      "mean_score": 1.0,
+      "mean_z": 1.0,
+      "mean_rank": 0.5477225575051662,
+      "borda": 0.8164965809277261,
+      "copeland": 0.3333333333333334,
+      "rrf": 0.6666666666666669,
+      "kemeny": 0.3333333333333334
+    },
+    "mean_rank": {
+      "mean_score": 0.5477225575051662,
+      "mean_z": 0.5477225575051662,
+      "mean_rank": 1.0,
+      "borda": 0.8944271909999159,
+      "copeland": 0.912870929175277,
+      "rrf": 0.5477225575051662,
+      "kemeny": 0.912870929175277
+    },
+    "borda": {
+      "mean_score": 0.8164965809277261,
+      "mean_z": 0.8164965809277261,
+      "mean_rank": 0.8944271909999159,
+      "borda": 1.0,
+      "copeland": 0.8164965809277261,
+      "rrf": 0.8164965809277261,
+      "kemeny": 0.8164965809277261
+    },
+    "copeland": {
+      "mean_score": 0.3333333333333334,
+      "mean_z": 0.3333333333333334,
+      "mean_rank": 0.9128709291752769,
+      "borda": 0.8164965809277261,
+      "copeland": 1.0,
+      "rrf": 0.6666666666666669,
+      "kemeny": 1.0
+    },
+    "rrf": {
+      "mean_score": 0.6666666666666669,
+      "mean_z": 0.6666666666666669,
+      "mean_rank": 0.5477225575051662,
+      "borda": 0.8164965809277261,
+      "copeland": 0.6666666666666669,
+      "rrf": 1.0,
+      "kemeny": 0.6666666666666669
+    },
+    "kemeny": {
+      "mean_score": 0.3333333333333334,
+      "mean_z": 0.3333333333333334,
+      "mean_rank": 0.9128709291752769,
+      "borda": 0.8164965809277261,
+      "copeland": 1.0,
+      "rrf": 0.6666666666666669,
+      "kemeny": 1.0
+    }
+  },
+  "tau_vs_native": 0.8164965809277261
+}

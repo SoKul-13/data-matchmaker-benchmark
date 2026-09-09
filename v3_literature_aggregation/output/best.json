@@ -1,0 +1,127 @@
+{
+  "views": [
+    "mean_raw",
+    "baseline_norm_mean",
+    "z_mean",
+    "mean_win_rate",
+    "borda",
+    "kemeny_score",
+    "bradley_terry",
+    "irt_ability"
+  ],
+  "n_candidates": 109,
+  "best": {
+    "label": "only_bradley_terry",
+    "weights": {
+      "mean_raw": 0.0,
+      "baseline_norm_mean": 0.0,
+      "z_mean": 0.0,
+      "mean_win_rate": 0.0,
+      "borda": 0.0,
+      "kemeny_score": 0.0,
+      "bradley_terry": 1.0,
+      "irt_ability": 0.0
+    },
+    "J": 0.8666666666666668,
+    "stability": 0.9000000000000001,
+    "transitivity": 1.0,
+    "reference": 0.6666666666666669
+  },
+  "uniform_J": 0.7983333333333333,
+  "single_view_J": {
+    "mean_raw": 0.5466666666666667,
+    "baseline_norm_mean": 0.4583333333333334,
+    "z_mean": 0.7883333333333336,
+    "mean_win_rate": 0.7570351881229784,
+    "borda": 0.7564477132691991,
+    "kemeny_score": 0.8183333333333335,
+    "bradley_terry": 0.8666666666666668,
+    "irt_ability": 0.8150000000000002
+  },
+  "mixed_score": {
+    "claude-opus-5": -0.3489,
+    "claude-sonnet-5": -0.1332,
+    "gpt-5.4-mini": -0.9304,
+    "gpt-5.5": 1.4124
+  },
+  "mixed_rank": {
+    "claude-opus-5": 3.0,
+    "claude-sonnet-5": 2.0,
+    "gpt-5.4-mini": 4.0,
+    "gpt-5.5": 1.0
+  },
+  "rank_ci95_items": {
+    "claude-opus-5": [
+      2.0,
+      3.5249999999999915
+    ],
+    "claude-sonnet-5": [
+      2.0,
+      3.0
+    ],
+    "gpt-5.4-mini": [
+      3.0,
+      4.0
+    ],
+    "gpt-5.5": [
+      1.0,
+      1.0
+    ]
+  },
+  "single_view_ranks": {
+    "mean_raw": {
+      "claude-opus-5": 2.0,
+      "claude-sonnet-5": 4.0,
+      "gpt-5.4-mini": 3.0,
+      "gpt-5.5": 1.0
+    },
+    "baseline_norm_mean": {
+      "claude-opus-5": 3.0,
+      "claude-sonnet-5": 4.0,
+      "gpt-5.4-mini": 2.0,
+      "gpt-5.5": 1.0
+    },
+    "z_mean": {
+      "claude-opus-5": 2.0,
+      "claude-sonnet-5": 3.0,
+      "gpt-5.4-mini": 4.0,
+      "gpt-5.5": 1.0
+    },
+    "mean_win_rate": {
+      "claude-opus-5": 3.0,
+      "claude-sonnet-5": 2.0,
+      "gpt-5.4-mini": 4.0,
+      "gpt-5.5": 1.0
+    },
+    "borda": {
+      "claude-opus-5": 3.0,
+      "claude-sonnet-5": 2.0,
+      "gpt-5.4-mini": 4.0,
+      "gpt-5.5": 1.0
+    },
+    "kemeny_score": {
+      "claude-opus-5": 2.0,
+      "claude-sonnet-5": 3.0,
+      "gpt-5.4-mini": 4.0,
+      "gpt-5.5": 1.0
+    },
+    "bradley_terry": {
+      "claude-opus-5": 3.0,
+      "claude-sonnet-5": 2.0,
+      "gpt-5.4-mini": 4.0,
+      "gpt-5.5": 1.0
+    },
+    "irt_ability": {
+      "claude-opus-5": 3.0,
+      "claude-sonnet-5": 2.0,
+      "gpt-5.4-mini": 4.0,
+      "gpt-5.5": 1.0
+    }
+  },
+  "kemeny_reference_rank": {
+    "claude-opus-5": 2.0,
+    "claude-sonnet-5": 3.0,
+    "gpt-5.4-mini": 4.0,
+    "gpt-5.5": 1.0
+  }
+}

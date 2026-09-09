@@ -1,11 +1,20 @@
 # Data Matchmaker Benchmark
 
-Green-agent evaluator for the AgentBeats A2A platform, in two versions:
+Green-agent evaluator for the AgentBeats A2A platform: a judge that scores AI models on data-matching work
+(record matching, financial table and document question answering, table integration) across many datasets and
+turns the scores into one comparable leaderboard. Five versions, each a self-contained `uv` project. Read
+[OVERALL_SUMMARY.md](OVERALL_SUMMARY.md) first (every version from the ground up, what has been run, what still must run, pros and cons vs industry practice),
+then [GUIDE_UNDER_THE_HOOD.md](GUIDE_UNDER_THE_HOOD.md) for the formulas; each folder has a `notes/CODE_FLOW.md` listing every script, function and file.
 
-| Folder | What it is |
-|---|---|
-| [`v1/`](v1/) | The original benchmark: TPC-DI data-integration judge, dataset adapters, hand-set rubric. |
-| [`v2/`](v2/) | Calibrated cross-dataset scoring: one common score over the 7 original datasets, composite-metric weights chosen by a random search over 100 grid combinations, rankings pooled with Borda / Kemeny / RRF and bootstrap intervals, KL/JS divergence as a documented extension, and a short paper (`v2/paper/main.pdf`). See `v2/README.md`, `v2/MODELS.md` and `v2/COMPARISON_with_ladder_version.md`. |
+| Folder | Test | What it does | Weights chosen how | Checked against |
+|---|---|---|---|---|
+| `v1/` | original judge | TPC-DI join task + hand-set 4-metric rubric `0.35 F1 + 0.35 decay + 0.15 P + 0.15 R` | by hand | nothing |
+| `v2_gridsearch_v1_rubric/` | grid over v1's weights | same four ingredients, 105 weightings (v1 + corners + 100 random grid points) scored by cross-dataset rank agreement | grid search | agreement among the models being ranked |
+| `v3_literature_aggregation/` | literature aggregation views | ten papers reviewed; eight of their aggregation rules (win rate, Borda, Kemeny, Bradley–Terry, IRT ability, baseline-normalised mean, z-mean, raw mean) on each dataset's own metric; 109 mixes scored by stability, transitivity and agreement with a Kemeny reference | grid search over the view mix | bootstrap stability + consensus |
+| `v4_random_search_rank_agreement/` | random search, rank agreement | 9-metric composite, 100 random weightings, objective = mean τ to the Borda-pooled ranking; pooling with Borda/Kemeny/RRF; bootstrap; LODO; KL/JS as extension; 14 dataset adapters; paper | random search | agreement among the models being ranked |
+| `v5_metric_library_anchor_ensemble/` | metric library + anchors | 100 answer-level metrics, 12,813 synthetic answers of known quality, correlation dedup + out-of-dataset forward selection, grid × hedge penalty with the 100 best weightings averaged, difficulty-adjusted leaderboard, LODO and severity perturbation; paper; full notes | grid search + ensemble | synthetic answers of known quality + native metrics |
 
-Each folder is a self-contained `uv` project (`cd v1 && uv sync`, `cd v2 && uv sync`). API keys go in a
-`.env` inside the folder you run (see each `sample.env`); `.env` files are git-ignored.
+All five use the same cached model answers (`data/predictions/`, 4 models × 7 datasets × 40 items) so results are
+comparable; v4/v5 also carry 7 further datasets with items prepared and predictions pending (see
+`v5_metric_library_anchor_ensemble/notes/06_USER_TODO.md`). API keys go in a `.env` inside the folder you run; `.env`
+files are git-ignored.

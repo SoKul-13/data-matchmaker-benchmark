@@ -1,0 +1,15 @@
+held_out,selected_lodo,rho_heldout_lodo,rho_heldout_full,js_all_lodo,same_selection
+abt_buy,"['tok_f1', 'num_decay_2p5', 'bigram_rec']",0.9183379390576187,0.9183379390576187,0.05178168906865182,True
+amazon_google,"['tok_f1', 'num_decay_2p5', 'bigram_rec']",0.9187508515292708,0.9187508515292708,0.05178168906865182,True
+dblp_scholar,"['tok_f1', 'num_decay_2p5', 'bigram_rec']",0.9191691706520793,0.9191691706520793,0.05167465168098136,True
+fetaqa,"['tok_f1', 'num_decay_2p5']",0.8336878941700219,0.8951591826350378,0.06639559726152412,False
+financebench,"['tok_f1', 'num_decay_2p5']",0.8676253893057323,0.8668423536860695,0.053238000053366576,False
+finqa,"['tok_f1', 'num_decay_2p5', 'bigram_rec']",0.9160878041321022,0.9039170077395625,0.07790878429131744,True
+hitab,"['tok_f1', 'num_decay_2p5', 'chrf4', 'em_raw']",0.8752885407010162,0.8857403381236477,0.05268141774684583,False
+officeqa,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9038886877144648,0.9056019088193196,0.05508364176902387,False
+tab_fact,"['tok_f1', 'num_decay_2p5', 'bigram_rec']",0.922942170799117,0.922942170799117,0.051042342810588275,True
+tat_qa,"['tok_f1', 'num_decay_2p5', 'chrf4', 'em_raw']",0.8787855819276968,0.8811109978618462,0.13764424885976762,False
+tpcdi_cells,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8844575488386106,0.8854612088454767,0.06002949389200415,False
+walmart_amazon,"['tok_f1', 'num_decay_2p5', 'bigram_rec']",0.9179304412941949,0.9179304412941949,0.05178168906865182,True
+wdc_products,"['tok_f1', 'num_decay_2p5', 'bigram_rec']",0.919806769993223,0.919806769993223,0.05167465168098136,True
+wikitablequestions,"['tok_f1', 'num_decay_2p5', 'bigram_rec']",0.8534504997628221,0.8533605801717125,0.05142758290837119,True

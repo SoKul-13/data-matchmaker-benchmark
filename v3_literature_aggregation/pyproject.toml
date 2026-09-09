@@ -1,0 +1,26 @@
+[project]
+name = "data-matchmaker-benchmark-v3-literature-aggregation"
+version = "3.0.0"
+description = "v3: cross-dataset aggregation views from the literature, grid search over their mixing weights"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "a2a-sdk[http-server]>=0.3.20",
+    "uvicorn>=0.38.0",
+    "google-genai>=1.0.0",
+    "openai>=1.0.0",
+    "anthropic>=0.18.0",
+    "python-dotenv>=1.0.0",
+    "pandas>=2.0.0",
+    "openpyxl>=3.1.0",
+    "pydantic>=2.11.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+    "httpx>=0.28.1",
+    "tabulate>=0.10.0",
+    "numpy>=2.4.1",
+    "scipy>=1.18.1",
+    "matplotlib>=3.11.1",
+    "rapidfuzz>=3.14.6",
+]
+

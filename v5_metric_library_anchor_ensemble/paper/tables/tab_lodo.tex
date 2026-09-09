@@ -1,0 +1,28 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\caption{Leave-one-dataset-out: selection and weights re-fitted without the held-out dataset, anchor Spearman on it.}
+\label{tab:lodo}
+
+\begin{tabular}{lrrr}
+\toprule
+Held-out & $\rho$ LODO & $\rho$ full & Selection (LODO) \\
+\midrule
+abt\_buy & 0.918 & 0.918 & tok\_f1, num\_decay\_2p5, bigram\_rec \\
+amazon\_google & 0.919 & 0.919 & tok\_f1, num\_decay\_2p5, bigram\_rec \\
+dblp\_scholar & 0.919 & 0.919 & tok\_f1, num\_decay\_2p5, bigram\_rec \\
+fetaqa & 0.834 & 0.895 & tok\_f1, num\_decay\_2p5 \\
+financebench & 0.868 & 0.867 & tok\_f1, num\_decay\_2p5 \\
+finqa & 0.916 & 0.904 & tok\_f1, num\_decay\_2p5, bigram\_rec \\
+hitab & 0.875 & 0.886 & tok\_f1, num\_decay\_2p5, chrf4, em\_raw \\
+officeqa & 0.904 & 0.906 & tok\_f1, num\_decay\_2p5, prefix\_ratio \\
+tab\_fact & 0.923 & 0.923 & tok\_f1, num\_decay\_2p5, bigram\_rec \\
+tat\_qa & 0.879 & 0.881 & tok\_f1, num\_decay\_2p5, chrf4, em\_raw \\
+tpcdi\_cells & 0.884 & 0.885 & tok\_f1, num\_decay\_2p5, prefix\_ratio \\
+walmart\_amazon & 0.918 & 0.918 & tok\_f1, num\_decay\_2p5, bigram\_rec \\
+wdc\_products & 0.920 & 0.920 & tok\_f1, num\_decay\_2p5, bigram\_rec \\
+wikitablequestions & 0.853 & 0.853 & tok\_f1, num\_decay\_2p5, bigram\_rec \\
+\bottomrule
+\end{tabular}
+
+\end{table*}

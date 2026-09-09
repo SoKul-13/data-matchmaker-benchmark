@@ -1,0 +1,85 @@
+[
+  {
+    "dataset": "hitab",
+    "tier": 2,
+    "loaded": 300,
+    "pool": 150,
+    "real": 150,
+    "types": {
+      "numeric": 114,
+      "text": 36
+    }
+  },
+  {
+    "dataset": "docfinqa",
+    "tier": 2,
+    "loaded": 200,
+    "pool": 100,
+    "real": 100,
+    "types": {
+      "numeric": 99,
+      "boolean": 1
+    }
+  },
+  {
+    "dataset": "abt_buy",
+    "tier": 1,
+    "loaded": 300,
+    "pool": 150,
+    "real": 150,
+    "types": {
+      "boolean": 150
+    }
+  },
+  {
+    "dataset": "amazon_google",
+    "tier": 1,
+    "loaded": 300,
+    "pool": 150,
+    "real": 150,
+    "types": {
+      "boolean": 150
+    }
+  },
+  {
+    "dataset": "dblp_scholar",
+    "tier": 1,
+    "loaded": 300,
+    "pool": 150,
+    "real": 150,
+    "types": {
+      "boolean": 150
+    }
+  },
+  {
+    "dataset": "walmart_amazon",
+    "tier": 1,
+    "loaded": 300,
+    "pool": 150,
+    "real": 150,
+    "types": {
+      "boolean": 150
+    }
+  },
+  {
+    "dataset": "wdc_products",
+    "tier": 1,
+    "loaded": 450,
+    "pool": 150,
+    "real": 150,
+    "types": {
+      "boolean": 150
+    }
+  },
+  {
+    "dataset": "tpcdi_cells",
+    "tier": 1,
+    "loaded": 450,
+    "pool": 150,
+    "real": 150,
+    "types": {
+      "numeric": 125,
+      "text": 25
+    }
+  }
+]

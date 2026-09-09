@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\small
+\caption{Leaderboard under the ensemble metric: per-dataset means, difficulty-adjusted common score, pooled ranks, item-bootstrap CI, rank range across the 100 weightings, native-metric pooled rank.}
+\label{tab:leaderboard}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrrrrrrr}
+\toprule
+Model & FeTaQA & FinanceBench & FinQA & OfficeQA & TabFact & TAT-QA & WTQ & $z$-mean & Borda & Kemeny & 95\% CI & over 100 $w$ & Native \\
+\midrule
+claude-sonnet-5 & 0.55 & 0.55 & 0.80 & 0.13 & 0.57 & 0.72 & 0.88 & +0.23 & 2 & 1 & [1, 4] & 1--2 & 2 \\
+gpt-5.5 & 0.62 & 0.55 & 0.83 & 0.04 & 0.75 & 0.71 & 0.88 & +0.27 & 2 & 2 & [1, 3] & 1--2 & 1 \\
+claude-opus-5 & 0.57 & 0.49 & 0.81 & 0.02 & 0.57 & 0.72 & 0.91 & -0.17 & 4 & 4 & [1, 4] & 3--4 & 3 \\
+gpt-5.4-mini & 0.35 & 0.51 & 0.78 & 0.06 & 0.75 & 0.73 & 0.84 & -0.33 & 4 & 3 & [2, 4] & 3--4 & 4 \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

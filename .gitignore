@@ -12,3 +12,8 @@ wheels/
 
 # Virtual environments
 .venv
+
+# v3
+paper/*.aux
+paper/*.log
+data/cache/

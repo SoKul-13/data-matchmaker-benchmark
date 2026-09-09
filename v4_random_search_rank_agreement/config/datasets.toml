@@ -1,0 +1,83 @@
+# Dataset suite for the v2 calibration (see PIPELINE_AND_DATASETS.md §3).
+# pool_size = items sampled per dataset; all pool items are sent to the models (real_size = pool_size)
+# unless real_size is given.  Existing pool files are kept unless --force (protects cached predictions).
+# tier 1 = data matching proper, tier 2 = reasoning over tables / documents.
+
+[global]
+pool_size = 150
+seed = 20260907
+
+# ---------------- tier 2, existing (pool files already exist with 40 real items; not rebuilt) ----------------
+[[dataset]]
+name = "finqa"
+tier = 2
+[[dataset]]
+name = "tat_qa"
+tier = 2
+stratify = "difficulty"
+[[dataset]]
+name = "tab_fact"
+tier = 2
+hint = "boolean"
+[[dataset]]
+name = "financebench"
+tier = 2
+pool_size = 150
+stratify = "difficulty"
+[[dataset]]
+name = "fetaqa"
+tier = 2
+hint = "freeform"
+pool_size = 100
+[[dataset]]
+name = "wikitablequestions"
+tier = 2
+
+# ---------------- tier 2, new ----------------
+[[dataset]]
+name = "hitab"
+tier = 2
+[[dataset]]
+name = "docfinqa"          # disabled: retrieval-window proxy overlaps FinQA and costs 40% of prompt tokens; re-enable if long-document QA is needed
+tier = 2
+pool_size = 100
+enabled = false
+[[dataset]]
+name = "multihiertt"           # needs data/raw/multihiertt/dev.json from the project's Google Drive
+tier = 2
+optional = true
+
+# ---------------- tier 1, data matching proper ----------------
+[[dataset]]
+name = "abt_buy"
+tier = 1
+hint = "boolean"
+[[dataset]]
+name = "amazon_google"
+tier = 1
+hint = "boolean"
+[[dataset]]
+name = "dblp_scholar"
+tier = 1
+hint = "boolean"
+[[dataset]]
+name = "walmart_amazon"
+tier = 1
+hint = "boolean"
+[[dataset]]
+name = "wdc_products"
+tier = 1
+hint = "boolean"
+stratify = "difficulty"        # category
+[[dataset]]
+name = "tpcdi_cells"
+tier = 1
+stratify = "difficulty"        # field
+
+# ---------------- OfficeQA: closed-book (corpus gated), every model at floor. Kept enabled so the current
+# published numbers (7 original datasets) stay reproducible; set enabled = false when the extended suite is run.
+[[dataset]]
+name = "officeqa"
+tier = 2
+optional = true
+enabled = true
