@@ -1,0 +1,80 @@
+name: gemini-pro-trickle
+
+# Daily: ask Gemini 3.1 Pro the benchmark items it has not answered yet (Google's Tier-1 quota is ~250 requests/day, the runner stops at 240),
+# then commit the answers to the branch gemini-pro-trickle and keep one pull request open. Resumes from the cached file every day.
+# The API key comes from the repository secret GEMINI_API_KEY (Settings -> Secrets and variables -> Actions); it never appears in logs.
+
+on:
+  schedule:
+    - cron: "15 8 * * *"        # 08:15 UTC = 01:15 America/Los_Angeles, shortly after Google's daily quota resets
+  workflow_dispatch: {}          # also runnable by hand from the Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: gemini-pro-trickle
+  cancel-in-progress: false
+
+jobs:
+  trickle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out the trickle branch (created from main on the first run)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Prepare branch
+        run: |
+          git config user.name "gemini-pro-trickle[bot]"
+          git config user.email "gemini-pro-trickle@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin gemini-pro-trickle >/dev/null 2>&1; then
+            git checkout gemini-pro-trickle
+            git merge --no-edit origin/main || { echo "merge conflict with main; resolve by merging the PR first"; exit 1; }
+          else
+            git checkout -b gemini-pro-trickle
+          fi
+          test -d FINAL_v2 || { echo "FINAL_v2 is not in this repository yet: push it first"; exit 1; }
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install uv
+        run: pip install uv
+      - name: Install the project
+        working-directory: FINAL_v2
+        run: uv sync
+      - name: Ask Gemini 3.1 Pro (stops at the daily cap; resumes from cache)
+        working-directory: FINAL_v2
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          test -n "$GEMINI_API_KEY" || { echo "GEMINI_API_KEY secret is not set"; exit 1; }
+          uv run python shared/scripts/00_run_models.py --sequential --models gemini-3.1-pro
+          python3 - <<'EOF'
+          import json
+          rows = [json.loads(l) for l in open("data/predictions/gemini-3.1-pro.jsonl")]
+          ok = {(r["dataset"], r["uid"]) for r in rows if not r.get("error")}
+          print(f"gemini-3.1-pro: {len(ok)} of 3083 items answered so far")
+          EOF
+      - name: Commit and push the new answers
+        id: commit
+        run: |
+          git add FINAL_v2/data/predictions/gemini-3.1-pro.jsonl FINAL_v2/data/predictions/_run.log
+          if git diff --cached --quiet; then
+            echo "no new answers today"; echo "changed=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          N=$(python3 -c "import json; rows=[json.loads(l) for l in open('FINAL_v2/data/predictions/gemini-3.1-pro.jsonl')]; print(len({(r['dataset'], r['uid']) for r in rows if not r.get('error')}))")
+          git commit -m "gemini-pro trickle: $N of 3083 items answered"
+          git push origin gemini-pro-trickle
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - name: Open the pull request once
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -z "$(gh pr list --head gemini-pro-trickle --state open --json number --jq '.[0].number')" ]; then
+            gh pr create --base main --head gemini-pro-trickle --title "Gemini 3.1 Pro answers (daily trickle)" \
+              --body "Automated daily run of the Gemini Pro re-ask (240 items/day under Google's quota). Merge whenever convenient; the workflow keeps appending to this branch."
+          fi
