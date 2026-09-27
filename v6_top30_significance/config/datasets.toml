@@ -1,0 +1,176 @@
+# Dataset suite for the v2 calibration (see PIPELINE_AND_DATASETS.md §3).
+# pool_size = items sampled per dataset; all pool items are sent to the models (real_size = pool_size)
+# unless real_size is given.  Existing pool files are kept unless --force (protects cached predictions).
+# tier 1 = data matching proper, tier 2 = reasoning over tables / documents.
+
+[global]
+pool_size = 150
+real_size = 100      # v6 decision: the models answer 100 items per dataset (per-dataset real_size overrides)
+seed = 20260907
+
+# ---------------- tier 2, existing (pool files already exist with 40 real items; not rebuilt) ----------------
+[[dataset]]
+name = "finqa"
+tier = 2
+enabled = false      # v6: outside the evidence top 30 (rank 36 / 56); answers kept in the cache, not re-run
+[[dataset]]
+name = "tat_qa"
+tier = 2
+stratify = "difficulty"
+[[dataset]]
+name = "tab_fact"
+tier = 2
+hint = "boolean"
+[[dataset]]
+name = "financebench"
+tier = 2
+pool_size = 150
+stratify = "difficulty"
+enabled = false      # v6: outside the evidence top 30 (rank 36 / 56); answers kept in the cache, not re-run
+[[dataset]]
+name = "fetaqa"
+tier = 2
+hint = "freeform"
+pool_size = 100
+[[dataset]]
+name = "wikitablequestions"
+tier = 2
+
+# ---------------- tier 2, new ----------------
+[[dataset]]
+name = "hitab"
+tier = 2
+[[dataset]]
+name = "docfinqa"          # disabled: retrieval-window proxy overlaps FinQA and costs 40% of prompt tokens; re-enable if long-document QA is needed
+tier = 2
+pool_size = 100
+enabled = false
+[[dataset]]
+name = "multihiertt"           # needs data/raw/multihiertt/dev.json from the project's Google Drive
+tier = 2
+optional = true
+
+# ---------------- tier 1, data matching proper ----------------
+[[dataset]]
+name = "abt_buy"
+tier = 1
+hint = "boolean"
+[[dataset]]
+name = "amazon_google"
+tier = 1
+hint = "boolean"
+[[dataset]]
+name = "dblp_scholar"
+tier = 1
+hint = "boolean"
+[[dataset]]
+name = "walmart_amazon"
+tier = 1
+hint = "boolean"
+[[dataset]]
+name = "wdc_products"
+tier = 1
+hint = "boolean"
+stratify = "difficulty"        # category
+[[dataset]]
+name = "tpcdi_cells"
+tier = 1
+stratify = "difficulty"        # field
+
+# ---------------- OfficeQA: closed-book (corpus gated), every model at floor. Kept enabled so the current
+# published numbers (7 original datasets) stay reproducible; set enabled = false when the extended suite is run.
+[[dataset]]
+name = "officeqa"
+tier = 2
+optional = true
+enabled = true
+
+# ---------------- tier 2, v6 additions: table / document QA (mmtu ... officeqa_pro_v2, tpcdi_cells above) ----------------
+[[dataset]]
+name = "mmtu"                  # hf MMTU-benchmark/MMTU (MIT); 9 short-gold tasks; data/raw/mmtu/data/*.parquet
+tier = 2
+stratify = "difficulty"        # MMTU task
+[[dataset]]
+name = "realhitbench"          # local data/raw/realhitbench (QA_final.json + csv/); licence CC BY-NC 4.0 (non-commercial)
+tier = 2
+stratify = "difficulty"        # Fact Checking / Numerical Reasoning
+[[dataset]]
+name = "suc"                   # Table Meets LLM SUC tasks re-generated from microsoft/TableProvider tables (MIT); data/raw/suc/*.jsonl
+tier = 2
+stratify = "difficulty"        # SUC task
+[[dataset]]
+name = "tabis"                 # coszero/TabIS Google-Drive release (Apache-2.0); data/raw/tabis/TabIS_data_2/
+tier = 2
+stratify = "difficulty"        # tis_basic / tis_structure / tsu_synthetic
+[[dataset]]
+name = "tableeval"             # hf wenge-research/TableEval (Apache-2.0); data/raw/tableeval/TableEval-test.jsonl
+tier = 2
+stratify = "difficulty"        # sub-task
+[[dataset]]
+name = "tablebench"            # hf Multilingual-Multimodal-NLP/TableBench (Apache-2.0); FactChecking + NumericalReasoning
+tier = 2
+stratify = "difficulty"        # qsubtype
+[[dataset]]
+name = "bird"                  # BIRD dev (CC BY-SA 4.0) as schema-grounded QA: gold = executed gold SQL; data/raw/bird/dev_20240627
+tier = 2
+stratify = "difficulty"        # simple / moderate / challenging
+[[dataset]]
+name = "officeqa_pro_v2"       # hf databricks/officeqa-pro-v2 (gated, CC-BY-SA 4.0); all 90 questions, all real; context <= 6,000 chars
+tier = 2
+pool_size = 90
+real_size = 90
+
+# ---------------- tier 1, extended suite: entity matching (record pair -> yes / no) ----------------
+[[dataset]]
+name = "dblp_acm"              # DeepMatcher Structured/DBLP-ACM test split (pages.cs.wisc.edu/~anhai); balanced yes/no
+tier = 1
+hint = "boolean"
+[[dataset]]
+name = "wdc_lspc"              # hf wdc/products-2017 gold test splits, 4 categories, pairs not in the wdc_products pool; data/raw/wdc_lspc/*_test.json.gz
+tier = 1
+hint = "boolean"
+stratify = "difficulty"        # category
+[[dataset]]
+name = "machamp"               # Megagon Machamp GEM benchmark, 7 tasks, test splits (github.com/megagonlabs/machamp); data/raw/machamp/<task>/
+tier = 1
+hint = "boolean"
+stratify = "difficulty"        # task
+[[dataset]]
+name = "papadakis_dn"          # Papadakis & Christen Dn1-Dn8 (Zenodo 8164151, CC BY 4.0); uniform sample, class ratio NOT balanced (by design)
+tier = 1
+hint = "boolean"
+stratify = "difficulty"        # Dn1..Dn8
+[[dataset]]
+name = "alaska_camera"         # Alaska / SIGMOD 2020 camera specs + labelled pairs (mirror: transactionalblog/sigmod-contest-2020); data/raw/alaska_camera/
+tier = 1
+hint = "boolean"
+[[dataset]]
+name = "opensanctions_pairs"   # hf sanctions-er-anon/opensanctions_pairs sample_1000.json (CC BY-NC 4.0); balanced
+tier = 1
+hint = "boolean"
+
+# ---------------- tier 1, extended suite: schema matching / concept linking (answer = target name) ----------------
+[[dataset]]
+name = "alaska_schema"         # Alaska/DI2KG monitor schema-matching GT (93 source attributes) via ValerioMarini/Schema-Alignment clone;
+tier = 1                       # camera GT (camera_schema_matching_labelled_data.csv + camera_specs/) is SharePoint login-walled: add it to
+hint = "text"                  # data/raw/alaska_schema/Schema-Alignment/dataset/ to extend the pool beyond 93 items
+[[dataset]]
+name = "valentine"             # Valentine datasets (Zenodo 5084605, CC BY 4.0), read from data/raw/valentine/Valentine-datasets.zip
+tier = 1
+hint = "text"
+stratify = "difficulty"        # sub-benchmark (ChEMBL / OpenData / TPC-DI / Wikidata / Magellan)
+[[dataset]]
+name = "magneto_gdc"           # GDC-SM benchmark (Zenodo 14963588, CC BY 4.0) + the 10 studies' supplementary xlsx; data/raw/magneto_gdc/
+tier = 1
+hint = "text"
+stratify = "difficulty"        # study
+[[dataset]]
+name = "smat"                  # SMAT MIMIC/CMS/Synthea -> OMOP (github.com/JZCS2018/SMAT); data/raw/smat/omop_*_data.xlsx
+tier = 1
+hint = "text"
+stratify = "difficulty"        # source db
+[[dataset]]
+name = "fintagging"            # hf TheFinAI/FinCL-eval (FinCL concept linking only); data/raw/fintagging/FinCL-eval_test.parquet
+tier = 1
+hint = "text"
+stratify = "difficulty"        # text / table

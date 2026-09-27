@@ -1,8 +1,8 @@
 # Overall summary — every version, from the ground up, with what exists and what still has to run
 
 Per-version, line-by-line code flows (every script, function, input file, output file):
-`v1/notes/CODE_FLOW.md`, `v2_gridsearch_v1_rubric/notes/CODE_FLOW.md`, `v3_literature_aggregation/notes/CODE_FLOW.md`,
-`v4_random_search_rank_agreement/notes/CODE_FLOW.md`, `v5_metric_library_anchor_ensemble/notes/08_CODE_FLOW.md`.
+`other_older_versions/v1/notes/CODE_FLOW.md`, `other_older_versions/v2_gridsearch_v1_rubric/notes/CODE_FLOW.md`, `other_older_versions/v3_literature_aggregation/notes/CODE_FLOW.md`,
+`other_older_versions/v4_random_search_rank_agreement/notes/CODE_FLOW.md`, `other_older_versions/v5_metric_library_anchor_ensemble/notes/08_CODE_FLOW.md`.
 Formula-level explanation of all versions: `GUIDE_UNDER_THE_HOOD.md`. Plain-language glossary: `v5_…/notes/00_PLAIN_ENGLISH_GUIDE.md`.
 
 ---
@@ -30,20 +30,20 @@ Formula-level explanation of all versions: `GUIDE_UNDER_THE_HOOD.md`. Plain-lang
 
 ## 2. Version by version
 
-### v1 — original judge (`v1/`)
+### v1 — original judge (`other_older_versions/v1/`)
 * **Grading rule:** TPC-DI 100-point rubric for the join task; for QA, `0.35·F1 + 0.35·e^(−2.5·MRE) + 0.15·P + 0.15·R` with hand-set weights.
 * **Inputs:** `jan15_tasks/*.csv`, `data/officeqa.csv`, adapters for 4 datasets. **Outputs:** `output/results.json`, `eval_results.csv` (real, mock purple),
   four leaderboard files (SIMULATED answers; not evidence).
 * **Status:** runs; the QA leaderboard must not be cited. **Nothing to run** unless you want the TPC-DI demo (`scripts/run_local_test.py`).
 
-### v2 — grid search over v1's four weights (`v2_gridsearch_v1_rubric/`)
+### v2 — grid search over v1's four weights (`other_older_versions/v2_gridsearch_v1_rubric/`)
 * **Grading rule:** same four ingredients, weights on the simplex. **Search:** 105 weightings (v1 + 4 corners + 100 random step-0.05 grid points).
 * **Objective:** J = mean over datasets of Kendall τ between the dataset's model ranking and the Borda-pooled ranking; plus τ to native metrics.
 * **Outputs:** `output/components_v1.csv`, `grid.csv`, `best.json`, `leaderboard.md`, `fig_grid.png`.
 * **Result:** v1's weights rank 35/105 (J 0.429); best 0.507 (F1 .85, P .05, R .10, decay 0); gain inside the bootstrap interval.
 * **Status:** complete. **To run:** nothing; re-run `scripts/run_all.sh` if predictions grow.
 
-### v3 — aggregation views from the literature (`v3_literature_aggregation/`)
+### v3 — aggregation views from the literature (`other_older_versions/v3_literature_aggregation/`)
 * **Grading rule:** each dataset's own metric. **Views (8):** raw mean, baseline-normalised mean (Open LLM Leaderboard v2), z-mean, mean win rate (HELM),
   Borda and Kemeny score (Colombo et al.), Bradley–Terry strength (Chatbot Arena), IRT ability (tinyBenchmarks).
 * **Search:** 109 mixes of the 8 standardised views. **Objective:** 0.5·bootstrap stability + 0.25·transitivity (τ to Copeland) + 0.25·τ to the Kemeny
@@ -54,7 +54,7 @@ Formula-level explanation of all versions: `GUIDE_UNDER_THE_HOOD.md`. Plain-lang
   disagree on the middle (raw mean puts claude-sonnet-5 last, rank-based views second).
 * **Status:** complete. **To run:** nothing; more models/items make BT and IRT better determined.
 
-### v4 — random search, rank-agreement objective (`v4_random_search_rank_agreement/`, was v2)
+### v4 — random search, rank-agreement objective (`other_older_versions/v4_random_search_rank_agreement/`, was v2)
 * **Grading rule:** 9-metric composite (EM, numeric tolerance, numeric decay, P, R, F1, edit similarity, ROUGE-L, Jaccard) with aliases / units / list golds.
 * **Search:** 100 random step-0.05 weightings; J as in v2; bootstrap; LODO; baselines (EM, F1, NumTol, uniform, v1 rubric). **Pooling:** 7 rules; 1,000 bootstraps.
 * **Extras:** 14 dataset adapters and pools; model runner with spend cap; KL/JS/W1 divergence as a standalone extension; 5-page paper; design notes.
@@ -64,7 +64,7 @@ Formula-level explanation of all versions: `GUIDE_UNDER_THE_HOOD.md`. Plain-lang
 * **Status:** complete for 7 datasets. **To run:** `scripts/rs/00_run_models.py --sequential` for the 7 new datasets (≈ USD 22), set officeqa
   `enabled = false`, `scripts/rs/run_all.sh`.
 
-### v5 — 100-metric library calibrated on known-quality anchors (`v5_metric_library_anchor_ensemble/`, was v3)
+### v5 — 100-metric library calibrated on known-quality anchors (`other_older_versions/v5_metric_library_anchor_ensemble/`, was v3)
 * **Grading rule:** 100 metrics (`src/metrics/library.py`); after selection, 3 (token F1, numeric decay, bigram recall) with a multiplicative hedge penalty.
 * **Calibration target:** 12,813 synthetic answers of known utility from 20 typed operators on 14 datasets (`src/anchors/ladder.py`); human labels accepted instead.
 * **Selection:** drop constants → cluster |Spearman| ≥ 0.95 (100 → 42) → agreement floor and no indicator families (→ 24) → forward selection with

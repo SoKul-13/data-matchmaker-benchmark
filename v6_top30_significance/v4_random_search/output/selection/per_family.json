@@ -1,0 +1,109 @@
+{
+  "EM": {
+    "datasets": [
+      "abt_buy",
+      "alaska_camera",
+      "amazon_google",
+      "dblp_acm",
+      "dblp_scholar",
+      "machamp",
+      "opensanctions_pairs",
+      "papadakis_dn",
+      "walmart_amazon",
+      "wdc_lspc",
+      "wdc_products"
+    ],
+    "best_weights": {
+      "em": 0.0,
+      "num_tol": 1.0,
+      "num_decay": 0.0,
+      "tok_prec": 0.0,
+      "tok_rec": 0.0,
+      "tok_f1": 0.0,
+      "edit_sim": 0.0,
+      "rouge_l": 0.0,
+      "jaccard": 0.0
+    },
+    "J_family_best": 0.3605829130331274,
+    "J_family_under_global_best": 0.3605829130331274,
+    "J_family_under_v1_rubric": 0.3605829130331274,
+    "L1_distance_to_global_best": 0.0
+  },
+  "SM": {
+    "datasets": [
+      "alaska_schema",
+      "fintagging",
+      "magneto_gdc",
+      "smat",
+      "tpcdi_cells",
+      "valentine"
+    ],
+    "best_weights": {
+      "em": 0.0,
+      "num_tol": 1.0,
+      "num_decay": 0.0,
+      "tok_prec": 0.0,
+      "tok_rec": 0.0,
+      "tok_f1": 0.0,
+      "edit_sim": 0.0,
+      "rouge_l": 0.0,
+      "jaccard": 0.0
+    },
+    "J_family_best": 0.5797661996986855,
+    "J_family_under_global_best": 0.5797661996986855,
+    "J_family_under_v1_rubric": 0.5033353630601863,
+    "L1_distance_to_global_best": 0.0
+  },
+  "TQA": {
+    "datasets": [
+      "bird",
+      "fetaqa",
+      "hitab",
+      "mmtu",
+      "realhitbench",
+      "suc",
+      "tab_fact",
+      "tabis",
+      "tablebench",
+      "tableeval",
+      "wikitablequestions"
+    ],
+    "best_weights": {
+      "em": 0.5,
+      "num_tol": 0.0,
+      "num_decay": 0.05,
+      "tok_prec": 0.15,
+      "tok_rec": 0.05,
+      "tok_f1": 0.1,
+      "edit_sim": 0.05,
+      "rouge_l": 0.1,
+      "jaccard": 0.0
+    },
+    "J_family_best": 0.5133595917918155,
+    "J_family_under_global_best": 0.5120619341033531,
+    "J_family_under_v1_rubric": 0.4795576955333237,
+    "L1_distance_to_global_best": 2.0
+  },
+  "FIN": {
+    "datasets": [
+      "officeqa",
+      "officeqa_pro_v2",
+      "tat_qa"
+    ],
+    "best_weights": {
+      "em": 0.1,
+      "num_tol": 0.1,
+      "num_decay": 0.0,
+      "tok_prec": 0.2,
+      "tok_rec": 0.35,
+      "tok_f1": 0.1,
+      "edit_sim": 0.0,
+      "rouge_l": 0.15,
+      "jaccard": 0.0
+    },
+    "J_family_best": 0.8341372514824777,
+    "J_family_under_global_best": 0.619193744471802,
+    "J_family_under_v1_rubric": 0.689182081629092,
+    "L1_distance_to_global_best": 1.7999999999999998
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "n_candidates": 305,
+  "n_per_design": 100,
+  "step": 0.05,
+  "lattice_points": 3108105,
+  "components": [
+    "em",
+    "num_tol",
+    "num_decay",
+    "tok_prec",
+    "tok_rec",
+    "tok_f1",
+    "edit_sim",
+    "rouge_l",
+    "jaccard"
+  ],
+  "models": [
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "deepseek-chat",
+    "deepseek-r1",
+    "gemini-3.8-flash",
+    "gpt-5.4-mini",
+    "gpt-5.5",
+    "gpt-oss-120b",
+    "grok-4",
+    "llama-3.3-70b"
+  ],
+  "datasets": [
+    "abt_buy",
+    "alaska_camera",
+    "alaska_schema",
+    "amazon_google",
+    "bird",
+    "dblp_acm",
+    "dblp_scholar",
+    "fetaqa",
+    "fintagging",
+    "hitab",
+    "machamp",
+    "magneto_gdc",
+    "mmtu",
+    "officeqa",
+    "officeqa_pro_v2",
+    "opensanctions_pairs",
+    "papadakis_dn",
+    "realhitbench",
+    "smat",
+    "suc",
+    "tab_fact",
+    "tabis",
+    "tablebench",
+    "tableeval",
+    "tat_qa",
+    "tpcdi_cells",
+    "valentine",
+    "walmart_amazon",
+    "wdc_lspc",
+    "wdc_products",
+    "wikitablequestions"
+  ],
+  "best": {
+    "weights": {
+      "em": 0.0,
+      "num_tol": 1.0,
+      "num_decay": 0.0,
+      "tok_prec": 0.0,
+      "tok_rec": 0.0,
+      "tok_f1": 0.0,
+      "edit_sim": 0.0,
+      "rouge_l": 0.0,
+      "jaccard": 0.0
+    },
+    "design": "num_tol_only",
+    "J": 0.44193319087786315,
+    "tau_native": 0.9744748525363174,
+    "J_kemeny": 0.44193319087786304,
+    "J_copeland": 0.44360297789518355,
+    "J_bt": 0.4256285120227557
+  },
+  "best_per_design": {
+    "dirichlet": {
+      "J": 0.4265194355068526,
+      "weights": {
+        "em": 0.1,
+        "num_tol": 0.3,
+        "num_decay": 0.1,
+        "tok_prec": 0.2,
+        "tok_rec": 0.05,
+        "tok_f1": 0.05,
+        "edit_sim": 0.0,
+        "rouge_l": 0.1,
+        "jaccard": 0.1
+      }
+    },
+    "lhs": {
+      "J": 0.4305137486946975,
+      "weights": {
+        "em": 0.0,
+        "num_tol": 0.35,
+        "num_decay": 0.0,
+        "tok_prec": 0.25,
+        "tok_rec": 0.2,
+        "tok_f1": 0.05,
+        "edit_sim": 0.05,
+        "rouge_l": 0.05,
+        "jaccard": 0.05
+      }
+    },
+    "uniform_lattice": {
+      "J": 0.4336296627225999,
+      "weights": {
+        "em": 0.65,
+        "num_tol": 0.15,
+        "num_decay": 0.1,
+        "tok_prec": 0.0,
+        "tok_rec": 0.0,
+        "tok_f1": 0.0,
+        "edit_sim": 0.1,
+        "rouge_l": 0.0,
+        "jaccard": 0.0
+      }
+    }
+  },
+  "baselines": {
+    "em_only": {
+      "J": 0.4389420363725147,
+      "rank": 2,
+      "tau_native": 0.9221773343475702
+    },
+    "f1_only": {
+      "J": 0.41061030610151267,
+      "rank": 217,
+      "tau_native": 0.8929027600224394
+    },
+    "num_tol_only": {
+      "J": 0.44193319087786315,
+      "rank": 1,
+      "tau_native": 0.9744748525363174
+    },
+    "uniform": {
+      "J": 0.4124544139607796,
+      "rank": 189,
+      "tau_native": 0.915565399815643
+    },
+    "v1_rubric": {
+      "J": 0.4039916148568819,
+      "rank": 295,
+      "tau_native": 0.9118170978204999
+    }
+  },
+  "v1_rubric": {
+    "J": 0.4039916148568819,
+    "rank": 295,
+    "n_better": 294,
+    "n_tied": 0
+  },
+  "em_only": {
+    "J": 0.4389420363725147,
+    "rank": 2
+  },
+  "top5": [
+    {
+      "rank": 1,
+      "design": "num_tol_only",
+      "weights": {
+        "em": 0.0,
+        "num_tol": 1.0,
+        "num_decay": 0.0,
+        "tok_prec": 0.0,
+        "tok_rec": 0.0,
+        "tok_f1": 0.0,
+        "edit_sim": 0.0,
+        "rouge_l": 0.0,
+        "jaccard": 0.0
+      },
+      "J": 0.44193319087786315,
+      "tau_native": 0.9744748525363174
+    },
+    {
+      "rank": 2,
+      "design": "em_only",
+      "weights": {
+        "em": 1.0,
+        "num_tol": 0.0,
+        "num_decay": 0.0,
+        "tok_prec": 0.0,
+        "tok_rec": 0.0,
+        "tok_f1": 0.0,
+        "edit_sim": 0.0,
+        "rouge_l": 0.0,
+        "jaccard": 0.0
+      },
+      "J": 0.4389420363725147,
+      "tau_native": 0.9221773343475702
+    },
+    {
+      "rank": 3,
+      "design": "uniform_lattice",
+      "weights": {
+        "em": 0.65,
+        "num_tol": 0.15,
+        "num_decay": 0.1,
+        "tok_prec": 0.0,
+        "tok_rec": 0.0,
+        "tok_f1": 0.0,
+        "edit_sim": 0.1,
+        "rouge_l": 0.0,
+        "jaccard": 0.0
+      },
+      "J": 0.4336296627225999,
+      "tau_native": 0.9073577906178705
+    },
+    {
+      "rank": 4,
+      "design": "uniform_lattice",
+      "weights": {
+        "em": 0.2,
+        "num_tol": 0.3,
+        "num_decay": 0.0,
+        "tok_prec": 0.1,
+        "tok_rec": 0.25,
+        "tok_f1": 0.0,
+        "edit_sim": 0.05,
+        "rouge_l": 0.05,
+        "jaccard": 0.05
+      },
+      "J": 0.43338113220724234,
+      "tau_native": 0.9330603044930773
+    },
+    {
+      "rank": 5,
+      "design": "uniform_lattice",
+      "weights": {
+        "em": 0.4,
+        "num_tol": 0.1,
+        "num_decay": 0.15,
+        "tok_prec": 0.1,
+        "tok_rec": 0.0,
+        "tok_f1": 0.0,
+        "edit_sim": 0.1,
+        "rouge_l": 0.15,
+        "jaccard": 0.0
+      },
+      "J": 0.43231794625540904,
+      "tau_native": 0.9159006407694136
+    }
+  ],
+  "designs_over_seeds": {
+    "dirichlet_lattice": {
+      "best_J_mean": 0.432,
+      "best_J_sd": 0.003,
+      "best_J_max": 0.4391,
+      "mean_J": 0.4153,
+      "regret_mean": 0.01,
+      "regret_max": 0.0138,
+      "min_pairwise_L1": 0.195,
+      "mean_nearest_L1": 0.4027,
+      "discrepancy": 2.6738,
+      "zero_share": 0.882
+    },
+    "lhs_simplex": {
+      "best_J_mean": 0.4313,
+      "best_J_sd": 0.0022,
+      "best_J_max": 0.4373,
+      "mean_J": 0.4151,
+      "regret_mean": 0.0107,
+      "regret_max": 0.0141,
+      "min_pairwise_L1": 0.215,
+      "mean_nearest_L1": 0.4096,
+      "discrepancy": 2.6718,
+      "zero_share": 0.878
+    },
+    "uniform_lattice": {
+      "best_J_mean": 0.4343,
+      "best_J_sd": 0.0033,
+      "best_J_max": 0.442,
+      "mean_J": 0.4155,
+      "regret_mean": 0.0077,
+      "regret_max": 0.0129,
+      "min_pairwise_L1": 0.235,
+      "mean_nearest_L1": 0.465,
+      "discrepancy": 2.5904,
+      "zero_share": 0.9705
+    }
+  },
+  "j_quantiles": {
+    "0.5": 0.4143252831330754,
+    "0.9": 0.4233945178978475,
+    "0.95": 0.426374511842133,
+    "0.99": 0.43333860476916897
+  }
+}

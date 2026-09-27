@@ -1,0 +1,196 @@
+models left out (suite coverage < 90 %): {'gemini-3.1-pro': 0.084}
+[tat_qa] models: 100 items x 10 models
+[tab_fact] models: 100 items x 10 models
+[fetaqa] models: 100 items x 10 models
+[wikitablequestions] models: 100 items x 10 models
+[hitab] models: 100 items x 10 models
+[abt_buy] models: 100 items x 10 models
+[amazon_google] models: 100 items x 10 models
+[dblp_scholar] models: 100 items x 10 models
+[walmart_amazon] models: 100 items x 10 models
+[wdc_products] models: 100 items x 10 models
+[tpcdi_cells] models: 100 items x 10 models
+[officeqa] models: 100 items x 10 models
+[mmtu] models: 100 items x 10 models
+[realhitbench] models: 100 items x 10 models
+[suc] models: 100 items x 10 models
+[tabis] models: 100 items x 10 models
+[tableeval] models: 100 items x 10 models
+[tablebench] models: 100 items x 10 models
+[bird] models: 100 items x 10 models
+[officeqa_pro_v2] models: 90 items x 10 models
+[dblp_acm] models: 100 items x 10 models
+[wdc_lspc] models: 100 items x 10 models
+[machamp] models: 100 items x 10 models
+[papadakis_dn] models: 100 items x 10 models
+[alaska_camera] models: 100 items x 10 models
+[opensanctions_pairs] models: 100 items x 10 models
+[alaska_schema] models: 93 items x 10 models
+[valentine] models: 100 items x 10 models
+[magneto_gdc] models: 100 items x 10 models
+[smat] models: 100 items x 10 models
+[fintagging] models: 100 items x 10 models
+[tat_qa] anchors: 100 items
+[tab_fact] anchors: 100 items
+[fetaqa] anchors: 100 items
+[wikitablequestions] anchors: 100 items
+[hitab] anchors: 100 items
+[abt_buy] anchors: 100 items
+[amazon_google] anchors: 100 items
+[dblp_scholar] anchors: 100 items
+[walmart_amazon] anchors: 100 items
+[wdc_products] anchors: 100 items
+[tpcdi_cells] anchors: 100 items
+[officeqa] anchors: 100 items
+[mmtu] anchors: 100 items
+[realhitbench] anchors: 100 items
+[suc] anchors: 100 items
+[tabis] anchors: 100 items
+[tableeval] anchors: 100 items
+[tablebench] anchors: 100 items
+[bird] anchors: 100 items
+[officeqa_pro_v2] anchors: 90 items
+[dblp_acm] anchors: 100 items
+[wdc_lspc] anchors: 100 items
+[machamp] anchors: 100 items
+[papadakis_dn] anchors: 100 items
+[alaska_camera] anchors: 100 items
+[opensanctions_pairs] anchors: 100 items
+[alaska_schema] anchors: 93 items
+[valentine] anchors: 100 items
+[magneto_gdc] anchors: 100 items
+[smat] anchors: 100 items
+[fintagging] anchors: 100 items
+
+models matrix (30830, 100), anchors matrix (31380, 100)
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/v6_top30_significance/shared/src/calibration/select.py:20: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  R = stats.spearmanr(X, axis=0).correlation if X.shape[1] > 1 else np.ones((1, 1))
+anchor: synthetic anchors (31380 answers, 20 operators)
+constant: 10  representatives: 45  candidates: 28
+top metrics by anchor rho:
+     metric family   rho   auc  representative
+   rouge_l    seq 0.849 0.965           False
+    rouge1    seq 0.846 0.965           False
+    tok_f1  token 0.846 0.965            True
+   stem_f1  token 0.846 0.965           False
+  tok_f0p5  token 0.845 0.965           False
+   jaccard    set 0.844 0.964           False
+      dice    set 0.844 0.964           False
+content_f1  token 0.843 0.963           False
+    tok_f2  token 0.841 0.965           False
+  tok_prec  token 0.839 0.965           False
+ ter_score    seq 0.839 0.966           False
+    rouge2    seq 0.838 0.966           False
+
+selected: ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+nnls weights: {'tok_f1': 0.561, 'num_decay_2p5': 0.325, 'prefix_ratio': 0.114}
+LODO rho: selected 0.875 | native-only 0.814 | em-only 0.831
+selected 3 metrics ['tok_f1', 'num_decay_2p5', 'prefix_ratio']; grid step 0.02 x 5 hedge penalties: 6,630 weightings
+ rank     J   rho   auc    js  tau_native   bad  w_tok_f1  w_num_decay_2p5  w_prefix_ratio  lambda
+    1 0.935 0.901 0.996 0.044       0.895 0.033      0.08              0.9            0.02    0.25
+    2 0.935 0.900 0.997 0.043       0.895 0.033      0.08              0.9            0.02    0.75
+    3 0.935 0.900 0.996 0.043       0.894 0.033      0.06              0.9            0.04    0.75
+    4 0.935 0.901 0.996 0.044       0.894 0.033      0.06              0.9            0.04    0.25
+    5 0.934 0.899 0.996 0.042       0.893 0.032      0.02              0.9            0.08    0.75
+ensemble mean weights: {'tok_f1': 0.169, 'num_decay_2p5': 0.775, 'prefix_ratio': 0.057} mean lambda 0.62
+                     baseline   rho   auc    js   bad  tau_native     J
+          native_style_metric 0.826 0.935 0.031 0.014       0.992 0.925
+                      em_norm 0.849 0.963 0.024 0.012       0.924 0.928
+                       tok_f1 0.859 0.965 0.079 0.032       0.888 0.907
+                      rouge_l 0.862 0.965 0.082 0.032       0.892 0.907
+                    num_tol_1 0.806 0.919 0.032 0.016       0.946 0.909
+uniform_over_selected_no_gate 0.882 0.970 0.098 0.028       0.900 0.911
+              ensemble_top100 0.904 0.996 0.053 0.032       0.898 0.934
+# v3 leaderboard: ensemble metric (3 selected metrics x 100 best weightings), 10 models, 31 datasets
+
+| Model | Abt-Buy | alaska_camera | alaska_schema | Amazon-Google | bird | dblp_acm | DBLP-Scholar | FeTaQA | fintagging | HiTab | machamp | magneto_gdc | mmtu | OfficeQA | officeqa_pro_v2 | opensanctions_pairs | papadakis_dn | realhitbench | smat | suc | TabFact | tabis | tablebench | tableeval | TAT-QA | TPC-DI | valentine | Walmart-Amazon | wdc_lspc | WDC | WTQ | Common (z-mean) | Borda | Kemeny | 95% CI (items) | Rank range over 100 weightings | Native Borda |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| claude-opus-5 | 1.00 | 0.82 | 0.93 | 0.94 | 0.39 | 1.00 | 0.95 | 0.64 | 0.86 | 0.79 | 0.90 | 0.96 | 0.88 | 0.39 | 0.47 | 0.94 | 0.92 | 0.78 | 0.91 | 1.00 | 0.66 | 0.93 | 0.88 | 0.78 | 0.83 | 0.42 | 1.00 | 0.98 | 0.99 | 0.98 | 0.88 | +0.54 | 1 | 1 | [1, 3] | 1–2 | 2 |
+| gpt-5.5 | 1.00 | 1.00 | 0.91 | 0.94 | 0.21 | 1.00 | 0.96 | 0.63 | 0.84 | 0.76 | 0.90 | 0.96 | 0.90 | 0.36 | 0.32 | 0.75 | 0.95 | 0.77 | 0.92 | 0.97 | 0.84 | 0.93 | 0.88 | 0.80 | 0.80 | 0.42 | 1.00 | 0.97 | 1.00 | 0.98 | 0.86 | +0.53 | 2 | 2 | [1, 3] | 1–2 | 1 |
+| gemini-3.8-flash | 0.98 | 0.89 | 0.90 | 0.93 | 0.41 | 1.00 | 0.93 | 0.67 | 0.85 | 0.76 | 0.90 | 0.95 | 0.89 | 0.44 | 0.42 | 0.86 | 0.94 | 0.79 | 0.89 | 0.99 | 0.86 | 0.92 | 0.87 | 0.79 | 0.81 | 0.42 | 0.97 | 0.99 | 0.98 | 0.99 | 0.88 | +0.49 | 3 | 3 | [1, 3] | 3–3 | 3 |
+| claude-sonnet-5 | 0.97 | 0.98 | 0.92 | 0.96 | 0.33 | 1.00 | 0.97 | 0.57 | 0.85 | 0.78 | 0.90 | 0.94 | 0.88 | 0.34 | 0.29 | 0.73 | 0.95 | 0.72 | 0.92 | 0.95 | 0.74 | 0.89 | 0.90 | 0.76 | 0.83 | 0.42 | 0.99 | 0.95 | 0.98 | 0.97 | 0.87 | +0.27 | 4 | 4 | [4, 6] | 4–4 | 4 |
+| grok-4 | 0.96 | 0.94 | 0.91 | 0.94 | 0.15 | 1.00 | 0.95 | 0.65 | 0.84 | 0.74 | 0.89 | 0.93 | 0.88 | 0.28 | 0.27 | 0.85 | 0.95 | 0.69 | 0.92 | 0.97 | 0.85 | 0.95 | 0.85 | 0.81 | 0.79 | 0.41 | 0.97 | 0.96 | 1.00 | 0.98 | 0.87 | +0.12 | 5 | 5 | [4, 7] | 5–5 | 5 |
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/v6_top30_significance/shared/src/calibration/select.py:20: ConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  R = stats.spearmanr(X, axis=0).correlation if X.shape[1] > 1 else np.ones((1, 1))
+LODO abt_buy              rho held-out: lodo 0.919 full 0.919 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO alaska_camera        rho held-out: lodo 0.921 full 0.921 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO alaska_schema        rho held-out: lodo 0.926 full 0.926 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO amazon_google        rho held-out: lodo 0.918 full 0.918 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO bird                 rho held-out: lodo 0.877 full 0.877 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO dblp_acm             rho held-out: lodo 0.919 full 0.919 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO dblp_scholar         rho held-out: lodo 0.920 full 0.920 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO fetaqa               rho held-out: lodo 0.877 full 0.886 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO fintagging           rho held-out: lodo 0.906 full 0.906 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO hitab                rho held-out: lodo 0.887 full 0.887 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO machamp              rho held-out: lodo 0.921 full 0.921 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO magneto_gdc          rho held-out: lodo 0.936 full 0.936 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO mmtu                 rho held-out: lodo 0.892 full 0.892 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO officeqa             rho held-out: lodo 0.890 full 0.901 | selected ['tok_f1', 'num_tol_10', 'prefix_ratio']
+LODO officeqa_pro_v2      rho held-out: lodo 0.905 full 0.905 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO opensanctions_pairs  rho held-out: lodo 0.919 full 0.919 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO papadakis_dn         rho held-out: lodo 0.910 full 0.910 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO realhitbench         rho held-out: lodo 0.896 full 0.896 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO smat                 rho held-out: lodo 0.940 full 0.941 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO suc                  rho held-out: lodo 0.865 full 0.865 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO tab_fact             rho held-out: lodo 0.918 full 0.918 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO tabis                rho held-out: lodo 0.598 full 0.598 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO tablebench           rho held-out: lodo 0.884 full 0.884 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO tableeval            rho held-out: lodo 0.869 full 0.869 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO tat_qa               rho held-out: lodo 0.896 full 0.895 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO tpcdi_cells          rho held-out: lodo 0.865 full 0.867 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio', 'em_raw']
+LODO valentine            rho held-out: lodo 0.897 full 0.897 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO walmart_amazon       rho held-out: lodo 0.917 full 0.917 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO wdc_lspc             rho held-out: lodo 0.921 full 0.921 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO wdc_products         rho held-out: lodo 0.921 full 0.921 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio']
+LODO wikitablequestions   rho held-out: lodo 0.867 full 0.866 | selected ['tok_f1', 'num_decay_2p5', 'prefix_ratio', 'em_raw']
+
+               op  utility    n  ensemble   em  native  tok_f1  abs_err_ensemble
+        identity     1.00 3083      1.00 1.00    1.00    1.00              0.00
+         verbose     1.00 3083      1.00 1.00    1.00    1.00              0.00
+    unit_variant     1.00  632      0.97 0.84    1.00    0.84              0.03
+          tagged     1.00 3083      1.00 1.00    1.00    1.00              0.00
+      paraphrase     0.95 3083      0.98 0.93    0.99    0.97              0.03
+ near_miss_small     0.75  632      0.78 0.10    0.10    0.11              0.03
+        superset     0.60 1213      0.37 0.05    0.10    0.65              0.23
+            typo     0.60 1104      0.28 0.10    0.10    0.46              0.32
+         partial     0.50 1213      0.28 0.06    0.12    0.48              0.22
+near_miss_medium     0.45  632      0.64 0.01    0.01    0.02              0.19
+        shuffled     0.40  109      0.76 0.01    0.40    1.00              0.36
+           hedge     0.30 2974      0.19 0.19    0.40    0.50              0.11
+       list_dump     0.25 1845      0.15 0.01    0.14    0.39              0.10
+      digit_typo     0.20  632      0.44 0.00    0.24    0.01              0.24
+ near_miss_large     0.15  632      0.32 0.00    0.00    0.01              0.17
+       sign_flip     0.05  632      0.02 0.00    0.00    0.02              0.03
+       magnitude     0.05  632      0.20 0.01    0.13    0.03              0.15
+            flip     0.00 1238      0.00 0.00    0.00    0.00              0.00
+       no_answer     0.00 3083      0.00 0.00    0.00    0.00              0.00
+    wrong_random     0.00 1845      0.11 0.04    0.05    0.11              0.11
+
+ {
+ "lodo_mean_rho_lodo": 0.8934213541980037,
+ "lodo_mean_rho_full": 0.8941717358445831,
+ "lodo_same_selection_share": 0.9032258064516129,
+ "severity_l1_shift_mean": 0.022000000000000155,
+ "severity_l1_shift_max": 0.02200000000000024,
+ "severity_selection_changed_share": 0.0,
+ "probe_mae_ensemble": 0.11578973335883265,
+ "probe_mae_em": 0.19909387481166047,
+ "probe_mae_native": 0.15454948486236392,
+ "probe_mae_tok_f1": 0.1439566986518912
+}
+figures: ['fig_leaderboard.pdf', 'fig_probes.pdf', 'fig_selection.pdf'] 
+tables: ['tab_baselines.tex', 'tab_leaderboard.tex', 'tab_lodo.tex', 'tab_probes.tex', 'tab_selected.tex']
+[em_only] BT ranking: claude-opus-5=1, claude-sonnet-5=5, deepseek-chat=8, deepseek-r1=7, gemini-3.8-flash=2, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=4, llama-3.3-70b=10
+[native] BT ranking: claude-opus-5=3, claude-sonnet-5=5, deepseek-chat=7, deepseek-r1=6, gemini-3.8-flash=1, gpt-5.4-mini=8, gpt-5.5=2, gpt-oss-120b=9, grok-4=4, llama-3.3-70b=10
+[ensemble] BT ranking: claude-opus-5=2, claude-sonnet-5=4, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=5, llama-3.3-70b=10
+[top1] BT ranking: claude-opus-5=2, claude-sonnet-5=4, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=5, llama-3.3-70b=10
+[top2] BT ranking: claude-opus-5=2, claude-sonnet-5=4, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=5, llama-3.3-70b=10
+[top3] BT ranking: claude-opus-5=2, claude-sonnet-5=4, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=5, llama-3.3-70b=10
+[top4] BT ranking: claude-opus-5=2, claude-sonnet-5=4, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=5, llama-3.3-70b=10
+[top5] BT ranking: claude-opus-5=2, claude-sonnet-5=4, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=5, llama-3.3-70b=10
+                   best_J_mean  best_J_sd  regret_mean  regret_max  min_pairwise_L1  discrepancy  zero_share
+design                                                                                                      
+dirichlet_lattice       0.9342     0.0004       0.0007      0.0014             0.04       0.2728      0.0615
+lhs_simplex             0.9340     0.0003       0.0008      0.0015             0.04       0.2702      0.0555
+uniform_lattice         0.9342     0.0003       0.0007      0.0014             0.04       0.2639      0.1115
+wrote /Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/v6_top30_significance/v5_metric_library/REPORT.md

@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\caption{Single-metric baselines vs.\ the calibrated ensemble under the same objective (higher is better except JS and wrong$\to$, the mean score given to wrong or abstaining answers).}
+\label{tab:baselines}
+
+\begin{tabular}{lrrrrrr}
+\toprule
+Metric & $\rho_{anchor}$ & AUC & JS$_\times$ & wrong$\to$ & $\tau_{native}$ & $J$ \\
+\midrule
+native\_style\_metric & 0.826 & 0.935 & 0.031 & 0.014 & 0.992 & 0.925 \\
+em\_norm & 0.849 & 0.963 & 0.024 & 0.012 & 0.924 & 0.928 \\
+tok\_f1 & 0.859 & 0.965 & 0.079 & 0.032 & 0.888 & 0.907 \\
+rouge\_l & 0.862 & 0.965 & 0.082 & 0.032 & 0.892 & 0.907 \\
+num\_tol\_1 & 0.806 & 0.919 & 0.032 & 0.016 & 0.946 & 0.909 \\
+uniform\_over\_selected\_no\_gate & 0.882 & 0.970 & 0.098 & 0.028 & 0.900 & 0.911 \\
+ensemble\_top100 & 0.904 & 0.996 & 0.053 & 0.032 & 0.898 & 0.934 \\
+\bottomrule
+\end{tabular}
+
+\end{table*}

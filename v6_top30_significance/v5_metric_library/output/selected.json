@@ -1,0 +1,52 @@
+{
+  "anchor": "synthetic anchors (31380 answers, 20 operators)",
+  "n_metrics": 100,
+  "n_constant": 10,
+  "n_representatives": 45,
+  "n_candidates": 28,
+  "selected": [
+    "tok_f1",
+    "num_decay_2p5",
+    "prefix_ratio"
+  ],
+  "selected_idx": [
+    33,
+    24,
+    51
+  ],
+  "nnls_weights": {
+    "tok_f1": 0.5610768920589378,
+    "num_decay_2p5": 0.325330660908859,
+    "prefix_ratio": 0.1135924470322032
+  },
+  "trace": [
+    {
+      "step": 1,
+      "added": "tok_f1",
+      "lodo_rho": 0.845547255854459,
+      "gain": 1.845547255854459
+    },
+    {
+      "step": 2,
+      "added": "num_decay_2p5",
+      "lodo_rho": 0.8685318183912322,
+      "gain": 0.022984562536773168
+    },
+    {
+      "step": 3,
+      "added": "prefix_ratio",
+      "lodo_rho": 0.8747857756977018,
+      "gain": 0.006253957306469604
+    },
+    {
+      "step": 4,
+      "added": "em_raw",
+      "lodo_rho": 0.8767165081606304,
+      "gain": 0.0019307324629286304,
+      "stopped": true
+    }
+  ],
+  "lodo_rho_selected": 0.8747857756977018,
+  "lodo_rho_native_only": 0.8135729328209312,
+  "lodo_rho_em_only": 0.8305777663339681
+}

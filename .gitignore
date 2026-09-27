@@ -17,3 +17,12 @@ wheels/
 paper/*.aux
 paper/*.log
 data/cache/
+
+# raw dataset downloads (BIRD 1.4 GB, RealHiTBench, OfficeQA corpus) are never pushed
+**/data/raw/
+v6_top30_significance/data/raw
+
+# raw downloads live once at the repo root; every version links to it
+data_raw/
+FINAL_v2/data/raw
+other_older_versions/v5_metric_library_anchor_ensemble/data/raw

@@ -1,0 +1,38 @@
+{
+  "dirichlet_lattice": {
+    "best_J_mean": 0.432,
+    "best_J_sd": 0.003,
+    "best_J_max": 0.4391,
+    "mean_J": 0.4153,
+    "regret_mean": 0.01,
+    "regret_max": 0.0138,
+    "min_pairwise_L1": 0.195,
+    "mean_nearest_L1": 0.4027,
+    "discrepancy": 2.6738,
+    "zero_share": 0.882
+  },
+  "lhs_simplex": {
+    "best_J_mean": 0.4313,
+    "best_J_sd": 0.0022,
+    "best_J_max": 0.4373,
+    "mean_J": 0.4151,
+    "regret_mean": 0.0107,
+    "regret_max": 0.0141,
+    "min_pairwise_L1": 0.215,
+    "mean_nearest_L1": 0.4096,
+    "discrepancy": 2.6718,
+    "zero_share": 0.878
+  },
+  "uniform_lattice": {
+    "best_J_mean": 0.4343,
+    "best_J_sd": 0.0033,
+    "best_J_max": 0.442,
+    "mean_J": 0.4155,
+    "regret_mean": 0.0077,
+    "regret_max": 0.0129,
+    "min_pairwise_L1": 0.235,
+    "mean_nearest_L1": 0.465,
+    "discrepancy": 2.5904,
+    "zero_share": 0.9705
+  }
+}

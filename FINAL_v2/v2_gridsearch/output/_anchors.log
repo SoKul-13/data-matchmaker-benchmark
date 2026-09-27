@@ -1,0 +1,105 @@
+[abt_buy] 700 anchors
+[alaska_camera] 700 anchors
+[alaska_schema] 1023 anchors
+[amazon_google] 700 anchors
+[bird] 1300 anchors
+[dblp_acm] 700 anchors
+[dblp_scholar] 700 anchors
+[fetaqa] 1000 anchors
+[fintagging] 1100 anchors
+[hitab] 1356 anchors
+[machamp] 700 anchors
+[magneto_gdc] 1100 anchors
+[mmtu] 1028 anchors
+[officeqa] 1456 anchors
+[officeqa_pro_v2] 1258 anchors
+[opensanctions_pairs] 700 anchors
+[papadakis_dn] 700 anchors
+[realhitbench] 1296 anchors
+[smat] 1100 anchors
+[suc] 1136 anchors
+[tab_fact] 700 anchors
+[tabis] 1100 anchors
+[tablebench] 1308 anchors
+[tableeval] 1299 anchors
+[tat_qa] 1332 anchors
+[tpcdi_cells] 1400 anchors
+[valentine] 1100 anchors
+[walmart_amazon] 700 anchors
+[wdc_lspc] 700 anchors
+[wdc_products] 700 anchors
+[wikitablequestions] 1288 anchors
+{
+ "v1": {
+  "weights": {
+   "f1": 0.35,
+   "decay": 0.35,
+   "precision": 0.15,
+   "recall": 0.15
+  },
+  "J": 0.4033991812246881,
+  "rho": 0.8776549646444126,
+  "rho_ds": 0.8681092778662628,
+  "auc": 0.9939748961497813,
+  "wrong_mean": 0.03375782336595383,
+  "hedge_gap": -0.5064842532639455,
+  "rank_by_J": 724,
+  "rank_by_rho": 370
+ },
+ "best_J": {
+  "weights": {
+   "f1": 0.15,
+   "decay": 0.6,
+   "precision": 0.2,
+   "recall": 0.05
+  },
+  "J": 0.4233107249331932,
+  "rho": 0.8765359144859833,
+  "rho_ds": 0.8663136240860204,
+  "auc": 0.9941778292229346,
+  "wrong_mean": 0.03620233206867604,
+  "hedge_gap": -0.5607980833369569,
+  "rank_by_J": 1,
+  "rank_by_rho": 682
+ },
+ "best_rho": {
+  "weights": {
+   "f1": 0.0,
+   "decay": 0.35,
+   "precision": 0.6,
+   "recall": 0.05
+  },
+  "J": 0.407523915193129,
+  "rho": 0.8825809874075433,
+  "rho_ds": 0.8714501313431804,
+  "auc": 0.9939781583890014,
+  "wrong_mean": 0.03410454500470568,
+  "hedge_gap": -0.5725666525350093,
+  "rank_by_J": 369,
+  "rank_by_rho": 1
+ },
+ "pareto_knee": {
+  "weights": {
+   "f1": 0.15,
+   "decay": 0.6,
+   "precision": 0.2,
+   "recall": 0.05
+  },
+  "J": 0.4233107249331932,
+  "rho": 0.8765359144859833,
+  "rho_ds": 0.8663136240860204,
+  "auc": 0.9941778292229346,
+  "wrong_mean": 0.03620233206867604,
+  "hedge_gap": -0.5607980833369569,
+  "rank_by_J": 1,
+  "rank_by_rho": 682
+ },
+ "exact_match": {
+  "rho": 0.8280950674676447,
+  "rho_ds": 0.8301721896776463,
+  "auc": 0.9887643100949755,
+  "wrong_mean": 0.011440107671601614,
+  "hedge_gap": -0.8070177237212726
+ },
+ "spearman_J_vs_rho_across_grid": 0.3772092041443048
+}

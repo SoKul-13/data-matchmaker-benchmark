@@ -1,0 +1,30 @@
+{
+  "splits": 20,
+  "inner_resamples": 8,
+  "J_A_selected_mean": 0.9353406327359515,
+  "J_B_selected_mean": 0.9032693304540407,
+  "optimism_gap": 0.03207130228191067,
+  "J_B_pure_bt_mean": 0.8789894992504195,
+  "J_B_uniform_mean": 0.9165527184201594,
+  "J_B_full_best_mean": 0.9131810530201049,
+  "selected_minus_pure_bt": {
+    "mean": 0.02427983120362126,
+    "ci95": [
+      -0.03387181157278865,
+      0.11109314599900576
+    ],
+    "share_selected_ahead": 0.7
+  },
+  "selection_counts": {
+    "subset_00010001": 1,
+    "subset_00011010": 1,
+    "lattice_041": 1,
+    "subset_10010101": 1,
+    "subset_00010010": 1,
+    "subset_00001000": 1,
+    "subset_00100000": 1,
+    "subset_00000101": 1,
+    "lattice_075": 1,
+    "subset_10110111": 1
+  }
+}

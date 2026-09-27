@@ -1,0 +1,22 @@
+[
+  {
+    "dataset": "wdc_lspc",
+    "tier": 1,
+    "loaded": 152,
+    "pool": 150,
+    "real": 100,
+    "types": {
+      "boolean": 150
+    }
+  },
+  {
+    "dataset": "machamp",
+    "tier": 1,
+    "loaded": 154,
+    "pool": 150,
+    "real": 100,
+    "types": {
+      "boolean": 150
+    }
+  }
+]

@@ -1,0 +1,126 @@
+19:53:52 models=['claude-haiku-4.5', 'gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gpt-4.1-mini', 'gpt-5-mini', 'gpt-5.4-mini', 'grok-4-fast', 'local-vllm', 'claude-sonnet-5', 'gemini-3.8-flash', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5', 'grok-4'] items=280 budget=$45.0
+19:53:52 dry-run: ~130416 prompt tokens per model x 14 models
+19:54:36 models=['claude-haiku-4.5', 'gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gpt-4.1-mini', 'gpt-5-mini', 'gpt-5.4-mini', 'claude-sonnet-5', 'gemini-3.8-flash', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5'] items=280 budget=$45.0
+19:54:36 dry-run: ~130416 prompt tokens per model x 11 models
+19:59:14 models=['claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5'] items=280 budget=$60.0
+19:59:14 dry-run: ~130416 prompt tokens per model x 6 models
+17:01:30 models=['claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5'] items=1390 budget=$60.0
+17:01:30 dry-run: ~603846 prompt tokens per model x 6 models
+17:11:14 models=['claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5'] items=1330 budget=$60.0
+17:11:14 dry-run: ~377134 prompt tokens per model x 6 models
+20:30:25 models=['claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5'] items=1330 budget=$60.0
+20:30:25 dry-run: ~377134 prompt tokens per model x 6 models
+00:05:26 models=['claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5'] items=14 budget=$60.0
+00:05:26 dry-run: ~4739 prompt tokens per model x 6 models
+18:49:01 models=['deepseek-chat', 'deepseek-r1', 'gpt-oss-120b', 'llama-3.3-70b', 'claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'mistral-medium', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5'] items=3083 budget=$60.0
+18:49:01 dry-run: ~1145488 prompt tokens per model x 11 models
+14:46:09 models=['deepseek-chat', 'deepseek-r1', 'gpt-oss-120b', 'llama-3.3-70b', 'claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5', 'grok-4'] items=3083 budget=$160.0
+14:46:09 [deepseek-chat] cached=0 todo=3083
+15:37:38 [deepseek-chat] done ok=3083 err=0 in 3089s | run spend so far $0.62 (in=1674731 out=154804 tokens)
+15:37:38 [deepseek-r1] cached=0 todo=3083
+15:47:04 models=['deepseek-chat', 'deepseek-r1', 'gpt-oss-120b', 'llama-3.3-70b', 'claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5', 'grok-4'] items=3083 budget=$160.0
+15:47:04 [deepseek-chat] cached=3083 todo=0
+15:47:04 [deepseek-r1] cached=555 todo=2528
+15:53:29 [deepseek-r1] done ok=2528 err=0 in 385s | run spend so far $2.36 (in=1515132 out=698057 tokens)
+15:53:29 [gpt-oss-120b] cached=0 todo=3083
+15:57:45 models=['deepseek-chat', 'deepseek-r1', 'gpt-oss-120b', 'llama-3.3-70b', 'claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5', 'grok-4'] items=3083 budget=$160.0
+15:57:45 [deepseek-chat] cached=3083 todo=0
+15:57:45 [deepseek-r1] cached=3083 todo=0
+15:57:45 [gpt-oss-120b] cached=79 todo=3004
+16:17:46 [gpt-oss-120b] done ok=3004 err=0 in 1201s | run spend so far $0.66 (in=1828326 out=637760 tokens)
+16:17:46 [llama-3.3-70b] cached=0 todo=3083
+16:23:31 models=['deepseek-chat', 'deepseek-r1', 'gpt-oss-120b', 'llama-3.3-70b', 'claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5', 'grok-4'] items=3083 budget=$160.0
+16:23:31 [deepseek-chat] cached=3083 todo=0
+16:23:31 [deepseek-r1] cached=3083 todo=0
+16:23:31 [gpt-oss-120b] cached=3083 todo=0
+16:23:31 [llama-3.3-70b] cached=281 todo=2802
+16:34:35 [llama-3.3-70b] done ok=2802 err=0 in 663s | run spend so far $1.63 (in=1616814 out=239603 tokens)
+16:34:35 [claude-sonnet-5] cached=400 todo=2883
+16:48:43 [claude-sonnet-5] done ok=2883 err=0 in 849s | run spend so far $11.91 (in=3930731 out=462157 tokens)
+16:48:43 [gemini-3.8-flash] cached=0 todo=3083
+16:53:53 models=['deepseek-chat', 'deepseek-r1', 'gpt-oss-120b', 'llama-3.3-70b', 'claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5', 'grok-4'] items=3083 budget=$160.0
+16:53:54 [deepseek-chat] cached=3083 todo=0
+16:53:54 [deepseek-r1] cached=3083 todo=0
+16:53:54 [gpt-oss-120b] cached=3083 todo=0
+16:53:54 [llama-3.3-70b] cached=3083 todo=0
+16:53:54 [claude-sonnet-5] cached=3283 todo=0
+16:53:54 [gemini-3.8-flash] cached=1152 todo=1931
+16:58:10 [gemini-3.8-flash] done ok=1931 err=0 in 256s | run spend so far $1.91 (in=1322499 out=416755 tokens)
+16:58:10 [gpt-5.4-mini] cached=400 todo=2883
+17:34:09 models=['deepseek-chat', 'deepseek-r1', 'gpt-oss-120b', 'llama-3.3-70b', 'claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5', 'grok-4'] items=3083 budget=$160.0
+17:34:09 [deepseek-chat] cached=3083 todo=0
+17:34:09 [deepseek-r1] cached=3083 todo=0
+17:34:09 [gpt-oss-120b] cached=3083 todo=0
+17:34:09 [llama-3.3-70b] cached=3083 todo=0
+17:34:09 [claude-sonnet-5] cached=3283 todo=0
+17:34:09 [gemini-3.8-flash] cached=3083 todo=0
+17:34:09 [gpt-5.4-mini] cached=1195 todo=2088
+17:46:13 [gpt-5.4-mini] done ok=2088 err=0 in 724s | run spend so far $2.67 (in=1266151 out=233264 tokens)
+17:46:13 [claude-opus-5] cached=400 todo=2883
+18:01:31 models=['deepseek-chat', 'deepseek-r1', 'gpt-oss-120b', 'llama-3.3-70b', 'claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gemini-3.1-pro', 'gpt-5.5', 'grok-4'] items=3083 budget=$160.0
+18:01:31 [deepseek-chat] cached=3083 todo=0
+18:01:31 [deepseek-r1] cached=3083 todo=0
+18:01:31 [gpt-oss-120b] cached=3083 todo=0
+18:01:31 [llama-3.3-70b] cached=3083 todo=0
+18:01:31 [claude-sonnet-5] cached=3283 todo=0
+18:01:31 [gemini-3.8-flash] cached=3083 todo=0
+18:01:31 [gpt-5.4-mini] cached=3283 todo=0
+18:01:31 [claude-opus-5] cached=1687 todo=1596
+18:10:55 [claude-opus-5] done ok=1596 err=0 in 564s | run spend so far $39.46 (in=1463013 out=233531 tokens)
+18:10:55 [gemini-3.1-pro] cached=0 todo=3083
+18:32:43 models=['gpt-5.5', 'grok-4'] items=3083 budget=$160.0
+18:32:43 [gpt-5.5] cached=400 todo=2883
+18:43:57 [gpt-5.5] done ok=2883 err=0 in 674s | run spend so far $15.84 (in=1557651 out=402592 tokens)
+18:43:57 [grok-4] cached=0 todo=3083
+19:06:07 [grok-4] done ok=3083 err=0 in 1330s | run spend so far $24.17 (in=3764704 out=516511 tokens)
+19:06:07 TOTAL estimated spend this run: $24.17
+19:06:08 models=['gemini-3.1-pro'] items=3083 budget=$160.0
+19:06:08 [gemini-3.1-pro] cached=251 todo=2832
+20:12:19 models=['deepseek-chat', 'deepseek-r1', 'gpt-oss-120b', 'llama-3.3-70b', 'claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gpt-5.5', 'grok-4'] items=3083 budget=$160.0
+20:12:19 [deepseek-chat] cached=3066 todo=17
+20:12:40 [deepseek-chat] done ok=17 err=0 in 21s | run spend so far $0.02 (in=20902 out=14540 tokens)
+20:12:40 [deepseek-r1] cached=2496 todo=587
+20:20:31 [deepseek-r1] done ok=587 err=0 in 471s | run spend so far $2.83 (in=483633 out=1182181 tokens)
+20:20:31 [gpt-oss-120b] cached=2950 todo=133
+20:25:37 [gpt-oss-120b] done ok=133 err=0 in 305s | run spend so far $2.95 (in=663708 out=1332521 tokens)
+20:25:37 [llama-3.3-70b] cached=3067 todo=16
+20:38:25 models=['llama-3.3-70b', 'claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gpt-5.5'] items=3083 budget=$160.0
+20:38:25 [llama-3.3-70b] cached=3082 todo=1
+20:39:09 [llama-3.3-70b] done ok=1 err=0 in 44s | run spend so far $0.00 (in=1104 out=865 tokens)
+20:39:09 [claude-sonnet-5] cached=3158 todo=124
+20:44:45 [claude-sonnet-5] done ok=124 err=0 in 336s | run spend so far $3.46 (in=171342 out=197628 tokens)
+20:44:45 [gemini-3.8-flash] cached=2899 todo=184
+20:46:14 [gemini-3.8-flash] done ok=184 err=0 in 89s | run spend so far $4.43 (in=297406 out=497167 tokens)
+20:46:14 [gpt-5.4-mini] cached=3151 todo=131
+21:09:06 models=['claude-opus-5'] items=3083 budget=$160.0
+21:09:06 [claude-opus-5] cached=3087 todo=195
+21:17:30 [claude-opus-5] done ok=195 err=0 in 504s | run spend so far $27.28 (in=253417 out=312988 tokens)
+21:17:30 TOTAL estimated spend this run: $27.28
+22:59:22 models=['claude-sonnet-5', 'claude-opus-5'] items=3083 budget=$160.0
+22:59:22 [claude-sonnet-5] cached=3282 todo=0
+22:59:22 [claude-opus-5] cached=3282 todo=0
+22:59:22 TOTAL estimated spend this run: $0.00
+23:52:16 models=['gpt-5.4-mini', 'gpt-5.5'] items=3083 budget=$160.0
+23:52:16 [gpt-5.4-mini] cached=3151 todo=131
+23:53:45 [gpt-5.4-mini] done ok=131 err=0 in 89s | run spend so far $1.03 (in=153836 out=145323 tokens)
+23:53:45 [gpt-5.5] cached=3130 todo=153
+23:57:50 [gpt-5.5] done ok=153 err=0 in 245s | run spend so far $5.79 (in=310973 out=344105 tokens)
+23:57:50 TOTAL estimated spend this run: $5.79
+12:10:58 models=['deepseek-chat', 'deepseek-r1', 'gpt-oss-120b', 'claude-sonnet-5', 'gemini-3.8-flash', 'gpt-5.4-mini', 'claude-opus-5', 'gpt-5.5'] items=3083 budget=$160.0
+12:10:58 [deepseek-chat] cached=3082 todo=1
+12:11:06 [deepseek-chat] done ok=1 err=0 in 7s | run spend so far $0.00 (in=2254 out=1448 tokens)
+12:11:06 [deepseek-r1] cached=2758 todo=325
+12:23:27 [deepseek-r1] done ok=325 err=0 in 741s | run spend so far $4.64 (in=270099 out=2051805 tokens)
+12:23:27 [gpt-oss-120b] cached=3070 todo=13
+12:25:02 [gpt-oss-120b] done ok=13 err=0 in 95s | run spend so far $4.67 (in=299352 out=2097489 tokens)
+12:25:02 [claude-sonnet-5] cached=3236 todo=46
+12:30:56 [claude-sonnet-5] done ok=46 err=0 in 354s | run spend so far $8.04 (in=383892 out=2305085 tokens)
+12:30:56 [gemini-3.8-flash] cached=3065 todo=18
+12:31:19 [gemini-3.8-flash] done ok=18 err=0 in 23s | run spend so far $8.18 (in=397335 out=2349968 tokens)
+12:31:19 [gpt-5.4-mini] cached=3278 todo=4
+12:31:41 [gpt-5.4-mini] done ok=4 err=0 in 22s | run spend so far $8.26 (in=409130 out=2362024 tokens)
+12:31:41 [claude-opus-5] cached=3231 todo=51
+12:38:39 [claude-opus-5] done ok=51 err=0 in 418s | run spend so far $28.33 (in=490685 out=2613245 tokens)
+12:38:39 [gpt-5.5] cached=3280 todo=3
+12:39:22 [gpt-5.5] done ok=3 err=0 in 43s | run spend so far $28.44 (in=491277 out=2618823 tokens)
+12:39:22 TOTAL estimated spend this run: $28.44

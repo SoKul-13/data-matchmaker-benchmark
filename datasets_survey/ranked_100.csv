@@ -1,0 +1,101 @@
+rank,name,family,cov,domain,answer_type,year,licence,download,R,A,G,D,C,I,L,importance,note
+1,Magneto GDC-SM,DI,DI-schema/join,biomedical schema harmonisation,column mapping,2025,CC BY 4.0,zenodo 14963587,5,3,5,5,5,3,5,90.0,real harmonisation; many-to-one; value vocab
+2,MMTU,TQA,TQA-general,52 datasets 25 data-management tasks,mixed,2025,MIT,HF MMTU-benchmark/MMTU,5,4,5,5,4,2,5,89.0,omnibus incl. schema/entity subtasks; GPT-5 0.70
+3,Valentine,DI,DI-schema/join,schema matching (TPC-DI OpenData ChEMBL),column pairs,2021,Apache-2.0 code,github delftdata/valentine,5,5,5,4,5,2,4,89.0,de-facto schema-matching benchmark for LLM papers
+4,WDC Products 2024 (hard negatives),EM,EM-products,products web,boolean,2024,unstated,webdatacommons; HF willcb/wdc-products-multi,5,5,4,5,5,2,3,87.0,best-designed modern product EM; hard negatives; LLM F1 ~0.9
+5,HiTab,TQA,TQA-hierarchical/multi,statistical reports hierarchical,span/number,2022,C-UDA 1.0,github microsoft/HiTab,5,5,4,4,4,3,4,86.0,best real statistical tables; hierarchy
+6,Machamp (7 GEM tasks),EM,EM-products,products bib restaurants books movies,boolean,2021,BSD-3 / CC terms,github megagonlabs/machamp; HF matchbench,5,4,5,4,4,3,4,86.0,schema-heterogeneous matching (struct vs text)
+7,Abt-Buy,EM,EM-products,products textual,boolean,2010/2018,CC BY 4.0,Leipzig; deepmatcher,5,5,3,4,5,2,5,85.0,canonical textual EM; not saturated
+8,Amazon-Google,EM,EM-products,software products,boolean,2010/2018,CC BY 4.0,Leipzig; deepmatcher,5,5,3,4,5,2,5,85.0,canonical; PLM F1 ~0.75
+9,Walmart-Amazon (+dirty),EM,EM-products,electronics,boolean,2018,academic (Magellan),deepmatcher,5,5,3,4,5,2,4,83.0,standard product task with headroom
+10,DBLP-Scholar (+dirty),EM,EM-bibliographic,bibliographic,boolean,2010/2018,CC BY 4.0,Leipzig; deepmatcher,5,5,3,3,5,2,5,82.0,canonical bibliographic
+11,Papadakis-Christen Dn1-Dn8,EM,EM-other,products bibliographic movies,boolean,2023,unstated (Zenodo),zenodo 8164151,5,3,4,5,4,2,4,81.0,realistic imbalance; corrects saturation of classics
+12,RealHiTBench,TQA,TQA-hierarchical/multi,24 domains hierarchical,mixed,2025,CC BY-NC 4.0 data,HF spzy/RealHiTBench,5,3,5,5,3,3,2,80.0,purpose-built header-hierarchy matching
+13,FinTagging (FinNI+FinCL),DI,DI-schema/join,10-K XBRL concept linking,label/number,2025,unstated,HF TheFinAI/FinNI-eval FinCL-eval,5,2,5,5,4,2,3,79.0,taxonomy alignment; FinCL acc ~0.17
+14,SUC (Table Meets LLM),TQA,TQA-general,structural probes cell lookup,cell,2024,unstated,github microsoft/TableProvider,5,3,4,5,4,2,3,79.0,purest data-reading probe
+15,OfficeQA Pro V2,FIN,FIN-document,Receipts/Outlays 1793-2024 multi-doc,numeric,2026,CC BY-SA gated,HF databricks/officeqa-pro-v2,5,3,5,5,4,2,1,78.0,cross-document reconciliation; gated; 90 Qs
+16,Alaska Camera (SIGMOD 2020),EM,EM-products,camera specs 24 sources,cluster/boolean,2020,MIT,github merialdo/research.alaska,5,3,4,4,3,2,5,78.0,schema-agnostic messy web specs; SM + ER gold
+17,Alaska schema-matching GT,DI,DI-schema/join,product attribute mapping (687-1026 mappings),column pairs,2020,MIT,github merialdo/research.alaska,5,3,4,4,3,2,5,78.0,thousands of heterogeneous attribute names
+18,WikiTableQuestions,TQA,TQA-general,Wikipedia tables,short/number/list,2015,CC BY-SA 4.0,HF stanfordnlp/wikitablequestions,4,5,3,4,4,2,5,78.0,canonical single-table QA; typed evaluator; ~75 %
+19,TabIS,TQA,TQA-general,information seeking with distractor tables,binary choice,2024,unstated,github coszero/TabIS,5,2,4,5,4,2,3,76.0,hard negatives across tables
+20,SMAT (MIMIC Synthea CMS to OMOP),DI,DI-schema/join,healthcare schema matching,column pairs,2021,unstated,github JZCS2018/SMAT,5,3,4,4,3,3,3,76.0,real healthcare schemas
+21,OpenSanctions Pairs,EM,EM-people/org,people and organisations 45 jurisdictions,boolean,2026,CC BY-NC 4.0,HF sanctions-er-anon/opensanctions_pairs,5,2,5,2,5,5,2,76.0,only large real person/org set; multilingual names; near ceiling
+22,TableBench,TQA,TQA-general,mixed analysis+viz,number/text/code,2025,Apache-2.0,HF Multilingual-Multimodal-NLP/TableBench,4,4,4,4,3,2,5,76.0,hard TableQA leaderboard
+23,TableEval,TQA,TQA-freeform,zh/en nested spreadsheets,free-form,2025,Apache-2.0,HF wenge-research/TableEval,4,2,4,4,3,5,5,76.0,multilingual realistic spreadsheets
+24,Jellyfish DP tasks (ED DI SM EM),DI,DI-other,mixed data preprocessing,boolean/value,2024,CC BY 4.0,HF NECOUDBFM/Jellyfish-Instruct,4,4,4,3,4,2,5,75.0,LLM-era DP suite in one format
+25,TAT-QA,TQA,TQA-financial,financial hybrid,span/multi-span/number/count,2021,CC BY 4.0,HF next-tat/TAT-QA,4,5,3,3,4,2,5,75.0,mixed answer types; scale handling
+26,SciTab,TQA,TQA-verification,paper tables claims,3-way,2023,unstated,github XinyuanLu00/SciTab,4,3,4,5,4,2,3,74.0,expert numeric claims
+27,SOTAB V2,DI,DI-schema/join,Schema.org web tables CTA/CPA,label,2023,unstated,webdatacommons sotab v2,4,4,4,4,4,2,3,74.0,format-heterogeneity splits
+28,SemTab 2025 (MammoTab Secu-table),DI,DI-annotation,cell entity/column type annotation,label,2025,unstated,sem-tab-challenge.github.io,4,4,4,4,4,2,3,74.0,canonical STI venue; NIL cells
+29,TPC-DI (cell-level task),DI,DI-schema/join,brokerage ETL join+aggregate,numeric/list,2014,CC BY-NC-ND spec,tpc.org; v1 jan15_tasks,5,3,4,3,5,2,2,73.0,the benchmark's own task; mapping spec is gold
+30,BIRD,TQA,TQA-sql,95 SQL DBs dirty values,SQL,2023,CC BY-SA 4.0,bird-bench.github.io,3,5,3,4,4,2,5,73.0,value-grounded SQL; 82 vs 93 human
+31,Spider 2.0,TQA,TQA-sql,enterprise SQL 3000+ columns,SQL/result,2025,MIT,github xlang-ai/Spider2,3,4,4,4,4,2,5,73.0,schema-scale; agent-dominated
+32,Auto-Join,DI,DI-schema/join,join-key transformations,join result,2017,MSR research licence,github Yeye-He/Auto-Join,5,3,4,4,3,2,2,72.0,join-key reconciliation; 31 cases
+33,WDC LSPC / Products-2017,EM,EM-products,products 4 categories,boolean,2019,Common Crawl terms,HF wdc/products-2017,5,4,2,3,4,2,4,72.0,standard web-product benchmark; superseded by WDC 2024
+34,RobuT,TQA,TQA-general,perturbed WTQ/WikiSQL/SQA,short/cell,2023,unstated,github yilunzhao/RobuT,4,3,4,4,4,2,3,71.0,reading robustness
+35,TabFact,TQA,TQA-verification,Wikipedia tables boolean,boolean,2020,CC BY 4.0,tabfact.github.io,4,5,2,2,5,2,5,71.0,boolean table anchor; ~90 %
+36,FeTaQA,TQA,TQA-freeform,Wikipedia free-form,sentence,2022,CC BY-SA 4.0,github Yale-LILY/FeTaQA,3,5,4,3,3,2,5,71.0,the free-form anchor
+37,AIT-QA,TQA,TQA-hierarchical/multi,airline 10-K hierarchical,cell value,2022,unstated,github IBM/AITQA,5,3,3,3,4,2,3,70.0,pure cell-location on SEC tables; small
+38,DBLP-ACM (+dirty),EM,EM-bibliographic,bibliographic,boolean,2010/2018,CC BY 4.0,Leipzig; deepmatcher,5,5,1,1,5,2,5,70.0,near solved; sanity check
+39,FinanceBench (150 open),FIN,FIN-document,10-K/10-Q with evidence,numeric/text/free-form,2023,CC BY-NC 4.0,HF PatronusAI/financebench,4,5,3,4,3,2,2,70.0,canonical but 150 rows and NC
+40,MultiHiertt,TQA,TQA-hierarchical/multi,multi-table financial,number/span,2022,MIT,Google Drive,4,4,4,4,3,2,2,70.0,multi-table hierarchy; Drive-only
+41,FinQA,TQA,TQA-financial,SEC 10-K table+text,number,2021,MIT,github czyssrs/FinQA,4,5,2,3,3,2,5,70.0,canonical numeric reasoning; label noise; contaminated
+42,OAEI 2025 ontology tracks,DI,DI-other,ontology alignment,alignment,annual,mostly open,oaei.ontologymatching.org,3,5,3,3,4,4,3,70.0,20-year canon; ontology-centric
+43,BizBench (SEC-Num etc.),FIN,FIN-document,finance program QA + quantity extraction,number,2024,Apache-2.0,HF kensho/bizbench,4,3,3,3,4,2,5,69.0,SEC-Num extraction subtask
+44,MusicBrainz 20K,EM,EM-other,music multi-source,cluster,2017,CC BY 4.0,Leipzig,4,3,3,3,3,3,5,69.0,multi-source clustering; synthetic corruptions
+45,MiMoTable,TQA,TQA-hierarchical/multi,zh/en multi-sheet,mixed,2025,unstated,not located,4,2,4,4,3,5,1,68.0,multi-sheet; download unverified
+46,TyDi QA GoldP,ANC,ANC-multilingual,11 languages natural questions,span/yes-no/null,2020,Apache 2.0,HF google-research-datasets/tydiqa,2,4,3,3,4,5,5,68.0,non-translated multilingual
+47,MMQA (multi-table PK/FK),TQA,TQA-sql,Spider-derived multi-table,answer+SQL+keys,2025,unstated,repo not located,5,2,4,4,3,2,1,67.0,foreign-key discovery; unverified download
+48,OfficeQA Pro/Full,FIN,FIN-document,Treasury Bulletins 697 docs,numeric,2025,CC BY-SA gated,HF databricks/officeqa,4,3,3,5,4,2,1,67.0,long-doc numeric grounding; gated
+49,Alaska Monitor/Notebook,EM,EM-products,monitor and notebook specs,cluster,2020,MIT,github merialdo/research.alaska,4,3,2,4,3,2,5,67.0,as Alaska camera
+50,Cross-dataset EM study (11 sets LODO),EM,EM-other,mixed,boolean,2025,inherits,github Jantory/cross-dataset-em-study,4,3,3,3,4,2,4,67.0,protocol for zero-shot LLM EM
+51,FEVEROUS,TQA,TQA-verification,text+table claims with evidence cells,3-way+cells,2021,CC BY-SA 3.0,HF fever/feverous,3,4,3,3,4,2,5,67.0,evidence-cell retrieval
+52,Raha/Baran error detection collection,DI,DI-cleaning,hospital flights beers rayyan tax,cell label,2019,Apache-2.0,github BigDaMa/raha,3,4,3,3,4,2,5,67.0,de-facto error-detection benchmark
+53,DROP,ANC,ANC-numeric,typed numeric/date/span,number/date/spans,2019,CC BY-SA 4.0,HF ucinlp/drop,2,5,3,3,5,2,5,67.0,typed official evaluator
+54,OpenEA (DBP15K DWY100K),EM,EM-other,KG entity alignment cross-lingual,alignment,2020,GPL-3.0,github nju-websoft/OpenEA,2,5,3,3,4,5,3,67.0,KG alignment not tabular
+55,MGSM,ANC,ANC-numeric,multilingual numeric 11 langs,number,2022,CC BY-SA 4.0,HF juletxara/mgsm,2,4,3,2,5,5,5,67.0,locale number formats
+56,HybridQA,TQA,TQA-general,table+linked passages,short span,2020,unstated,github wenhuchen/HybridQA,3,5,3,3,4,2,3,66.0,cell to passage joining
+57,WMT MQM,META,META,segment-level MQM,scores,2021-24,Apache 2.0,github google/wmt-mqm-human-evaluation,1,5,3,3,5,4,5,66.0,gold-standard human labels
+58,Beer (BeerAdvo-RateBeer),EM,EM-other,beverages,boolean,2018,Magellan,deepmatcher,4,4,2,3,3,2,4,65.0,low-resource probe
+59,Company,EM,EM-other,companies long text,boolean,2018,Magellan,deepmatcher,4,3,3,3,3,2,4,65.0,only long-text EM
+60,DocFinQA,TQA,TQA-financial,full 10-K long context,number,2024,MIT,HF kensho/DocFinQA,3,3,3,4,3,2,5,65.0,123k-word contexts; costly
+61,DocMath-Eval,FIN,FIN-document,long financial docs with tables,number,2024,MIT (unv.),HF yale-nlp/DocMath-Eval,3,3,3,4,3,2,5,65.0,complong multi-table
+62,QAMPARI,ANC,ANC-list/table,list answers,entity list,2022,CC0,github samsam3232/qampari,2,3,4,4,4,2,5,65.0,cleanest list anchor
+63,North Carolina Voters 5M,EM,EM-people/org,people synthetic errors,cluster,2017,CC BY 4.0,Leipzig,4,3,3,2,3,2,5,64.0,only large person benchmark; synthetic
+64,iTunes-Amazon (+dirty),EM,EM-other,music,boolean,2018,Magellan,deepmatcher,4,4,2,2,4,2,4,64.0,small non-product task
+65,MultiTabQA,ANC,ANC-list/table,table-valued answers,table,2023,MIT,github kolk/MultiTabQA,3,2,4,3,4,2,5,64.0,only graded table-EM metric
+66,DataBench (SemEval 2025),TQA,TQA-general,real CSVs typed answers,bool/number/category/list,2025,MIT,HF cardiffnlp/databench,3,4,3,2,4,2,5,64.0,saturated with code
+67,SANTOS,DI,DI-discovery,open-data table union search,table set,2023,CC BY 4.0,zenodo 14151800,3,4,3,2,3,3,5,64.0,discovery; lexical baselines saturate
+68,VitaminC,ANC,ANC-boolean,contrastive claims small edits,3-way,2021,CC BY-SA 3.0,HF tals/vitaminc,2,3,4,3,5,2,5,64.0,numeric-edit sensitivity
+69,IMDB-TMDB/TVDB (MovieGraphBenchmark),EM,EM-other,movies,boolean,2021,MIT code; IMDB rebuilt,github ScaDS/MovieGraphBenchmark,4,3,3,3,3,2,3,63.0,non-product domain
+70,EMBer (multimodal EM),EM,EM-products,products text+images,boolean,2022,unstated,github tshu-w/ember,3,2,4,4,3,3,3,63.0,only multimodal EM
+71,Geographic Settlements,EM,EM-other,geographic multilingual names,cluster,2017,CC BY 4.0,Leipzig,3,2,3,3,3,4,5,63.0,small geo task
+72,FinAuditing,DI,DI-schema/join,multi-doc XBRL consistency,label,2025,unstated,github The-FinAI/FinAuditing,4,2,4,4,2,2,2,62.0,cross-statement linkage (unverified details)
+73,TempTabQA,TQA,TQA-general,infobox temporal,span/number,2023,unstated,zenodo 10022927,3,2,3,4,4,2,4,62.0,temporal arithmetic
+74,ConvFinQA,TQA,TQA-financial,conversational finance,number,2022,MIT,github czyssrs/ConvFinQA,3,4,2,3,3,2,5,62.0,dialogue chaining
+75,lm-dw / BIG-bench data wrangling,DI,DI-other,string wrangling by example,string,2022,unstated,github gonzalojaimovitch/lm-dw,3,3,3,3,4,3,3,62.0,format normalisation
+76,NarrativeQA,ANC,ANC-span/freeform,free-form with 2 references,short free-form,2018,Apache 2.0,HF deepmind/narrativeqa,2,4,3,3,4,2,5,62.0,paraphrase tolerance
+77,MLQA,ANC,ANC-multilingual,7 languages spans,span,2020,CC BY-SA 3.0,HF facebook/mlqa,2,4,2,2,4,5,5,62.0,per-language normalisation
+78,SummEval,META,META,human Likert on summaries,ratings,2021,MIT,github Yale-LILY/SummEval,1,5,3,3,5,2,5,62.0,validate scorer vs humans
+79,GitTables CTA,DI,DI-annotation,GitHub CSVs,label,2023,CC0 vs CC BY (conflict),zenodo 6517052,3,4,3,3,2,2,4,61.0,weak automatic labels
+80,InfoTabs,TQA,TQA-verification,infobox NLI,3-way,2020,Apache-2.0,github infotabs/infotabs,3,3,2,3,4,2,5,61.0,key-value reading
+81,TAT-DQA,FIN,FIN-document,financial PDF pages,span/number,2022,CC BY 4.0,HF next-tat/TAT-DQA,3,3,2,3,4,2,5,61.0,document-image variant
+82,T2Dv2,DI,DI-annotation,web tables to DBpedia,label,2016,Apache,webdatacommons,3,4,2,2,4,2,5,61.0,older canon; small
+83,FinanceMath,FIN,FIN-document,finance textbook numeric,float 3dp,2024,MIT,HF yale-nlp/FinanceMath,2,3,2,4,5,2,5,61.0,rounding convention; knowledge not documents
+84,ChartQA,FIN,FIN-document,charts,numeric/text,2022,GPL-3.0,HF ahmed-masry/ChartQA,2,5,3,3,4,2,3,61.0,reading values off charts; GPL
+85,EDGAR-CORPUS,FIN,FIN-document,220k 10-Ks raw,corpus,2021,Apache-2.0,HF eloukas/edgar-corpus,2,4,4,3,2,2,5,61.0,source for synthesising matching tasks
+86,SECQUE,FIN,FIN-document,SEC filings expert analysis,free-text,2025,CC BY 4.0,HF nogabenyoash/SecQue,3,2,3,4,2,2,5,60.0,cross-filing comparison; judged
+87,HoloClean datasets,DI,DI-cleaning,hospital flights food physicians,cell repair,2017,Apache-2.0 (unv.),github HoloClean/holoclean,3,4,2,3,3,2,4,60.0,canonical cleaning sets
+88,SQA,TQA,TQA-general,conversational cell selection,cell coordinates,2017,MSR licence,HF microsoft/msr_sqa,4,4,2,1,4,2,3,59.0,cell coordinates; easy
+89,TUS Small/Large,DI,DI-discovery,Canadian open data union search,table set,2018,unstated,zenodo 14151800,3,4,2,2,3,3,4,59.0,standard TUS; noisy GT
+90,MP-DocVQA,FIN,FIN-document,multi-page document images,span+page,2023,MIT,HF rubentito/mp-docvqa,2,3,3,3,4,2,5,59.0,page finding; vision
+91,JudgeBench,META,META,objective pairwise correctness,A>B,2025,MIT,HF ScalerLab/JudgeBench,1,3,3,4,5,2,5,59.0,objective judge labels
+92,LLMBar,META,META,adversarial pairwise,A>B,2024,MIT,HF princeton-nlp/LLMBar,1,3,3,4,5,2,5,59.0,superficial-quality traps
+93,TRUE,META,META,11 factuality sets unified,binary,2022,Apache 2.0,github google-research/true,1,4,3,3,5,2,5,59.0,binary + ROC-AUC protocol
+94,TURL WikiTables CTA/CPA,DI,DI-annotation,Wikipedia tables,label,2020,unstated,github sunlab-osu/TURL,3,4,2,3,3,2,3,58.0,long-tail types
+95,TriviaQA,ANC,ANC-span/freeform,entity with alias lists,entity,2017,unknown,HF mandarjoshi/trivia_qa,2,5,3,2,5,2,2,58.0,alias-list anchor
+96,BoolQ,ANC,ANC-boolean,yes/no with passage,boolean,2019,CC BY-SA 3.0,HF google/boolq,2,5,2,1,5,2,5,58.0,boolean anchor; saturated
+97,GSM8K (Platinum),ANC,ANC-numeric,grade-school numeric,number,2021,MIT,HF openai/gsm8k; gsm8k-platinum,2,5,2,1,5,2,5,58.0,clean numeric EM anchor; saturated
+98,SQuAD 2.0,ANC,ANC-span/freeform,extractive span + no-answer,span,2018,CC BY-SA 4.0,HF rajpurkar/squad_v2,2,5,2,1,5,2,5,58.0,EM/F1 script standard
+99,CRT-QA,TQA,TQA-general,WTQ with unanswerable,short/unanswerable,2023,unstated,HF ZhehaoZhang/CRT-QA,3,2,3,3,3,2,4,57.0,abstention probe
+100,PubHealthTab,TQA,TQA-verification,public-health web tables,3-way,2022,unstated,github mubasharaak/pubhealthtab,3,2,3,3,3,3,3,57.0,messy scraped tables

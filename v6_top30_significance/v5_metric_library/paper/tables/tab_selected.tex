@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\footnotesize
+\caption{Forward selection on the anchor set (synthetic anchors (31380 answers, 20 operators)); 45 cluster representatives of 100 metrics were candidates.}
+\label{tab:selected}
+
+\begin{tabular}{rlllr}
+\toprule
+Step & Added metric & Family & LODO $\rho$ & Gain \\
+\midrule
+1 & tok\_f1 & token & 0.846 & +1.846 \\
+2 & num\_decay\_2p5 & num\_graded & 0.869 & +0.023 \\
+3 & prefix\_ratio & char & 0.875 & +0.006 \\
+4 & em\_raw & em & 0.877 & +0.002 (stop) \\
+\bottomrule
+\end{tabular}
+
+\end{table*}

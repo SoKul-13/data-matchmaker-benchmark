@@ -1,0 +1,532 @@
+{
+  "abt_buy": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "alaska_camera": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "alaska_schema": {
+    "real_items": 93,
+    "answered_items": 93,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 93
+  },
+  "amazon_google": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "bird": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "dblp_acm": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "dblp_scholar": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "fetaqa": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "fintagging": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "hitab": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "machamp": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "magneto_gdc": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "mmtu": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "officeqa": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "officeqa_pro_v2": {
+    "real_items": 90,
+    "answered_items": 90,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 90
+  },
+  "opensanctions_pairs": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "papadakis_dn": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "realhitbench": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "smat": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "suc": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "tab_fact": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "tabis": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "tablebench": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "tableeval": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "tat_qa": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "tpcdi_cells": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "valentine": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "walmart_amazon": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "wdc_lspc": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "wdc_products": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "wikitablequestions": {
+    "real_items": 100,
+    "answered_items": 100,
+    "models_used": [
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "deepseek-chat",
+      "deepseek-r1",
+      "gemini-3.8-flash",
+      "gpt-5.4-mini",
+      "gpt-5.5",
+      "gpt-oss-120b",
+      "grok-4",
+      "llama-3.3-70b"
+    ],
+    "items_kept": 100
+  },
+  "_models_left_out": {
+    "gemini-3.1-pro": 0.082
+  }
+}

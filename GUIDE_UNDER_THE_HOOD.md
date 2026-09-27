@@ -34,7 +34,7 @@ Pooling per-dataset rankings σ_d into one:
 
 ---
 
-## 1. v1 — the original judge (`v1/`)
+## 1. v1 — the original judge (`other_older_versions/v1/`)
 
 **Grading rule.** For each answer, four ingredients in [0,1]:
 * token precision P = |tokens(p) ∩ tokens(g)| / |tokens(p)|; recall R = same / |tokens(g)|; F1 = 2PR/(P+R)
@@ -50,7 +50,7 @@ numbers instead of calling models. **Keep from v1:** the four ingredients are se
 
 ---
 
-## 2. v2 — grid search over v1's own weights (`v2_gridsearch_v1_rubric/`)
+## 2. v2 — grid search over v1's own weights (`other_older_versions/v2_gridsearch_v1_rubric/`)
 
 **Same ingredients, searched weights.** R_w = w₁·F1 + w₂·decay + w₃·P + w₄·R with w on the simplex Δ³ (w ≥ 0,
 Σw = 1). Candidates: v1's (0.35, 0.35, 0.15, 0.15), the four corners (one ingredient only), and 100 random points on
@@ -68,11 +68,11 @@ a bland metric satisfies too; with 4 models, no weighting is statistically bette
 
 ---
 
-## 3. v3 — aggregation methods from the literature (`v3_literature_aggregation/`)
+## 3. v3 — aggregation methods from the literature (`other_older_versions/v3_literature_aggregation/`)
 
 **Different question: keep each dataset's own metric, and ask how to combine datasets.** s(m,d,i) is the native
 metric (yes/no accuracy, exact match, 1 % numeric tolerance, ROUGE-L). Eight *views* map the table S_md to one
-number per model, each from a published paper (formulas in `v3_literature_aggregation/notes/02_MATH.md`):
+number per model, each from a published paper (formulas in `other_older_versions/v3_literature_aggregation/notes/02_MATH.md`):
 raw mean; baseline-normalised mean (S_md − b_d)/(1 − b_d) with b_d the random-guess score; z-mean; mean win rate
 (fraction of other models beaten per dataset); Borda; Kemeny score; Bradley–Terry strength β_m fitted so that
 P(m beats k on an item) = σ(β_m − β_k); IRT ability θ_m fitted so that P(m gets item i right) = σ(θ_m − b_i).
@@ -92,7 +92,7 @@ and Bradley–Terry / IRT need many items and models to be well determined.
 
 ---
 
-## 4. v4 — random search with a rank-agreement objective (`v4_random_search_rank_agreement/`, was v2)
+## 4. v4 — random search with a rank-agreement objective (`other_older_versions/v4_random_search_rank_agreement/`, was v2)
 
 **Grading rule.** Nine metrics (EM, numeric tolerance, numeric decay, P, R, F1, edit similarity, ROUGE-L, Jaccard)
 with gold aliases, unit/percent-aware numbers and set-equality for list golds:
@@ -110,7 +110,7 @@ models it ranks; τ is coarse with 4 models.
 
 ---
 
-## 5. v5 — 100-metric library calibrated on answers of known quality (`v5_metric_library_anchor_ensemble/`, was v3)
+## 5. v5 — 100-metric library calibrated on answers of known quality (`other_older_versions/v5_metric_library_anchor_ensemble/`, was v3)
 
 **Library.** 100 metrics m_k(p, g) ∈ [0,1] in twelve families (exact-match variants, numeric tolerance ladder
 0.1–20 %, graded numeric error for five steepness values, token/n-gram overlap, character similarity, ROUGE/BLEU-

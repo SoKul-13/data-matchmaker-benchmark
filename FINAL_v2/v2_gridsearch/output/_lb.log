@@ -1,0 +1,55 @@
+[em_only] BT ranking: claude-opus-5=1, claude-sonnet-5=5, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=3, gpt-5.4-mini=6, gpt-5.5=2, gpt-oss-120b=9, grok-4=4, llama-3.3-70b=10
+[v1_original] BT ranking: claude-opus-5=2, claude-sonnet-5=5, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=4, llama-3.3-70b=10
+[top1] BT ranking: claude-opus-5=2, claude-sonnet-5=5, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=4, llama-3.3-70b=10
+[top2] BT ranking: claude-opus-5=2, claude-sonnet-5=5, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=4, llama-3.3-70b=10
+[top3] BT ranking: claude-opus-5=2, claude-sonnet-5=5, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=4, llama-3.3-70b=10
+[top4] BT ranking: claude-opus-5=2, claude-sonnet-5=5, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=4, llama-3.3-70b=10
+[top5] BT ranking: claude-opus-5=2, claude-sonnet-5=6, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=5, gpt-5.5=3, gpt-oss-120b=9, grok-4=4, llama-3.3-70b=10
+[best_anchor] BT ranking: claude-opus-5=2, claude-sonnet-5=6, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=4, gpt-5.5=3, gpt-oss-120b=9, grok-4=5, llama-3.3-70b=10
+[pareto_knee] BT ranking: claude-opus-5=2, claude-sonnet-5=5, deepseek-chat=7, deepseek-r1=8, gemini-3.8-flash=1, gpt-5.4-mini=6, gpt-5.5=3, gpt-oss-120b=9, grok-4=4, llama-3.3-70b=10
+
+rule agreement (tau between BT rankings):
+              em_only  v1_original  top1  top2  top3  top4  top5  best_anchor  pareto_knee
+em_only         1.00         0.91  0.91  0.91  0.91  0.91  0.87         0.82         0.91
+v1_original     0.91         1.00  1.00  1.00  1.00  1.00  0.96         0.91         1.00
+top1            0.91         1.00  1.00  1.00  1.00  1.00  0.96         0.91         1.00
+top2            0.91         1.00  1.00  1.00  1.00  1.00  0.96         0.91         1.00
+top3            0.91         1.00  1.00  1.00  1.00  1.00  0.96         0.91         1.00
+top4            0.91         1.00  1.00  1.00  1.00  1.00  0.96         0.91         1.00
+top5            0.87         0.96  0.96  0.96  0.96  0.96  1.00         0.96         0.96
+best_anchor     0.82         0.91  0.91  0.91  0.91  0.91  0.96         1.00         0.91
+pareto_knee     0.91         1.00  1.00  1.00  1.00  1.00  0.96         0.91         1.00
+
+diagnostics:
+             dataset  mean_score  spread_across_models  ranking_self_stability_tau  exclude_from_objective
+            abt_buy       0.971                 0.060                       0.744                   False
+      alaska_camera       0.958                 0.180                       0.919                   False
+      alaska_schema       0.925                 0.118                       0.667                   False
+      amazon_google       0.936                 0.100                       0.684                   False
+               bird       0.182                 0.205                       0.861                   False
+           dblp_acm       0.987                 0.090                       0.918                   False
+       dblp_scholar       0.950                 0.060                       0.742                   False
+             fetaqa       0.382                 0.192                       0.930                   False
+         fintagging       0.874                 0.124                       0.708                   False
+              hitab       0.768                 0.068                       0.574                   False
+            machamp       0.887                 0.070                       0.581                   False
+        magneto_gdc       0.925                 0.218                       0.762                   False
+               mmtu       0.863                 0.128                       0.783                   False
+           officeqa       0.116                 0.135                       0.882                   False
+    officeqa_pro_v2       0.127                 0.175                       0.778                   False
+opensanctions_pairs       0.822                 0.210                       0.888                   False
+       papadakis_dn       0.941                 0.030                       0.739                   False
+       realhitbench       0.670                 0.143                       0.783                   False
+               smat       0.913                 0.150                       0.740                   False
+                suc       0.911                 0.246                       0.849                   False
+           tab_fact       0.798                 0.200                       0.845                   False
+              tabis       0.912                 0.210                       0.838                   False
+         tablebench       0.816                 0.218                       0.681                   False
+          tableeval       0.749                 0.166                       0.778                   False
+             tat_qa       0.802                 0.109                       0.754                   False
+        tpcdi_cells       0.456                 0.020                       0.782                   False
+          valentine       0.982                 0.030                       0.631                    True
+     walmart_amazon       0.958                 0.060                       0.755                   False
+           wdc_lspc       0.982                 0.040                       0.796                    True
+       wdc_products       0.978                 0.020                       0.631                    True
+ wikitablequestions       0.846                 0.132                       0.741                   False

@@ -1,0 +1,181 @@
+# ============================================================================================
+# Model catalogue (v2): industry-standard models of the major providers only.
+# Per provider: the flagship plus its standard mid tier.  No small / weak models.
+#
+# A model runs only if its credentials are present in .env (see the commented lines there);
+# otherwise scripts/rs/00_run_models.py prints "skipped <model> no key" and continues.
+#
+# provider:  openai | google | anthropic | openai_compat (any OpenAI-compatible endpoint)
+# base_url:  for openai_compat; "$ENV_VAR" reads the URL from .env
+# api_key_env: env var holding the key for openai_compat
+# price_in / price_out: USD per 1M tokens, used only for the spend cap
+# tier: flagship | mid | open (open-weight flagship)
+# ============================================================================================
+
+[global]
+budget_usd = 60.0
+max_tokens = 700
+
+# ---------------------------------------------------------------- OpenAI (key present)
+[[model]]
+name = "gpt-5.5"
+provider = "openai"
+model_id = "gpt-5.5"
+price_in = 5.00
+price_out = 20.00
+tier = "flagship"
+reasoning = "low"
+concurrency = 6
+
+[[model]]
+name = "gpt-5.4-mini"
+provider = "openai"
+model_id = "gpt-5.4-mini"
+price_in = 1.00
+price_out = 6.00
+tier = "mid"
+reasoning = "low"
+concurrency = 8
+
+# ---------------------------------------------------------------- Anthropic (key present)
+[[model]]
+name = "claude-opus-5"
+provider = "anthropic"
+model_id = "claude-opus-5"
+price_in = 15.00
+price_out = 75.00
+tier = "flagship"
+concurrency = 4
+
+[[model]]
+name = "claude-sonnet-5"
+provider = "anthropic"
+model_id = "claude-sonnet-5"
+price_in = 3.00
+price_out = 15.00
+tier = "mid"
+concurrency = 6
+
+# ---------------------------------------------------------------- Google (key present). Pro models are paid-only since 2026-04 and 3.8 Flash's free quota is ~20 requests/day,
+# so both need billing enabled on the key (aistudio.google.com/apikey); ~USD 5 for the suite.
+[[model]]
+name = "gemini-3.1-pro"
+provider = "google"
+model_id = "gemini-3.1-pro-preview"
+price_in = 2.00
+price_out = 12.00
+tier = "flagship"
+thinking = "low"
+concurrency = 2
+
+[[model]]
+name = "gemini-3.8-flash"
+provider = "google"
+model_id = "gemini-3.8-flash"
+price_in = 0.50
+price_out = 3.00
+tier = "mid"
+thinking = "low"
+concurrency = 3
+
+# ---------------------------------------------------------------- xAI (key present, no credits -> buy at console.x.ai, set enabled = true)
+[[model]]
+name = "grok-4"
+enabled = false
+provider = "openai_compat"
+model_id = "grok-4"
+base_url = "https://api.x.ai/v1"
+api_key_env = "XAI_API_KEY"
+price_in = 3.00
+price_out = 15.00
+tier = "flagship"
+concurrency = 4
+
+# ---------------------------------------------------------------- FREE ROUTE: Groq free tier (console.groq.com/keys; no card).
+# Since 2026-08-16 Groq's free tier no longer serves Llama 3.3 70B; it serves OpenAI's open-weight flagship gpt-oss-120b
+# at 30 RPM / 1,000 RPD / 200K tokens per day -> about 300 items per day, so the 1,240-item suite takes ~4 days of re-runs.
+[[model]]
+name = "gpt-oss-120b"
+provider = "openai_compat"
+model_id = "openai/gpt-oss-120b"
+base_url = "https://api.groq.com/openai/v1"
+api_key_env = "GROQ_API_KEY"
+price_in = 0.0
+price_out = 0.0
+tier = "open"
+free_tier = true
+rpm = 20
+rpd = 900
+concurrency = 2
+note = "paid alternative on the same key: Groq developer tier, USD 0.15 / 0.60 per 1M tokens (~USD 0.5 for the suite)"
+
+# ---------------------------------------------------------------- DIRECT ROUTE: Together (api.together.xyz; paid, no free tier) for Llama and Qwen
+[[model]]
+name = "llama-3.3-70b"
+provider = "openai_compat"
+model_id = "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+base_url = "https://api.together.xyz/v1"
+api_key_env = "TOGETHER_API_KEY"
+price_in = 0.88
+price_out = 0.88
+tier = "open"
+rpm = 60
+concurrency = 4
+note = "smoke-tested OK 2026-09-23; ~USD 0.7 for the suite"
+
+[[model]]
+name = "qwen-3.7-plus"
+enabled = false
+provider = "openai_compat"
+model_id = "Qwen/Qwen3.7-Plus"
+base_url = "https://api.together.xyz/v1"
+api_key_env = "TOGETHER_API_KEY"
+price_in = 0.32
+price_out = 1.28
+tier = "flagship"
+rpm = 60
+concurrency = 4
+note = "Together no longer serves any open-weight Qwen on demand (Qwen2.5-72B, Qwen3-*, Qwen3.5-397B all 'non-serverless' = dedicated endpoint only, 2026-09-23). Alibaba's API-tier Qwen 3.7 Plus/Max are relayed by Together but need 'third-party models' enabled in the Together account settings -> then set enabled = true. ~USD 0.5 for the suite."
+
+# ---------------------------------------------------------------- DIRECT ROUTE: DeepSeek official API (platform.deepseek.com; prepay, no free tier)
+[[model]]
+name = "deepseek-chat"
+provider = "openai_compat"
+model_id = "deepseek-chat"
+base_url = "https://api.deepseek.com/v1"
+api_key_env = "DEEPSEEK_API_KEY"
+price_in = 0.27
+price_out = 1.10
+tier = "open"
+rpm = 60
+concurrency = 4
+note = "~USD 0.5 for the suite"
+
+[[model]]
+name = "deepseek-r1"
+provider = "openai_compat"
+model_id = "deepseek-reasoner"
+base_url = "https://api.deepseek.com/v1"
+api_key_env = "DEEPSEEK_API_KEY"
+price_in = 0.55
+price_out = 2.19
+tier = "open"
+rpm = 60
+concurrency = 4
+note = "~USD 1.2 for the suite (reasoning output is longer)"
+
+# ---------------------------------------------------------------- FREE ROUTE: Mistral Experiment plan (console.mistral.ai; phone verification, no card; ~1B tokens/month;
+# Mistral may use free-tier traffic for training, acceptable for public benchmark prompts). mistral-large is NOT in the free tier (403 tier_not_allowed),
+# so the entry is Mistral Medium 3, their standard tier. A 429 'Rate limit exceeded' on every call means the Experiment plan is not yet activated in the console.
+[[model]]
+name = "mistral-medium"
+provider = "openai_compat"
+model_id = "mistral-medium-latest"
+base_url = "https://api.mistral.ai/v1"
+api_key_env = "MISTRAL_API_KEY"
+price_in = 0.0
+price_out = 0.0
+tier = "mid"
+free_tier = true
+rpm = 30
+concurrency = 1

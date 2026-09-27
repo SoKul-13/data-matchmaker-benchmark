@@ -1,0 +1,689 @@
+{
+  "generated": "2026-09-27 13:46",
+  "git_commit": "4ee1eb2",
+  "coverage": {
+    "abt_buy": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "alaska_camera": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "alaska_schema": {
+      "real_items": 93,
+      "answered_items": 93,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 93,
+      "models_dropped": {}
+    },
+    "amazon_google": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "bird": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "dblp_acm": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "dblp_scholar": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "fetaqa": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "fintagging": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "hitab": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "machamp": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "magneto_gdc": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "mmtu": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "officeqa": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "officeqa_pro_v2": {
+      "real_items": 90,
+      "answered_items": 90,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 90,
+      "models_dropped": {}
+    },
+    "opensanctions_pairs": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "papadakis_dn": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "realhitbench": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "smat": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "suc": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "tab_fact": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "tabis": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "tablebench": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "tableeval": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "tat_qa": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "tpcdi_cells": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "valentine": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "walmart_amazon": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "wdc_lspc": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "wdc_products": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "wikitablequestions": {
+      "real_items": 100,
+      "answered_items": 100,
+      "models_used": [
+        "claude-opus-5",
+        "claude-sonnet-5",
+        "deepseek-chat",
+        "deepseek-r1",
+        "gemini-3.8-flash",
+        "gpt-5.4-mini",
+        "gpt-5.5",
+        "gpt-oss-120b",
+        "grok-4",
+        "llama-3.3-70b"
+      ],
+      "items_kept": 100,
+      "models_dropped": {}
+    },
+    "_models_left_out": {
+      "gemini-3.1-pro": 0.082
+    }
+  },
+  "predictions": {
+    "claude-opus-5": {
+      "rows": 3282,
+      "cost_usd": 99.34,
+      "in_tokens": 2599522,
+      "out_tokens": 804572,
+      "decoding": [
+        "None",
+        "default (temperature rejected by API)"
+      ]
+    },
+    "claude-sonnet-5": {
+      "rows": 3282,
+      "cost_usd": 14.86,
+      "in_tokens": 2598432,
+      "out_tokens": 471170,
+      "decoding": [
+        "None",
+        "default (temperature rejected by API)"
+      ]
+    },
+    "deepseek-chat": {
+      "rows": 3083,
+      "cost_usd": 0.62,
+      "in_tokens": 1674731,
+      "out_tokens": 156392,
+      "decoding": [
+        "temperature=0.0"
+      ]
+    },
+    "deepseek-r1": {
+      "rows": 3083,
+      "cost_usd": 7.15,
+      "in_tokens": 1751806,
+      "out_tokens": 2825787,
+      "decoding": [
+        "temperature=0.0"
+      ]
+    },
+    "gemini-3.1-pro": {
+      "rows": 267,
+      "cost_usd": 0.8,
+      "in_tokens": 121445,
+      "out_tokens": 46330,
+      "decoding": [
+        "temperature=0.0"
+      ]
+    },
+    "gemini-3.8-flash": {
+      "rows": 3083,
+      "cost_usd": 3.35,
+      "in_tokens": 1866833,
+      "out_tokens": 806523,
+      "decoding": [
+        "temperature=0.0"
+      ]
+    },
+    "gpt-5.4-mini": {
+      "rows": 3306,
+      "cost_usd": 4.22,
+      "in_tokens": 1748467,
+      "out_tokens": 411430,
+      "decoding": [
+        "None",
+        "default",
+        "default (temperature rejected by API)"
+      ]
+    },
+    "gpt-5.5": {
+      "rows": 3283,
+      "cost_usd": 19.89,
+      "in_tokens": 1749450,
+      "out_tokens": 556906,
+      "decoding": [
+        "None",
+        "default (temperature rejected by API)"
+      ]
+    },
+    "gpt-oss-120b": {
+      "rows": 3083,
+      "cost_usd": 0.7,
+      "in_tokens": 1853266,
+      "out_tokens": 719450,
+      "decoding": [
+        "temperature=0.0"
+      ]
+    },
+    "grok-4": {
+      "rows": 3083,
+      "cost_usd": 8.33,
+      "in_tokens": 2207053,
+      "out_tokens": 113919,
+      "decoding": [
+        "temperature=0.0"
+      ]
+    },
+    "llama-3.3-70b": {
+      "rows": 3083,
+      "cost_usd": 1.77,
+      "in_tokens": 1752525,
+      "out_tokens": 253571,
+      "decoding": [
+        "temperature=0.0"
+      ]
+    }
+  },
+  "seeds": {
+    "nested_bootstrap": 0,
+    "designs": "1000 + seed index",
+    "leaderboard_bootstrap": [
+      1,
+      2
+    ]
+  },
+  "scripts": [
+    "01_v1_components.py",
+    "02_exhaustive_grid.py",
+    "03_selection_validity.py",
+    "04_correctness_anchors.py",
+    "05_leaderboards.py",
+    "06_report.py"
+  ]
+}

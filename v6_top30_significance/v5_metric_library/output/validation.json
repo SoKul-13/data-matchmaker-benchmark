@@ -1,0 +1,12 @@
+{
+  "lodo_mean_rho_lodo": 0.8934213541980037,
+  "lodo_mean_rho_full": 0.8941717358445831,
+  "lodo_same_selection_share": 0.9032258064516129,
+  "severity_l1_shift_mean": 0.022000000000000155,
+  "severity_l1_shift_max": 0.02200000000000024,
+  "severity_selection_changed_share": 0.0,
+  "probe_mae_ensemble": 0.11578973335883265,
+  "probe_mae_em": 0.19909387481166047,
+  "probe_mae_native": 0.15454948486236392,
+  "probe_mae_tok_f1": 0.1439566986518912
+}
