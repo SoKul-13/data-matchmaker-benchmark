@@ -139,3 +139,8 @@
 15:06:03 [gemini-3.1-pro] daily cap rpd=240 reached; re-run tomorrow to continue from cache
 15:06:10 [gemini-3.1-pro] done ok=240 err=0 in 963s | run spend so far $1.01 (in=157984 out=57833 tokens)
 15:06:10 TOTAL estimated spend this run: $1.01
+14:53:36 models=['gemini-3.1-pro'] items=3083 budget=$160.0
+14:53:36 [gemini-3.1-pro] cached=972 todo=2111
+15:09:33 [gemini-3.1-pro] daily cap rpd=240 reached; re-run tomorrow to continue from cache
+15:09:38 [gemini-3.1-pro] done ok=240 err=0 in 962s | run spend so far $0.99 (in=142339 out=58380 tokens)
+15:09:38 TOTAL estimated spend this run: $0.99
