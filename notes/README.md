@@ -14,5 +14,5 @@
 | `REFERENCES.md` | every paper used (APA + links) and the systems to compare against in the paper |
 | `GUIDE_UNDER_THE_HOOD.md`, `OVERALL_SUMMARY.md` | formulas and status across all five original versions |
 
-Version-local notes: `FINAL_v2/notes/` (model run instructions, human-labelling protocol, code flow, status) and `FINAL_v2/paper/` (paper plan,
+Paper materials: `FINAL_v2/paper/` (`PAPER_PLAN.md`, `METHODS_AND_RELATED_WORK.md` with the experiment setup, procedure, methods and one mini-section per inspiration, `draft.md`, `figures/`). Version-local notes: `FINAL_v2/notes/` (model run instructions, human-labelling protocol, code flow, status) and `FINAL_v2/paper/` (paper plan,
 figures, draft). Dataset survey: `datasets_survey/`.
