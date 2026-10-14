@@ -47,6 +47,8 @@ jobs:
         run: uv sync
       - name: Ask Gemini 3.1 Pro (stops at the daily cap; resumes from cache)
         working-directory: FINAL_v2
+        timeout-minutes: 45          # the cap is reached in ~16 min; retries on quota errors must not hold the job
+        continue-on-error: true      # whatever was collected is committed by the next step
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
@@ -60,6 +62,7 @@ jobs:
           EOF
       - name: Commit and push the new answers
         id: commit
+        if: always()
         run: |
           git add FINAL_v2/data/predictions/gemini-3.1-pro.jsonl FINAL_v2/data/predictions/_run.log
           if git diff --cached --quiet; then
