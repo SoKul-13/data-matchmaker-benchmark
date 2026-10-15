@@ -181,9 +181,41 @@ hedging or formatting quality; the hedge flag is our one concession. Changed: no
 does not cover.
 
 ### The matching and table benchmarks themselves
-Mudgal et al. (2018, DeepMatcher / Magellan sets); Li et al. (2020, Ditto); Peeters, Der & Bizer (2024, WDC Products); Wang et al. (2021,
-Machamp); Crescenzi et al. (2021, Alaska); Koutras et al. (2021, Valentine); Liu et al. (2025, Magneto); Zhang et al. (2021, SMAT); Cheng et al.
-(2022, HiTab); Pasupat & Liang (2015, WTQ); Chen et al. (2020, TabFact); Nan et al. (2022, FeTaQA); Zhu et al. (2021, TAT-QA); Li et al. (2023,
-BIRD); Wu et al. (2025, TableBench); Sui et al. (2024, SUC). Took: their official splits, their native metrics as the baseline column, and their
-published numbers as the comparison point for the official-split estimates. Changed: per-column framing for schema matching, result-value grading
-for BIRD, and stratified 150-item pools; all stated in the data table.
+One bullet per dataset: source paper, what we took, what we did to it. Full table with sizes, strata and census in `DATASETS_TABLE.md`.
+
+#### Entity matching (record pair → yes / no; native metric exact match; official-ratio F1 by post-stratification)
+* **Abt-Buy, Amazon-Google, Walmart-Amazon, DBLP-Scholar, DBLP-ACM** — Mudgal et al. (2018, DeepMatcher / Magellan). Took the official test pairs and tables. Did: balanced 50/50 sample of 150 pairs, records rendered as attribute: value lines, yes/no gold with aliases; official match shares 9–19 % recorded for post-stratification.
+* **WDC Products 2024** — Peeters, Der & Bizer (2024). Took the hard-negative test split. Did: balanced per product category; yes/no gold.
+* **WDC LSPC / Products-2017** — Li et al. (2020, Ditto) as the benchmark-establishing paper. Took the four category test sets. Did: balanced per category; pairs already used by WDC Products excluded; cleaned of suffixes and language tags.
+* **Machamp** — Wang et al. (2021). Took the seven heterogeneous-schema tasks (structured vs text, differing schemas). Did: balanced within each task; task name kept as the stratum.
+* **Papadakis–Christen Dn1–Dn8** — Papadakis et al. (2024). Took the eight re-built sets. Did: uniform sampling within each set so the real class ratio is preserved (1.8 % overall); the one matching set deliberately not balanced.
+* **Alaska Camera** — Crescenzi et al. (2021). Took the SIGMOD 2020 contest entity clusters. Did: built pairs ourselves (positives from labelled pairs, negatives from the hardest third of non-matches by title overlap); balanced; marked not comparable to any published split.
+* **OpenSanctions pairs** — dataset card (no paper). Took the dataset's own stratified sample of 1,000 pairs. Did: balanced; multilingual person / organisation records; CC BY-NC noted.
+
+#### Schema matching / integration (one question per source column → target column name; native metric exact match)
+* **Valentine** — Koutras et al. (2021). Took the table pairs with gold column matches across TPC-DI, ChEMBL, OpenData, WikiData, Magellan. Did: four pairs per sub-benchmark × pair type plus all Magellan / WikiData pairs, up to six source columns each; candidate list trimmed to budget but always containing the gold; full gold mapping stored for set-level F1; per-column framing (not the published set-level metric).
+* **Magneto GDC** — Liu et al. (2025). Took the study-column → GDC-model gold with value vocabularies. Did: 40 of 736 targets shown (gold + name-overlap hard negatives + random); many-to-one golds as aliases.
+* **SMAT** — Zhang et al. (2021). Took MIMIC-III / Synthea / CMS → OMOP attribute pairs with descriptions. Did: true target(s) + 9 hard negatives from the same OMOP table; answers as table-attribute.
+* **Alaska schema gold** — Crescenzi et al. (2021). Took the monitor attribute → mediated-schema mapping (the camera half is unavailable). Did: source attribute + 3 sample values + target list; 93 items.
+* **FinTagging** — FinTagging (2025). Took the FinCL concept-linking task only. Did: number highlighted in a 10-K sentence or table row; 10 candidate XBRL concepts (gold + same-prefix hard negatives); half text, half table.
+* **TPC-DI cells** — Transaction Processing Performance Council (2014). Took the benchmark's own join-and-aggregate task over the lite CSVs. Did: one item per customer cell; numeric and text golds; stratified by difficulty.
+
+#### Table question answering / understanding
+* **WikiTableQuestions** — Pasupat & Liang (2015). Took the official test questions. Did: typed golds (number / text / list) with aliases; native exact match on the denotation.
+* **TabFact** — Chen et al. (2020). Took the official test statements. Did: entailed / refuted as yes / no; native exact match.
+* **FeTaQA** — Nan et al. (2022). Took the official test. Did: free-form sentence gold; native ROUGE-L.
+* **HiTab** — Cheng et al. (2022). Took the official test over hierarchical statistical tables. Did: number / text golds; native numeric tolerance or exact match.
+* **MMTU** — MMTU (2025). Took 9 of the 25 tasks (those with short deterministic golds). Did: JSON preamble stripped, task name kept as the stratum, error-detection task balanced.
+* **RealHiTBench** — RealHiTBench (2025). Took Fact Checking and Numerical Reasoning (Structure Comprehending golds are empty in the release; the other two types are free text). Did: CSV tables capped at 60 × 12; comma lists → list golds; CC BY-NC noted.
+* **SUC (Table Meets LLM)** — Sui et al. (2024). Took the six structural tasks. Did: regenerated deterministically from the TableProvider source tables because no item file is released; indexing convention stated in each question.
+* **TabIS** — TabIS (2024). Took the three strata (basic, structure-aware, synthetic lookups). Did: zero-shot; gold = option letter with the option text as alias.
+* **TableEval** — TableEval (2025). Took eight short-gold Chinese / English sub-tasks, single-turn. Did: original per-task instructions preserved; numeric golds with bare-number aliases; long golds as free-form.
+* **TableBench** — Wu et al. (2025). Took the FactChecking and NumericalReasoning sub-types. Did: numeric-looking golds typed numeric; comma lists → list golds.
+* **BIRD** — Li et al. (2023). Took the dev questions and the 11 SQLite databases. Did: executed the gold SQL ourselves; kept questions whose result is 1–5 short cells; gold = the result value; context = CREATE TABLE statements + evidence hint; result-value grading rather than execution accuracy.
+
+#### Financial documents
+* **TAT-QA** — Zhu et al. (2021). Took the official dev questions over report tables and text. Did: span / multi-span / count / arithmetic answers stratified by form; unit and scale handling in the gold.
+* **OfficeQA Pro V2** — OfficeQA Pro V2 (2026, dataset card). Took all 90 questions and their referenced pages. Did: the 249 referenced parsed documents fetched, pages placed in context under a 6,000-character budget; numeric golds with bare-number aliases; bracket lists → list golds.
+* **OfficeQA (original, closed-book)** — the benchmark's own set. Took the earlier 100 items. Did: kept for continuity only; every model at floor; excluded from the objective.
+
+Common to all: official test / dev split only; seeded stratified 150-item pool with 100 answered; one prompt; context capped; gold aliases and unit / percent equivalence; the dataset's native metric kept as the baseline column; published numbers used as the comparison point for the post-stratified official-split estimates.

@@ -100,7 +100,8 @@ row is the record. Rejected: three samples per item with majority vote (3× cost
 3× repeat subset (≈ USD 4) is still the right way to measure the residual variance and is still open.
 
 **Truncation protocol: 700 → 2,500 → 8,000 tokens, then scored as failure.** The 700-token budget cut off 5 % of answers, mostly on
-reasoning models; 2,500 left 461; 8,000 left 184 (160 of them DeepSeek R1, whose reasoning does not terminate on list and schema questions).
+reasoning models; 2,500 left 461; 8,000 left 209 by the 2026-10-14 recount of the cache (185 of them DeepSeek R1, whose reasoning does not terminate on OfficeQA, BIRD and
+schema questions); 40 further R1 answers cut at 700 without a final line were missed by the re-ask pass and remain scored as failures.
 Replacement is triggered only by a mechanical condition (no final line before the cap), never by whether the answer was right; every original is
 archived under `_replaced/` with a reason and every replacement row carries its attempt number. Rejected: leaving 700 as the cap (a budget
 artefact would have scored 5 % of answers wrong); an unbounded budget (cost, and R1 shows some never finish).

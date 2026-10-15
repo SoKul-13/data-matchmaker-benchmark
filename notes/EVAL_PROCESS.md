@@ -8,7 +8,7 @@ How an answer becomes a number, and how a number becomes a claim. Written 2026-1
   native metric. Entity-matching pairs are sampled half match / half non-match (Papadakis–Christen keeps its real 1.8 % ratio); schema matching
   is framed as one question per source column with a candidate list; BIRD is graded on the executed result value.
 * **Pools.** 150 items per dataset by seeded stratified sampling (strata: question type, sub-task, database, product category, match label);
-  100 flagged for answering; the other 50 feed calibration only. OfficeQA Pro V2 has all 90; Alaska schema 93.
+  100 flagged for answering (`in_real_subset`); the other 50 are a seeded reserve, stored in the pool file but not used by any step of the current pipeline (every script filters on the flag). OfficeQA Pro V2 has all 90; Alaska schema 93.
 * **Official census.** For post-stratification, every dataset's official population is counted by the same strata (`_official_strata.json`).
 
 ## 2. Collecting answers
@@ -16,8 +16,9 @@ How an answer becomes a number, and how a number becomes a claim. Written 2026-1
 * Ten models (Claude Opus 5 / Sonnet 5, GPT-5.5 / 5.4-mini, Gemini 3.8 Flash, Grok 4, DeepSeek chat / R1, gpt-oss-120b, Llama 3.3 70B); Gemini
   3.1 Pro collected separately at 240 items a day by a GitHub Actions workflow.
 * Decoding: temperature 0 where the API accepts it; Claude 5 and GPT-5.5 refuse it and ran at their defaults; every row records which applied.
-* Output budget 700 tokens. Answers cut off before a final line were re-asked at 2,500, then 8,000 tokens; 184 never terminated and are scored as
-  failures to answer. Replacement is triggered only by the mechanical condition, never by correctness; originals are archived with a reason and
+* Output budget 700 tokens. Answers cut off before a final line were re-asked at 2,500, then 8,000 tokens; 209 never terminated at 8,000 (185 of them DeepSeek R1) and are scored as
+  failures to answer; a further 40 R1 answers cut at 700 tokens without a final line were missed by the re-ask pass (recount 2026-10-14) and are
+  scored the same way until re-asked. Replacement is triggered only by the mechanical condition, never by correctness; originals are archived with a reason and
   replacement rows carry `attempt = 2 / 3`.
 * Every answer is cached (`data/predictions/<model>.jsonl`) with tokens, latency, cost, finish reason and decoding; reruns skip cached items.
 
