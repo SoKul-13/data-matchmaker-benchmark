@@ -1,0 +1,165 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs,graphicx,longtable,tabularx,array,caption,subcaption,amsmath,hyperref,enumitem,xcolor,pdflscape}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\captionsetup{font=small,labelfont=bf}
+\setlist{nosep,leftmargin=*}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\graphicspath{{figures/}}
+\emergencystretch=1.5em
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black}
+\title{Summary Report, v3: Aggregation Views from the Literature, Every Combination, and Parameters with Standard Errors}
+\author{}
+\date{2026}
+\begin{document}
+\maketitle
+
+\section{Setup}
+
+\subsection{Shared setup (identical across versions)}
+\begin{itemize}
+\item \textbf{Suite.} 31 datasets: 11 entity matching (EM), 6 schema matching (SM), 11 table question answering and understanding (TQA), 3 financial documents (FIN). Official test or dev splits only; 150 items per dataset by seeded stratified sampling, 100 flagged for answering (OfficeQA Pro V2: 90; Alaska schema: 93); 3,083 answered items per model. Entity-matching pools are 50/50 match / non-match (Papadakis--Christen keeps its real 1.8\,\% ratio); schema matching is one question per source column with a candidate list; BIRD is graded on the executed result of the gold SQL.
+\item \textbf{Answers.} Ten models (Claude Opus 5, Claude Sonnet 5, GPT-5.5, GPT-5.4-mini, Gemini 3.8 Flash, Grok 4, DeepSeek-chat, DeepSeek-R1, gpt-oss-120b, Llama 3.3 70B); one prompt per item ending in \texttt{FINAL ANSWER: <answer>}; temperature 0 where accepted (Claude 5 and GPT-5.5 ran at provider defaults, recorded per row); output budget 700 tokens with mechanical re-asks at 2,500 and 8,000 for replies cut off before a final line; every answer cached with tokens, cost and finish reason. The same cache feeds every version, so leaderboards are directly comparable.
+\item \textbf{Scoring primitives.} Extraction of the final line, Unicode / case / punctuation normalisation, number parsing with sign, percent and scale words, alias lists per gold (best alias wins), list golds, a hedge flag. Native metric per dataset: numeric tolerance (1\,\%) for numeric golds, exact match for text and boolean, ROUGE-L for free-form.
+\item \textbf{Coverage rule.} A model is in the study only if it covered $\ge 90\,\%$ of the suite; a dataset counts only items every model answered and only with $\ge 20$ such items.
+\item \textbf{Leaderboard machinery.} Bradley--Terry strengths from item-level pairwise wins (MLE, ridge 0.01, SE from the observed information) as the headline pooling; Borda, Kemeny (with cost), Copeland, mean-$z$, reciprocal-rank fusion and family-balanced $z$ as checks; 1,000 item bootstraps of the Borda and Bradley--Terry ranks; Friedman with Iman--Davenport, Nemenyi CD, Holm-corrected pairwise Wilcoxon across datasets; paired permutation and Wilcoxon per item within datasets (Holm); Kendall's $W$ among datasets; majority-class baselines for boolean sets; post-stratified official-split estimates with a weighted bootstrap and positive-class F1 at the official match ratio; floor / ceiling / self-stability diagnostics per dataset.
+\item \textbf{Sampled designs.} Uniform-lattice, Dirichlet-snapped and Latin-hypercube samples on the weight simplex at step 0.05 (20 seeds each) with centred $L_2$ discrepancy and nearest-neighbour distances, compared with the exhaustive optimum where one exists.
+\item \textbf{Reporting.} Each version's \texttt{run\_all.sh} regenerates its \texttt{REPORT.md} from the cached answers; every number in this document is read from those output files.
+\end{itemize}
+
+\subsection{What v3 searches}
+\begin{itemize}
+\item \textbf{Per-answer rule.} None is searched: each dataset keeps its own native metric (numeric tolerance, exact match or ROUGE-L). v3 asks a different question from v2 and v4: not ``how should an answer be scored'' but ``how should per-dataset scores be pooled into one ranking''.
+\item \textbf{Eight aggregation views} from the literature, each mapping the models $\times$ datasets $\times$ items score tensor to one number per model: mean raw score; baseline-normalised mean (Open LLM Leaderboard v2: $(\text{raw} - \text{random baseline})/(1 - \text{baseline})$, clipped at 0); mean $z$ across datasets; mean win rate (HELM: fraction of other models beaten per dataset); Borda; Kemeny score; Bradley--Terry strength from item-level pairwise wins (Chatbot Arena); Rasch ability from a one-parameter IRT fit with items as difficulties (tinyBenchmarks). Views are $z$-scored across models before mixing.
+\item \textbf{Candidates.} Every non-empty equal-weight subset of the eight views (255, including the eight corners and the uniform mix), plus 100 uniform-lattice and 100 Latin-hypercube mixes at step 0.05: 455 candidates.
+\item \textbf{Objective.} $J = 0.5\,\text{stability} + 0.25\,\text{transitivity} + 0.25\,\text{reference}$: stability = mean Kendall $\tau$ between the mixed ranking on item-bootstrap resamples and on the full data; transitivity = $\tau$ to the Copeland ranking of the per-dataset scores; reference = $\tau$ to the Kemeny consensus of the eight single-view rankings. $J$ measures how reproducible and internally consistent a pooled ranking is, not whether it is right.
+\item \textbf{Parameters saved.} Bradley--Terry strengths with analytic SE (vs reference) and bootstrap SD, Rasch abilities with SE and item difficulties with SE, Kemeny order and cost, Copeland, Borda, the win matrix, and per-bootstrap-draw parameters (100 item resamples). Every combination's member parameters, mixed scores, ranks and rank intervals are stored under \texttt{data/combos/}.
+\item \textbf{Honesty.} Split-half: 20 random half-splits of the items; the best candidate on half A (20 inner resamples) is scored on half B and compared with pure Bradley--Terry, the uniform mix and the full-data best on half B.
+\item \textbf{Leaderboards.} Native metric (headline) and exact match, each pooled by Bradley--Terry with the full significance battery; the five best mixes are reported with bootstrap rank intervals.
+\end{itemize}
+
+\section{Results}
+\begin{table}[htbp]\centering\small\caption{v3 audit summary.}\label{tab:v3_summary}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{0.30\textwidth} L}\toprule
+Single views & $J$ alone from 0.886 (baseline-normalised mean) to 0.932 (Borda); Bradley--Terry alone 0.891, Rasch alone 0.904 \\
+Best mix & subset\_\allowbreak{}10011001: mean raw 0.25, mean win rate 0.25, Borda 0.25, Rasch ability 0.25; $J = 0.948$ (stability 0.923, transitivity 0.94, reference 1.00); uniform mix $J = 0.941$ \\
+Candidates & 455 (255 subsets + 100 lattice + 100 LHS); $J$ range 0.882--0.948; best per design: subset 0.948, lattice 0.946, LHS 0.946 \\
+Split-half honesty & selected mix $J$ 0.935 on half A, 0.903 on half B (optimism gap 0.032); on half B pure BT 0.879, uniform 0.917, full-data best 0.913 \\
+Selected minus pure BT (held out) & $+0.024$, 95\,\% CI $[-0.034, +0.111]$; selected ahead in 70\,\% of splits; 10 distinct mixes selected in 20 splits \\
+Parameters & BT strengths span -0.161 to +0.063 (bootstrap SD $\approx$ 0.005); Rasch abilities -1.77 to +0.74 (SE $\approx$ 0.10); Kemeny cost 329 of 1395 \\
+Leaderboard (native, BT) & first Gemini 3.8 Flash, then GPT-5.5, Claude Opus 5; last Llama 3.3 70B; Friedman $p$ = 1.2e-13; Kendall's $W$ = 0.27 \\
+Leaderboard (exact match, BT) & first Claude Opus 5; $\tau$ between the native and exact-match BT rankings 0.78 \\
+\bottomrule\end{tabularx}\end{table}
+
+\subsection{Single views and their mixes}
+Every view ranks the same model last and nearly the same three models first; the views differ in the middle (Figure~\ref{fig:fig_view_matrix}). Used alone, the rank-based and mean-based views ($J \approx 0.93$) beat the two fitted-parameter views (Bradley--Terry 0.891, Rasch 0.904) because the fitted views move more under item resampling. Mixing helps a little: the uniform mix reaches 0.941 and the best four-view subset 0.948 (Figure~\ref{fig:fig_j_by_subset_size}, Table~\ref{tab:top_mixes}). The whole candidate range is 0.882--0.948; the sampled designs land within 0.002 of the best subset (Figure~\ref{fig:fig_designs_v3}).
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_view_matrix.png}\caption{Each view's z-score (left) and rank (right) per model on native-metric scores.}\label{fig:fig_view_matrix}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.6\textwidth]{fig_single_view_j.png}\caption{Objective $J$ of each view used alone.}\label{fig:fig_single_view_j}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.6\textwidth]{fig_j_by_subset_size.png}\caption{Objective $J$ of the 255 equal-weight subsets by subset size.}\label{fig:fig_j_by_subset_size}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_top_mix_weights.png}\caption{View weights of the fifteen best candidate mixes (label and $J$ on the axis).}\label{fig:fig_top_mix_weights}\end{figure}
+\input{tables/top_mixes.tex}
+
+
+\subsection{Honest selection}
+The split-half test (Figure~\ref{fig:fig_split_half}) is the honesty check for the choice of mix. The mix selected on half A loses 0.032 of $J$ on half B, and 20 splits select 10 different mixes. On the held-out half the selected mix beats pure Bradley--Terry by +0.024 with an interval that includes zero, and the plain uniform mix (0.917) does as well as the selected one (0.903). Mixing views is therefore defensible but not demonstrably better than the uniform mix; pure Bradley--Terry is the least reproducible single rule on this suite.
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_split_half.png}\caption{Split-half honesty check: the mix selected on half A scored on both halves, against pure Bradley--Terry, the uniform mix and the full-data best on half B.}\label{fig:fig_split_half}\end{figure}
+\input{tables/split_half_summary.tex}
+
+
+\subsection{Parameters with standard errors}
+Table~\ref{tab:parameters} and Figure~\ref{fig:fig_parameters} give the fitted Bradley--Terry strengths and Rasch abilities. The analytic standard errors assume the model is right; the bootstrap SDs (Figure~\ref{fig:fig_parameter_bootstrap}) do not, and with ten models they are the ones to quote. Rasch item difficulties are poorly determined (mean SE 7.4, Figure~\ref{fig:fig_rasch_items}): with ten responses per item the one-parameter model cannot pin individual items down, which is why the Rasch view is the least stable.
+\input{tables/parameters.tex}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_parameters.png}\caption{Fitted Bradley--Terry strengths and Rasch abilities with their uncertainty.}\label{fig:fig_parameters}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_parameter_bootstrap.png}\caption{Bootstrap distributions of the Bradley--Terry strengths and Rasch abilities (100 item resamples).}\label{fig:fig_parameter_bootstrap}\end{figure}
+
+
+\subsection{Leaderboard}
+Under the native metric pooled by Bradley--Terry, Gemini 3.8 Flash is first ($P(\text{first}) = 0.62$) with GPT-5.5 and Claude Opus 5 next; Borda puts GPT-5.5 first. Exact match puts Claude Opus 5 first. The ends are fixed under every rule and pooling method; Friedman rejects equal models ($p$ = 1.2e-13) while datasets agree only moderately ($W$ = 0.27).
+\input{tables/leaderboard_headline.tex}
+\input{tables/ranks_by_rule.tex}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_bt_all_rules.png}\caption{Bradley--Terry strengths ($\pm$ SE vs reference) under every reported rule; models fixed in the headline order.}\label{fig:fig_bt_all_rules}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_rank_bootstrap.png}\caption{Bootstrap distribution of each model's rank under the headline rule (native metric).}\label{fig:fig_rank_bootstrap}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_cd_diagram.png}\caption{Critical-difference view of the Friedman test under the headline rule: mean rank per model and the Nemenyi critical difference at $\alpha=.05$.}\label{fig:fig_cd_diagram}\end{figure}
+
+
+\subsection{Comparability and diagnostics}
+\input{tables/official_split_by_dataset.tex}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_official_f1_models.png}\caption{Positive-class F1 on the balanced pool (grey) and at the official match ratio (coloured) per model and matching dataset.}\label{fig:fig_official_f1_models}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.6\textwidth]{fig_diagnostics_scatter.png}\caption{Dataset diagnostics: mean score against spread across models; dotted line marks the ceiling flag.}\label{fig:fig_diagnostics_scatter}\end{figure}
+
+
+\clearpage
+\appendix
+\section{All figures}
+Every figure that can be drawn from the saved outputs; source data in \texttt{data/}.
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_bt_all_rules.png}\caption{Bradley--Terry strengths ($\pm$ SE vs reference) under every reported rule; models fixed in the headline order.}\label{figall:fig_bt_all_rules}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_cd_diagram.png}\caption{Critical-difference view of the Friedman test under the headline rule: mean rank per model and the Nemenyi critical difference at $\alpha=.05$.}\label{figall:fig_cd_diagram}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_combos.png}\caption{All 455 candidate mixes sorted by $J$, coloured by design.}\label{figall:fig_combos}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_dataset_tau.png}\caption{Kendall $\tau$ between the model rankings of each pair of datasets under the headline rule.}\label{figall:fig_dataset_tau}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_designs_v3.png}\caption{Best $J$ found by the enumerated subsets and the two sampled designs of 100 mixes each.}\label{figall:fig_designs_v3}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_diagnostics_scatter.png}\caption{Dataset diagnostics: mean score against spread across models; dotted line marks the ceiling flag.}\label{figall:fig_diagnostics_scatter}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_j_by_subset_size.png}\caption{Objective $J$ of the 255 equal-weight subsets by subset size.}\label{figall:fig_j_by_subset_size}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_j_terms.png}\caption{Objective $J$ against each of its three terms (stability, transitivity, reference) for every candidate mix.}\label{figall:fig_j_terms}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_model_dataset_heatmap.png}\caption{Mean score per model and dataset under the headline rule.}\label{figall:fig_model_dataset_heatmap}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_model_dataset_ranks.png}\caption{Rank per model and dataset under the headline rule.}\label{figall:fig_model_dataset_ranks}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_official_f1_models.png}\caption{Positive-class F1 on the balanced pool (grey) and at the official match ratio (coloured) per model and matching dataset.}\label{figall:fig_official_f1_models}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_official_scatter.png}\caption{Suite score against post-stratified official-split estimate for every (dataset, model) pair under the headline rule.}\label{figall:fig_official_scatter}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_p_first.png}\caption{Bootstrap probability of first place under every rule, by pooling method.}\label{figall:fig_p_first}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_pairwise_significance.png}\caption{Number of datasets (of 31) in which the per-item paired test separates each pair of models under the headline rule (Holm within dataset).}\label{figall:fig_pairwise_significance}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_parameter_bootstrap.png}\caption{Bootstrap distributions of the Bradley--Terry strengths and Rasch abilities (100 item resamples).}\label{figall:fig_parameter_bootstrap}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_parameters.png}\caption{Fitted Bradley--Terry strengths and Rasch abilities with their uncertainty.}\label{figall:fig_parameters}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_rank_bootstrap.png}\caption{Bootstrap distribution of each model's rank under the headline rule (native metric).}\label{figall:fig_rank_bootstrap}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_rasch_items.png}\caption{Distribution of Rasch item difficulties over the 3,083 items.}\label{figall:fig_rasch_items}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_rule_agreement.png}\caption{Kendall $\tau$ between the Bradley--Terry rankings of each pair of rules.}\label{figall:fig_rule_agreement}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_self_stability.png}\caption{Self-stability of each dataset's model ranking (Kendall $\tau$ between bootstrap halves).}\label{figall:fig_self_stability}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_significant_pairs_per_dataset.png}\caption{How many of the 45 model pairs each dataset separates at the item level under the headline rule (colour = family).}\label{figall:fig_significant_pairs_per_dataset}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_single_view_j.png}\caption{Objective $J$ of each view used alone.}\label{figall:fig_single_view_j}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_split_half.png}\caption{Split-half honesty check: the mix selected on half A scored on both halves, against pure Bradley--Terry, the uniform mix and the full-data best on half B.}\label{figall:fig_split_half}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_top_mix_weights.png}\caption{View weights of the fifteen best candidate mixes (label and $J$ on the axis).}\label{figall:fig_top_mix_weights}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_view_matrix.png}\caption{Each view's z-score (left) and rank (right) per model on native-metric scores.}\label{figall:fig_view_matrix}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_views.png}\caption{The eight single views: z-scored value per model.}\label{figall:fig_views}\end{figure}
+\clearpage
+\section{All tables}
+Every saved table, one file each under \texttt{tables/}; include any in the main text with \texttt{\textbackslash input}.
+\input{tables/best_subset_per_size.tex}
+\clearpage
+\input{tables/designs.tex}
+\clearpage
+\input{tables/diagnostics.tex}
+\clearpage
+\input{tables/leaderboard_em_only.tex}
+\clearpage
+\input{tables/leaderboard_headline.tex}
+\clearpage
+\input{tables/leaderboard_native.tex}
+\clearpage
+\input{tables/official_split.tex}
+\clearpage
+\input{tables/official_split_by_dataset.tex}
+\clearpage
+\input{tables/pairwise_em_only.tex}
+\clearpage
+\input{tables/pairwise_native.tex}
+\clearpage
+\input{tables/parameters.tex}
+\clearpage
+\input{tables/per_dataset_mean_native.tex}
+\clearpage
+\input{tables/ranks_by_rule.tex}
+\clearpage
+\input{tables/rule_agreement.tex}
+\clearpage
+\input{tables/single_views.tex}
+\clearpage
+\input{tables/split_half.tex}
+\clearpage
+\input{tables/split_half_summary.tex}
+\clearpage
+\input{tables/top_mixes.tex}
+\clearpage
+\input{tables/views_em.tex}
+\clearpage
+\input{tables/views_native.tex}
+\clearpage
+\end{document}

@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering\tiny
+\caption{Leaderboard significance per headline rule.}
+\label{tab:cmp_significance}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lp{0.142\linewidth}rrp{0.195\linewidth}p{0.142\linewidth}p{0.115\linewidth}p{0.115\linewidth}}
+\toprule
+version & rule & Kendall W & Friedman p & Holm-significant pairs & first (BT) & first (Borda) & last \\
+\midrule
+v2 & v1 (deployed) & 0.264 & 0.000 & 13 & Gemini 3.8 Flash & GPT-5.5 & Llama 3.3 70B \\
+v2 & best J & 0.264 & 0.000 & 12 & Gemini 3.8 Flash & Claude Opus 5 & Llama 3.3 70B \\
+v2 & best rho & 0.256 & 0.000 & 12 & Gemini 3.8 Flash & GPT-5.5 & Llama 3.3 70B \\
+v3 & native + BT mix & 0.274 & 0.000 & 13 & Gemini 3.8 Flash & GPT-5.5 & Llama 3.3 70B \\
+v4 & best J (num tol) & 0.276 & 0.000 & 13 & Claude Opus 5 & Claude Opus 5 & Llama 3.3 70B \\
+v4 & best rho & 0.272 & 0.000 & 12 & Gemini 3.8 Flash & GPT-5.5 & Llama 3.3 70B \\
+v5 & ensemble & 0.259 & 0.000 & 11 & Gemini 3.8 Flash & Claude Opus 5 & Llama 3.3 70B \\
+all & exact match & 0.279 & 0.000 & 12 & Claude Opus 5 & Claude Opus 5 & Llama 3.3 70B \\
+all & native metric & 0.283 & 0.000 & 13 & Gemini 3.8 Flash & GPT-5.5 & Llama 3.3 70B \\
+\bottomrule
+\end{tabular}
+\end{table}

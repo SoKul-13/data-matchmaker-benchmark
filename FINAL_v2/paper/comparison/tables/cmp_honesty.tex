@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering\tiny
+\caption{Honest-selection outcome per version.}
+\label{tab:cmp_honesty}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lp{0.295\linewidth}p{0.062\linewidth}p{0.160\linewidth}p{0.098\linewidth}p{0.124\linewidth}p{0.083\linewidth}}
+\toprule
+version & test & optimism gap & selected - reference (held out) & reference & distinct selections & plateau \\
+\midrule
+v2 & nested item bootstrap (B = 1,000) & 0.049 & -0.008 & v1 weights & 608 & 1765 of 1,771 \\
+v3 & split-half (20 splits) & 0.032 & 0.024 & pure Bradley-Terry & 10 & -- \\
+v4 & nested item bootstrap (B = 1,000) & 0.050 & -0.002 & v1 rubric & 204 & 305 of 305 \\
+v5 & leave-one-dataset-out re-selection + utility perturbation & 0.001 & 0.080 & native typed metric & same set in 90\% of folds & top-100 ensemble \\
+\bottomrule
+\end{tabular}
+\end{table}

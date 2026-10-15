@@ -223,6 +223,8 @@ async def generate(spec: ModelSpec, prompt: str, system: str, max_tokens: int = 
                     break  # model does not exist: do not retry
                 if attempt < retries:
                     wait = 2.0 * (2 ** attempt)
+                    if "exceeded your current quota" in msg or "insufficient_quota" in msg or "spend limit" in msg:
+                        break  # quota / billing exhausted: retrying cannot help; the row is written as an error and re-asked on the next run
                     if "rate" in msg or "429" in msg or "overloaded" in msg or "503" in msg or "resource_exhausted" in msg:
                         wait = 20.0 * (attempt + 1)
                     await asyncio.sleep(wait)

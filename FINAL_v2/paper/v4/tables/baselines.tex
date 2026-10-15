@@ -1,0 +1,21 @@
+\begin{landscape}
+\begin{table}[htbp]
+\centering\tiny
+\caption{The five fixed baselines on the candidate set.}
+\label{tab:baselines}
+\setlength{\tabcolsep}{3pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrrrrrrrrrrr}
+\toprule
+rank & label & w\_\allowbreak{}em & w\_\allowbreak{}num\_\allowbreak{}tol & w\_\allowbreak{}num\_\allowbreak{}decay & w\_\allowbreak{}tok\_\allowbreak{}prec & w\_\allowbreak{}tok\_\allowbreak{}rec & w\_\allowbreak{}tok\_\allowbreak{}f1 & w\_\allowbreak{}edit\_\allowbreak{}sim & w\_\allowbreak{}rouge\_\allowbreak{}l & w\_\allowbreak{}jaccard & J & J\_\allowbreak{}kemeny & J\_\allowbreak{}copeland & J\_\allowbreak{}bt & tau\_\allowbreak{}native \\
+\midrule
+1 & num\_\allowbreak{}tol\_\allowbreak{}only & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.442 & 0.442 & 0.444 & 0.426 & 0.974 \\
+2 & em\_\allowbreak{}only & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.439 & 0.441 & 0.441 & 0.419 & 0.922 \\
+189 & uniform & 0.111 & 0.111 & 0.111 & 0.111 & 0.111 & 0.111 & 0.111 & 0.111 & 0.111 & 0.412 & 0.418 & 0.427 & 0.395 & 0.916 \\
+217 & f1\_\allowbreak{}only & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.411 & 0.418 & 0.422 & 0.375 & 0.893 \\
+295 & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.404 & 0.408 & 0.409 & 0.390 & 0.912 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+\end{landscape}

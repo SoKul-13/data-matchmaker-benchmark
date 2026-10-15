@@ -1,0 +1,105 @@
+\begin{landscape}
+\tiny
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{p{0.162\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}}
+\caption{Leave-one-dataset-out: fitted weights and held-out $\tau$ for every dataset and weight source.}\label{tab:lodo_full}\\
+\toprule
+kind & held\_\allowbreak{}out & weights\_\allowbreak{}from & w\_\allowbreak{}f1 & w\_\allowbreak{}decay & w\_\allowbreak{}precision & w\_\allowbreak{}recall & J\_\allowbreak{}rest & tau\_\allowbreak{}heldout\_\allowbreak{}mean & n\_\allowbreak{}heldout \\
+\midrule
+dataset & abt\_\allowbreak{}buy & lodo\_\allowbreak{}weights & 0.700 & 0.000 & 0.250 & 0.050 & 0.413 & 0.760 & 1 \\
+dataset & abt\_\allowbreak{}buy & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.403 & 0.760 & 1 \\
+dataset & abt\_\allowbreak{}buy & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.391 & 0.809 & 1 \\
+dataset & alaska\_\allowbreak{}camera & lodo\_\allowbreak{}weights & 0.150 & 0.250 & 0.350 & 0.250 & 0.450 & -0.424 & 1 \\
+dataset & alaska\_\allowbreak{}camera & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.444 & -0.489 & 1 \\
+dataset & alaska\_\allowbreak{}camera & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.436 & -0.442 & 1 \\
+dataset & alaska\_\allowbreak{}schema & lodo\_\allowbreak{}weights & 0.000 & 0.250 & 0.400 & 0.350 & 0.437 & -0.200 & 1 \\
+dataset & alaska\_\allowbreak{}schema & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.430 & -0.067 & 1 \\
+dataset & alaska\_\allowbreak{}schema & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.424 & -0.200 & 1 \\
+dataset & amazon\_\allowbreak{}google & lodo\_\allowbreak{}weights & 0.300 & 0.200 & 0.100 & 0.400 & 0.435 & 0.000 & 1 \\
+dataset & amazon\_\allowbreak{}google & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.430 & -0.072 & 1 \\
+dataset & amazon\_\allowbreak{}google & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.419 & -0.024 & 1 \\
+dataset & bird & lodo\_\allowbreak{}weights & 0.350 & 0.600 & 0.050 & 0.000 & 0.418 & 0.315 & 1 \\
+dataset & bird & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.408 & 0.422 & 1 \\
+dataset & bird & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.405 & 0.539 & 1 \\
+dataset & dblp\_\allowbreak{}acm & lodo\_\allowbreak{}weights & 0.000 & 0.150 & 0.100 & 0.750 & 0.416 & 0.659 & 1 \\
+dataset & dblp\_\allowbreak{}acm & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.414 & 0.637 & 1 \\
+dataset & dblp\_\allowbreak{}acm & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.397 & 0.637 & 1 \\
+dataset & dblp\_\allowbreak{}scholar & lodo\_\allowbreak{}weights & 0.050 & 0.600 & 0.250 & 0.100 & 0.433 & 0.000 & 1 \\
+dataset & dblp\_\allowbreak{}scholar & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.429 & -0.047 & 1 \\
+dataset & dblp\_\allowbreak{}scholar & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.421 & 0.000 & 1 \\
+dataset & fetaqa & lodo\_\allowbreak{}weights & 0.300 & 0.250 & 0.100 & 0.350 & 0.421 & 0.494 & 1 \\
+dataset & fetaqa & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.420 & 0.467 & 1 \\
+dataset & fetaqa & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.407 & 0.422 & 1 \\
+dataset & fintagging & lodo\_\allowbreak{}weights & 0.000 & 0.150 & 0.250 & 0.600 & 0.419 & 0.368 & 1 \\
+dataset & fintagging & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.405 & 0.674 & 1 \\
+dataset & fintagging & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.402 & 0.467 & 1 \\
+dataset & hitab & lodo\_\allowbreak{}weights & 0.000 & 0.250 & 0.400 & 0.350 & 0.442 & -0.315 & 1 \\
+dataset & hitab & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.437 & -0.289 & 1 \\
+dataset & hitab & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.433 & -0.315 & 1 \\
+dataset & machamp & lodo\_\allowbreak{}weights & 0.700 & 0.000 & 0.250 & 0.050 & 0.416 & 0.685 & 1 \\
+dataset & machamp & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.405 & 0.685 & 1 \\
+dataset & machamp & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.393 & 0.738 & 1 \\
+dataset & magneto\_\allowbreak{}gdc & lodo\_\allowbreak{}weights & 0.700 & 0.000 & 0.250 & 0.050 & 0.421 & 0.511 & 1 \\
+dataset & magneto\_\allowbreak{}gdc & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.412 & 0.467 & 1 \\
+dataset & magneto\_\allowbreak{}gdc & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.405 & 0.539 & 1 \\
+dataset & mmtu & lodo\_\allowbreak{}weights & 0.350 & 0.050 & 0.100 & 0.500 & 0.419 & 0.494 & 1 \\
+dataset & mmtu & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.413 & 0.689 & 1 \\
+dataset & mmtu & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.401 & 0.556 & 1 \\
+dataset & officeqa & lodo\_\allowbreak{}weights & 0.200 & 0.000 & 0.500 & 0.300 & 0.413 & 0.584 & 1 \\
+dataset & officeqa & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.413 & 0.689 & 1 \\
+dataset & officeqa & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.399 & 0.556 & 1 \\
+dataset & officeqa\_\allowbreak{}pro\_\allowbreak{}v2 & lodo\_\allowbreak{}weights & 0.000 & 0.600 & 0.000 & 0.400 & 0.416 & 0.584 & 1 \\
+dataset & officeqa\_\allowbreak{}pro\_\allowbreak{}v2 & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.411 & 0.511 & 1 \\
+dataset & officeqa\_\allowbreak{}pro\_\allowbreak{}v2 & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.399 & 0.556 & 1 \\
+dataset & opensanctions\_\allowbreak{}pairs & lodo\_\allowbreak{}weights & 0.700 & 0.000 & 0.250 & 0.050 & 0.431 & 0.000 & 1 \\
+dataset & opensanctions\_\allowbreak{}pairs & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.427 & 0.090 & 1 \\
+dataset & opensanctions\_\allowbreak{}pairs & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.416 & 0.045 & 1 \\
+dataset & papadakis\_\allowbreak{}dn & lodo\_\allowbreak{}weights & 0.000 & 0.150 & 0.100 & 0.750 & 0.437 & 0.027 & 1 \\
+dataset & papadakis\_\allowbreak{}dn & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.431 & 0.130 & 1 \\
+dataset & papadakis\_\allowbreak{}dn & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.417 & 0.078 & 1 \\
+dataset & realhitbench & lodo\_\allowbreak{}weights & 0.000 & 0.250 & 0.400 & 0.350 & 0.409 & 0.674 & 1 \\
+dataset & realhitbench & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.403 & 0.733 & 1 \\
+dataset & realhitbench & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.397 & 0.600 & 1 \\
+dataset & smat & lodo\_\allowbreak{}weights & 0.050 & 0.100 & 0.100 & 0.750 & 0.429 & 0.276 & 1 \\
+dataset & smat & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.424 & 0.333 & 1 \\
+dataset & smat & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.407 & 0.378 & 1 \\
+dataset & suc & lodo\_\allowbreak{}weights & 0.700 & 0.000 & 0.250 & 0.050 & 0.419 & 0.584 & 1 \\
+dataset & suc & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.413 & 0.674 & 1 \\
+dataset & suc & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.398 & 0.584 & 1 \\
+dataset & tab\_\allowbreak{}fact & lodo\_\allowbreak{}weights & 0.000 & 0.650 & 0.000 & 0.350 & 0.437 & -0.068 & 1 \\
+dataset & tab\_\allowbreak{}fact & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.437 & -0.045 & 1 \\
+dataset & tab\_\allowbreak{}fact & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.423 & -0.045 & 1 \\
+dataset & tabis & lodo\_\allowbreak{}weights & 0.200 & 0.000 & 0.500 & 0.300 & 0.426 & 0.386 & 1 \\
+dataset & tabis & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.420 & 0.477 & 1 \\
+dataset & tabis & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.403 & 0.432 & 1 \\
+dataset & tablebench & lodo\_\allowbreak{}weights & 0.000 & 0.100 & 0.300 & 0.600 & 0.420 & 0.506 & 1 \\
+dataset & tablebench & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.414 & 0.422 & 1 \\
+dataset & tablebench & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.403 & 0.511 & 1 \\
+dataset & tableeval & lodo\_\allowbreak{}weights & 0.700 & 0.000 & 0.250 & 0.050 & 0.429 & 0.289 & 1 \\
+dataset & tableeval & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.424 & 0.333 & 1 \\
+dataset & tableeval & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.409 & 0.333 & 1 \\
+dataset & tat\_\allowbreak{}qa & lodo\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.413 & 0.156 & 1 \\
+dataset & tat\_\allowbreak{}qa & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.402 & 0.600 & 1 \\
+dataset & tat\_\allowbreak{}qa & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.405 & 0.539 & 1 \\
+dataset & tpcdi\_\allowbreak{}cells & lodo\_\allowbreak{}weights & 0.250 & 0.150 & 0.200 & 0.400 & 0.416 & 0.565 & 1 \\
+dataset & tpcdi\_\allowbreak{}cells & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.412 & 0.489 & 1 \\
+dataset & tpcdi\_\allowbreak{}cells & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.403 & 0.535 & 1 \\
+dataset & valentine & lodo\_\allowbreak{}weights & 0.700 & 0.000 & 0.250 & 0.050 & 0.425 & 0.386 & 1 \\
+dataset & valentine & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.410 & 0.523 & 1 \\
+dataset & valentine & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.402 & 0.477 & 1 \\
+dataset & walmart\_\allowbreak{}amazon & lodo\_\allowbreak{}weights & 0.700 & 0.000 & 0.250 & 0.050 & 0.414 & 0.722 & 1 \\
+dataset & walmart\_\allowbreak{}amazon & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.410 & 0.768 & 1 \\
+dataset & walmart\_\allowbreak{}amazon & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.393 & 0.722 & 1 \\
+dataset & wdc\_\allowbreak{}lspc & lodo\_\allowbreak{}weights & 0.200 & 0.000 & 0.500 & 0.300 & 0.426 & 0.387 & 1 \\
+dataset & wdc\_\allowbreak{}lspc & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.419 & 0.484 & 1 \\
+dataset & wdc\_\allowbreak{}lspc & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.405 & 0.435 & 1 \\
+dataset & wdc\_\allowbreak{}products & lodo\_\allowbreak{}weights & 0.700 & 0.000 & 0.250 & 0.050 & 0.428 & 0.316 & 1 \\
+dataset & wdc\_\allowbreak{}products & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.423 & 0.369 & 1 \\
+dataset & wdc\_\allowbreak{}products & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.405 & 0.369 & 1 \\
+dataset & wikitablequestions & lodo\_\allowbreak{}weights & 0.050 & 0.200 & 0.000 & 0.750 & 0.411 & 0.736 & 1 \\
+dataset & wikitablequestions & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.410 & 0.778 & 1 \\
+dataset & wikitablequestions & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.392 & 0.778 & 1 \\
+\bottomrule
+\end{longtable}
+\normalsize
+\end{landscape}

@@ -1,0 +1,21 @@
+\begin{table}[htbp]
+\centering\scriptsize
+\caption{Sampled-design regret per version.}
+\label{tab:cmp_designs}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{0.492\linewidth}p{0.226\linewidth}p{0.146\linewidth}r}
+\toprule
+version & design & regret mean & regret max \\
+\midrule
+v2 (K = 4, exhaustive 1,771) & dirichlet\_\allowbreak{}lattice & 0.0038 & 0.0051 \\
+v2 (K = 4, exhaustive 1,771) & lhs\_\allowbreak{}simplex & 0.0034 & 0.0051 \\
+v2 (K = 4, exhaustive 1,771) & uniform\_\allowbreak{}lattice & 0.0029 & 0.0051 \\
+v4 (K = 9, no exhaustive) & dirichlet\_\allowbreak{}lattice & 0.0100 & 0.0138 \\
+v4 (K = 9, no exhaustive) & lhs\_\allowbreak{}simplex & 0.0107 & 0.0141 \\
+v4 (K = 9, no exhaustive) & uniform\_\allowbreak{}lattice & 0.0077 & 0.0129 \\
+v5 (K = 3 + lambda, exhaustive 6,630) & dirichlet\_\allowbreak{}lattice & 0.0007 & 0.0014 \\
+v5 (K = 3 + lambda, exhaustive 6,630) & lhs\_\allowbreak{}simplex & 0.0008 & 0.0015 \\
+v5 (K = 3 + lambda, exhaustive 6,630) & uniform\_\allowbreak{}lattice & 0.0007 & 0.0014 \\
+\bottomrule
+\end{tabular}
+\end{table}

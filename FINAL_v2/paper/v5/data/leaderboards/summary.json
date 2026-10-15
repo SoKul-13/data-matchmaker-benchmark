@@ -1,0 +1,373 @@
+{
+  "em_only": {
+    "weights": null,
+    "bt_ranking": {
+      "claude-opus-5": 1,
+      "claude-sonnet-5": 5,
+      "deepseek-chat": 8,
+      "deepseek-r1": 7,
+      "gemini-3.8-flash": 2,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 3,
+      "gpt-oss-120b": 9,
+      "grok-4": 4,
+      "llama-3.3-70b": 10
+    },
+    "borda_ranking": {
+      "claude-opus-5": 1,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 7,
+      "deepseek-r1": 6,
+      "gemini-3.8-flash": 3,
+      "gpt-5.4-mini": 8,
+      "gpt-5.5": 2,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "friedman_p": 2.6941042519848086e-14,
+    "kendall_W": 0.28363762494875916,
+    "significant_pairs_holm": [
+      "claude-opus-5 > gpt-oss-120b",
+      "claude-opus-5 > llama-3.3-70b",
+      "claude-sonnet-5 > llama-3.3-70b",
+      "deepseek-chat > llama-3.3-70b",
+      "deepseek-r1 > llama-3.3-70b",
+      "gemini-3.8-flash > gpt-oss-120b",
+      "gemini-3.8-flash > llama-3.3-70b",
+      "gpt-5.4-mini > llama-3.3-70b",
+      "gpt-5.5 > gpt-oss-120b",
+      "gpt-5.5 > llama-3.3-70b",
+      "grok-4 > gpt-oss-120b",
+      "grok-4 > llama-3.3-70b"
+    ]
+  },
+  "native": {
+    "weights": null,
+    "bt_ranking": {
+      "claude-opus-5": 3,
+      "claude-sonnet-5": 5,
+      "deepseek-chat": 7,
+      "deepseek-r1": 6,
+      "gemini-3.8-flash": 1,
+      "gpt-5.4-mini": 8,
+      "gpt-5.5": 2,
+      "gpt-oss-120b": 9,
+      "grok-4": 4,
+      "llama-3.3-70b": 10
+    },
+    "borda_ranking": {
+      "claude-opus-5": 2,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 8,
+      "deepseek-r1": 6,
+      "gemini-3.8-flash": 3,
+      "gpt-5.4-mini": 7,
+      "gpt-5.5": 1,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "friedman_p": 3.787868222221149e-14,
+    "kendall_W": 0.2825276700406773,
+    "significant_pairs_holm": [
+      "claude-opus-5 > gpt-oss-120b",
+      "claude-opus-5 > llama-3.3-70b",
+      "claude-sonnet-5 > llama-3.3-70b",
+      "gpt-5.5 > deepseek-chat",
+      "deepseek-chat > llama-3.3-70b",
+      "deepseek-r1 > llama-3.3-70b",
+      "gemini-3.8-flash > gpt-oss-120b",
+      "gemini-3.8-flash > llama-3.3-70b",
+      "gpt-5.4-mini > llama-3.3-70b",
+      "gpt-5.5 > gpt-oss-120b",
+      "gpt-5.5 > llama-3.3-70b",
+      "grok-4 > gpt-oss-120b",
+      "grok-4 > llama-3.3-70b"
+    ]
+  },
+  "ensemble": {
+    "weights": {
+      "tok_f1": 0.169,
+      "num_decay_2p5": 0.775,
+      "prefix_ratio": 0.057,
+      "lambda": 0.618
+    },
+    "bt_ranking": {
+      "claude-opus-5": 2,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 7,
+      "deepseek-r1": 8,
+      "gemini-3.8-flash": 1,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 3,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "borda_ranking": {
+      "claude-opus-5": 1,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 8,
+      "deepseek-r1": 7,
+      "gemini-3.8-flash": 3,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 2,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "friedman_p": 2.074868470017725e-12,
+    "kendall_W": 0.2589537413678933,
+    "significant_pairs_holm": [
+      "claude-opus-5 > gpt-oss-120b",
+      "claude-opus-5 > llama-3.3-70b",
+      "claude-sonnet-5 > llama-3.3-70b",
+      "deepseek-chat > llama-3.3-70b",
+      "gemini-3.8-flash > gpt-oss-120b",
+      "gemini-3.8-flash > llama-3.3-70b",
+      "gpt-5.4-mini > llama-3.3-70b",
+      "gpt-5.5 > gpt-oss-120b",
+      "gpt-5.5 > llama-3.3-70b",
+      "grok-4 > gpt-oss-120b",
+      "grok-4 > llama-3.3-70b"
+    ]
+  },
+  "top1": {
+    "weights": {
+      "tok_f1": 0.08,
+      "num_decay_2p5": 0.9,
+      "prefix_ratio": 0.02,
+      "lambda": 0.25
+    },
+    "bt_ranking": {
+      "claude-opus-5": 2,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 7,
+      "deepseek-r1": 8,
+      "gemini-3.8-flash": 1,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 3,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "borda_ranking": {
+      "claude-opus-5": 1,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 8,
+      "deepseek-r1": 7,
+      "gemini-3.8-flash": 3,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 2,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "friedman_p": 2.8617465482943714e-12,
+    "kendall_W": 0.2564374231387759,
+    "significant_pairs_holm": [
+      "claude-opus-5 > gpt-oss-120b",
+      "claude-opus-5 > llama-3.3-70b",
+      "claude-sonnet-5 > llama-3.3-70b",
+      "deepseek-chat > llama-3.3-70b",
+      "gemini-3.8-flash > gpt-oss-120b",
+      "gemini-3.8-flash > llama-3.3-70b",
+      "gpt-5.4-mini > llama-3.3-70b",
+      "gpt-5.5 > gpt-oss-120b",
+      "gpt-5.5 > llama-3.3-70b",
+      "grok-4 > gpt-oss-120b",
+      "grok-4 > llama-3.3-70b"
+    ]
+  },
+  "top2": {
+    "weights": {
+      "tok_f1": 0.08,
+      "num_decay_2p5": 0.9,
+      "prefix_ratio": 0.02,
+      "lambda": 0.75
+    },
+    "bt_ranking": {
+      "claude-opus-5": 2,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 7,
+      "deepseek-r1": 8,
+      "gemini-3.8-flash": 1,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 3,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "borda_ranking": {
+      "claude-opus-5": 1,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 8,
+      "deepseek-r1": 7,
+      "gemini-3.8-flash": 3,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 2,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "friedman_p": 2.1884369329151367e-12,
+    "kendall_W": 0.25849336234351844,
+    "significant_pairs_holm": [
+      "claude-opus-5 > gpt-oss-120b",
+      "claude-opus-5 > llama-3.3-70b",
+      "claude-sonnet-5 > llama-3.3-70b",
+      "deepseek-chat > llama-3.3-70b",
+      "gpt-5.5 > deepseek-r1",
+      "gemini-3.8-flash > gpt-oss-120b",
+      "gemini-3.8-flash > llama-3.3-70b",
+      "gpt-5.4-mini > llama-3.3-70b",
+      "gpt-5.5 > gpt-oss-120b",
+      "gpt-5.5 > llama-3.3-70b",
+      "grok-4 > gpt-oss-120b",
+      "grok-4 > llama-3.3-70b"
+    ]
+  },
+  "top3": {
+    "weights": {
+      "tok_f1": 0.06,
+      "num_decay_2p5": 0.9,
+      "prefix_ratio": 0.04,
+      "lambda": 0.75
+    },
+    "bt_ranking": {
+      "claude-opus-5": 2,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 7,
+      "deepseek-r1": 8,
+      "gemini-3.8-flash": 1,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 3,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "borda_ranking": {
+      "claude-opus-5": 1,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 8,
+      "deepseek-r1": 7,
+      "gemini-3.8-flash": 3,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 2,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "friedman_p": 2.73741361478383e-12,
+    "kendall_W": 0.25677797748557374,
+    "significant_pairs_holm": [
+      "claude-opus-5 > gpt-oss-120b",
+      "claude-opus-5 > llama-3.3-70b",
+      "claude-sonnet-5 > llama-3.3-70b",
+      "deepseek-chat > llama-3.3-70b",
+      "gpt-5.5 > deepseek-r1",
+      "gemini-3.8-flash > gpt-oss-120b",
+      "gemini-3.8-flash > llama-3.3-70b",
+      "gpt-5.4-mini > llama-3.3-70b",
+      "gpt-5.5 > gpt-oss-120b",
+      "gpt-5.5 > llama-3.3-70b",
+      "grok-4 > gpt-oss-120b",
+      "grok-4 > llama-3.3-70b"
+    ]
+  },
+  "top4": {
+    "weights": {
+      "tok_f1": 0.06,
+      "num_decay_2p5": 0.9,
+      "prefix_ratio": 0.04,
+      "lambda": 0.25
+    },
+    "bt_ranking": {
+      "claude-opus-5": 2,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 7,
+      "deepseek-r1": 8,
+      "gemini-3.8-flash": 1,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 3,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "borda_ranking": {
+      "claude-opus-5": 1,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 8,
+      "deepseek-r1": 7,
+      "gemini-3.8-flash": 3,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 2,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "friedman_p": 3.638313681978562e-12,
+    "kendall_W": 0.25459590704127644,
+    "significant_pairs_holm": [
+      "claude-opus-5 > gpt-oss-120b",
+      "claude-opus-5 > llama-3.3-70b",
+      "claude-sonnet-5 > llama-3.3-70b",
+      "deepseek-chat > llama-3.3-70b",
+      "gemini-3.8-flash > gpt-oss-120b",
+      "gemini-3.8-flash > llama-3.3-70b",
+      "gpt-5.4-mini > llama-3.3-70b",
+      "gpt-5.5 > gpt-oss-120b",
+      "gpt-5.5 > llama-3.3-70b",
+      "grok-4 > gpt-oss-120b",
+      "grok-4 > llama-3.3-70b"
+    ]
+  },
+  "top5": {
+    "weights": {
+      "tok_f1": 0.02,
+      "num_decay_2p5": 0.9,
+      "prefix_ratio": 0.08,
+      "lambda": 0.75
+    },
+    "bt_ranking": {
+      "claude-opus-5": 2,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 7,
+      "deepseek-r1": 8,
+      "gemini-3.8-flash": 1,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 3,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "borda_ranking": {
+      "claude-opus-5": 1,
+      "claude-sonnet-5": 4,
+      "deepseek-chat": 8,
+      "deepseek-r1": 7,
+      "gemini-3.8-flash": 3,
+      "gpt-5.4-mini": 6,
+      "gpt-5.5": 2,
+      "gpt-oss-120b": 9,
+      "grok-4": 5,
+      "llama-3.3-70b": 10
+    },
+    "friedman_p": 4.1975652791933064e-12,
+    "kendall_W": 0.2534985652571501,
+    "significant_pairs_holm": [
+      "claude-opus-5 > gpt-oss-120b",
+      "claude-opus-5 > llama-3.3-70b",
+      "claude-sonnet-5 > llama-3.3-70b",
+      "deepseek-chat > llama-3.3-70b",
+      "gemini-3.8-flash > gpt-oss-120b",
+      "gemini-3.8-flash > llama-3.3-70b",
+      "gpt-5.4-mini > llama-3.3-70b",
+      "gpt-5.5 > gpt-oss-120b",
+      "gpt-5.5 > llama-3.3-70b",
+      "grok-4 > gpt-oss-120b",
+      "grok-4 > llama-3.3-70b"
+    ]
+  }
+}

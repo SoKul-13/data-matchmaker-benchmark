@@ -1,0 +1,28 @@
+\begin{landscape}
+\begin{table}[htbp]
+\centering\tiny
+\caption{Leave-one-family-out: fitted weights and held-out $\tau$.}
+\label{tab:lofo_full}
+\setlength{\tabcolsep}{3pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+kind & held\_\allowbreak{}out & weights\_\allowbreak{}from & w\_\allowbreak{}f1 & w\_\allowbreak{}decay & w\_\allowbreak{}precision & w\_\allowbreak{}recall & J\_\allowbreak{}rest & tau\_\allowbreak{}heldout\_\allowbreak{}mean & n\_\allowbreak{}heldout \\
+\midrule
+family & EM & lodo\_\allowbreak{}weights & 0.200 & 0.000 & 0.500 & 0.300 & 0.481 & 0.323 & 11 \\
+family & EM & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.477 & 0.287 & 11 \\
+family & EM & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.456 & 0.301 & 11 \\
+family & SM & lodo\_\allowbreak{}weights & 0.000 & 0.100 & 0.000 & 0.900 & 0.431 & 0.351 & 6 \\
+family & SM & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.422 & 0.366 & 6 \\
+family & SM & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.409 & 0.252 & 6 \\
+family & TQA & lodo\_\allowbreak{}weights & 0.450 & 0.000 & 0.400 & 0.150 & 0.423 & 0.379 & 11 \\
+family & TQA & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.409 & 0.395 & 11 \\
+family & TQA & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.403 & 0.379 & 11 \\
+family & FIN & lodo\_\allowbreak{}weights & 0.000 & 0.950 & 0.050 & 0.000 & 0.406 & 0.434 & 3 \\
+family & FIN & full\_\allowbreak{}best & 0.000 & 0.700 & 0.000 & 0.300 & 0.396 & 0.511 & 3 \\
+family & FIN & v1 & 0.350 & 0.350 & 0.150 & 0.150 & 0.381 & 0.511 & 3 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+\end{landscape}

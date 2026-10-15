@@ -1,0 +1,21 @@
+\begin{landscape}
+\begin{table}[htbp]
+\centering\tiny
+\caption{Anchor correctness for the labelled candidates.}
+\label{tab:anchors_rules}
+\setlength{\tabcolsep}{3pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrrrrrrrrrrr}
+\toprule
+label & w\_\allowbreak{}em & w\_\allowbreak{}num\_\allowbreak{}tol & w\_\allowbreak{}num\_\allowbreak{}decay & w\_\allowbreak{}tok\_\allowbreak{}prec & w\_\allowbreak{}tok\_\allowbreak{}rec & w\_\allowbreak{}tok\_\allowbreak{}f1 & w\_\allowbreak{}edit\_\allowbreak{}sim & w\_\allowbreak{}rouge\_\allowbreak{}l & w\_\allowbreak{}jaccard & J & rho & rho\_\allowbreak{}ds & auc & wrong\_\allowbreak{}mean & hedge\_\allowbreak{}gap \\
+\midrule
+num\_\allowbreak{}tol\_\allowbreak{}only & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.442 & 0.796 & 0.808 & 0.989 & 0.022 & -0.595 \\
+em\_\allowbreak{}only & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.439 & 0.828 & 0.830 & 0.989 & 0.011 & -0.807 \\
+uniform & 0.111 & 0.111 & 0.111 & 0.111 & 0.111 & 0.111 & 0.111 & 0.111 & 0.111 & 0.412 & 0.878 & 0.861 & 0.994 & 0.046 & -0.555 \\
+f1\_\allowbreak{}only & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.411 & 0.856 & 0.846 & 0.989 & 0.030 & -0.496 \\
+v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.404 & 0.878 & 0.868 & 0.994 & 0.034 & -0.506 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+\end{landscape}

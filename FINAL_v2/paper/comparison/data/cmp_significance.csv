@@ -1,0 +1,10 @@
+version,rule,Kendall W,Friedman p,Holm-significant pairs,first (BT),first (Borda),last
+v2,v1 (deployed),0.2640242171979945,1.004820416300618e-12,13,Gemini 3.8 Flash,GPT-5.5,Llama 3.3 70B
+v2,best J,0.26360798410746383,1.0611368361828539e-12,12,Gemini 3.8 Flash,Claude Opus 5,Llama 3.3 70B
+v2,best rho,0.25567432913946964,2.9956113061618327e-12,12,Gemini 3.8 Flash,GPT-5.5,Llama 3.3 70B
+v3,native + BT mix,0.27424715416390755,1.1666139137829166e-13,13,Gemini 3.8 Flash,GPT-5.5,Llama 3.3 70B
+v4,best J (num tol),0.27596884558383,7.168625732245425e-14,13,Claude Opus 5,Claude Opus 5,Llama 3.3 70B
+v4,best rho,0.27232995932267523,3.553728769882587e-13,12,Gemini 3.8 Flash,GPT-5.5,Llama 3.3 70B
+v5,ensemble,0.2589537413678933,2.074868470017725e-12,11,Gemini 3.8 Flash,Claude Opus 5,Llama 3.3 70B
+all,exact match,0.2787185066061237,5.253884697618127e-14,12,Claude Opus 5,Claude Opus 5,Llama 3.3 70B
+all,native metric,0.2825276700406773,3.787868222221149e-14,13,Gemini 3.8 Flash,GPT-5.5,Llama 3.3 70B

@@ -1,0 +1,10 @@
+# Top-5 view mixes and the best equal-weight subset (from combos.csv)
+
+| rank | label | views (weight) | J | stability | transitivity | reference | claude-opus-5 rank [95 %] | claude-sonnet-5 rank [95 %] | deepseek-chat rank [95 %] | deepseek-r1 rank [95 %] | gemini-3.8-flash rank [95 %] | gpt-5.4-mini rank [95 %] | gpt-5.5 rank [95 %] | gpt-oss-120b rank [95 %] | grok-4 rank [95 %] | llama-3.3-70b rank [95 %] |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | subset_10011001 | mean_raw (0.25), mean_win_rate (0.25), borda (0.25), irt_ability (0.25) | 0.948 | 0.923 | 0.94 | 1.00 | 2 [1, 3] | 5 [4, 6] | 8 [7, 8] | 6 [5, 8] | 3 [1, 3] | 7 [5, 8] | 1 [1, 3] | 9 [9, 9] | 4 [4, 5] | 10 [10, 10] |
+| 2 | subset_10011010 | mean_raw (0.25), mean_win_rate (0.25), borda (0.25), bradley_terry (0.25) | 0.947 | 0.923 | 0.94 | 1.00 | 2 [1, 3] | 5 [4, 6] | 8 [6, 8] | 6 [4, 8] | 3 [1, 3] | 7 [6, 8] | 1 [1, 3] | 9 [9, 9] | 4 [4, 6] | 10 [10, 10] |
+| 3 | lhs_038 | baseline_norm_mean (0.20), z_mean (0.10), mean_win_rate (0.35), borda (0.10), irt_ability (0.25) | 0.946 | 0.920 | 0.94 | 1.00 | 2 [1, 3] | 5 [4, 6] | 8 [7, 8] | 6 [4, 8] | 3 [1, 3] | 7 [5, 8] | 1 [1, 3] | 9 [9, 9] | 4 [4, 5] | 10 [10, 10] |
+| 4 | subset_11111010 | mean_raw (0.17), baseline_norm_mean (0.17), z_mean (0.17), mean_win_rate (0.17), borda (0.17), bradley_terry (0.17) | 0.946 | 0.920 | 0.94 | 1.00 | 2 [1, 3] | 5 [4, 6] | 8 [7, 8] | 6 [4, 8] | 3 [1, 3] | 7 [5, 8] | 1 [1, 3] | 9 [9, 9] | 4 [4, 6] | 10 [10, 10] |
+| 5 | lattice_076 | mean_raw (0.25), baseline_norm_mean (0.05), z_mean (0.15), mean_win_rate (0.15), borda (0.20), bradley_terry (0.10), irt_ability (0.10) | 0.946 | 0.920 | 0.94 | 1.00 | 2 [1, 3] | 5 [4, 6] | 8 [7, 8] | 6 [4, 8] | 3 [1, 3] | 7 [5, 8] | 1 [1, 3] | 9 [9, 9] | 4 [4, 6] | 10 [10, 10] |
+| 1 | subset_10011001 | mean_raw (0.25), mean_win_rate (0.25), borda (0.25), irt_ability (0.25) | 0.948 | 0.923 | 0.94 | 1.00 | 2 [1, 3] | 5 [4, 6] | 8 [7, 8] | 6 [5, 8] | 3 [1, 3] | 7 [5, 8] | 1 [1, 3] | 9 [9, 9] | 4 [4, 5] | 10 [10, 10] |
