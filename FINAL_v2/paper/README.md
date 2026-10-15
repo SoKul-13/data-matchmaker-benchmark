@@ -21,7 +21,7 @@ All four versions run on the same 31 datasets, the same ten models and the same 
 * `main.pdf` - compiled locally with tectonic as a check (not needed by Overleaf).
 
 ## Other files here
-* `eval_paper.tex` / `eval_paper.pdf` - the Setup + Results text of the v2 report on its own (the same text that `v2/main.tex` starts with).
+* `summary_results.tex` / `summary_results.pdf` - the Setup + Results text of the v2 report on its own (the same text that `v2/main.tex` starts with).
 * `PAPER_PLAN.md`, `METHODS_AND_RELATED_WORK.md`, `DATASETS_TABLE.md`, `draft.md` - planning notes, the methods / related-work write-up, the 31-dataset table and the partial paper draft.
 * `figures/` - the eleven original v2 figures (also copied into `v2/figures/`).
 * `scripts/make_overleaf_package.py` - rebuilds `v2/`; `scripts/make_version_packages.py` - rebuilds `v3/`, `v4/`, `v5/` and `comparison/`. Run both from `FINAL_v2/` with `uv run python ...`.

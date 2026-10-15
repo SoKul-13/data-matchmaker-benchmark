@@ -456,7 +456,7 @@ shutil.copy(PAPER / "DATASETS_TABLE.md", DAT / "DATASETS_TABLE.md")
 facts.to_csv(DAT / "run_facts.csv"); fam_mean.to_csv(DAT / "family_scores.csv"); rho_ds.to_csv(DAT / "rho_per_dataset.csv"); op.to_csv(DAT / "anchor_operators.csv")
 
 # ------------------------------------------------------------------ main.tex
-src = (PAPER / "eval_paper.tex").read_text()
+src = (PAPER / "summary_results.tex").read_text()
 body = src[src.index(r"\section{Setup}"): src.index(r"\end{document}")]
 pre = src[: src.index(r"\begin{document}")]
 pre = pre.replace(r"\graphicspath{{figures/}}", r"\graphicspath{{figures/}}")
@@ -467,7 +467,7 @@ app.append("\\clearpage\n\\section{All tables}\n\\label{app:tables}\nEvery saved
 for name in sorted(table_caps):
     app.append(f"\\input{{tables/{name}.tex}}\n\\clearpage\n")
 pre = pre.replace(r"\usepackage[T1]{fontenc}", r"\usepackage{pdflscape}" + "\n" + r"\usepackage[T1]{fontenc}")
-pre = pre.replace(r"\title{Auditing a Deployed LLM Judge for Data Matching:", r"\title{Summary Report, v2: Auditing a Deployed LLM Judge for Data Matching:")
+pre = pre.replace(r"\title{Summary Results}", r"\title{Summary Results, v2}")
 main = pre + "\\usepackage{longtable}\n\\begin{document}\n\\maketitle\n\n" + body + "\n".join(app) + "\n\\end{document}\n"
 main = main.replace("\\usepackage{longtable}\n\\begin{document}", "\\begin{document}") if "longtable" in pre else main
 (PKG / "main.tex").write_text(main)
