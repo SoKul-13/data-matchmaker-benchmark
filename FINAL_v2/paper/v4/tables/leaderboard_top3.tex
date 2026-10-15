@@ -1,0 +1,26 @@
+\begin{landscape}
+\begin{table}[htbp]
+\centering\tiny
+\caption{Full leaderboard under rule top3; weights: em 0.65, num\_\allowbreak{}tol 0.15, num\_\allowbreak{}decay 0.10, edit\_\allowbreak{}sim 0.10.}
+\label{tab:leaderboard_top3}
+\setlength{\tabcolsep}{3pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrrrrrrrrrrrr}
+\toprule
+model & bt\_\allowbreak{}strength & bt\_\allowbreak{}se\_\allowbreak{}vs\_\allowbreak{}ref & rank\_\allowbreak{}bt & bt\_\allowbreak{}rank\_\allowbreak{}lo95 & bt\_\allowbreak{}rank\_\allowbreak{}hi95 & p\_\allowbreak{}first\_\allowbreak{}bt & rank\_\allowbreak{}borda & borda\_\allowbreak{}rank\_\allowbreak{}lo95 & borda\_\allowbreak{}rank\_\allowbreak{}hi95 & p\_\allowbreak{}first\_\allowbreak{}borda & rank\_\allowbreak{}kemeny & rank\_\allowbreak{}copeland & rank\_\allowbreak{}mean\_\allowbreak{}z & rank\_\allowbreak{}rrf & rank\_\allowbreak{}family\_\allowbreak{}balanced\_\allowbreak{}z & mean\_\allowbreak{}score \\
+\midrule
+Gemini 3.8 Flash & 0.124 & 0.016 & 1.000 & 1.000 & 2.000 & 0.837 & 3.000 & 2.000 & 4.000 & 0.006 & 3.000 & 3.000 & 3.000 & 3.000 & 3.000 & 0.777 \\
+Claude Opus 5 & 0.113 & 0.000 & 2.000 & 1.000 & 2.000 & 0.163 & 1.000 & 1.000 & 2.000 & 0.696 & 1.000 & 1.000 & 1.000 & 1.000 & 1.000 & 0.780 \\
+GPT-5.5 & 0.058 & 0.016 & 3.000 & 3.000 & 3.000 & 0.000 & 2.000 & 1.000 & 3.000 & 0.287 & 2.000 & 2.000 & 2.000 & 2.000 & 2.000 & 0.776 \\
+Claude Sonnet 5 & 0.026 & 0.016 & 4.000 & 4.000 & 5.000 & 0.000 & 4.000 & 3.488 & 7.000 & 0.000 & 4.000 & 4.000 & 4.000 & 4.000 & 4.000 & 0.763 \\
+Grok 4 & 0.023 & 0.016 & 5.000 & 4.000 & 5.000 & 0.000 & 5.000 & 3.000 & 6.000 & 0.000 & 5.000 & 5.000 & 5.000 & 5.000 & 5.000 & 0.766 \\
+GPT-5.4-mini & -0.010 & 0.016 & 6.000 & 6.000 & 7.000 & 0.000 & 7.000 & 5.000 & 8.000 & 0.000 & 7.000 & 7.000 & 7.000 & 7.000 & 6.000 & 0.761 \\
+DeepSeek-chat & -0.019 & 0.016 & 7.000 & 6.000 & 7.000 & 0.000 & 8.000 & 5.500 & 8.000 & 0.000 & 8.000 & 8.000 & 8.000 & 8.000 & 8.000 & 0.749 \\
+DeepSeek-R1 & -0.062 & 0.016 & 8.000 & 8.000 & 9.000 & 0.000 & 6.000 & 4.000 & 8.000 & 0.000 & 6.000 & 6.000 & 6.000 & 6.000 & 7.000 & 0.757 \\
+gpt-oss-120b & -0.088 & 0.016 & 9.000 & 8.000 & 9.000 & 0.000 & 9.000 & 9.000 & 9.512 & 0.000 & 9.000 & 9.000 & 9.000 & 9.000 & 9.000 & 0.738 \\
+Llama 3.3 70B & -0.164 & 0.016 & 10.000 & 10.000 & 10.000 & 0.000 & 10.000 & 9.488 & 10.000 & 0.000 & 10.000 & 10.000 & 10.000 & 10.000 & 10.000 & 0.695 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+\end{landscape}

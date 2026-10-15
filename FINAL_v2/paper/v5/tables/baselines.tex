@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering\tiny
+\caption{Baselines under the same objective.}
+\label{tab:baselines}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{0.572\linewidth}rrrrrr}
+\toprule
+baseline & rho & auc & js & bad & tau\_\allowbreak{}native & J \\
+\midrule
+native\_\allowbreak{}style\_\allowbreak{}metric & 0.826 & 0.935 & 0.031 & 0.014 & 0.992 & 0.925 \\
+em\_\allowbreak{}norm & 0.849 & 0.963 & 0.024 & 0.012 & 0.924 & 0.928 \\
+tok\_\allowbreak{}f1 & 0.859 & 0.965 & 0.079 & 0.032 & 0.888 & 0.907 \\
+rouge\_\allowbreak{}l & 0.862 & 0.965 & 0.082 & 0.032 & 0.892 & 0.907 \\
+num\_\allowbreak{}tol\_\allowbreak{}1 & 0.806 & 0.919 & 0.032 & 0.016 & 0.946 & 0.909 \\
+uniform\_\allowbreak{}over\_\allowbreak{}selected\_\allowbreak{}no\_\allowbreak{}gate & 0.882 & 0.970 & 0.098 & 0.028 & 0.900 & 0.911 \\
+ensemble\_\allowbreak{}top100 & 0.904 & 0.996 & 0.053 & 0.032 & 0.898 & 0.934 \\
+\bottomrule
+\end{tabular}
+\end{table}

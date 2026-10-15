@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering\scriptsize
+\caption{Per-family optimum.}
+\label{tab:per_family}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lp{0.739\linewidth}rp{0.075\linewidth}}
+\toprule
+family & best weights & J own best & J global best \\
+\midrule
+EM & numeric tolerance 1.00 & 0.361 & 0.361 \\
+SM & numeric tolerance 1.00 & 0.580 & 0.580 \\
+TQA & exact match 0.50, numeric decay 0.05, token precision 0.15, token recall 0.05, token F1 0.10, edit similarity 0.05, ROUGE-L 0.10 & 0.513 & 0.512 \\
+FIN & exact match 0.10, numeric tolerance 0.10, token precision 0.20, token recall 0.35, token F1 0.10, ROUGE-L 0.15 & 0.834 & 0.619 \\
+\bottomrule
+\end{tabular}
+\end{table}

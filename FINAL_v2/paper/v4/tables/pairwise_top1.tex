@@ -1,0 +1,57 @@
+\begin{landscape}
+\tiny
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{p{0.162\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}p{0.081\linewidth}}
+\caption{Cross-dataset pairwise tests under rule top1: Friedman $\chi^2$ = 81.8 ($p$ = 7.2e-14), Iman--Davenport $F$ = 12.4, Nemenyi CD = 2.43, Kendall's $W$ = 0.276.}\label{tab:pairwise_top1}\\
+\toprule
+a & b & mean rank diff & wins a & wins b & ties & Wilcoxon p & Holm p & Nemenyi & sig .05 \\
+\midrule
+Claude Opus 5 & Claude Sonnet 5 & -1.2903 & 20 & 7 & 4 & 0.0294 & 0.5878 & no & no \\
+Claude Opus 5 & DeepSeek-chat & -2.7097 & 22 & 6 & 3 & 0.0049 & 0.1565 & yes & no \\
+Claude Opus 5 & DeepSeek-R1 & -1.7419 & 18 & 6 & 7 & 0.0126 & 0.2890 & no & no \\
+Claude Opus 5 & Gemini 3.8 Flash & -0.8548 & 16 & 9 & 6 & 0.1750 & 1.0000 & no & no \\
+Claude Opus 5 & GPT-5.4-mini & -2.6290 & 24 & 5 & 2 & 0.0066 & 0.1911 & yes & no \\
+Claude Opus 5 & GPT-5.5 & -0.0968 & 13 & 9 & 9 & 0.3813 & 1.0000 & no & no \\
+Claude Opus 5 & gpt-oss-120b & -4.0645 & 26 & 4 & 1 & 0.0006 & 0.0191 & yes & yes \\
+Claude Opus 5 & Grok 4 & -1.6290 & 19 & 9 & 3 & 0.0413 & 0.7430 & no & no \\
+Claude Opus 5 & Llama 3.3 70B & -4.8226 & 25 & 5 & 1 & 0.0002 & 0.0066 & yes & yes \\
+Claude Sonnet 5 & DeepSeek-chat & -1.4194 & 20 & 5 & 6 & 0.0104 & 0.2640 & no & no \\
+Claude Sonnet 5 & DeepSeek-R1 & -0.4516 & 13 & 13 & 5 & 0.7530 & 1.0000 & no & no \\
+Claude Sonnet 5 & Gemini 3.8 Flash & 0.4355 & 11 & 13 & 7 & 0.3822 & 1.0000 & no & no \\
+Claude Sonnet 5 & GPT-5.4-mini & -1.3387 & 20 & 7 & 4 & 0.0856 & 1.0000 & no & no \\
+Claude Sonnet 5 & GPT-5.5 & 1.1935 & 7 & 17 & 7 & 0.0097 & 0.2614 & no & no \\
+Claude Sonnet 5 & gpt-oss-120b & -2.7742 & 22 & 7 & 2 & 0.0066 & 0.1911 & yes & no \\
+Claude Sonnet 5 & Grok 4 & -0.3387 & 15 & 11 & 5 & 0.5827 & 1.0000 & no & no \\
+Claude Sonnet 5 & Llama 3.3 70B & -3.5323 & 25 & 4 & 2 & 0.0001 & 0.0049 & yes & yes \\
+DeepSeek-chat & DeepSeek-R1 & 0.9677 & 10 & 17 & 4 & 0.2210 & 1.0000 & no & no \\
+DeepSeek-chat & Gemini 3.8 Flash & 1.8548 & 5 & 19 & 7 & 0.0107 & 0.2640 & no & no \\
+DeepSeek-chat & GPT-5.4-mini & 0.0806 & 11 & 13 & 7 & 0.3767 & 1.0000 & no & no \\
+DeepSeek-chat & GPT-5.5 & 2.6129 & 4 & 20 & 7 & 0.0008 & 0.0251 & yes & yes \\
+DeepSeek-chat & gpt-oss-120b & -1.3548 & 18 & 8 & 5 & 0.1014 & 1.0000 & no & no \\
+DeepSeek-chat & Grok 4 & 1.0806 & 11 & 16 & 4 & 0.1724 & 1.0000 & no & no \\
+DeepSeek-chat & Llama 3.3 70B & -2.1129 & 23 & 3 & 5 & 0.0001 & 0.0052 & no & yes \\
+DeepSeek-R1 & Gemini 3.8 Flash & 0.8871 & 11 & 16 & 4 & 0.1098 & 1.0000 & no & no \\
+DeepSeek-R1 & GPT-5.4-mini & -0.8871 & 17 & 11 & 3 & 0.7905 & 1.0000 & no & no \\
+DeepSeek-R1 & GPT-5.5 & 1.6452 & 7 & 19 & 5 & 0.0128 & 0.2890 & no & no \\
+DeepSeek-R1 & gpt-oss-120b & -2.3226 & 20 & 6 & 5 & 0.0060 & 0.1810 & no & no \\
+DeepSeek-R1 & Grok 4 & 0.1129 & 12 & 15 & 4 & 0.4427 & 1.0000 & no & no \\
+DeepSeek-R1 & Llama 3.3 70B & -3.0806 & 24 & 4 & 3 & 0.0001 & 0.0049 & yes & yes \\
+Gemini 3.8 Flash & GPT-5.4-mini & -1.7742 & 20 & 9 & 2 & 0.0679 & 1.0000 & no & no \\
+Gemini 3.8 Flash & GPT-5.5 & 0.7581 & 10 & 15 & 6 & 0.4730 & 1.0000 & no & no \\
+Gemini 3.8 Flash & gpt-oss-120b & -3.2097 & 24 & 2 & 5 & 0.0001 & 0.0033 & yes & yes \\
+Gemini 3.8 Flash & Grok 4 & -0.7742 & 17 & 11 & 3 & 0.2191 & 1.0000 & no & no \\
+Gemini 3.8 Flash & Llama 3.3 70B & -3.9677 & 26 & 4 & 1 & 0.0001 & 0.0048 & yes & yes \\
+GPT-5.4-mini & GPT-5.5 & 2.5323 & 5 & 25 & 1 & 0.0053 & 0.1642 & yes & no \\
+GPT-5.4-mini & gpt-oss-120b & -1.4355 & 21 & 9 & 1 & 0.0102 & 0.2640 & no & no \\
+GPT-5.4-mini & Grok 4 & 1.0000 & 10 & 15 & 6 & 0.4437 & 1.0000 & no & no \\
+GPT-5.4-mini & Llama 3.3 70B & -2.1935 & 23 & 3 & 5 & 0.0001 & 0.0035 & no & yes \\
+GPT-5.5 & gpt-oss-120b & -3.9677 & 25 & 1 & 5 & 0.0000 & 0.0005 & yes & yes \\
+GPT-5.5 & Grok 4 & -1.5323 & 17 & 6 & 8 & 0.0270 & 0.5669 & no & no \\
+GPT-5.5 & Llama 3.3 70B & -4.7258 & 27 & 4 & 0 & 0.0000 & 0.0010 & yes & yes \\
+gpt-oss-120b & Grok 4 & 2.4355 & 3 & 24 & 4 & 0.0001 & 0.0053 & yes & yes \\
+gpt-oss-120b & Llama 3.3 70B & -0.7581 & 19 & 8 & 4 & 0.0302 & 0.5878 & no & no \\
+Grok 4 & Llama 3.3 70B & -3.1935 & 23 & 4 & 4 & 0.0001 & 0.0049 & yes & yes \\
+\bottomrule
+\end{longtable}
+\normalsize
+\end{landscape}

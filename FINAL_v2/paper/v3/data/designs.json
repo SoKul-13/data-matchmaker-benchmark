@@ -1,0 +1,25 @@
+{
+  "lattice": {
+    "n": 100,
+    "K": 8,
+    "min_pairwise_L1": 0.19999999999999996,
+    "mean_nearest_L1": 0.40099999999999997,
+    "centred_L2_discrepancy": 1.9925657850840217,
+    "mean_distinct_values_per_weight": 11.625,
+    "share_with_a_zero_weight": 0.93
+  },
+  "lhs": {
+    "n": 100,
+    "K": 8,
+    "min_pairwise_L1": 0.09999999999999999,
+    "mean_nearest_L1": 0.36599999999999994,
+    "centred_L2_discrepancy": 2.0709694855785252,
+    "mean_distinct_values_per_weight": 10.5,
+    "share_with_a_zero_weight": 0.76
+  },
+  "best_J": {
+    "subset": 0.9475255074176903,
+    "lattice": 0.9459699518621347,
+    "lhs": 0.946192174084357
+  }
+}

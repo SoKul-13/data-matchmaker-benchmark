@@ -1,0 +1,105 @@
+\begin{landscape}
+\tiny
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{p{0.105\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}}
+\caption{Leave-one-dataset-out, every dataset.}\label{tab:lodo_full}\\
+\toprule
+kind & held\_\allowbreak{}out & weights\_\allowbreak{}from & w\_\allowbreak{}em & w\_\allowbreak{}num\_\allowbreak{}tol & w\_\allowbreak{}num\_\allowbreak{}decay & w\_\allowbreak{}tok\_\allowbreak{}prec & w\_\allowbreak{}tok\_\allowbreak{}rec & w\_\allowbreak{}tok\_\allowbreak{}f1 & w\_\allowbreak{}edit\_\allowbreak{}sim & w\_\allowbreak{}rouge\_\allowbreak{}l & w\_\allowbreak{}jaccard & J\_\allowbreak{}rest & tau\_\allowbreak{}heldout\_\allowbreak{}mean & n\_\allowbreak{}heldout \\
+\midrule
+dataset & abt\_\allowbreak{}buy & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.430 & 0.809 & 1 \\
+dataset & abt\_\allowbreak{}buy & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.430 & 0.809 & 1 \\
+dataset & abt\_\allowbreak{}buy & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.391 & 0.809 & 1 \\
+dataset & alaska\_\allowbreak{}camera & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.471 & -0.442 & 1 \\
+dataset & alaska\_\allowbreak{}camera & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.471 & -0.442 & 1 \\
+dataset & alaska\_\allowbreak{}camera & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.436 & -0.442 & 1 \\
+dataset & alaska\_\allowbreak{}schema & heldout\_\allowbreak{}weights & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.453 & 0.024 & 1 \\
+dataset & alaska\_\allowbreak{}schema & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.450 & 0.024 & 1 \\
+dataset & alaska\_\allowbreak{}schema & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.424 & -0.200 & 1 \\
+dataset & amazon\_\allowbreak{}google & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.457 & -0.024 & 1 \\
+dataset & amazon\_\allowbreak{}google & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.457 & -0.024 & 1 \\
+dataset & amazon\_\allowbreak{}google & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.419 & -0.024 & 1 \\
+dataset & bird & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.433 & 0.705 & 1 \\
+dataset & bird & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.433 & 0.705 & 1 \\
+dataset & bird & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.405 & 0.539 & 1 \\
+dataset & dblp\_\allowbreak{}acm & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.433 & 0.581 & 1 \\
+dataset & dblp\_\allowbreak{}acm & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.433 & 0.581 & 1 \\
+dataset & dblp\_\allowbreak{}acm & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.397 & 0.637 & 1 \\
+dataset & dblp\_\allowbreak{}scholar & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.457 & 0.000 & 1 \\
+dataset & dblp\_\allowbreak{}scholar & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.457 & 0.000 & 1 \\
+dataset & dblp\_\allowbreak{}scholar & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.421 & 0.000 & 1 \\
+dataset & fetaqa & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.434 & 0.509 & 1 \\
+dataset & fetaqa & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.434 & 0.509 & 1 \\
+dataset & fetaqa & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.407 & 0.422 & 1 \\
+dataset & fintagging & heldout\_\allowbreak{}weights & 0.200 & 0.300 & 0.000 & 0.100 & 0.250 & 0.000 & 0.050 & 0.050 & 0.050 & 0.431 & 0.511 & 1 \\
+dataset & fintagging & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.428 & 0.788 & 1 \\
+dataset & fintagging & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.402 & 0.467 & 1 \\
+dataset & hitab & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.458 & -0.210 & 1 \\
+dataset & hitab & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.458 & -0.210 & 1 \\
+dataset & hitab & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.433 & -0.315 & 1 \\
+dataset & machamp & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.432 & 0.738 & 1 \\
+dataset & machamp & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.432 & 0.738 & 1 \\
+dataset & machamp & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.393 & 0.738 & 1 \\
+dataset & magneto\_\allowbreak{}gdc & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.439 & 0.535 & 1 \\
+dataset & magneto\_\allowbreak{}gdc & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.439 & 0.535 & 1 \\
+dataset & magneto\_\allowbreak{}gdc & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.405 & 0.539 & 1 \\
+dataset & mmtu & heldout\_\allowbreak{}weights & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.434 & 0.556 & 1 \\
+dataset & mmtu & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.432 & 0.613 & 1 \\
+dataset & mmtu & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.401 & 0.556 & 1 \\
+dataset & officeqa & heldout\_\allowbreak{}weights & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.438 & 0.549 & 1 \\
+dataset & officeqa & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.432 & 0.614 & 1 \\
+dataset & officeqa & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.399 & 0.556 & 1 \\
+dataset & officeqa\_\allowbreak{}pro\_\allowbreak{}v2 & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.436 & 0.629 & 1 \\
+dataset & officeqa\_\allowbreak{}pro\_\allowbreak{}v2 & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.436 & 0.629 & 1 \\
+dataset & officeqa\_\allowbreak{}pro\_\allowbreak{}v2 & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.399 & 0.556 & 1 \\
+dataset & opensanctions\_\allowbreak{}pairs & heldout\_\allowbreak{}weights & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.451 & 0.090 & 1 \\
+dataset & opensanctions\_\allowbreak{}pairs & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.446 & 0.045 & 1 \\
+dataset & opensanctions\_\allowbreak{}pairs & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.416 & 0.045 & 1 \\
+dataset & papadakis\_\allowbreak{}dn & heldout\_\allowbreak{}weights & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.452 & 0.026 & 1 \\
+dataset & papadakis\_\allowbreak{}dn & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.449 & 0.026 & 1 \\
+dataset & papadakis\_\allowbreak{}dn & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.417 & 0.078 & 1 \\
+dataset & realhitbench & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.431 & 0.764 & 1 \\
+dataset & realhitbench & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.431 & 0.764 & 1 \\
+dataset & realhitbench & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.397 & 0.600 & 1 \\
+dataset & smat & heldout\_\allowbreak{}weights & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.444 & 0.248 & 1 \\
+dataset & smat & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.441 & 0.248 & 1 \\
+dataset & smat & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.407 & 0.378 & 1 \\
+dataset & suc & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.434 & 0.690 & 1 \\
+dataset & suc & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.434 & 0.690 & 1 \\
+dataset & suc & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.398 & 0.584 & 1 \\
+dataset & tab\_\allowbreak{}fact & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.455 & -0.090 & 1 \\
+dataset & tab\_\allowbreak{}fact & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.455 & -0.090 & 1 \\
+dataset & tab\_\allowbreak{}fact & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.423 & -0.045 & 1 \\
+dataset & tabis & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.441 & 0.477 & 1 \\
+dataset & tabis & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.441 & 0.477 & 1 \\
+dataset & tabis & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.403 & 0.432 & 1 \\
+dataset & tablebench & heldout\_\allowbreak{}weights & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.437 & 0.477 & 1 \\
+dataset & tablebench & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.436 & 0.552 & 1 \\
+dataset & tablebench & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.403 & 0.511 & 1 \\
+dataset & tableeval & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.447 & 0.276 & 1 \\
+dataset & tableeval & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.447 & 0.276 & 1 \\
+dataset & tableeval & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.409 & 0.333 & 1 \\
+dataset & tat\_\allowbreak{}qa & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.439 & 0.270 & 1 \\
+dataset & tat\_\allowbreak{}qa & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.439 & 0.270 & 1 \\
+dataset & tat\_\allowbreak{}qa & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.405 & 0.539 & 1 \\
+dataset & tpcdi\_\allowbreak{}cells & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.438 & 0.545 & 1 \\
+dataset & tpcdi\_\allowbreak{}cells & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.438 & 0.545 & 1 \\
+dataset & tpcdi\_\allowbreak{}cells & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.403 & 0.535 & 1 \\
+dataset & valentine & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.437 & 0.597 & 1 \\
+dataset & valentine & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.437 & 0.597 & 1 \\
+dataset & valentine & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.402 & 0.477 & 1 \\
+dataset & walmart\_\allowbreak{}amazon & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.431 & 0.768 & 1 \\
+dataset & walmart\_\allowbreak{}amazon & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.431 & 0.768 & 1 \\
+dataset & walmart\_\allowbreak{}amazon & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.393 & 0.722 & 1 \\
+dataset & wdc\_\allowbreak{}lspc & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.441 & 0.484 & 1 \\
+dataset & wdc\_\allowbreak{}lspc & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.441 & 0.484 & 1 \\
+dataset & wdc\_\allowbreak{}lspc & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.405 & 0.435 & 1 \\
+dataset & wdc\_\allowbreak{}products & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.444 & 0.369 & 1 \\
+dataset & wdc\_\allowbreak{}products & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.444 & 0.369 & 1 \\
+dataset & wdc\_\allowbreak{}products & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.405 & 0.369 & 1 \\
+dataset & wikitablequestions & heldout\_\allowbreak{}weights & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.428 & 0.782 & 1 \\
+dataset & wikitablequestions & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.426 & 0.920 & 1 \\
+dataset & wikitablequestions & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.392 & 0.778 & 1 \\
+\bottomrule
+\end{longtable}
+\normalsize
+\end{landscape}

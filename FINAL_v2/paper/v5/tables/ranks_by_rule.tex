@@ -1,0 +1,24 @@
+\begin{landscape}
+\begin{table}[htbp]
+\centering\tiny
+\caption{Bradley--Terry rank (Borda rank in brackets) under each reported rule, Friedman $p$ and Kendall's $W$ among datasets.}
+\label{tab:ranks_by_rule}
+\setlength{\tabcolsep}{3pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrrrrrrrr}
+\toprule
+rule & Gemini 3.8 Flash & Claude Opus 5 & GPT-5.5 & Claude Sonnet 5 & Grok 4 & GPT-5.4-mini & DeepSeek-chat & DeepSeek-R1 & gpt-oss-120b & Llama 3.3 70B & Friedman p & W \\
+\midrule
+exact match & 2 (3) & 1 (1) & 3 (2) & 5 (4) & 4 (5) & 6 (8) & 8 (7) & 7 (6) & 9 (9) & 10 (10) & 2.7e-14 & 0.28 \\
+native metric & 1 (3) & 3 (2) & 2 (1) & 5 (4) & 4 (5) & 8 (7) & 7 (8) & 6 (6) & 9 (9) & 10 (10) & 3.8e-14 & 0.28 \\
+ensemble & 1 (3) & 2 (1) & 3 (2) & 4 (4) & 5 (5) & 6 (6) & 7 (8) & 8 (7) & 9 (9) & 10 (10) & 2.1e-12 & 0.26 \\
+top1 & 1 (3) & 2 (1) & 3 (2) & 4 (4) & 5 (5) & 6 (6) & 7 (8) & 8 (7) & 9 (9) & 10 (10) & 2.9e-12 & 0.26 \\
+top2 & 1 (3) & 2 (1) & 3 (2) & 4 (4) & 5 (5) & 6 (6) & 7 (8) & 8 (7) & 9 (9) & 10 (10) & 2.2e-12 & 0.26 \\
+top3 & 1 (3) & 2 (1) & 3 (2) & 4 (4) & 5 (5) & 6 (6) & 7 (8) & 8 (7) & 9 (9) & 10 (10) & 2.7e-12 & 0.26 \\
+top4 & 1 (3) & 2 (1) & 3 (2) & 4 (4) & 5 (5) & 6 (6) & 7 (8) & 8 (7) & 9 (9) & 10 (10) & 3.6e-12 & 0.25 \\
+top5 & 1 (3) & 2 (1) & 3 (2) & 4 (4) & 5 (5) & 6 (6) & 7 (8) & 8 (7) & 9 (9) & 10 (10) & 4.2e-12 & 0.25 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+\end{landscape}

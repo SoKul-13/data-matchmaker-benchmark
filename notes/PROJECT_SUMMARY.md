@@ -46,6 +46,7 @@ and an unstable rank for v1 inside a flat objective (report the plateau, not the
 | Model access and costs | `notes/MODEL_ACCESS_REQUEST.md` |
 | Formulas across versions | `notes/GUIDE_UNDER_THE_HOOD.md`; `notes/OVERALL_SUMMARY.md` |
 | Paper plan, figures, partial draft | `FINAL_v2/paper/` |
+| Summary reports per version (Overleaf packages: Setup + Results + every figure, table and data file) | `FINAL_v2/paper/{v2,v3,v4,v5,comparison}/` and the matching `*_overleaf.zip`; index in `FINAL_v2/paper/README.md` |
 | Human-label protocol, model-run instructions, code flow | `FINAL_v2/notes/` |
 | Daily Gemini Pro collection | `.github/workflows/gemini-pro-trickle.yml`, branch `gemini-pro-trickle`, PR #1 |
 

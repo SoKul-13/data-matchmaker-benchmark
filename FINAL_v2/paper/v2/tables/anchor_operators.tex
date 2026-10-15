@@ -1,0 +1,32 @@
+\begin{table}[htbp]
+\centering\scriptsize
+\caption{Anchor operators: known utility, mean v1 score, exact-match rate and count.}
+\label{tab:anchor_operators}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{0.700\linewidth}rrrr}
+\toprule
+op & utility & v1 & em & n \\
+\midrule
+no\_\allowbreak{}answer & 0.000 & 0.001 & 0.000 & 3083 \\
+wrong\_\allowbreak{}random & 0.000 & 0.097 & 0.041 & 1845 \\
+flip & 0.000 & 0.000 & 0.000 & 1238 \\
+sign\_\allowbreak{}flip & 0.050 & 0.018 & 0.003 & 632 \\
+magnitude & 0.050 & 0.091 & 0.013 & 632 \\
+near\_\allowbreak{}miss\_\allowbreak{}large & 0.150 & 0.150 & 0.000 & 632 \\
+digit\_\allowbreak{}typo & 0.200 & 0.199 & 0.000 & 632 \\
+list\_\allowbreak{}dump & 0.250 & 0.373 & 0.013 & 1845 \\
+hedge & 0.300 & 0.493 & 0.192 & 2974 \\
+shuffled & 0.400 & 0.652 & 0.009 & 109 \\
+near\_\allowbreak{}miss\_\allowbreak{}medium & 0.450 & 0.293 & 0.008 & 632 \\
+partial & 0.500 & 0.345 & 0.061 & 1213 \\
+superset & 0.600 & 0.467 & 0.045 & 1213 \\
+typo & 0.600 & 0.334 & 0.101 & 1104 \\
+near\_\allowbreak{}miss\_\allowbreak{}small & 0.750 & 0.405 & 0.097 & 632 \\
+paraphrase & 0.950 & 0.965 & 0.930 & 3083 \\
+verbose & 1.000 & 1.000 & 0.999 & 3083 \\
+identity & 1.000 & 1.000 & 0.999 & 3083 \\
+tagged & 1.000 & 1.000 & 0.999 & 3083 \\
+unit\_\allowbreak{}variant & 1.000 & 0.898 & 0.837 & 632 \\
+\bottomrule
+\end{tabular}
+\end{table}

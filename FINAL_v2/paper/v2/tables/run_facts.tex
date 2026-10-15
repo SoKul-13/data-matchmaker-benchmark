@@ -1,0 +1,22 @@
+\begin{table}[htbp]
+\centering\tiny
+\caption{Run facts per model from the prediction cache.}
+\label{tab:run_facts}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{0.065\linewidth}rp{0.089\linewidth}p{0.174\linewidth}p{0.178\linewidth}p{0.105\linewidth}p{0.105\linewidth}p{0.093\linewidth}}
+\toprule
+model & answers & cost\_\allowbreak{}usd & mean\_\allowbreak{}out\_\allowbreak{}tokens & median\_\allowbreak{}latency\_\allowbreak{}s & reasked\_\allowbreak{}2500 & reasked\_\allowbreak{}8000 & still\_\allowbreak{}cut \\
+\midrule
+Gemini 3.8 Flash & 3083 & 3.35 & 261.60 & 1.28 & 166 & 18 & 0 \\
+Claude Opus 5 & 3282 & 99.34 & 245.15 & 2.16 & 144 & 51 & 15 \\
+GPT-5.5 & 3283 & 19.89 & 169.63 & 1.91 & 150 & 3 & 0 \\
+Claude Sonnet 5 & 3282 & 14.86 & 143.56 & 1.31 & 78 & 46 & 13 \\
+Grok 4 & 3083 & 8.33 & 36.95 & 3.27 & 0 & 0 & 0 \\
+GPT-5.4-mini & 3282 & 4.22 & 125.36 & 0.87 & 127 & 4 & 0 \\
+DeepSeek-chat & 3083 & 0.62 & 50.73 & 0.96 & 16 & 1 & 1 \\
+DeepSeek-R1 & 3083 & 7.15 & 916.57 & 1.27 & 262 & 325 & 309 \\
+gpt-oss-120b & 3083 & 0.70 & 233.36 & 1.61 & 120 & 13 & 1 \\
+Llama 3.3 70B & 3083 & 1.77 & 82.25 & 1.40 & 16 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}

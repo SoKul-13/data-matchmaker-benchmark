@@ -1,0 +1,20 @@
+{
+  "v1_rubric": {
+    "n_neighbours": 32,
+    "J_centre": 0.4039916148568819,
+    "J_min": 0.4011242313443371,
+    "J_max": 0.4094933210010537,
+    "J_mean": 0.40553170004315553,
+    "flatness_range": 0.008369089656716566,
+    "share_neighbours_better": 0.71875
+  },
+  "best": {
+    "n_neighbours": 8,
+    "J_centre": 0.4419331908778631,
+    "J_min": 0.4245868638249646,
+    "J_max": 0.4456078160103513,
+    "J_mean": 0.43044575558587667,
+    "flatness_range": 0.021020952185386743,
+    "share_neighbours_better": 0.125
+  }
+}

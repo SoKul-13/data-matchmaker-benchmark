@@ -1,0 +1,199 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs,graphicx,longtable,tabularx,array,caption,subcaption,amsmath,hyperref,enumitem,xcolor,pdflscape}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\captionsetup{font=small,labelfont=bf}
+\setlist{nosep,leftmargin=*}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\graphicspath{{figures/}}
+\emergencystretch=1.5em
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black}
+\title{Summary Report, v5: A 100-Metric Library Calibrated on Answers of Known Quality}
+\author{}
+\date{2026}
+\begin{document}
+\maketitle
+
+\section{Setup}
+
+\subsection{Shared setup (identical across versions)}
+\begin{itemize}
+\item \textbf{Suite.} 31 datasets: 11 entity matching (EM), 6 schema matching (SM), 11 table question answering and understanding (TQA), 3 financial documents (FIN). Official test or dev splits only; 150 items per dataset by seeded stratified sampling, 100 flagged for answering (OfficeQA Pro V2: 90; Alaska schema: 93); 3,083 answered items per model. Entity-matching pools are 50/50 match / non-match (Papadakis--Christen keeps its real 1.8\,\% ratio); schema matching is one question per source column with a candidate list; BIRD is graded on the executed result of the gold SQL.
+\item \textbf{Answers.} Ten models (Claude Opus 5, Claude Sonnet 5, GPT-5.5, GPT-5.4-mini, Gemini 3.8 Flash, Grok 4, DeepSeek-chat, DeepSeek-R1, gpt-oss-120b, Llama 3.3 70B); one prompt per item ending in \texttt{FINAL ANSWER: <answer>}; temperature 0 where accepted (Claude 5 and GPT-5.5 ran at provider defaults, recorded per row); output budget 700 tokens with mechanical re-asks at 2,500 and 8,000 for replies cut off before a final line; every answer cached with tokens, cost and finish reason. The same cache feeds every version, so leaderboards are directly comparable.
+\item \textbf{Scoring primitives.} Extraction of the final line, Unicode / case / punctuation normalisation, number parsing with sign, percent and scale words, alias lists per gold (best alias wins), list golds, a hedge flag. Native metric per dataset: numeric tolerance (1\,\%) for numeric golds, exact match for text and boolean, ROUGE-L for free-form.
+\item \textbf{Coverage rule.} A model is in the study only if it covered $\ge 90\,\%$ of the suite; a dataset counts only items every model answered and only with $\ge 20$ such items.
+\item \textbf{Leaderboard machinery.} Bradley--Terry strengths from item-level pairwise wins (MLE, ridge 0.01, SE from the observed information) as the headline pooling; Borda, Kemeny (with cost), Copeland, mean-$z$, reciprocal-rank fusion and family-balanced $z$ as checks; 1,000 item bootstraps of the Borda and Bradley--Terry ranks; Friedman with Iman--Davenport, Nemenyi CD, Holm-corrected pairwise Wilcoxon across datasets; paired permutation and Wilcoxon per item within datasets (Holm); Kendall's $W$ among datasets; majority-class baselines for boolean sets; post-stratified official-split estimates with a weighted bootstrap and positive-class F1 at the official match ratio; floor / ceiling / self-stability diagnostics per dataset.
+\item \textbf{Sampled designs.} Uniform-lattice, Dirichlet-snapped and Latin-hypercube samples on the weight simplex at step 0.05 (20 seeds each) with centred $L_2$ discrepancy and nearest-neighbour distances, compared with the exhaustive optimum where one exists.
+\item \textbf{Reporting.} Each version's \texttt{run\_all.sh} regenerates its \texttt{REPORT.md} from the cached answers; every number in this document is read from those output files.
+\end{itemize}
+
+\subsection{What v5 searches}
+\begin{itemize}
+\item \textbf{Metric library.} 100 per-answer metrics in twelve families (exact-match variants, token overlap, character and sequence similarity, numeric tolerance and graded numeric error, set metrics for list golds, structure and task-specific scores, length, commitment / hedging, semantic placeholders), computed for every (model, item) pair and for every anchor.
+\item \textbf{Anchors as the quality signal.} 31,380 synthetic answers generated from the golds by 20 typed operators with a known utility each (identity, verbose, tagged, unit variant = 1; paraphrase 0.95; near misses 0.75 / 0.45 / 0.15; superset 0.6; typo 0.6; partial 0.5; shuffled 0.4; hedge 0.3; list dump 0.25; digit typo 0.2; sign flip and magnitude 0.05; flip, no answer, wrong random = 0). v5 is the only version whose objective is correctness against this signal rather than agreement among the ranked models.
+\item \textbf{Selection.} Drop constant metrics; cluster $|$Spearman$| \ge 0.95$ into representatives; keep candidates above an anchor-agreement floor; forward selection maximising leave-one-dataset-out Spearman of a non-negative least-squares fit to utility.
+\item \textbf{Weights.} Exhaustive grid at step 0.02 over the selected weights (sum to 1) $\times$ five hedge penalties $\lambda$ (score multiplied by $1 - \lambda$ when the answer hedges): 6,630 points. Objective $J = 0.30\,\rho + 0.15\,\text{AUC} + 0.20\,(1 - \text{JS}/\ln 2) + 0.15\,\tau_{\text{native}} + 0.20\,(1 - \text{wrong mean})$, where JS is the Jensen--Shannon divergence between datasets' score distributions at matched operator (cross-dataset consistency) and $\tau_{\text{native}}$ the agreement of the composite's model ranking with the native-metric ranking. The ensemble is the mean of the 100 best weightings, so each answer carries a score and a spread.
+\item \textbf{Validation.} Leave-one-dataset-out re-selection and re-fitting; utility-scale perturbation ($\pm 0.15$, five draws); gaming probes (mean score per operator vs utility against single-metric baselines); sampled designs looked up in the exhaustive grid.
+\item \textbf{Leaderboards.} Exact match, the native metric, the ensemble (headline) and the five best single weightings, each pooled by Bradley--Terry with the full significance battery.
+\end{itemize}
+
+\section{Results}
+\begin{table}[htbp]\centering\small\caption{v5 audit summary.}\label{tab:v5_summary}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{0.30\textwidth} L}\toprule
+Library & 100 metrics, 10 constant on this data, 45 cluster representatives, 28 candidates above the floor \\
+Selected & tok\_\allowbreak{}f1, num\_\allowbreak{}decay\_\allowbreak{}2p5, prefix\_\allowbreak{}ratio; LODO $\rho$ of the selected set 0.875 vs native typed metric alone 0.814 and exact match alone 0.831 \\
+Grid & 6,630 weightings (step 0.02 $\times$ 5 $\lambda$); $J$ top-1 0.935, top-100 mean 0.933, grid median 0.923; range 0.876--0.935 \\
+Ensemble weights & tok\_\allowbreak{}f1 0.17, num\_\allowbreak{}decay\_\allowbreak{}2p5 0.77, prefix\_\allowbreak{}ratio 0.06, $\lambda$ = 0.62; decay weight spans 0.54--0.96 across the top 100 \\
+Ensemble terms & $\rho$ 0.904, AUC 0.996, JS 0.053, $\tau$ native 0.898, wrong mean 0.032 \\
+Baselines & token F1 $\rho$ 0.859 / $J$ 0.907; numeric tolerance $\rho$ 0.806 / $J$ 0.909; ensemble $\rho$ 0.904 / $J$ 0.934 \\
+Sampled designs & all three within 0.0015 of the exhaustive best (0.9348) \\
+Leave-one-dataset-out & mean held-out $\rho$ 0.893 (re-fitted) vs 0.894 (full); same metric set selected in 90\,\% of folds \\
+Utility perturbation & mean $L_1$ shift of the ensemble weights 0.022; selection changed in 0\,\% of draws \\
+Probes (MAE to utility) & ensemble 0.116, token F1 0.144, native 0.155, exact match 0.199 \\
+Leaderboard (ensemble, BT) & first Gemini 3.8 Flash ($P$(first) 0.95), then Claude Opus 5, GPT-5.5; last Llama 3.3 70B; Friedman $p$ = 2.1e-12; $W$ = 0.26 \\
+Other rules & native metric: Gemini 3.8 Flash first; exact match: Claude Opus 5 first; $\tau$ ensemble vs native 0.78, vs exact match 0.87 \\
+\bottomrule\end{tabularx}\end{table}
+
+\subsection{Three metrics carry the library's information}
+Of 100 metrics, 45 are distinct at $|$Spearman$| \ge 0.95$ and forward selection stops at three: token F1, numeric decay and prefix ratio (Figures~\ref{fig:fig_metric_library}, \ref{fig:fig_clusters}). Their NNLS fit reaches leave-one-dataset-out $\rho$ 0.875 against 0.814 for the native typed metric and 0.831 for exact match.
+\begin{figure}[htbp]\centering\includegraphics[width=0.7\textwidth]{fig_metric_library.png}\caption{The 100-metric library on the anchors: AUC against Spearman $\rho$, coloured by family; the three selected metrics are circled.}\label{fig:fig_metric_library}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_clusters.png}\caption{Cluster sizes after merging metrics with $|$Spearman$| \ge 0.95$ (45 representatives).}\label{fig:fig_clusters}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.7\textwidth]{fig_family_rho.png}\caption{Anchor $\rho$ per metric family: mean and best member.}\label{fig:fig_family_rho}\end{figure}
+
+
+\subsection{The calibrated ensemble}
+The grid is decay-dominated (Figures~\ref{fig:fig_grid_marginals}, \ref{fig:fig_top100_weights}): the top 100 put 0.77 on numeric decay with a hedge penalty of 0.62. The ensemble reaches $\rho$ 0.904 and AUC 0.996 on the anchors, above every single-metric baseline (Table~\ref{tab:baselines}, Figure~\ref{fig:fig_baselines}); the probes show where the gain comes from: near misses, unit variants and partial answers get graded credit instead of zero (Figure~\ref{fig:fig_probe_operators}, Table~\ref{tab:probes}). The sampled designs land within 0.0015 of the exhaustive best (Table~\ref{tab:designs_summary}).
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_grid_marginals.png}\caption{Objective $J$ against each selected weight and the hedge penalty $\lambda$ over all 6,630 grid points.}\label{fig:fig_grid_marginals}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_top100_weights.png}\caption{Weights and $\lambda$ of the 100 best grid points that form the ensemble (dotted = mean).}\label{fig:fig_top100_weights}\end{figure}
+\input{tables/baselines.tex}
+\begin{figure}[htbp]\centering\includegraphics[width=0.7\textwidth]{fig_baselines.png}\caption{Single-metric baselines against the ensemble under the same objective terms.}\label{fig:fig_baselines}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_probe_operators.png}\caption{Mean score per anchor operator under the ensemble, the native metric and exact match, against known utility.}\label{fig:fig_probe_operators}\end{figure}
+\input{tables/designs_summary.tex}
+
+
+\subsection{Validation}
+Leaving any dataset out re-selects the same three metrics in 90\,\% of folds and changes held-out $\rho$ by 0.001 on average (Figure~\ref{fig:fig_lodo}); perturbing the utility scale by $\pm 0.15$ moves the weights by 0.022 in $L_1$ and never changes the selection. The hand-set utility scale is the main assumption, and these checks say the result is not sensitive to it.
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_lodo.png}\caption{Leave-one-dataset-out: anchor $\rho$ on the held-out dataset under the re-fitted and the full-data ensemble.}\label{fig:fig_lodo}\end{figure}
+\input{tables/validation.tex}
+
+
+\subsection{Leaderboard}
+Under the ensemble pooled by Bradley--Terry, Gemini 3.8 Flash is first, Claude Opus 5 and GPT-5.5 next, Llama 3.3 70B last; Borda puts Claude Opus 5 first. The five best single weightings give the same ranking as the ensemble ($\tau$ = 1.00); the native metric and exact match move the top three. Dataset agreement stays moderate ($W$ = 0.26). The ensemble spread per answer (Figure~\ref{fig:fig_ensemble_spread}) is largest on the free-form and list datasets, which is where the weighting matters.
+\input{tables/leaderboard_headline.tex}
+\input{tables/ranks_by_rule.tex}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_bt_all_rules.png}\caption{Bradley--Terry strengths ($\pm$ SE vs reference) under every reported rule; models fixed in the headline order.}\label{fig:fig_bt_all_rules}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_rank_bootstrap.png}\caption{Bootstrap distribution of each model's rank under the headline rule (ensemble).}\label{fig:fig_rank_bootstrap}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_ensemble_spread.png}\caption{Ensemble uncertainty per dataset: mean spread of the per-answer score across the 100 weightings.}\label{fig:fig_ensemble_spread}\end{figure}
+
+
+\subsection{Comparability and diagnostics}
+\input{tables/official_split_by_dataset.tex}
+\begin{figure}[htbp]\centering\includegraphics[width=0.6\textwidth]{fig_diagnostics_scatter.png}\caption{Dataset diagnostics: mean score against spread across models; dotted line marks the ceiling flag.}\label{fig:fig_diagnostics_scatter}\end{figure}
+
+
+\clearpage
+\appendix
+\section{All figures}
+Every figure that can be drawn from the saved outputs; source data in \texttt{data/}.
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_baselines.png}\caption{Single-metric baselines against the ensemble under the same objective terms.}\label{figall:fig_baselines}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_bt_all_rules.png}\caption{Bradley--Terry strengths ($\pm$ SE vs reference) under every reported rule; models fixed in the headline order.}\label{figall:fig_bt_all_rules}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_cd_diagram.png}\caption{Critical-difference view of the Friedman test under the headline rule: mean rank per model and the Nemenyi critical difference at $\alpha=.05$.}\label{figall:fig_cd_diagram}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_clusters.png}\caption{Cluster sizes after merging metrics with $|$Spearman$| \ge 0.95$ (45 representatives).}\label{figall:fig_clusters}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_dataset_tau.png}\caption{Kendall $\tau$ between the model rankings of each pair of datasets under the headline rule.}\label{figall:fig_dataset_tau}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_design_metrics.png}\caption{Sampled designs over 20 seeds against the exhaustive grid.}\label{figall:fig_design_metrics}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_diagnostics_scatter.png}\caption{Dataset diagnostics: mean score against spread across models; dotted line marks the ceiling flag.}\label{figall:fig_diagnostics_scatter}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_ensemble_spread.png}\caption{Ensemble uncertainty per dataset: mean spread of the per-answer score across the 100 weightings.}\label{figall:fig_ensemble_spread}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_family_rho.png}\caption{Anchor $\rho$ per metric family: mean and best member.}\label{figall:fig_family_rho}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_grid_marginals.png}\caption{Objective $J$ against each selected weight and the hedge penalty $\lambda$ over all 6,630 grid points.}\label{figall:fig_grid_marginals}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_leaderboard.png}\caption{Ensemble leaderboard with bootstrap intervals and the native-metric ranking beside.}\label{figall:fig_leaderboard}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_lodo.png}\caption{Leave-one-dataset-out: anchor $\rho$ on the held-out dataset under the re-fitted and the full-data ensemble.}\label{figall:fig_lodo}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_metric_library.png}\caption{The 100-metric library on the anchors: AUC against Spearman $\rho$, coloured by family; the three selected metrics are circled.}\label{figall:fig_metric_library}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_model_dataset_heatmap.png}\caption{Mean score per model and dataset under the headline rule.}\label{figall:fig_model_dataset_heatmap}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_model_dataset_ranks.png}\caption{Rank per model and dataset under the headline rule.}\label{figall:fig_model_dataset_ranks}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_native_vs_ensemble.png}\caption{Per-answer native metric against the ensemble score, by answer type.}\label{figall:fig_native_vs_ensemble}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_objective_terms.png}\caption{Objective $J$ against each of its five terms over the grid.}\label{figall:fig_objective_terms}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_official_f1_models.png}\caption{Positive-class F1 on the balanced pool (grey) and at the official match ratio (coloured) per model and matching dataset.}\label{figall:fig_official_f1_models}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_official_scatter.png}\caption{Suite score against post-stratified official-split estimate for every (dataset, model) pair under the headline rule.}\label{figall:fig_official_scatter}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_p_first.png}\caption{Bootstrap probability of first place under every rule, by pooling method.}\label{figall:fig_p_first}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_pairwise_significance.png}\caption{Number of datasets (of 31) in which the per-item paired test separates each pair of models under the headline rule (Holm within dataset).}\label{figall:fig_pairwise_significance}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_probe_operators.png}\caption{Mean score per anchor operator under the ensemble, the native metric and exact match, against known utility.}\label{figall:fig_probe_operators}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_probes.png}\caption{Probes: mean score per anchor operator against known utility for the ensemble and the single-metric baselines.}\label{figall:fig_probes}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_rank_bootstrap.png}\caption{Bootstrap distribution of each model's rank under the headline rule (ensemble).}\label{figall:fig_rank_bootstrap}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_rule_agreement.png}\caption{Kendall $\tau$ between the Bradley--Terry rankings of each pair of rules.}\label{figall:fig_rule_agreement}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_selection.png}\caption{Metric selection: anchor agreement of every library metric with the selected set marked.}\label{figall:fig_selection}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_self_stability.png}\caption{Self-stability of each dataset's model ranking (Kendall $\tau$ between bootstrap halves).}\label{figall:fig_self_stability}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_significant_pairs_per_dataset.png}\caption{How many of the 45 model pairs each dataset separates at the item level under the headline rule (colour = family).}\label{figall:fig_significant_pairs_per_dataset}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_top100_weights.png}\caption{Weights and $\lambda$ of the 100 best grid points that form the ensemble (dotted = mean).}\label{figall:fig_top100_weights}\end{figure}
+\clearpage
+\section{All tables}
+Every saved table, one file each under \texttt{tables/}; include any in the main text with \texttt{\textbackslash input}.
+\input{tables/baselines.tex}
+\clearpage
+\input{tables/designs_summary.tex}
+\clearpage
+\input{tables/diagnostics.tex}
+\clearpage
+\input{tables/ensemble.tex}
+\clearpage
+\input{tables/ensemble_spread.tex}
+\clearpage
+\input{tables/grid_top25.tex}
+\clearpage
+\input{tables/leaderboard_em_only.tex}
+\clearpage
+\input{tables/leaderboard_ensemble.tex}
+\clearpage
+\input{tables/leaderboard_headline.tex}
+\clearpage
+\input{tables/leaderboard_native.tex}
+\clearpage
+\input{tables/leaderboard_top1.tex}
+\clearpage
+\input{tables/leaderboard_top2.tex}
+\clearpage
+\input{tables/leaderboard_top3.tex}
+\clearpage
+\input{tables/leaderboard_top4.tex}
+\clearpage
+\input{tables/leaderboard_top5.tex}
+\clearpage
+\input{tables/lodo.tex}
+\clearpage
+\input{tables/metric_table.tex}
+\clearpage
+\input{tables/official_split.tex}
+\clearpage
+\input{tables/official_split_by_dataset.tex}
+\clearpage
+\input{tables/pairwise_em_only.tex}
+\clearpage
+\input{tables/pairwise_ensemble.tex}
+\clearpage
+\input{tables/pairwise_native.tex}
+\clearpage
+\input{tables/pairwise_top1.tex}
+\clearpage
+\input{tables/pairwise_top2.tex}
+\clearpage
+\input{tables/pairwise_top3.tex}
+\clearpage
+\input{tables/pairwise_top4.tex}
+\clearpage
+\input{tables/pairwise_top5.tex}
+\clearpage
+\input{tables/per_dataset_mean_ensemble.tex}
+\clearpage
+\input{tables/probes.tex}
+\clearpage
+\input{tables/ranks_by_rule.tex}
+\clearpage
+\input{tables/rule_agreement.tex}
+\clearpage
+\input{tables/selected.tex}
+\clearpage
+\input{tables/selection_trace.tex}
+\clearpage
+\input{tables/validation.tex}
+\clearpage
+\end{document}

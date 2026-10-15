@@ -1,0 +1,219 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs,graphicx,longtable,tabularx,array,caption,subcaption,amsmath,hyperref,enumitem,xcolor,pdflscape}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\captionsetup{font=small,labelfont=bf}
+\setlist{nosep,leftmargin=*}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\graphicspath{{figures/}}
+\emergencystretch=1.5em
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black}
+\title{Summary Report, v4: Nine-Component Composite, Three Sampled Designs, Honest Selection}
+\author{}
+\date{2026}
+\begin{document}
+\maketitle
+
+\section{Setup}
+
+\subsection{Shared setup (identical across versions)}
+\begin{itemize}
+\item \textbf{Suite.} 31 datasets: 11 entity matching (EM), 6 schema matching (SM), 11 table question answering and understanding (TQA), 3 financial documents (FIN). Official test or dev splits only; 150 items per dataset by seeded stratified sampling, 100 flagged for answering (OfficeQA Pro V2: 90; Alaska schema: 93); 3,083 answered items per model. Entity-matching pools are 50/50 match / non-match (Papadakis--Christen keeps its real 1.8\,\% ratio); schema matching is one question per source column with a candidate list; BIRD is graded on the executed result of the gold SQL.
+\item \textbf{Answers.} Ten models (Claude Opus 5, Claude Sonnet 5, GPT-5.5, GPT-5.4-mini, Gemini 3.8 Flash, Grok 4, DeepSeek-chat, DeepSeek-R1, gpt-oss-120b, Llama 3.3 70B); one prompt per item ending in \texttt{FINAL ANSWER: <answer>}; temperature 0 where accepted (Claude 5 and GPT-5.5 ran at provider defaults, recorded per row); output budget 700 tokens with mechanical re-asks at 2,500 and 8,000 for replies cut off before a final line; every answer cached with tokens, cost and finish reason. The same cache feeds every version, so leaderboards are directly comparable.
+\item \textbf{Scoring primitives.} Extraction of the final line, Unicode / case / punctuation normalisation, number parsing with sign, percent and scale words, alias lists per gold (best alias wins), list golds, a hedge flag. Native metric per dataset: numeric tolerance (1\,\%) for numeric golds, exact match for text and boolean, ROUGE-L for free-form.
+\item \textbf{Coverage rule.} A model is in the study only if it covered $\ge 90\,\%$ of the suite; a dataset counts only items every model answered and only with $\ge 20$ such items.
+\item \textbf{Leaderboard machinery.} Bradley--Terry strengths from item-level pairwise wins (MLE, ridge 0.01, SE from the observed information) as the headline pooling; Borda, Kemeny (with cost), Copeland, mean-$z$, reciprocal-rank fusion and family-balanced $z$ as checks; 1,000 item bootstraps of the Borda and Bradley--Terry ranks; Friedman with Iman--Davenport, Nemenyi CD, Holm-corrected pairwise Wilcoxon across datasets; paired permutation and Wilcoxon per item within datasets (Holm); Kendall's $W$ among datasets; majority-class baselines for boolean sets; post-stratified official-split estimates with a weighted bootstrap and positive-class F1 at the official match ratio; floor / ceiling / self-stability diagnostics per dataset.
+\item \textbf{Sampled designs.} Uniform-lattice, Dirichlet-snapped and Latin-hypercube samples on the weight simplex at step 0.05 (20 seeds each) with centred $L_2$ discrepancy and nearest-neighbour distances, compared with the exhaustive optimum where one exists.
+\item \textbf{Reporting.} Each version's \texttt{run\_all.sh} regenerates its \texttt{REPORT.md} from the cached answers; every number in this document is read from those output files.
+\end{itemize}
+
+\subsection{What v4 searches}
+\begin{itemize}
+\item \textbf{Per-answer rule.} A weighted sum of nine lexical components per answer: exact match, numeric tolerance (1\,\%), numeric decay $e^{-2.5\cdot\text{rel.\ err}}$, token precision, token recall, token F1, edit similarity, ROUGE-L, Jaccard. The v1 rubric is the point (F1 0.35, decay 0.35, precision 0.15, recall 0.15) embedded in nine dimensions.
+\item \textbf{Candidates.} The step-0.05 lattice on the nine-weight simplex has 3,108,105 points, too many to enumerate, so three sampled designs of 100 points each (Dirichlet-snapped, Latin hypercube on the simplex, uniform lattice) plus five baselines (exact match only, F1 only, numeric tolerance only, uniform, v1 rubric): 305 candidates. Design comparison over 20 seeds with coverage diagnostics; regret is relative to the best over all seeds and designs since no exhaustive optimum exists.
+\item \textbf{Objective.} The same as v2: $J$ = mean Kendall $\tau$ between each dataset's model ranking under the candidate and the Borda pool of the 31 rankings (also under Kemeny, Copeland and Bradley--Terry pooling; $\tau$ to native metrics beside). $J$ measures consistency between datasets, not correctness.
+\item \textbf{Correctness.} 31,380 synthetic anchors of known utility (same generator as v2 and v5); Spearman $\rho$, AUC correct vs wrong, mean score of wrong answers, hedge gap; $(J,\rho)$ Pareto front and knee.
+\item \textbf{Honesty and transfer.} Nested item bootstrap ($B = 1{,}000$: select in-bag, score out-of-bag; optimism gap; plateau), leave-one-dataset-out and leave-one-family-out, per-family optima, one-step sensitivity (neighbours one lattice step away within the candidate set).
+\item \textbf{Leaderboards.} Exact match, v1 rubric (headline for comparability with v2), the five best by $J$, the best by $\rho$ and the Pareto knee, each pooled by Bradley--Terry with the full significance battery.
+\end{itemize}
+
+\section{Results}
+\begin{table}[htbp]\centering\small\caption{v4 audit summary.}\label{tab:v4_summary}
+\begin{tabularx}{\textwidth}{>{\bfseries}p{0.30\textwidth} L}\toprule
+Candidates & 305 (3 designs $\times$ 100 + 5 baselines) on a lattice of 3,108,105 points; $J$ range 0.400--0.442 \\
+Best & numeric tolerance 1.00 (num\_\allowbreak{}tol\_\allowbreak{}only), $J = 0.442$, $\tau$ native 0.97; exact match alone $J = 0.439$ (rank 2); v1 rubric $J = 0.404$ (rank 295 of 305) \\
+Best per design & Dirichlet 0.439, LHS 0.437, uniform lattice 0.442; regret over seeds $\le$ 0.014 \\
+Nested selection ($B$ = 1,000) & in-bag $J$ of selected 0.387, out-of-bag 0.337 (optimism gap 0.050); v1 rubric out-of-bag 0.339 \\
+Selected vs v1 rubric, out of bag & $-0.002$, 95\,\% CI $[-0.033, +0.024]$; 204 distinct candidates selected \\
+Plateau & 305 of 305 not significantly below the best; practical plateau (within 0.02): 303; v1 rubric inside: yes \\
+Transfer (LODO) & mean held-out $\tau$: re-fitted weights +0.41, full best +0.41, v1 rubric +0.37 \\
+Anchors & v1 rubric $\rho$ 0.878; best-$J$ 0.796; best-$\rho$ 0.884; knee 0.884; exact match nan; Spearman($J$, $\rho$) across candidates -0.19 \\
+Sensitivity & one step moves $J$ by at most 0.008 around the v1 rubric and 0.021 around the best \\
+Leaderboard (v1 rubric, BT) & first Gemini 3.8 Flash, then Claude Opus 5, GPT-5.5; last Llama 3.3 70B; Friedman $p$ = 1.0e-12; $W$ = 0.26 \\
+Leaderboard (best $J$ = numeric tolerance, BT) & first Claude Opus 5; identical ranking to exact match ($\tau$ = 1.00) \\
+\bottomrule\end{tabularx}\end{table}
+
+\subsection{A single typed metric matches the nine-component composite}
+The best candidate is numeric tolerance alone ($J = 0.442$), with exact match alone second (0.439); every mixed candidate is below both (Figures~\ref{fig:fig_landscape}, \ref{fig:fig_j_by_design}, \ref{fig:fig_top_weights}). The v1 rubric sits at rank 295 of 305, but the whole candidate range is 0.042 wide. The three designs find the same region (Table~\ref{tab:designs_summary}); the uniform lattice has the best coverage and the highest best-$J$.
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_landscape.png}\caption{All 305 candidates sorted by $J$, with the baselines marked.}\label{fig:fig_landscape}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.6\textwidth]{fig_j_by_design.png}\caption{Distribution of $J$ over the 100 candidates of each design, with the five baselines marked.}\label{fig:fig_j_by_design}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_top_weights.png}\caption{Component weights of the fifteen best candidates.}\label{fig:fig_top_weights}\end{figure}
+\input{tables/designs_summary.tex}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_marginals.png}\caption{$J$ against each component weight over all candidates; red = v1 rubric.}\label{fig:fig_marginals}\end{figure}
+
+
+\subsection{Honest selection}
+As in v2, the in-bag winner loses 0.050 out of bag and ends -0.002 from the v1 rubric with an interval that includes zero; 204 different candidates are selected across resamples and the plateau covers 305 of 305 (Figures~\ref{fig:fig_nested}, \ref{fig:fig_oob_difference}, \ref{fig:fig_selected_weights}).
+\begin{figure}[htbp]\centering\includegraphics[width=0.6\textwidth]{fig_nested.png}\caption{In-bag vs out-of-bag $J$ of the selected candidate against the v1 rubric.}\label{fig:fig_nested}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.5\textwidth]{fig_oob_difference.png}\caption{Paired out-of-bag difference between the selected candidate and the v1 rubric over 1,000 resamples.}\label{fig:fig_oob_difference}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_selected_weights.png}\caption{Weights selected as in-bag best across 1,000 bootstrap resamples; dotted = v1 rubric.}\label{fig:fig_selected_weights}\end{figure}
+
+
+\subsection{Transfer}
+Re-fitted weights predict a held-out dataset no better than the v1 rubric (Figure~\ref{fig:fig_lodo_tau}); the per-family optima are numeric tolerance for EM and SM but recall- and precision-heavy mixes for TQA and FIN (Figure~\ref{fig:fig_family_weights}, Table~\ref{tab:per_family}).
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_lodo_tau.png}\caption{Leave-one-dataset-out: agreement of the held-out dataset with the pooled rest under re-fitted weights, the full best and the v1 rubric.}\label{fig:fig_lodo_tau}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.7\textwidth]{fig_family_weights.png}\caption{Per-family optimum, global optimum and the v1 rubric over the nine components.}\label{fig:fig_family_weights}\end{figure}
+\input{tables/per_family.tex}
+
+
+\subsection{Correctness}
+Numeric tolerance alone is the best by $J$ but the worst labelled rule on the anchors ($\rho$ = 0.796 vs 0.878 for the v1 rubric): it gives no partial credit to near misses, which the anchors reward (Figure~\ref{fig:fig_anchor_operators}). The Pareto knee (em 0.40, num\_\allowbreak{}tol 0.10, num\_\allowbreak{}decay 0.15, tok\_\allowbreak{}prec 0.10, edit\_\allowbreak{}sim 0.10, rouge\_\allowbreak{}l 0.15) keeps $J$ = 0.432 and $\rho$ = 0.884. Across candidates $J$ and $\rho$ correlate -0.19: agreement and correctness pull apart here as in v2.
+\input{tables/anchors_rules.tex}
+\begin{figure}[htbp]\centering\includegraphics[width=0.7\textwidth]{fig_pareto.png}\caption{Agreement $J$ against anchor correctness $\rho$ for every candidate.}\label{fig:fig_pareto}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_anchor_operators.png}\caption{Anchors: known utility of each operator against the mean score it receives under the v1 rubric, the best-$J$ and the best-$\rho$ candidates.}\label{fig:fig_anchor_operators}\end{figure}
+
+
+\subsection{Leaderboard}
+Under the v1 rubric the ranking is the one v2 reports (same answers, same rule): Gemini 3.8 Flash first by Bradley--Terry, GPT-5.5 first by Borda, Llama 3.3 70B last. Under the best-$J$ rule (numeric tolerance) and under exact match Claude Opus 5 is first. Rule choice moves the top three and nothing else.
+\input{tables/leaderboard_headline.tex}
+\input{tables/ranks_by_rule.tex}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_bt_all_rules.png}\caption{Bradley--Terry strengths ($\pm$ SE vs reference) under every reported rule; models fixed in the headline order.}\label{fig:fig_bt_all_rules}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_rank_bootstrap.png}\caption{Bootstrap distribution of each model's rank under the headline rule (v1 rubric).}\label{fig:fig_rank_bootstrap}\end{figure}
+
+
+\subsection{Comparability and diagnostics}
+\input{tables/official_split_by_dataset.tex}
+\begin{figure}[htbp]\centering\includegraphics[width=0.6\textwidth]{fig_diagnostics_scatter.png}\caption{Dataset diagnostics: mean score against spread across models; dotted line marks the ceiling flag.}\label{fig:fig_diagnostics_scatter}\end{figure}
+
+
+\clearpage
+\appendix
+\section{All figures}
+Every figure that can be drawn from the saved outputs; source data in \texttt{data/}.
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_anchor_metrics_vs_j.png}\caption{Three further anchor diagnostics against $J$ for every candidate (red = v1 rubric).}\label{figall:fig_anchor_metrics_vs_j}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_anchor_operators.png}\caption{Anchors: known utility of each operator against the mean score it receives under the v1 rubric, the best-$J$ and the best-$\rho$ candidates.}\label{figall:fig_anchor_operators}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_bt_all_rules.png}\caption{Bradley--Terry strengths ($\pm$ SE vs reference) under every reported rule; models fixed in the headline order.}\label{figall:fig_bt_all_rules}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_cd_diagram.png}\caption{Critical-difference view of the Friedman test under the headline rule: mean rank per model and the Nemenyi critical difference at $\alpha=.05$.}\label{figall:fig_cd_diagram}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_component_distributions.png}\caption{Distributions of the five components not in v1, by answer type.}\label{figall:fig_component_distributions}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_dataset_tau.png}\caption{Kendall $\tau$ between the model rankings of each pair of datasets under the headline rule.}\label{figall:fig_dataset_tau}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_design_metrics.png}\caption{Sampled designs over 20 seeds: regret against the best over all seeds and designs, centred $L_2$ discrepancy and mean $J$ of the design.}\label{figall:fig_design_metrics}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_designs.png}\caption{Sampled designs: best $J$ found per seed.}\label{figall:fig_designs}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_diagnostics_scatter.png}\caption{Dataset diagnostics: mean score against spread across models; dotted line marks the ceiling flag.}\label{figall:fig_diagnostics_scatter}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_family_j.png}\caption{Within-family $J$ under each family's own optimum, the global best and the v1 rubric.}\label{figall:fig_family_j}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_family_weights.png}\caption{Per-family optimum, global optimum and the v1 rubric over the nine components.}\label{figall:fig_family_weights}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_j_by_design.png}\caption{Distribution of $J$ over the 100 candidates of each design, with the five baselines marked.}\label{figall:fig_j_by_design}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_j_pooling_rules.png}\caption{Objective over all candidates under four pooling rules.}\label{figall:fig_j_pooling_rules}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_landscape.png}\caption{All 305 candidates sorted by $J$, with the baselines marked.}\label{figall:fig_landscape}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_lodo_tau.png}\caption{Leave-one-dataset-out: agreement of the held-out dataset with the pooled rest under re-fitted weights, the full best and the v1 rubric.}\label{figall:fig_lodo_tau}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_marginals.png}\caption{$J$ against each component weight over all candidates; red = v1 rubric.}\label{figall:fig_marginals}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_model_dataset_heatmap.png}\caption{Mean score per model and dataset under the headline rule.}\label{figall:fig_model_dataset_heatmap}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_model_dataset_ranks.png}\caption{Rank per model and dataset under the headline rule.}\label{figall:fig_model_dataset_ranks}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_nested.png}\caption{In-bag vs out-of-bag $J$ of the selected candidate against the v1 rubric.}\label{figall:fig_nested}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_official_f1_models.png}\caption{Positive-class F1 on the balanced pool (grey) and at the official match ratio (coloured) per model and matching dataset.}\label{figall:fig_official_f1_models}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_official_scatter.png}\caption{Suite score against post-stratified official-split estimate for every (dataset, model) pair under the headline rule.}\label{figall:fig_official_scatter}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_oob_difference.png}\caption{Paired out-of-bag difference between the selected candidate and the v1 rubric over 1,000 resamples.}\label{figall:fig_oob_difference}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_p_first.png}\caption{Bootstrap probability of first place under every rule, by pooling method.}\label{figall:fig_p_first}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_pairwise_significance.png}\caption{Number of datasets (of 31) in which the per-item paired test separates each pair of models under the headline rule (Holm within dataset).}\label{figall:fig_pairwise_significance}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_pareto.png}\caption{Agreement $J$ against anchor correctness $\rho$ for every candidate.}\label{figall:fig_pareto}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_plateau.png}\caption{Bootstrap band over sorted candidates and the plateau boundary.}\label{figall:fig_plateau}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_rank_bootstrap.png}\caption{Bootstrap distribution of each model's rank under the headline rule (v1 rubric).}\label{figall:fig_rank_bootstrap}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_rho_per_dataset.png}\caption{Anchor correctness per dataset under the v1 rubric, the best-$J$ and the best-$\rho$ candidates.}\label{figall:fig_rho_per_dataset}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_rule_agreement.png}\caption{Kendall $\tau$ between the Bradley--Terry rankings of each pair of rules.}\label{figall:fig_rule_agreement}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_selected_weights.png}\caption{Weights selected as in-bag best across 1,000 bootstrap resamples; dotted = v1 rubric.}\label{figall:fig_selected_weights}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_self_stability.png}\caption{Self-stability of each dataset's model ranking (Kendall $\tau$ between bootstrap halves).}\label{figall:fig_self_stability}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_sensitivity.png}\caption{One-step sensitivity around the v1 rubric and the best candidate.}\label{figall:fig_sensitivity}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_significant_pairs_per_dataset.png}\caption{How many of the 45 model pairs each dataset separates at the item level under the headline rule (colour = family).}\label{figall:fig_significant_pairs_per_dataset}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_top_weights.png}\caption{Component weights of the fifteen best candidates.}\label{figall:fig_top_weights}\end{figure}
+\clearpage
+\section{All tables}
+Every saved table, one file each under \texttt{tables/}; include any in the main text with \texttt{\textbackslash input}.
+\input{tables/anchor_operators.tex}
+\clearpage
+\input{tables/anchors_rules.tex}
+\clearpage
+\input{tables/baselines.tex}
+\clearpage
+\input{tables/designs_summary.tex}
+\clearpage
+\input{tables/diagnostics.tex}
+\clearpage
+\input{tables/family_scores.tex}
+\clearpage
+\input{tables/grid_top25.tex}
+\clearpage
+\input{tables/leaderboard_best_anchor.tex}
+\clearpage
+\input{tables/leaderboard_em_only.tex}
+\clearpage
+\input{tables/leaderboard_headline.tex}
+\clearpage
+\input{tables/leaderboard_pareto_knee.tex}
+\clearpage
+\input{tables/leaderboard_top1.tex}
+\clearpage
+\input{tables/leaderboard_top2.tex}
+\clearpage
+\input{tables/leaderboard_top3.tex}
+\clearpage
+\input{tables/leaderboard_top4.tex}
+\clearpage
+\input{tables/leaderboard_top5.tex}
+\clearpage
+\input{tables/leaderboard_v1_rubric.tex}
+\clearpage
+\input{tables/lodo_full.tex}
+\clearpage
+\input{tables/lofo_full.tex}
+\clearpage
+\input{tables/nested_selection.tex}
+\clearpage
+\input{tables/official_split.tex}
+\clearpage
+\input{tables/official_split_by_dataset.tex}
+\clearpage
+\input{tables/pairwise_best_anchor.tex}
+\clearpage
+\input{tables/pairwise_em_only.tex}
+\clearpage
+\input{tables/pairwise_pareto_knee.tex}
+\clearpage
+\input{tables/pairwise_top1.tex}
+\clearpage
+\input{tables/pairwise_top2.tex}
+\clearpage
+\input{tables/pairwise_top3.tex}
+\clearpage
+\input{tables/pairwise_top4.tex}
+\clearpage
+\input{tables/pairwise_top5.tex}
+\clearpage
+\input{tables/pairwise_v1_rubric.tex}
+\clearpage
+\input{tables/pareto_front.tex}
+\clearpage
+\input{tables/per_dataset_mean_v1_rubric.tex}
+\clearpage
+\input{tables/per_family.tex}
+\clearpage
+\input{tables/plateau_top30.tex}
+\clearpage
+\input{tables/ranks_by_rule.tex}
+\clearpage
+\input{tables/rho_per_dataset.tex}
+\clearpage
+\input{tables/rule_agreement.tex}
+\clearpage
+\input{tables/sensitivity.tex}
+\clearpage
+\end{document}

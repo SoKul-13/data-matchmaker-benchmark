@@ -20,77 +20,6 @@
 \begin{document}
 \maketitle
 
-% =====================================================================
-\section{Related work: other processes and inspirations}
-% (user text, unchanged)
-\begin{itemize}
-\item s
-\end{itemize}
-
-\subsection*{Lit review checks}
-\begin{description}[style=unboxed,leftmargin=0pt,itemsep=4pt]
-\item[] \textbf{Pairwise-comparison leaderboards: Chatbot Arena (Chiang et al., 2024)}\\
-Did: Bradley--Terry strengths from millions of human pairwise votes with bootstrap confidence intervals. Took: Bradley--Terry as the headline pooling rule and item-level bootstrap rank intervals. Changed: the pairwise ``votes'' are item-level score comparisons from a gold-based judge, so the judge itself is audited; the leaderboard is reported under several pooling rules rather than one.
-\item[] \textbf{Rank aggregation for benchmarks: Colombo et al. (2022); Kemeny (1959); Borda}\\
-Did: argued for Kemeny / Borda consensus over mean scores when aggregating NLP benchmarks, because means are sensitive to scale and outliers. Took: Borda inside the objective (cheap, robust), Kemeny and Copeland as checks, and the Kemeny cost as a saved parameter. Changed: we quantify how much the choice of rule changes the top order on the same scores.
-\item[] \textbf{Holistic, native-metric evaluation: HELM (Liang et al., 2022)}\\
-Did: per-scenario native metrics, mean win rate across scenarios, no composite. Took: the idea that each dataset keeps its own metric as a baseline column (our ``native'' rule and $\tau$-to-native). Changed: we study the composite because the deployed judge uses one, and show its weights do not matter on this suite.
-\item[] \textbf{Few-item evaluation and IRT: tinyBenchmarks (Polo et al., 2024)}\\
-Did: showed $\sim$100 well-chosen items reproduce full-benchmark rankings, using item-response theory. Took: 100 items per dataset as the design target and a Rasch ability view in the sibling v3 pipeline. Changed: our items are stratified by task structure rather than selected by IRT informativeness; we report the attainable precision directly through item bootstraps.
-\item[] \textbf{Benchmark agreement and reliability: Perlitz et al. (2024, BenchBench); Boubdir et al. (2023, Elo Uncovered)}\\
-Did: measured how much benchmarks agree about model rankings and how reliable Elo-style ratings are (transitivity, sensitivity to the order and set of comparisons). Took: Kendall's $W$ among datasets, $\tau$ between pooling rules, and the stability of rankings under resampling as first-class outputs. Changed: applied to datasets inside one suite rather than to whole benchmarks.
-\item[] \textbf{Comparing systems over many datasets: Dem\v{s}ar (2006); Garc\'ia \& Herrera (2008)}\\
-Did: established the Friedman test with Nemenyi or Holm post-hoc as the correct way to compare classifiers across datasets. Took: exactly that battery, plus the Iman--Davenport correction. Changed: added per-item paired tests within datasets (Koehn, 2004; Dror et al., 2018) because we have item-level scores, which the classic setting does not.
-\item[] \textbf{Selection bias and nested validation: Cawley \& Talbot (2010); Varma \& Simon (2006)}\\
-Did: showed that choosing a model or hyper-parameter on the same data used to report its performance biases the report upward, and that nested cross-validation removes the bias. Took: the nested item bootstrap (select in-bag, score out-of-bag) and the optimism gap as a reported quantity. Changed: applied to weight search for a judge, and extended with the plateau, which turns ``the best weighting'' into a set.
-\item[] \textbf{Metric meta-evaluation: Mathur et al. (2020); Kocmi et al. (2021); SummEval (Fabbri et al., 2021)}\\
-Did: validated automatic metrics against human judgements and showed that correlations are driven by outlier systems and that metric choice changes decisions. Took: the principle that a judge must be validated against a quality signal external to the systems it ranks, the outlier diagnostics, and the design of the human-labelling protocol (two labellers, adjudication, agreement statistics). Changed: our external signal is synthetic (controlled perturbations of gold answers) until human labels exist; we keep agreement and correctness as separate axes. (Similar to Chatbot reasoning.)
-\item[] \textbf{Behavioural testing with controlled perturbations: CheckList (Ribeiro et al., 2020)}\\
-Did: tested NLP models with templated, typed perturbations whose expected outcome is known. Took: the operator idea for the anchors: every synthetic answer has a type (alias, unit change, magnitude error, hedge, \dots) and a known utility. Changed: the perturbations are applied to gold answers to test the judge, not to inputs to test the model (to check that small discrepancies have similar output).
-\item[] \textbf{LLM judges and their validation: MT-Bench (Zheng et al., 2023); JudgeBench (Tan et al., 2024); G-Eval (Liu et al., 2023)}\\
-Did: used LLMs as judges and measured their agreement with humans; built benchmarks of hard judging cases. Took: the framing that any judge is a model of quality and needs validation; the refusal and hedge handling. Changed: our judge is a formula over lexical metrics, which is cheaper, deterministic and auditable but blind to semantics (prompt structure impact, etc.); we state that trade-off rather than mixing in an LLM judge.
-\item[] \textbf{Search designs: McKay, Beckman \& Conover (1979); Bergstra \& Bengio (2012); Hickernell (1998)}\\
-Did: Latin hypercube sampling for even coverage; random search beating grids when few dimensions matter; discrepancy as a coverage measure. Took: three designs (uniform lattice, Dirichlet-snapped, Latin hypercube on the simplex via exponential spacings) with centred $L_2$ discrepancy and nearest-neighbour distances. Changed: for four weights the exhaustive grid replaces all of them; the designs remain for the larger sibling searches and as evidence that sampling would have sufficed.
-\item[] \textbf{Variance in benchmarks: Bouthillier et al. (2021); Card et al. (2020); Renze \& Guven (2024)}\\
-Did: decomposed benchmark variance into data sampling, initialisation and other sources; showed most NLP test sets lack power; found temperature in 0--1 does not change problem-solving accuracy. Took: item bootstraps everywhere, 100 items per dataset, temperature 0 as a reproducibility choice with a planned repeat subset. Changed: documented which providers refuse temperature control and recorded the decoding per answer.
-\item[] \textbf{Class imbalance in matching benchmarks: Papadakis et al. (2024)}\\
-Did: re-evaluated entity-matching benchmarks and showed that the usual balanced or easy splits overstate matcher quality; released re-balanced sets (Dn1--Dn8). Took: the Dn sets in the suite at their real ratios, and the motivation for post-stratification. Changed: balanced pools are kept for calibration while official-ratio F1 is reported for comparability.
-\item[] \textbf{Survey estimation: Horvitz \& Thompson (1952)}\\
-Did: unbiased estimation of a population mean from a sample with known inclusion probabilities. Took: post-stratification weights (official share / sample share) and the weighted bootstrap. Changed: applied to benchmark items as a population, with the official split as the target.
-\item[] \textbf{Leaderboard integrity: The Leaderboard Illusion (Singh et al., 2025)}\\
-Did: documented how private testing and selective reporting distort a public leaderboard. Took: the discipline of reporting every candidate and every bootstrap draw, archiving replaced answers, and tagging re-asks. Changed: our selection effect is weight search rather than model submission, and the nested bootstrap is the counter-measure.
-\item[] \textbf{Qualitative model differences: VibeCheck (Dunlap et al., 2024)}\\
-Did: extracted and quantified qualitative traits that predict human preference. Took: the reminder that a lexical judge cannot see style, hedging or formatting quality; the hedge flag is our one concession. Changed: nothing adopted; cited as the complementary axis our evaluation does not cover.
-\end{description}
-
-% =====================================================================
-\section{Experiment procedure}
-% (user text, unchanged)
-\begin{enumerate}
-\item
-\begin{itemize}
-\item Gathered 100 most cited, relevant datasets in $\sim$220 top-cited papers relating to the field of data matching, according to the following criteria of relevance, adoption, generalisation, discriminative power, gold clarity, inclusivity, licence.
-\item Kept top 30 most-cited datasets among the shortlisted collection of datasets, and accounted for inclusivity and redundancy of dataset types, with the following distribution:
-\begin{itemize}
-\item entity matching: 11, schema matching: 6, table QA: 11, financial documents: 3.
-\item Pools of 150 items per dataset by seeded stratified sampling from the official split (strata: question type, sub-task, database, product category, or match label), with 100 fed to the model for output answers (except for two smaller datasets, which took total rows of 90 and 93).
-\item Then balanced positive and negative pairs for prompts to a 50:50 ratio, excluding the Papadakis--Christen entity-matching datasets (which kept their imbalance ratio intentionally).
-\end{itemize}
-\end{itemize}
-\item
-\begin{itemize}
-\item Scores a given prompt output ``answer'' in the following way:
-\[ R = 0.35\,\mathrm{F1} + 0.35\,e^{-2.5\,|\text{relative numeric error}|} + 0.15\,\mathrm{Precision} + 0.15\,\mathrm{Recall}. \]
-\item Decay, Precision, Recall calculated by comparing model prompt output to the ground-truth gold, per row data element.
-\item Each gold in the ground-truth set is calculated via controlling for aliases (text-intensive answers), unit and percent occurrences, and words representing the scale of numbers.
-\end{itemize}
-\item The following models were tested, ensuring flagship models and competitive flash-model alternatives were chosen for all major LLM open-source and private models:
-\begin{itemize}
-\item Claude Opus 5, Claude Sonnet 5, GPT-5.5, GPT-5.4-mini, Gemini 3.8 Flash, Grok 4, DeepSeek-chat, DeepSeek-R1, gpt-oss-120b, Llama 3.3 70B (ten; Gemini 3.1 Pro col\-lected at 240 items a day and included once it reaches 90\,\% coverage).
-\end{itemize}
-\end{enumerate}
-
-% =====================================================================
 \section{Setup}
 \label{sec:setup}
 
@@ -145,11 +74,6 @@ Did: extracted and quantified qualitative traits that predict human preference. 
 \end{itemize}
 
 % =====================================================================
-\section{Methods / logic}
-% (user placeholder, unchanged)
-\begin{itemize}
-\item s
-\end{itemize}
 
 % =====================================================================
 \section{Results}
@@ -390,72 +314,5 @@ Alaska Camera      & n/c   & 0.958 & --    & 0.955 & -- \\
 Three datasets sit at ceiling (mean composite 0.98 with a spread of 0.02--0.04 across models): Valentine, WDC LSPC and WDC Products. They are flagged and remain inside the objective in this run. Two sit near floor for every model (OfficeQA closed-book 0.13, OfficeQA Pro V2 0.14) and one is a known hard set (BIRD 0.19); none is excluded. Self-stability $\tau$ (rank agreement between split halves of a dataset) ranges from 0.58 (HiTab) to 0.93 (FeTaQA).
 
 % =====================================================================
-\section{Some shortcomings / finalisations}
-% (user text, unchanged)
-\begin{itemize}
-\item Limitations ran into:
-\begin{itemize}
-\item Tried Temperature = 0 for perfect reproducibility on output; Claude 5 and GPT-5.5 rejected.
-\item Ran into some non-terminating answers (over token usage bounds set of 700 tokens, categorised as no-match / false value), tested via rerunning, total amount halved, and is negligible but still a notable edge-case.
-\item Need human-labelling to account for proper ``human preference'' claims (from Chatbot Arena).
-\item Need to rerun Gemini 3.0 Pro model (token usage messed up writing into results).
-\item USD 161 for the ten models (Opus 99).
-\end{itemize}
-\end{itemize}
-
-% =====================================================================
-\appendix
-\section{Dataset-specific format transformations and pipelining}
-% (user text, unchanged; not part of the written eval)
-
-\subsection*{Process of taking data from each dataset}
-\begin{enumerate}
-\item Official splits only, taken from the original papers; conducted a random sample (seeded) for finding 150 elements.
-\item Prompted each model on each of 100 initial prompts to get model answers (accounted for aliases and unit handling).
-\item Used native dataset-specific metrics as baseline from the 100 prompts' ground-truth golds.
-\end{enumerate}
-
-\subsection*{Entity matching (pair $\to$ yes/no; exact match native; official-ratio F1 by post-stratification)}
-\begin{itemize}
-\item Abt-Buy, Amazon-Google, Walmart-Amazon, DBLP-Scholar, DBLP-ACM --- Mudgal et al.\ 2018. Official test pairs; balanced 50/50 sample of 150; records as attribute lines.
-\item WDC Products 2024 --- Peeters, Der \& Bizer 2024. Hard-negative test split; balanced per product category.
-\item WDC LSPC 2017 --- Li et al.\ 2020 (Ditto). Four category test sets; balanced per category; pairs already in WDC Products excluded.
-\item Machamp --- Wang et al.\ 2021. Seven heterogeneous-schema tasks; balanced within each task.
-\item Papadakis--Christen Dn1--Dn8 --- Papadakis et al.\ 2024. Uniform sampling within each set, real class ratio kept (1.8 percent); the only unbalanced matching set.
-\item Alaska Camera --- Crescenzi et al.\ 2021. Pairs built from the contest's entity clusters with hard negatives; not comparable to a published split.
-\item OpenSanctions pairs --- dataset card. Its own 1,000-pair sample; balanced; non-commercial licence.
-\end{itemize}
-
-\subsection*{Schema matching (one question per source column; exact match native)}
-\begin{itemize}
-\item Valentine --- Koutras et al.\ 2021. Four table pairs per sub-benchmark and pair type; candidates trimmed but always containing the gold; full gold mapping stored for set-level F1.
-\item Magneto GDC --- Liu et al.\ 2025. 40 of 736 targets shown; many-to-one golds as aliases.
-\item SMAT --- Zhang et al.\ 2021. True target plus nine hard negatives from the same OMOP table.
-\item Alaska schema --- Crescenzi et al.\ 2021. Monitor half only (93 items); attribute plus three sample values plus target list.
-\item FinTagging --- 2025. Concept-linking task only; ten candidate XBRL concepts; half text, half table.
-\item TPC-DI cells --- TPC 2014. The benchmark's own join-and-aggregate task, one item per customer cell.
-\end{itemize}
-
-\subsection*{Table QA and understanding}
-\begin{itemize}
-\item WikiTableQuestions --- Pasupat \& Liang 2015. Official test; typed golds with aliases.
-\item TabFact --- Chen et al.\ 2020. Official test; entailed/refuted as yes/no.
-\item FeTaQA --- Nan et al.\ 2022. Free-form gold; ROUGE-L native.
-\item HiTab --- Cheng et al.\ 2022. Official test; number/text golds.
-\item MMTU --- 2025. Nine of 25 tasks with short golds; task as stratum.
-\item RealHiTBench --- 2025. Fact-checking and numerical questions only; tables capped; list golds.
-\item SUC --- Sui et al.\ 2024. Six structural tasks regenerated from the source tables.
-\item TabIS --- 2024. Zero-shot; option letter with text alias.
-\item TableEval --- 2025. Eight short-gold sub-tasks; original instructions kept.
-\item TableBench --- Wu et al.\ 2025. Two sub-types; numeric and list golds.
-\item BIRD --- Li et al.\ 2023. Gold SQL executed by us; result value is the gold; schema plus evidence in context.
-\end{itemize}
-
-\subsection*{Financial documents}
-\begin{itemize}
-\item TAT-QA --- Zhu et al.\ 2021. Official dev; answers stratified by form; unit and scale handling.
-\item OfficeQA Pro V2 --- 2026 dataset card. All 90 questions; referenced pages in context under a 6,000-character budget.
-\item OfficeQA closed-book --- the original set; kept for continuity, every model at floor, excluded from the objective.
-\end{itemize}
 
 \end{document}

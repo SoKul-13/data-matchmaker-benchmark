@@ -1,0 +1,24 @@
+\begin{landscape}
+\tiny
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{p{0.105\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}p{0.053\linewidth}}
+\caption{Leave-one-family-out.}\label{tab:lofo_full}\\
+\toprule
+kind & held\_\allowbreak{}out & weights\_\allowbreak{}from & w\_\allowbreak{}em & w\_\allowbreak{}num\_\allowbreak{}tol & w\_\allowbreak{}num\_\allowbreak{}decay & w\_\allowbreak{}tok\_\allowbreak{}prec & w\_\allowbreak{}tok\_\allowbreak{}rec & w\_\allowbreak{}tok\_\allowbreak{}f1 & w\_\allowbreak{}edit\_\allowbreak{}sim & w\_\allowbreak{}rouge\_\allowbreak{}l & w\_\allowbreak{}jaccard & J\_\allowbreak{}rest & tau\_\allowbreak{}heldout\_\allowbreak{}mean & n\_\allowbreak{}heldout \\
+\midrule
+family & EM & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.505 & 0.328 & 11 \\
+family & EM & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.505 & 0.328 & 11 \\
+family & EM & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.456 & 0.301 & 11 \\
+family & SM & heldout\_\allowbreak{}weights & 0.200 & 0.300 & 0.000 & 0.100 & 0.250 & 0.000 & 0.050 & 0.050 & 0.050 & 0.430 & 0.358 & 6 \\
+family & SM & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.427 & 0.425 & 6 \\
+family & SM & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.409 & 0.252 & 6 \\
+family & TQA & heldout\_\allowbreak{}weights & 0.100 & 0.300 & 0.100 & 0.200 & 0.050 & 0.050 & 0.000 & 0.100 & 0.100 & 0.427 & 0.403 & 11 \\
+family & TQA & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.416 & 0.448 & 11 \\
+family & TQA & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.403 & 0.379 & 11 \\
+family & FIN & heldout\_\allowbreak{}weights & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.429 & 0.458 & 3 \\
+family & FIN & full\_\allowbreak{}best & 0.000 & 1.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.000 & 0.429 & 0.458 & 3 \\
+family & FIN & v1\_\allowbreak{}rubric & 0.000 & 0.000 & 0.350 & 0.150 & 0.150 & 0.350 & 0.000 & 0.000 & 0.000 & 0.381 & 0.511 & 3 \\
+\bottomrule
+\end{longtable}
+\normalsize
+\end{landscape}

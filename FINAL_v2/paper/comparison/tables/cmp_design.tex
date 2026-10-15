@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering\scriptsize
+\caption{What each version does.}
+\label{tab:cmp_design}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{0.103\linewidth}p{0.186\linewidth}p{0.178\linewidth}p{0.169\linewidth}p{0.264\linewidth}}
+\toprule
+ & v2 & v3 & v4 & v5 \\
+\midrule
+per-answer rule & 4 metrics (F1, decay, P, R), weights searched & dataset's own metric & 9 metrics, weights searched & 3 of 100 metrics, weights searched, top-100 ensemble, hedge gate \\
+what is searched & 4 weights, exhaustive (1,771) & mix of 8 aggregation views (455 candidates) & 9 weights, 3 sampled designs (305) & 3 weights + lambda, exhaustive (6,630) \\
+objective & datasets agree (tau to Borda pool) & stability + transitivity + consensus & datasets agree (tau to Borda pool) & anchor rho, AUC, JS consistency, native tau, wrong -> 0 \\
+checked against & the ranked models (+ anchors beside) & bootstrap resamples & the ranked models (+ anchors beside) & 31,380 synthetic answers of known quality \\
+honesty test & nested item bootstrap, plateau, LODO/LOFO & split-half vs pure BT / uniform & nested item bootstrap, plateau, LODO/LOFO & LODO re-selection, utility perturbation, probes \\
+headline leaderboard rule & v1 weights (deployed) & native metric, Bradley-Terry & v1 rubric (comparability) & calibrated ensemble \\
+main risk & circular: agreement is not correctness & views differ in kind; no per-answer rule & circular; 9-D space not enumerable & hand-set utility scale; synthetic anchors \\
+\bottomrule
+\end{tabular}
+\end{table}
