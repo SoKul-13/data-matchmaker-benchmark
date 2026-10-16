@@ -1,0 +1,17 @@
+{
+ "job": "batches/xjvknwt9rr19kajoos1rga98xnh9z4anpicu",
+ "model": "gemini-3.1-pro",
+ "model_id": "gemini-3.1-pro-preview",
+ "max_tokens": 700,
+ "truncated_from": null,
+ "n": 2,
+ "requests": "gemini-3.1-pro_20261016-120921_requests.jsonl",
+ "input_file": "files/202iniyut6sv",
+ "submitted": "2026-10-16T12:09:27",
+ "decoding": "temperature=0.0",
+ "collected": true,
+ "collected_on": "2026-10-16T12:31:15",
+ "answered": 2,
+ "errors": 0,
+ "cost_usd": 0.0073
+}
