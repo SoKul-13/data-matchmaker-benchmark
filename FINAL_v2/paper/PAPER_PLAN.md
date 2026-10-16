@@ -33,7 +33,7 @@ workshops, or an LLM-evaluation track). 4–8 pages plus appendix. Lead contribu
 
 ## 3. Tables
 * T1 Suite: 31 datasets by family with item counts, licence, official population size (from `TOP30_DATASETS_AND_PRE_RUN_NOTES.md` and `data/pool/_official_strata.json`).
-* T2 Models and run facts: 10 models, decoding (temperature accepted or refused), truncation re-asks per model, cost (`data/predictions/`).
+* T2 Models and run facts: 11 models, decoding (temperature accepted or refused), truncation re-asks per model, cost (`data/predictions/`).
 * T3 Audit summary: J of v1 / best / corners; plateau size; nested in-bag vs out-of-bag; LODO / LOFO τ; anchor ρ and AUC (`best.json`, `selection/nested.json`, `selection/lodo.csv`, `anchors/correctness.json`).
 * T4 Leaderboard under three rules with BT rank intervals, Friedman and Holm results (`leaderboards/<rule>/leaderboard.csv`, `significance.json`, `table.tex`).
 * T5 Official-split estimates for the matching sets: suite accuracy, official F1 with interval (`leaderboards/v1_original/official_split_estimates.csv`).
@@ -46,7 +46,7 @@ workshops, or an LLM-evaluation track). 4–8 pages plus appendix. Lead contribu
 * The winner's curse and the nested bootstrap: select in-bag, score out-of-bag; the optimism gap is the measured size of the curse.
 * The plateau: a set of weightings not distinguishable from the best; a flat objective means rank is noise.
 * Post-stratification: the same answers re-weighted to the official stratum proportions, so per-dataset numbers are comparable to published ones.
-* The truncation protocol: three budgets, mechanical trigger, archived originals, tagged replacements; persistent non-termination is a model property.
+* The truncation protocol: four budgets (700 / 2,500 / 8,000 / 16,000), mechanical trigger, archived originals, tagged replacements; budgets are provider tokens and include chain of thought; persistent non-termination at 16,000 is a model property (DeepSeek-R1 on OfficeQA and BIRD).
 
 ## 5. Comparisons to make
 * v1 vs best-J vs best-ρ vs exact match (the four rules), on J, ρ, AUC, and the leaderboard they induce (rule-agreement τ matrix).

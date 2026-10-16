@@ -1,0 +1,56 @@
+models=['deepseek-r1'] items=3083 budget=$160.0
+[deepseek-r1] cached=3043 todo=40
+[deepseek-r1] done ok=40 err=0 in 50s | run spend so far $0.20 (in=43595 out=80788 tokens)
+TOTAL estimated spend this run: $0.20
+[deepseek-r1] unfinished at 700: 40 answers; re-ask at 2500; worst-case cost USD 0.25
+   bird: 10
+   fintagging: 1
+   hitab: 2
+   mmtu: 1
+   officeqa: 1
+   officeqa_pro_v2: 11
+   realhitbench: 3
+   smat: 1
+   suc: 1
+   tab_fact: 2
+   tablebench: 1
+   tableeval: 5
+   tat_qa: 1
+archived 40 rows to _replaced/deepseek-r1.jsonl; running the model at max_tokens=2500 ...
+tagged 40 replacement rows (attempt 2); still unfinished at 2500: 24; missing / errored: 0
+models=['deepseek-r1'] items=3083 budget=$160.0
+[deepseek-r1] cached=3024 todo=59
+[deepseek-r1] done ok=59 err=0 in 192s | run spend so far $0.89 (in=83110 out=383566 tokens)
+TOTAL estimated spend this run: $0.89
+[deepseek-r1] unfinished at 2500: 59 answers; re-ask at 8000; worst-case cost USD 1.08
+   bird: 14
+   fintagging: 1
+   hitab: 2
+   officeqa: 3
+   officeqa_pro_v2: 28
+   realhitbench: 5
+   tablebench: 1
+   tableeval: 4
+   wikitablequestions: 1
+archived 59 rows to _replaced/deepseek-r1.jsonl; running the model at max_tokens=8000 ...
+tagged 59 replacement rows (attempt 3); still unfinished at 8000: 33; missing / errored: 0
+models=['deepseek-r1'] items=3083 budget=$160.0
+[deepseek-r1] cached=2865 todo=218
+[deepseek-r1] done ok=95 err=123 in 2409s | run spend so far $2.58 (in=36312 out=1170009 tokens)
+TOTAL estimated spend this run: $2.58
+[deepseek-r1] unfinished at 8000: 218 answers; re-ask at 16000; worst-case cost USD 7.82
+   alaska_schema: 1
+   bird: 29
+   fintagging: 6
+   hitab: 3
+   magneto_gdc: 1
+   mmtu: 2
+   officeqa: 82
+   officeqa_pro_v2: 81
+   realhitbench: 5
+   smat: 1
+   tablebench: 4
+   tableeval: 1
+   wikitablequestions: 2
+archived 218 rows to _replaced/deepseek-r1.jsonl; running the model at max_tokens=16000 ...
+tagged 218 replacement rows (attempt 4); still unfinished at 16000: 41; missing / errored: 123

@@ -29,7 +29,7 @@ provider, no small models.
 
 **Prompting and decoding.** One system prompt and one item template: context (table, document pages or record pair), the question, and a line
 asking for `FINAL ANSWER: <answer>`. Temperature 0 where the API accepts it (refused by Claude 5 and GPT-5.5; recorded per answer). Output budget
-700 tokens; answers cut off before a final line re-asked at 2,500 then 8,000 tokens; 184 non-terminating answers scored as failures. Replacement is
+700 tokens; answers cut off before a final line re-asked at 2,500, 8,000 and 16,000 tokens (32,000 once); 41 non-terminating DeepSeek-R1 answers scored as failures and 123 R1 answers pending their 16,000-token stage. The budget is counted in each provider's tokens and includes reasoning models' chain of thought, so it is a termination test, not an equal text allowance. Replacement is
 triggered only mechanically, originals archived, replacements tagged.
 
 **Infrastructure and cost.** Python, `uv`-locked environment, one cache file per model, every row carrying tokens, latency, cost, finish reason
@@ -90,7 +90,7 @@ per-item score estimates the official-split mean; a weighted item bootstrap give
 positive-class precision, recall and F1 at the official match ratio. Logic: keep equal strata for calibration, report comparable numbers for the
 reader.
 
-**Truncation protocol.** Mechanical trigger (no final line before the cap), escalating budgets (700 → 2,500 → 8,000), archive + tag, and a final
+**Truncation protocol.** Mechanical trigger (no final line before the cap), escalating budgets (700 → 2,500 → 8,000 → 16,000), archive + tag, and a final
 "failure to answer" verdict for non-termination. Logic: a budget artefact must not be scored as a wrong answer, but a model that never stops
 reasoning has failed the item.
 

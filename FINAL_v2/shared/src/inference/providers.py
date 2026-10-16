@@ -86,7 +86,7 @@ def _compat_client(spec: ModelSpec):
     if key not in _clients:
         from openai import AsyncOpenAI
         api_key = os.environ.get(spec.api_key_env, "").strip() if spec.api_key_env not in (None, "", "none") else "none"
-        _clients[key] = AsyncOpenAI(base_url=spec.resolved_base_url(), api_key=api_key or "none", timeout=240.0, max_retries=0)
+        _clients[key] = AsyncOpenAI(base_url=spec.resolved_base_url(), api_key=api_key or "none", timeout=900.0, max_retries=0)  # 16k-token reasoning answers need > 240 s
     return _clients[key]
 
 

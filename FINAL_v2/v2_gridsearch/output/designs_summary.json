@@ -1,33 +1,33 @@
 {
   "best_J_mean":{
-    "dirichlet_lattice":0.4177,
-    "lhs_simplex":0.418,
-    "uniform_lattice":0.4185
+    "dirichlet_lattice":0.4123,
+    "lhs_simplex":0.4126,
+    "uniform_lattice":0.4125
   },
   "best_J_sd":{
-    "dirichlet_lattice":0.0008,
-    "lhs_simplex":0.001,
-    "uniform_lattice":0.0013
+    "dirichlet_lattice":0.0012,
+    "lhs_simplex":0.0012,
+    "uniform_lattice":0.0012
   },
   "regret_mean":{
-    "dirichlet_lattice":0.0038,
-    "lhs_simplex":0.0034,
-    "uniform_lattice":0.0029
+    "dirichlet_lattice":0.002,
+    "lhs_simplex":0.0017,
+    "uniform_lattice":0.0018
   },
   "regret_max":{
-    "dirichlet_lattice":0.0051,
-    "lhs_simplex":0.0051,
-    "uniform_lattice":0.0051
+    "dirichlet_lattice":0.0041,
+    "lhs_simplex":0.0038,
+    "uniform_lattice":0.0041
   },
   "rank_median":{
-    "dirichlet_lattice":14.5,
-    "lhs_simplex":9.5,
-    "uniform_lattice":5.5
+    "dirichlet_lattice":11.5,
+    "lhs_simplex":14.5,
+    "uniform_lattice":14.5
   },
   "rank_worst":{
-    "dirichlet_lattice":49,
+    "dirichlet_lattice":58,
     "lhs_simplex":49,
-    "uniform_lattice":42
+    "uniform_lattice":60
   },
   "min_pairwise_L1":{
     "dirichlet_lattice":0.1,

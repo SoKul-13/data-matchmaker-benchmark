@@ -47,7 +47,7 @@ OpenSanctions; TPC-DI spec terms.]
 
 **Models.** Ten: Claude Opus 5, Claude Sonnet 5, GPT-5.5, GPT-5.4-mini, Gemini 3.8 Flash, Grok 4, DeepSeek-chat, DeepSeek-R1, gpt-oss-120b,
 Llama 3.3 70B. One prompt, greedy decoding where the API accepts it (Claude 5 and GPT-5.5 refuse the parameter; recorded per answer). Output
-budget 700 tokens, re-asked at 2,500 and then 8,000 when cut off before a final line; 184 answers (160 of them DeepSeek-R1) never terminated and
+budget 700 tokens, re-asked at 2,500, 8,000 and then 16,000 when cut off before a final line; 41 answers (all DeepSeek-R1) never terminated and
 are scored as failures to answer. Gemini 3.1 Pro was excluded by a 250-request daily quota [update if the trickle completes]. Total cost USD 161.
 
 ## 3. Audit procedure

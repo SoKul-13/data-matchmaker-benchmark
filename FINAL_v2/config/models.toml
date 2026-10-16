@@ -69,7 +69,7 @@ tier = "flagship"
 thinking = "low"
 concurrency = 2
 rpm = 15
-rpd = 240   # Google Tier-1 daily quota for the Pro preview is ~250/day: stop cleanly, resume from cache next day   # preview model: paid-tier quota returned 429 at higher rates on 2026-09-26
+rpd = 240   # Google per-project daily quota for the Pro preview is ~250 requests/day even when funded (429 after ~250 on 2026-10-16); stop cleanly, resume from cache next day
 
 [[model]]
 name = "gemini-3.8-flash"

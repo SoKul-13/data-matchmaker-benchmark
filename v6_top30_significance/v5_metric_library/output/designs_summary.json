@@ -1,29 +1,29 @@
 {
-  "exhaustive_best_J": 0.934848502682012,
+  "exhaustive_best_J": 0.9344353296442852,
   "n_grid": 6630,
   "dirichlet_lattice": {
-    "best_J_mean": 0.9342,
-    "best_J_sd": 0.0004,
-    "regret_mean": 0.0007,
-    "regret_max": 0.0014,
+    "best_J_mean": 0.9339,
+    "best_J_sd": 0.0003,
+    "regret_mean": 0.0006,
+    "regret_max": 0.0011,
     "min_pairwise_L1": 0.04,
     "discrepancy": 0.2728,
     "zero_share": 0.0615
   },
   "lhs_simplex": {
-    "best_J_mean": 0.934,
+    "best_J_mean": 0.9338,
     "best_J_sd": 0.0003,
-    "regret_mean": 0.0008,
-    "regret_max": 0.0015,
+    "regret_mean": 0.0006,
+    "regret_max": 0.0013,
     "min_pairwise_L1": 0.04,
     "discrepancy": 0.2702,
     "zero_share": 0.0555
   },
   "uniform_lattice": {
-    "best_J_mean": 0.9342,
+    "best_J_mean": 0.9339,
     "best_J_sd": 0.0003,
-    "regret_mean": 0.0007,
-    "regret_max": 0.0014,
+    "regret_mean": 0.0006,
+    "regret_max": 0.0013,
     "min_pairwise_L1": 0.04,
     "discrepancy": 0.2639,
     "zero_share": 0.1115

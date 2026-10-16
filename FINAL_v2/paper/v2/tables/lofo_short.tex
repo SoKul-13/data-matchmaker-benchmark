@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering\scriptsize
+\caption{Leave-one-family-out: weights re-fitted without the family (F1 / decay / precision / recall) and the held-out family's $\tau$ to the pooled rest under those weights, the full-data best and v1.}
+\label{tab:lofo_short}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lp{0.269\linewidth}p{0.194\linewidth}p{0.194\linewidth}p{0.194\linewidth}}
+\toprule
+family & LOFO weights & tau: LOFO weights & full best & v1 \\
+\midrule
+EM & 0.70 / 0.15 / 0.05 / 0.10 & 0.320 & 0.312 & 0.316 \\
+SM & 0.05 / 0.25 / 0.00 / 0.70 & 0.329 & 0.304 & 0.280 \\
+TQA & 0.05 / 0.00 / 0.60 / 0.35 & 0.335 & 0.367 & 0.330 \\
+FIN & 0.05 / 0.75 / 0.05 / 0.15 & 0.449 & 0.489 & 0.440 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-27 13:12",
-  "git_commit": "4ee1eb2",
+  "generated": "2026-10-16 14:32",
+  "git_commit": "753c0b1",
   "coverage": {
     "abt_buy": {
       "real_items": 100,
@@ -10,6 +10,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -28,6 +29,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -46,6 +48,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -64,6 +67,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -82,6 +86,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -100,6 +105,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -118,6 +124,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -136,6 +143,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -154,6 +162,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -172,6 +181,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -190,6 +200,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -208,6 +219,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -226,6 +238,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -244,6 +257,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -262,6 +276,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -280,6 +295,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -298,6 +314,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -316,6 +333,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -334,6 +352,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -352,6 +371,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -370,6 +390,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -388,6 +409,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -406,6 +428,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -424,6 +447,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -442,6 +466,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -460,6 +485,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -478,6 +504,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -496,6 +523,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -514,6 +542,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -532,6 +561,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -550,6 +580,7 @@
         "claude-sonnet-5",
         "deepseek-chat",
         "deepseek-r1",
+        "gemini-3.1-pro",
         "gemini-3.8-flash",
         "gpt-5.4-mini",
         "gpt-5.5",
@@ -560,16 +591,14 @@
       "items_kept": 100,
       "models_dropped": {}
     },
-    "_models_left_out": {
-      "gemini-3.1-pro": 0.082
-    }
+    "_models_left_out": {}
   },
   "predictions": {
     "claude-opus-5": {
       "rows": 3282,
-      "cost_usd": 99.34,
+      "cost_usd": 99.75,
       "in_tokens": 2599522,
-      "out_tokens": 804572,
+      "out_tokens": 810037,
       "decoding": [
         "None",
         "default (temperature rejected by API)"
@@ -577,9 +606,9 @@
     },
     "claude-sonnet-5": {
       "rows": 3282,
-      "cost_usd": 14.86,
+      "cost_usd": 15.01,
       "in_tokens": 2598432,
-      "out_tokens": 471170,
+      "out_tokens": 481235,
       "decoding": [
         "None",
         "default (temperature rejected by API)"
@@ -596,27 +625,27 @@
     },
     "deepseek-r1": {
       "rows": 3083,
-      "cost_usd": 7.15,
+      "cost_usd": 8.68,
       "in_tokens": 1751806,
-      "out_tokens": 2825787,
+      "out_tokens": 3524653,
       "decoding": [
         "temperature=0.0"
       ]
     },
     "gemini-3.1-pro": {
-      "rows": 267,
-      "cost_usd": 0.8,
-      "in_tokens": 121445,
-      "out_tokens": 46330,
+      "rows": 3509,
+      "cost_usd": 11.8,
+      "in_tokens": 1865967,
+      "out_tokens": 853490,
       "decoding": [
         "temperature=0.0"
       ]
     },
     "gemini-3.8-flash": {
       "rows": 3083,
-      "cost_usd": 3.35,
+      "cost_usd": 3.36,
       "in_tokens": 1866833,
-      "out_tokens": 806523,
+      "out_tokens": 808545,
       "decoding": [
         "temperature=0.0"
       ]
@@ -646,7 +675,7 @@
       "rows": 3083,
       "cost_usd": 0.7,
       "in_tokens": 1853266,
-      "out_tokens": 719450,
+      "out_tokens": 718749,
       "decoding": [
         "temperature=0.0"
       ]

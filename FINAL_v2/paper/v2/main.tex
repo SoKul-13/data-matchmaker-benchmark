@@ -1,17 +1,19 @@
-% Evaluation paper: audit of the deployed data-matching judge (FINAL_v2).
-% Every number is read from FINAL_v2/v2_gridsearch/REPORT.md (generated 2026-09-27 13:12) and output/.
-% Figures: FINAL_v2/paper/figures/.  Compile from FINAL_v2/paper/ with pdflatex.
+% Summary results, v2 (final). Every number is read from FINAL_v2/v2_gridsearch/REPORT.md (run 2026-10-16 14:32, 31 datasets x 11 models)
+% and the generated tables under paper/v2/tables/.  Compile from FINAL_v2/paper/ (tables resolve through \input@path) or as paper/v2/main.tex.
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{booktabs,graphicx,longtable,tabularx,array,caption,subcaption,amsmath,hyperref,enumitem,xcolor}
+\usepackage{booktabs,graphicx,longtable,tabularx,array,caption,subcaption,amsmath,hyperref,enumitem,xcolor,pdflscape}
 \usepackage{pdflscape}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \captionsetup{font=small,labelfont=bf}
 \setlist{nosep,leftmargin=*}
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
-\graphicspath{{figures/}}
+\graphicspath{{figures/}{v2/figures/}}
+\makeatletter\def\input@path{{./}{v2/}}\makeatother
 \emergencystretch=1.5em
+\newcommand{\notable}[1]{\par\noindent\begingroup\small\textbf{Notable.} #1\endgroup\par\medskip}
+\newcommand{\inoneline}[1]{\par\noindent\begingroup\small\textit{In one line: #1}\endgroup\par\medskip}
 \hypersetup{colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black}
 
 \title{Summary Results, v2}
@@ -35,10 +37,10 @@
 \subsection{Collecting answers}
 \begin{itemize}
 \item One prompt per item: context, question, and an answer-format line requesting \texttt{FINAL ANSWER: <answer>}.
-\item Models: Claude Opus 5, Claude Sonnet 5, GPT-5.5, GPT-5.4-mini, Gemini 3.8 Flash, Grok 4, DeepSeek-chat, DeepSeek-R1, gpt-oss-120b (Together), Llama 3.3 70B (Together). Gemini 3.1 Pro is collected separately at 240 items a day by a scheduled GitHub Actions workflow and enters the study automatically at 90\,\% suite coverage.
+\item Models (eleven): Claude Opus 5, Claude Sonnet 5, GPT-5.5, GPT-5.4-mini, Gemini 3.1 Pro, Gemini 3.8 Flash, Grok 4, DeepSeek-chat, DeepSeek-R1, gpt-oss-120b (Together), Llama 3.3 70B (Together). Gemini 3.1 Pro was collected over three weeks under Google's daily quota (a scheduled GitHub Actions workflow plus a final local run) and entered the study once it passed the 90\,\% coverage rule.
 \item Decoding: temperature 0 where the API accepts it (Gemini, Grok, DeepSeek, Llama, gpt-oss). Claude 5 reports the parameter deprecated and GPT-5.5 rejects any non-default value; those ran at provider defaults. Every cached row records which applied.
-\item Output budget 700 tokens. A reply cut off for length with no final-answer line is re-asked at 2,500 tokens, then at 8,000. The trigger is mechanical (finish reason plus absence of the final line), never correctness. Originals are archived with a reason; replacement rows carry \texttt{attempt} = 2 or 3. Replies still unterminated at 8,000 tokens are scored as given (effectively failures).
-\item Every answer is cached with tokens, latency, cost, finish reason and decoding; re-runs skip cached items. Cost: USD 161 for ten models (Claude Opus 5: USD 99).
+\item Output budget 700 tokens. A reply cut off for length with no final-answer line is re-asked at 2,500 tokens, then 8,000, then 16,000 (and 32,000 for the two Claude Sonnet 5 replies still unfinished at 16,000). The trigger is mechanical (finish reason plus absence of the final line), never correctness. Originals are archived with a reason; replacement rows carry \texttt{attempt} = 2 to 5. The budget is counted in each provider's own tokens and, for the reasoning models, includes their chain of thought, so it is a termination test rather than an equal text allowance. Replies still unfinished at the last stage are scored as given (effectively failures): 41 DeepSeek-R1 answers at 16,000 tokens, plus 123 DeepSeek-R1 answers whose 16,000-token re-ask is pending on provider balance and stand at their 8,000-token replies.
+\item Every answer is cached with tokens, latency, cost, finish reason and decoding; re-runs skip cached items. Cost: USD 174 for the answers in the final cache (Claude Opus 5: USD 107 including its re-asks; Gemini 3.1 Pro: USD 12), USD 224 over the whole project including the archived truncated originals.
 \end{itemize}
 
 \subsection{Scoring an answer}
@@ -55,7 +57,7 @@
 
 \subsection{Evaluating a weighting}
 \begin{enumerate}
-\item \textbf{Agreement $J(w)$.} Rank the ten models inside each dataset under $w$; pool the 31 rankings by Borda; $J$ is the mean Kendall $\tau_b$ between each dataset's ranking and the pooled one. $J$ measures consistency between datasets, not correctness. Computed for all 1,771 weightings of the step-0.05 simplex lattice (v1, the four corners and the uniform mix are lattice points), and also under Kemeny, Copeland and Bradley--Terry pooling.
+\item \textbf{Agreement $J(w)$.} Rank the eleven models inside each dataset under $w$; pool the 31 rankings by Borda; $J$ is the mean Kendall $\tau_b$ between each dataset's ranking and the pooled one. $J$ measures consistency between datasets, not correctness. Computed for all 1,771 weightings of the step-0.05 simplex lattice (v1, the four corners and the uniform mix are lattice points), and also under Kemeny, Copeland and Bradley--Terry pooling.
 \item \textbf{Correctness $\rho(w)$.} 31,380 synthetic answers of known utility generated from the golds of the answered items by typed operators (identity, alias, unit variant, typo, rounding, magnitude error, sign flip, wrong value, partial list, superset, hedge, verbose, no answer, \dots). Reported: Spearman $\rho$ between $R_w$ and utility, AUC correct vs wrong, mean score of wrong answers, hedge gap; the $(J,\rho)$ Pareto front and its knee.
 \item \textbf{Honest selection.} Nested item bootstrap ($B=1{,}000$): choose the best $w$ on in-bag items, score it out of bag. Reported: the optimism gap, the paired out-of-bag difference to v1 with a 95\,\% interval, and the plateau (weightings not significantly below the best, paired bootstrap $p>.05$) plus a practical plateau (within 0.02 of the best).
 \item \textbf{Transfer.} Leave-one-dataset-out and leave-one-family-out: re-fit $w$ on the rest, measure $\tau$ of the held-out dataset's ranking to the pooled rest; per-family optima; sensitivity to one lattice step (0.05).
@@ -74,13 +76,10 @@
 \item Reporting: one script regenerates the report from the cached answers in minutes, so text and numbers cannot disagree.
 \end{itemize}
 
-% =====================================================================
-
-% =====================================================================
 \section{Results}
 \label{sec:results}
 
-All numbers are from the final run of 2026-09-27 (31 datasets $\times$ 10 models, 3,083 answered items per model). Table~\ref{tab:summary} gives the audit in one place; the subsections that follow give one figure or table per row.
+All numbers are from the run of 2026-10-16 (31 datasets $\times$ 11 models, 3,083 answered items per model). Table~\ref{tab:summary} gives the audit in one place; the subsections that follow give one figure or table per row.
 
 \begin{table}[htbp]
 \centering\small
@@ -88,30 +87,32 @@ All numbers are from the final run of 2026-09-27 (31 datasets $\times$ 10 models
 \label{tab:summary}
 \begin{tabularx}{\textwidth}{>{\bfseries}p{0.30\textwidth} L}
 \toprule
-Exhaustive grid & 1,771 weightings (step 0.05); best decay .70 / recall .30, $J=0.421$; v1 $J=0.404$ (rank 1,483 of 1,771) \\
-$J$ over the lattice & median 0.409, 90th percentile 0.415, 99th percentile 0.418: a flat landscape \\
-Plateau (paired bootstrap $p>.05$ vs best) & 1,765 of 1,771 (v1 inside, $p=0.66$); practical plateau within 0.02: 1,720 \\
-Nested selection ($B=1{,}000$) & in-bag $J$ of the selected weighting 0.380, out-of-bag 0.331 (optimism gap 0.049); v1 out-of-bag 0.339 \\
-Selected vs v1, out of bag & $-0.008$, 95\,\% CI $[-0.039,\,+0.013]$, $p=0.72$; 608 distinct weightings selected across resamples \\
-Sampled designs (100 points, 20 seeds) & Dirichlet / LHS / uniform all reach $0.418\pm0.001$, regret $\le 0.005$: sampling would have sufficed \\
-Objective under other pooling rules & Kemeny, Copeland and Bradley--Terry each pick a different ``best''; v1's rank swings from 393 to 1,506: rank is noise \\
-Transfer (leave-one-dataset-out) & held-out $\tau$: LODO weights $+0.34$, full best $+0.39$, v1 $+0.37$ \\
-Leave-one-family-out & v1 within 0.02 of the held-out-fitted weights on EM, SM, TQA; FIN favours precision-heavy weights ($+0.51$ vs $+0.43$) \\
-Anchors (31,380 synthetic answers) & v1 $\rho=0.878$, best-$\rho$ weighting 0.883, best-$J$ weighting 0.845, exact match 0.828; AUC correct-vs-wrong 0.994 for every rule \\
-$J$ vs $\rho$ across the lattice & $-0.34$ on this cache; $+0.38$ on the previous cache: unstable because $J$ is flat \\
-Sensitivity & one 0.05 step moves $J$ by at most 0.007 around v1 and 0.005 around the best \\
-Leaderboard & Friedman $p<0.001$ under every rule; Kendall's $W$ among datasets 0.26--0.28 \\
-Significant pairs (Holm) & Opus, Sonnet, GPT-5.5, Gemini Flash, DeepSeek-chat, DeepSeek-R1, GPT-5.4-mini, Grok 4 all $>$ Llama 3.3 70B; Opus, Gemini Flash, GPT-5.5, Grok 4 $>$ gpt-oss-120b \\
-First place & Bradley--Terry: Gemini 3.8 Flash under v1 and the calibrated rules ($P(\text{first})=0.99$), Opus under exact match; Borda: GPT-5.5 under v1, Opus under exact match and the top-5 rules \\
-Official-split comparability & accuracy moves by $\le 0.09$ after post-stratification; positive-class F1 on the balanced pools overstates official-ratio F1 by up to 0.19 (Amazon--Google) \\
+Exhaustive grid & 1,771 weightings (step 0.05); best F1 .35 / decay .60 / precision .05 / recall 0, $J=0.414$; v1 $J=0.392$ (rank 1,602 of 1,771) \\
+$J$ over the lattice & range 0.376--0.414; median 0.401, 90th percentile 0.407, 99th percentile 0.412: a flat landscape \\
+Plateau (paired bootstrap $p>.05$ vs best) & 1,749 of 1,771 (v1 inside, $p=0.63$); practical plateau within 0.02: 1,731 \\
+Nested selection ($B=1{,}000$) & in-bag $J$ of the selected weighting 0.370, out-of-bag 0.323 (optimism gap 0.047); v1 out-of-bag 0.330 \\
+Selected vs v1, out of bag & $-0.007$, 95\,\% CI $[-0.033,\,+0.011]$, $p=0.72$; 624 distinct weightings selected across resamples \\
+Sampled designs (100 points, 20 seeds) & Dirichlet / LHS / uniform all reach $0.412$--$0.413\pm0.001$, regret $\le 0.004$: sampling would have sufficed \\
+Objective under other pooling rules & Kemeny, Copeland and Bradley--Terry each pick a different ``best''; v1's rank swings from 615 (Bradley--Terry) to 1,602 (Borda): rank is noise \\
+Transfer (leave-one-dataset-out) & held-out $\tau$: re-fitted weights $+0.33$, full best $+0.35$, v1 $+0.32$ \\
+Leave-one-family-out & v1 within 0.05 of the held-out-fitted weights in every family (EM $+0.32$ vs $+0.32$, SM $+0.28$ vs $+0.33$, TQA $+0.33$ vs $+0.33$, FIN $+0.44$ vs $+0.45$) \\
+Anchors (31,380 synthetic answers) & v1 $\rho=0.878$, best-$\rho$ weighting 0.883, best-$J$ weighting 0.876, exact match 0.828; AUC correct-vs-wrong 0.994 for every rule \\
+$J$ vs $\rho$ across the lattice & $-0.23$ (was $-0.34$ at ten models and $+0.38$ on the 2,500-token cache): unstable because $J$ is flat; Pareto front of 17, knee = best $J$ \\
+Sensitivity & one 0.05 step moves $J$ by at most 0.012 around v1 and 0.017 around the best \\
+Leaderboard & Friedman $p<0.001$ under every rule; Kendall's $W$ among datasets 0.26--0.27 \\
+Significant pairs (Holm, v1) & 15 of 55: nine models $>$ Llama 3.3 70B; Opus, GPT-5.5, Gemini 3.1 Pro, Gemini 3.8 Flash, DeepSeek-R1 and Grok 4 $>$ gpt-oss-120b \\
+First place & Bradley--Terry: Gemini 3.8 Flash under v1 and every calibrated rule ($P(\text{first})$ 0.91--0.95), Claude Opus 5 under exact match (0.79); Borda: GPT-5.5 under v1 and the calibrated rules, Opus under exact match \\
+Gemini 3.1 Pro & enters fifth by Bradley--Terry under v1 (fourth under exact match), below Flash, Opus, GPT-5.5 and Sonnet \\
+Official-split comparability & accuracy moves by $\le 0.09$ after post-stratification (OpenSanctions); positive-class F1 on the balanced pools overstates official-ratio F1 by up to 0.19 (Amazon--Google) \\
 Datasets at ceiling & Valentine, WDC LSPC, WDC Products (means 0.98): flagged; still inside the objective \\
-Cost & USD 161 total (Opus 99) \\
+Cost & USD 174 for the final cache (Opus 107); USD 224 over the project including archived truncated originals \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \subsection{The objective is flat}
-Figure~\ref{fig:landscape} shows $J$ for all 1,771 weightings. The whole lattice spans 0.39--0.42. The best weighting (decay 0.70, recall 0.30) reaches 0.421 and v1 reaches 0.404; 1,482 weightings are nominally better than v1, but the entire spread is smaller than the bootstrap noise of a single weighting. No single weight has a slope worth acting on (Figure~\ref{fig:marginals}).
+\inoneline{Every weighting of the four ingredients gives nearly the same agreement; v1's low rank is a rank inside noise.}
+Figure~\ref{fig:landscape} shows $J$ for all 1,771 weightings. The whole lattice spans 0.376--0.414. The best weighting (F1 0.35, decay 0.60, precision 0.05) reaches 0.414 and v1 reaches 0.392; 1,601 weightings are nominally better than v1, but the entire spread is smaller than the bootstrap noise of a single weighting (about 0.027). No single weight has a slope worth acting on (Figure~\ref{fig:marginals}); the four ingredients correlate at 0.91--0.98 with one another and in 82\,\% of answers all four equal exact match, which is the mechanical reason.
 
 \begin{figure}[htbp]
 \centering
@@ -120,16 +121,19 @@ Figure~\ref{fig:landscape} shows $J$ for all 1,771 weightings. The whole lattice
 \caption{The agreement landscape over all 1,771 step-0.05 weightings.}
 \label{fig:landscape}
 \end{figure}
+\notable{(a) The histogram is narrow: 1,771 weightings fit between 0.376 and 0.414, and v1 (0.392) sits in the main body, not in a tail. (b) The sorted curve is flat for 1,700 weightings and only drops at the single-ingredient corners; v1's rank of 1,602 is a position on a plateau, which is why the report never quotes rank as a result.}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{fig_marginals.png}
-\caption{$J$ against each of the four weights. Corners: F1 only 0.411, decay only 0.404, precision only 0.398, recall only 0.400; uniform 0.410.}
+\caption{$J$ against each of the four weights. Corners: F1 only 0.409, decay only 0.394, precision only 0.386, recall only 0.389; uniform 0.401.}
 \label{fig:marginals}
 \end{figure}
+\notable{No panel has a slope worth acting on: the mean line moves by at most 0.018 across the full range of any weight (precision, falling as it approaches 1). The vertical scatter at every weight level, caused by the other three weights, is wider than any slope, so no ingredient can be tuned in isolation.}
 
 \subsection{The best weighting does not survive honest selection}
-Figure~\ref{fig:nested} reports the nested item bootstrap. The weighting chosen on in-bag items scores 0.380 in bag but 0.331 out of bag (optimism gap 0.049), below v1's out-of-bag 0.339. The paired out-of-bag difference to v1 is $-0.008$ with a 95\,\% interval of $[-0.039, +0.013]$ ($p=0.72$); the selected weighting is ahead of v1 in 28\,\% of resamples, and 608 distinct weightings were selected across the 1,000 resamples. The plateau of weightings not significantly below the best contains 1,765 of 1,771 points and v1 is inside it ($p=0.66$).
+\inoneline{Chosen honestly, the best weighting is no better than v1; 624 different weightings win depending on which items are drawn.}
+Figure~\ref{fig:nested} reports the nested item bootstrap. The weighting chosen on in-bag items scores 0.370 in bag but 0.323 out of bag (optimism gap 0.047), below v1's out-of-bag 0.330. The paired out-of-bag difference to v1 is $-0.007$ with a 95\,\% interval of $[-0.033, +0.011]$ ($p=0.72$); the selected weighting is ahead of v1 in 28\,\% of resamples, and 624 distinct weightings were selected across the 1,000 resamples. The plateau of weightings not significantly below the best contains 1,749 of 1,771 points and v1 is inside it ($p=0.63$).
 
 \begin{figure}[htbp]
 \centering
@@ -138,47 +142,25 @@ Figure~\ref{fig:nested} reports the nested item bootstrap. The weighting chosen 
 \caption{Honest selection: the optimism gap and the plateau.}
 \label{fig:nested}
 \end{figure}
+\notable{(a) The in-bag winner looks 0.047 better than it is; out of bag it scores 0.323 against v1's 0.330, and the paired difference of $-0.007$ has a 95\,\% interval through zero. (b) 1,749 of 1,771 weightings are inside the plateau and v1 is one of them ($p = 0.63$); the only points outside are decay-dominated corners with no F1 or recall.}
 
-\begin{table}[htbp]
-\centering\scriptsize
-\caption{Sampled designs at a budget of 100 weightings (20 seeds each) against the exhaustive optimum.}
-\label{tab:designs}
-\begin{tabularx}{\textwidth}{l>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
-\toprule
-Design & best $J$ (mean $\pm$ sd) & regret mean / max & rank of found best (median / worst) & min pairwise $L_1$ & centred $L_2$ discrepancy & share with a zero weight \\
-\midrule
-Dirichlet-snapped & $0.418\pm0.001$ & 0.004 / 0.005 & 14 / 49 & 0.10 & 0.538 & 0.27 \\
-Latin hypercube   & $0.418\pm0.001$ & 0.003 / 0.005 & 10 / 49 & 0.10 & 0.531 & 0.28 \\
-Uniform lattice   & $0.418\pm0.001$ & 0.003 / 0.005 & 6 / 42  & 0.10 & 0.526 & 0.45 \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\input{tables/designs_short.tex}
+\notable{All three 100-point designs reach 0.412--0.413 with a worst-seed regret of 0.004 against the exhaustive 0.414. With four weights the exhaustive grid costs nothing, so the table matters only as evidence that sampling would have sufficed in the larger sibling searches.}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{fig_designs.png}
-\caption{Any 100-point design finds the plateau; regret against the exhaustive optimum is at most 0.005.}
+\caption{Any 100-point design finds the plateau; regret against the exhaustive optimum is at most 0.004.}
 \label{fig:designs}
 \end{figure}
 
-\subsection{The optimum does not transfer, and neither does the rank}
-Leave-one-dataset-out: weights re-fitted without the held-out dataset predict its ranking with mean $\tau=+0.34$, the full-data best with $+0.39$, v1 with $+0.37$ (Table~\ref{tab:lofo} gives the family-level version). Per-family optima pull in different directions (Figure~\ref{fig:family}): decay-dominated for EM and SM, recall-dominated for TQA, precision-heavy for FIN, yet none is far from the plateau. Changing only the pooling rule inside the objective moves v1's rank from 393 (Bradley--Terry) to 1,506 (Kemeny) and changes which weighting is ``best'', so rank inside a flat objective carries no information.
 
-\begin{table}[htbp]
-\centering\small
-\caption{Leave-one-family-out. $\tau$ = agreement of the held-out family's pooled ranking with the pooled ranking of the remaining families.}
-\label{tab:lofo}
-\begin{tabular}{llccc}
-\toprule
-Held-out family & LOFO weights (F1 / decay / prec / rec) & $\tau$: LOFO weights & full best & v1 \\
-\midrule
-EM  (11 sets) & 0.20 / 0.00 / 0.50 / 0.30 & $+0.32$ & $+0.29$ & $+0.30$ \\
-SM  (6 sets)  & 0.00 / 0.10 / 0.00 / 0.90 & $+0.35$ & $+0.37$ & $+0.25$ \\
-TQA (11 sets) & 0.45 / 0.00 / 0.40 / 0.15 & $+0.38$ & $+0.40$ & $+0.38$ \\
-FIN (3 sets)  & 0.00 / 0.95 / 0.05 / 0.00 & $+0.43$ & $+0.51$ & $+0.51$ \\
-\bottomrule
-\end{tabular}
-\end{table}
+\subsection{The optimum does not transfer, and neither does the rank}
+\inoneline{Re-fitted weights predict a held-out dataset no better than v1, and families want different weights.}
+Leave-one-dataset-out: weights re-fitted without the held-out dataset predict its ranking with mean $\tau=+0.33$, the full-data best with $+0.35$, v1 with $+0.32$ (Table~\ref{tab:lofo_short} gives the family-level version). Per-family optima pull in different directions (Figure~\ref{fig:family}): decay-only for schema matching, recall-heavy for table QA and finance, F1-and-decay for entity matching, yet none is far from the plateau. Changing only the pooling rule inside the objective moves v1's rank from 615 (Bradley--Terry) to 1,602 (Borda) and changes which weighting is ``best'', so rank inside a flat objective carries no information.
+
+\input{tables/lofo_short.tex}
+\notable{Held-out $\tau$ under re-fitted weights is within 0.05 of v1 in every family (EM $+0.32$ vs $+0.32$, SM $+0.33$ vs $+0.28$, TQA $+0.33$ vs $+0.33$, FIN $+0.45$ vs $+0.44$). The re-fitted weights themselves swing from F1-heavy (EM) to recall-heavy (SM) to decay-heavy (FIN): there is no single weighting the families agree on.}
 
 \begin{figure}[htbp]
 \centering
@@ -186,27 +168,14 @@ FIN (3 sets)  & 0.00 / 0.95 / 0.05 / 0.00 & $+0.43$ & $+0.51$ & $+0.51$ \\
 \caption{Deployed weights (v1), the global optimum and the per-family optima.}
 \label{fig:family}
 \end{figure}
+\notable{Schema matching wants decay only, table QA and finance want recall-heavy mixes, entity matching wants F1 and decay; the global optimum is a compromise between them, and v1 is another. The suite-level flatness is partly these pulls cancelling, which is also why leave-one-family-out re-fits land far from the global best without doing better on the held-out family.}
 
 \subsection{Agreement and correctness do not pull the same way}
-On 31,380 synthetic answers of known utility, v1 scores $\rho=0.878$; the best weighting by $\rho$ reaches 0.883 and the best by $J$ only 0.845; exact match 0.828. Every rule separates correct from wrong answers with AUC 0.994. Across the lattice $J$ and $\rho$ correlate $-0.34$ on this cache and $+0.38$ on the previous one, which is what a flat $J$ predicts. The Pareto knee (F1 0.05, decay 0.60, precision 0.25, recall 0.10) is within 0.002 of the best $J$ and within 0.006 of the best $\rho$ (Table~\ref{tab:anchors}, Figure~\ref{fig:pareto}).
+\inoneline{Agreement among datasets and correctness on known answers are different criteria; v1 is near the correctness optimum.}
+On 31,380 synthetic answers of known utility, v1 scores $\rho=0.878$; the best weighting by $\rho$ reaches 0.883 and the best by $J$ 0.876; exact match 0.828. Every rule separates correct from wrong answers with AUC 0.994. Across the lattice $J$ and $\rho$ correlate $-0.23$ on this cache, $-0.34$ at ten models and $+0.38$ on the earlier 2,500-token cache, which is what a flat $J$ predicts. With eleven models the Pareto knee coincides with the best-$J$ weighting (Table~\ref{tab:anchors_rules}, Figure~\ref{fig:pareto}).
 
-\begin{table}[htbp]
-\centering\scriptsize
-\setlength{\tabcolsep}{4pt}
-\caption{Correctness on known-quality anchors (9,881 correct, 7,430 wrong, remainder partial). $\rho_d$ = mean per-dataset $\rho$; wrong = mean score given to wrong answers.}
-\label{tab:anchors}
-\begin{tabular}{llcccccc}
-\toprule
-Rule & F1 / decay / prec / rec & $J$ & $\rho$ & $\rho_d$ & AUC & wrong & hedge gap \\
-\midrule
-v1            & 0.35 / 0.35 / 0.15 / 0.15 & 0.404 & 0.878 & 0.868 & 0.994 & 0.034 & $-0.51$ \\
-best $J$      & 0.00 / 0.70 / 0.00 / 0.30 & 0.421 & 0.845 & 0.840 & 0.994 & 0.037 & $-0.49$ \\
-best $\rho$   & 0.00 / 0.35 / 0.60 / 0.05 & 0.398 & 0.883 & 0.871 & 0.994 & 0.034 & $-0.57$ \\
-Pareto knee   & 0.05 / 0.60 / 0.25 / 0.10 & 0.419 & 0.877 & 0.866 & 0.994 & 0.036 & $-0.55$ \\
-exact match   & --                        & --    & 0.828 & 0.830 & 0.989 & 0.011 & $-0.81$ \\
-\bottomrule
-\end{tabular}
-\end{table}
+\input{tables/anchors_rules.tex}
+\notable{v1 scores $\rho = 0.878$, within 0.005 of the best attainable 0.883; the best-by-$J$ weighting is 0.876 and exact match 0.828. Every rule has AUC 0.994: all separate right from wrong, and they differ only in partial credit for near misses, unit variants and partial lists.}
 
 \begin{figure}[htbp]
 \centering
@@ -214,55 +183,16 @@ exact match   & --                        & --    & 0.828 & 0.830 & 0.989 & 0.01
 \caption{Agreement $J$ against anchor correctness $\rho$ for every weighting; v1, the best-$J$, best-$\rho$ and knee points marked.}
 \label{fig:pareto}
 \end{figure}
+\notable{The cloud is wide in $\rho$ (0.74--0.88) and narrow in $J$ (0.38--0.41), and the two correlate $-0.23$: agreement is not a proxy for correctness. v1 sits on the upper edge near the $\rho$ optimum; recall-only and decay-only, the corners that score well on $J$, are the worst by $\rho$.}
 
 \subsection{Leaderboard}
-Under every rule the Friedman test rejects equal models ($p<0.001$) while datasets agree only moderately (Kendall's $W$ 0.26--0.28). The ends of the ranking are stable: Llama 3.3 70B is last and gpt-oss-120b ninth under every rule and every pooling method, with Holm-corrected significance against the top group. The order inside the top three depends on the rule and the pooling method (Table~\ref{tab:lb_v1}, Table~\ref{tab:lb_rules}, Figure~\ref{fig:leaderboard}): Bradley--Terry puts Gemini 3.8 Flash first under v1 and all calibrated rules, Borda puts GPT-5.5 first under v1 and Opus first under the top-5 rules, and exact match puts Opus first under both.
+\inoneline{The ends of the table are certain, the top three reorder with the rule, and Gemini 3.1 Pro lands fifth.}
+Under every rule the Friedman test rejects equal models ($p<0.001$) while datasets agree only moderately (Kendall's $W$ 0.26--0.27). The ends of the ranking are stable: Llama 3.3 70B is last and gpt-oss-120b tenth under every rule and every pooling method, with Holm-corrected significance against the top group. The order inside the top three depends on the rule and the pooling method (Tables~\ref{tab:leaderboard_headline} and \ref{tab:ranks_by_rule}, Figure~\ref{fig:leaderboard}): Bradley--Terry puts Gemini 3.8 Flash first under v1 and all calibrated rules, Borda puts GPT-5.5 first under those rules, and exact match puts Claude Opus 5 first under both. Gemini 3.1 Pro, added in this run, lands fifth by Bradley--Terry under v1 and fourth under exact match; DeepSeek-R1 moved up one place after its unfinished answers were re-asked at 16,000 tokens.
 
-\begin{table}[htbp]
-\centering\small
-\caption{Leaderboard under the deployed rule (v1 weights). Bradley--Terry strength $\pm$ SE relative to Opus; Borda rank with 95\,\% bootstrap interval; mean composite score over the suite.}
-\label{tab:lb_v1}
-\begin{tabular}{llccc}
-\toprule
-Rank & Model & BT strength & Borda rank [95\,\%] & mean score \\
-\midrule
-1 & Gemini 3.8 Flash & $+0.12 \pm 0.02$ & 3 [1, 3] & 0.812 \\
-2 & Claude Opus 5    & $+0.10 \pm 0.00$ & 2 [1, 3] & 0.811 \\
-3 & GPT-5.5          & $+0.05 \pm 0.02$ & 1 [1, 3] & 0.808 \\
-4 & Claude Sonnet 5  & $+0.03 \pm 0.02$ & 4 [4, 6] & 0.795 \\
-5 & Grok 4           & $+0.03 \pm 0.02$ & 5 [4, 6] & 0.797 \\
-6 & GPT-5.4-mini     & $-0.01 \pm 0.02$ & 8 [5, 8] & 0.789 \\
-7 & DeepSeek-chat    & $-0.02 \pm 0.02$ & 7 [5, 8] & 0.783 \\
-8 & DeepSeek-R1      & $-0.03 \pm 0.02$ & 6 [5, 8] & 0.788 \\
-9 & gpt-oss-120b     & $-0.10 \pm 0.02$ & 9 [9, 10] & 0.767 \\
-10 & Llama 3.3 70B   & $-0.17 \pm 0.02$ & 10 [9, 10] & 0.739 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\begin{table}[htbp]
-\centering\scriptsize
-\caption{Bradley--Terry rank (Borda rank in brackets) under each reported rule. top1--top5 = the five best weightings by $J$; best-$\rho$ = best by anchor correctness; knee = $(J,\rho)$ Pareto knee.}
-\label{tab:lb_rules}
-\setlength{\tabcolsep}{2.5pt}
-\begin{tabular}{lcccccccccc}
-\toprule
-Rule & Opus 5 & Sonnet 5 & DS-chat & DS-R1 & Flash 3.8 & 5.4-mini & GPT-5.5 & gpt-oss & Grok 4 & Llama \\
-\midrule
-exact match & 1 (1) & 5 (4) & 8 (7) & 7 (6) & 3 (3) & 6 (8) & 2 (2) & 9 (9) & 4 (5) & 10 (10) \\
-v1          & 2 (2) & 4 (4) & 7 (7) & 8 (6) & 1 (3) & 6 (8) & 3 (1) & 9 (9) & 5 (5) & 10 (10) \\
-top1        & 2 (1) & 4 (4) & 7 (8) & 6 (6) & 1 (3) & 8 (7) & 3 (2) & 9 (9) & 5 (5) & 10 (10) \\
-top2        & 2 (1) & 4 (4) & 6 (7) & 8 (6) & 1 (3) & 7 (8) & 3 (2) & 9 (9) & 5 (5) & 10 (10) \\
-top3        & 2 (1) & 4 (4) & 6 (7) & 8 (6) & 1 (3) & 7 (8) & 3 (2) & 9 (9) & 5 (5) & 10 (10) \\
-top4        & 2 (1) & 4 (4) & 7 (8) & 8 (6) & 1 (3) & 6 (7) & 3 (2) & 9 (9) & 5 (5) & 10 (10) \\
-top5        & 2 (1) & 4 (4) & 7 (8) & 6 (6) & 1 (3) & 8 (7) & 3 (2) & 9 (9) & 5 (5) & 10 (10) \\
-best-$\rho$ & 2 (2) & 4 (4) & 8 (8) & 7 (6) & 1 (3) & 5 (7) & 3 (1) & 9 (9) & 6 (5) & 10 (10) \\
-knee        & 2 (1) & 4 (4) & 7 (8) & 8 (6) & 1 (3) & 6 (7) & 3 (2) & 9 (9) & 5 (5) & 10 (10) \\
-\midrule
-\multicolumn{11}{l}{Kendall $\tau$ between the BT rankings of the rules: 0.78--1.00 (exact match vs the rest 0.78--0.82).} \\
-\bottomrule
-\end{tabular}
-\end{table}
+\input{tables/leaderboard_headline.tex}
+\notable{Gemini 3.8 Flash is first by Bradley--Terry with $P(\text{first}) = 0.91$ because it wins many items by small margins; by Borda, which counts dataset-level ranks, GPT-5.5 is first and Flash third. The bottom two (gpt-oss-120b, Llama 3.3 70B) have rank intervals of width zero; ranks 4--9 overlap and are not established.}
+\input{tables/ranks_by_rule.tex}
+\notable{Rows 10 and 11 never move; the top three permute with the rule (exact match favours Opus, every graded rule favours Flash by Bradley--Terry and GPT-5.5 by Borda). Gemini 3.1 Pro is fourth or fifth under every rule (fourth under exact match and the second to fourth $J$ weightings, fifth otherwise); DeepSeek-R1 sits fifth to eighth, seventh under v1, after its 16,000-token re-asks. Kendall's $W$ among datasets is 0.26--0.27 under every rule.}
 
 \begin{figure}[htbp]
 \centering
@@ -270,39 +200,22 @@ knee        & 2 (1) & 4 (4) & 7 (8) & 8 (6) & 1 (3) & 6 (7) & 3 (2) & 9 (9) & 5 
 \caption{Bradley--Terry strengths $\pm$ SE with bootstrap rank intervals under exact match, v1 and the best-$J$ weighting. The ends are stable; the top order is rule-dependent.}
 \label{fig:leaderboard}
 \end{figure}
+\notable{The strengths of ranks 4--9 lie within about 0.05 of each other with overlapping error bars; the gap from rank 9 to rank 10 and from 10 to 11 is larger than the whole middle band. The figure is the visual form of the Holm result: 15 of 55 pairs significant, all of them against the bottom two models.}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{fig_dataset_tau.png}
-\caption{Kendall $\tau$ between the model rankings of each pair of datasets under v1. Datasets agree only moderately ($W\approx0.27$).}
+\caption{Kendall $\tau$ between the model rankings of each pair of datasets under v1. Datasets agree only moderately ($W\approx0.26$).}
 \label{fig:dataset_tau}
 \end{figure}
+\notable{Blue blocks sit inside families and the finance and table-QA sets agree with most of the suite; Alaska Camera and HiTab are red against almost everyone. The leaderboard is an average over datasets that disagree about the middle of the table, which is what $W = 0.26$ says in one number.}
 
 \subsection{Comparability with published numbers}
-Post-stratification to the official split changes dataset accuracy by at most 0.09 (OpenSanctions pairs 0.82 $\to$ 0.73; TAT-QA 0.80 $\to$ 0.76; MMTU 0.87 $\to$ 0.83). For the matching sets, positive-class F1 computed on the balanced 50/50 pool overstates F1 at the official match ratio wherever the official split is sparse (Table~\ref{tab:official}, Figure~\ref{fig:official}).
+\inoneline{Accuracy survives re-weighting to the official splits; balanced-pool F1 on sparse matching sets does not.}
+Post-stratification to the official split changes dataset accuracy by at most 0.09 (OpenSanctions pairs). For the matching sets, positive-class F1 computed on the balanced 50/50 pool overstates F1 at the official match ratio wherever the official split is sparse, by up to 0.19 on Amazon--Google (Table~\ref{tab:official_split_by_dataset}, Figure~\ref{fig:official}).
 
-\begin{table}[htbp]
-\centering\small
-\caption{Matching sets under v1, averaged over the ten models: suite accuracy, post-stratified official accuracy, and positive-class F1 on the balanced pool vs at the official match ratio.}
-\label{tab:official}
-\begin{tabular}{lccccc}
-\toprule
-Dataset & official match share & suite acc. & official acc. & F1 (pool) & F1 (official ratio) \\
-\midrule
-Abt--Buy           & 0.108 & 0.970 & 0.986 & 0.968 & 0.936 \\
-Amazon--Google     & 0.102 & 0.936 & 0.932 & 0.929 & 0.739 \\
-Walmart--Amazon    & 0.094 & 0.958 & 0.975 & 0.947 & 0.875 \\
-DBLP--ACM          & 0.180 & 0.986 & 0.991 & 0.985 & 0.976 \\
-DBLP--Scholar      & 0.186 & 0.949 & 0.966 & 0.948 & 0.910 \\
-WDC Products 2024  & 0.280 & 0.978 & 0.985 & 0.979 & 0.974 \\
-WDC LSPC 2017      & 0.264 & 0.982 & 0.983 & 0.983 & 0.971 \\
-Machamp            & 0.175 & 0.887 & 0.890 & 0.892 & 0.733 \\
-Papadakis--Christen Dn & 0.018 & 0.941 & 0.988 & 0.833 & 0.683 \\
-OpenSanctions pairs & 0.769 & 0.821 & 0.727 & 0.773 & 0.777 \\
-Alaska Camera      & n/c   & 0.958 & --    & 0.955 & -- \\
-\bottomrule
-\end{tabular}
-\end{table}
+\input{tables/official_split_by_dataset.tex}
+\notable{Accuracy moves by at most 0.09 (OpenSanctions, whose official class ratio is 0.77 rather than 0.5). Positive-class F1 drops by 0.19 on Amazon--Google, 0.17 on Papadakis--Christen and 0.16 on Machamp, all through precision: at a 2--10\,\% official match rate a 1\,\% false-positive rate costs more than any recall gain.}
 
 \begin{figure}[htbp]
 \centering
@@ -310,111 +223,205 @@ Alaska Camera      & n/c   & 0.958 & --    & 0.955 & -- \\
 \caption{Suite score vs post-stratified official estimate per dataset, and matching F1 on the balanced pool vs at the official match ratio.}
 \label{fig:official}
 \end{figure}
+\notable{Almost every (dataset, model) point lies on the diagonal for accuracy; the sparse matching sets fall below it for F1. Model order is preserved after re-weighting; the absolute numbers are not, so the official-ratio column is the one to compare with published results.}
 
 \subsection{Dataset diagnostics}
-Three datasets sit at ceiling (mean composite 0.98 with a spread of 0.02--0.04 across models): Valentine, WDC LSPC and WDC Products. They are flagged and remain inside the objective in this run. Two sit near floor for every model (OfficeQA closed-book 0.13, OfficeQA Pro V2 0.14) and one is a known hard set (BIRD 0.19); none is excluded. Self-stability $\tau$ (rank agreement between split halves of a dataset) ranges from 0.58 (HiTab) to 0.93 (FeTaQA).
-
-% =====================================================================
+\inoneline{Three sets are at ceiling and twelve separate no model pair; a dozen table and document sets carry the result.}
+Three datasets sit at ceiling (mean composite 0.98 with a spread of 0.02--0.04 across models): Valentine, WDC LSPC and WDC Products. They are flagged and remain inside the objective in this run. Two sit near floor for every model (OfficeQA closed-book and OfficeQA Pro V2) and one is a known hard set (BIRD); none is excluded. Self-stability $\tau$ (rank agreement between bootstrap halves of a dataset) ranges from 0.57 to 0.92. Twelve datasets, all the entity-matching sets plus Valentine and TPC-DI, separate no model pair at the item level; four separate twenty or more.
 
 \clearpage
 \appendix
-\section{All figures}
+\section{All figures, with a reading guide}
 \label{app:figures}
-Every figure that can be drawn from the saved outputs. Source data for each is in \texttt{data/}.
+Every figure that can be drawn from the saved outputs, each followed by what it encodes, how to read it and what it shows. Source data for each is in \texttt{data/}.
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_anchor_metrics_vs_j.png}\caption{Three further anchor diagnostics against $J$ for every weighting.}\label{figall:fig_anchor_metrics_vs_j}\end{figure}
+\noindent{\small \textbf{What it encodes.} Three anchor diagnostics against $J$ for every weighting: AUC for separating correct from wrong anchors, the mean score given to wrong anchors, and the hedge gap (score of a committed answer minus the same answer hedged). \textbf{How to read it.} Flat clouds mean the diagnostic does not depend on the weighting; a slope means agreement trades against it. \textbf{What it shows.} AUC is 0.989--0.994 for every weighting: all separate right from wrong. Wrong answers score below 0.06 everywhere. The differences between weightings are in partial credit, not in discrimination.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_anchor_operators.png}\caption{Synthetic anchors: known utility of each perturbation operator against the mean v1 score and exact match it receives.}\label{figall:fig_anchor_operators}\end{figure}
+\noindent{\small \textbf{What it encodes.} Each anchor operator (a typed perturbation applied to gold answers) with its assigned utility, the mean v1 score it receives, and its exact-match rate. \textbf{How to read it.} A perfect judge would put the blue point on the grey one for every operator. Blue above grey is over-generosity, blue below is over-severity. \textbf{What it shows.} The ends are right (identity, verbose and tagged score 1; flips and non-answers score 0). The judge is generous to shuffled lists, supersets and list dumps (token overlap rewards extra correct tokens) and severe on typos, digit typos and medium near misses. These operators are where a human label would disagree with any lexical rule.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_bt_all_rules.png}\caption{Bradley--Terry strengths ($\pm$ SE vs reference) under every reported rule; models fixed in v1 order.}\label{figall:fig_bt_all_rules}\end{figure}
+\noindent{\small \textbf{What it encodes.} Nine small panels, one per reported rule (exact match, v1, the five best by $J$, the best by $\rho$, the Pareto knee), each showing Bradley--Terry strength $\pm$ SE for the ten models in a fixed order; the first-placed model is orange. \textbf{How to read it.} Scan a row across panels to see whether a model's strength is stable; scan the orange markers to see who is first under which rule. \textbf{What it shows.} Rows 4--10 barely move; first place is Opus under exact match and Gemini Flash under every graded rule. Kendall $\tau$ between the rules' rankings is 0.71--1.00.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_cd_diagram_v1.png}\caption{Critical-difference view of the Friedman test under v1: mean rank per model and the Nemenyi critical difference at $\alpha = .05$.}\label{figall:fig_cd_diagram_v1}\end{figure}
+\noindent{\small \textbf{What it encodes.} The Friedman test's mean rank of each model across the 31 datasets on a single axis, with the Nemenyi critical difference (2.71) drawn as a bar; models closer than the critical difference are not separated at $\alpha$ = .05. \textbf{How to read it.} Two models are significantly different only if their positions differ by more than the bar's length. \textbf{What it shows.} The top group is separated from the bottom two; nothing inside the top group, and nothing in the middle, is separated. With 31 datasets and eleven models this is the resolution the cross-dataset test can offer.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_component_distributions.png}\caption{Distribution of each v1 ingredient over all answers, by answer type.}\label{figall:fig_component_distributions}\end{figure}
+\noindent{\small \textbf{What it encodes.} Five panels (exact match, F1, decay, precision, recall); within each, one density curve per answer type (numeric, boolean, text, free-form). \textbf{How to read it.} A curve concentrated at 0 and 1 means the ingredient behaves like a binary score on that answer type; mass in between is graded credit. \textbf{What it shows.} On boolean and text golds every ingredient is binary and identical to exact match. Decay is graded only on numeric golds; F1, precision and recall are graded only on free-form and some text golds. This is the mechanical reason the weights barely matter: the ingredients differ on a minority of answers.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_dataset_tau.png}\caption{Kendall $\tau$ between dataset rankings under v1.}\label{figall:fig_dataset_tau}\end{figure}
+\noindent{\small \textbf{What it encodes.} Kendall $\tau$ between the model rankings of every pair of datasets under v1 (blue agreement, red disagreement). \textbf{How to read it.} Blocks of blue are groups of datasets that rank the models the same way; red rows are datasets that disagree with most others. \textbf{What it shows.} Mean pairwise $\tau$ is +0.20 and Kendall's $W$ is 0.26: datasets agree about the ends of the table and disagree about the middle. Alaska Camera and HiTab are red against most of the suite.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_design_metrics.png}\caption{Sampled designs over 20 seeds: regret against the exhaustive optimum, centred $L_2$ discrepancy and rank of the found best.}\label{figall:fig_design_metrics}\end{figure}
+\noindent{\small \textbf{What it encodes.} Box plots over 20 seeds of regret, centred $L_2$ discrepancy (coverage of the simplex, lower is more even) and the rank of the found best within the exhaustive grid, per design. \textbf{How to read it.} Lower discrepancy means the sample is spread more evenly; lower regret and rank mean the sample found a better point. \textbf{What it shows.} The three designs are interchangeable at this budget; the uniform lattice has marginally better coverage and the Latin hypercube marginally lower regret, and all three differ by less than the bootstrap noise of $J$.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_designs.png}\caption{Sampled designs against the exhaustive optimum.}\label{figall:fig_designs}\end{figure}
+\noindent{\small \textbf{What it encodes.} For three sampling designs of 100 weightings (uniform lattice, Dirichlet-snapped, Latin hypercube) and 20 seeds each, the best $J$ found, against the exhaustive optimum. \textbf{How to read it.} Regret is the vertical distance to the exhaustive best; the spread across seeds is the risk of an unlucky sample. \textbf{What it shows.} Every design and every seed lands within 0.004 of the optimum; the worst seed of any design still finds a top-60 weighting. With four weights the exhaustive grid is free, so the designs serve only to show that sampling would have sufficed.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_diagnostics_scatter.png}\caption{Dataset diagnostics: mean score against spread across models; dotted line marks the ceiling flag.}\label{figall:fig_diagnostics_scatter}\end{figure}
+\noindent{\small \textbf{What it encodes.} Each dataset placed by its mean v1 score across models (horizontal) and the spread between the best and worst model (vertical); the dotted line is the ceiling flag. \textbf{How to read it.} Datasets at the right with low spread are at ceiling and cannot rank models; datasets with high spread are the discriminating ones. \textbf{What it shows.} 3 datasets are flagged at ceiling (mean $\ge$ 0.95, spread $\le$ 0.04). They remain inside the objective in this run and are listed as a limitation.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_family_j.png}\caption{Within-family agreement $J$ under each family's own optimum, the global best and v1.}\label{figall:fig_family_j}\end{figure}
+\noindent{\small \textbf{What it encodes.} Within-family agreement $J$ (computed over that family's datasets only) under the family's own optimum, the global best and v1. \textbf{How to read it.} The gap between the first bar and the other two is what family-specific weights would gain for that family. \textbf{What it shows.} Within a family the datasets agree far more than across the suite (finance highest, entity matching lowest), and the family optimum beats the global best by a visible margin only for table QA and finance.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_family_scores.png}\caption{Mean v1 composite per model within each task family.}\label{figall:fig_family_scores}\end{figure}
+\noindent{\small \textbf{What it encodes.} For each model, four bars: its mean v1 composite within entity matching, schema matching, table QA and finance. \textbf{How to read it.} Compare bars of the same colour across models to see the family-specific ranking; compare the four bars of one model to see which family drives its overall mean. \textbf{What it shows.} Entity matching is near ceiling for every model, finance is near floor for every model, and the differences between models live in table QA and schema matching. A model's overall position is therefore decided by a minority of the suite.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_family_weights.png}\caption{Deployed, global-optimum and per-family weights.}\label{figall:fig_family_weights}\end{figure}
+\noindent{\small \textbf{What it encodes.} The four weights of v1, of the global optimum, and of the optimum fitted inside each task family. \textbf{How to read it.} Compare the family profiles with each other and with the global point. Agreement would show the same shape in every row. \textbf{What it shows.} The families disagree: decay dominates for schema matching, recall for table QA, precision for finance. The suite-level flatness is partly these pulls cancelling, which also explains why leave-one-family-out re-fits land far from the global best.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_j_histogram.png}\caption{Distribution of $J$ over the 1,771 weightings with v1, the best and the plateau band.}\label{figall:fig_j_histogram}\end{figure}
+\noindent{\small \textbf{What it encodes.} The horizontal axis is the agreement objective $J$ (mean Kendall $\tau$ between each dataset's model ranking and the Borda-pooled ranking); the bars count how many of the 1,771 step-0.05 weightings fall in each bin. The vertical lines mark the deployed weights (v1) and the best weighting; the shaded band is the plateau of weightings statistically indistinguishable from the best. \textbf{How to read it.} If the weights mattered, the histogram would be wide and v1 would sit in a low tail far from the best. Instead the whole distribution spans 0.376--0.414, v1 sits at 0.398 and the best at 0.414, and the plateau covers 1,749 of 1,771 points. \textbf{What it shows.} The objective is flat: moving weight between F1, decay, precision and recall changes $J$ by less than the bootstrap noise of a single point, so no weighting is distinguishable from v1 on this suite.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_j_pooling_rules.png}\caption{Agreement objective $J$ over all 1,771 weightings under four pooling rules (each curve sorted separately). The landscape is flat under every rule.}\label{figall:fig_j_pooling_rules}\end{figure}
+\noindent{\small \textbf{What it encodes.} The objective recomputed under four ways of pooling the 31 per-dataset rankings into one (Borda, Kemeny, Copeland, Bradley--Terry), each curve sorted separately from best to worst. \textbf{How to read it.} The curves answer whether the flatness is an artefact of Borda pooling. If another rule produced a steeper curve or a clear winner, the choice of pooling rule would matter for the audit. \textbf{What it shows.} All four curves are flat and sit within a few hundredths of each other; which weighting is ``best'' changes with the rule (v1's rank moves from 1,116 under Bradley--Terry to 1,311 under Kemeny), confirming that rank inside the lattice is noise.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_landscape.png}\caption{Sorted $J$ with v1 and the four single-ingredient corners.}\label{figall:fig_landscape}\end{figure}
+\noindent{\small \textbf{What it encodes.} Every weighting sorted from best (left) to worst (right) by $J$; the curve is $J$ itself, and the marked points are v1 and the four single-ingredient corners (F1 only, decay only, precision only, recall only). \textbf{How to read it.} The height of the curve at any rank is the $J$ of that weighting; the vertical drop from left to right is the whole range the search could ever exploit. A rank far to the right looks bad until the vertical scale is read: v1 is at rank 1,260 of 1,771, but the curve drops only 0.038 from first to last. \textbf{What it shows.} The curve is nearly horizontal until the last few dozen weightings, which are the extreme corners. Rank inside such a curve carries no information, which is why the report quotes the plateau and the out-of-bag difference instead of v1's rank.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_leaderboard_rules.png}\caption{Bradley--Terry strengths with rank intervals under exact match, v1 and the best-$J$ weighting.}\label{figall:fig_leaderboard_rules}\end{figure}
+\noindent{\small \textbf{What it encodes.} Bradley--Terry strengths (log-odds of winning an item against the reference model, with standard errors) and bootstrap rank intervals under exact match, v1 and the best-$J$ weighting. \textbf{How to read it.} Overlapping intervals mean the order is not established; a model whose point moves between panels is one whose position depends on the scoring rule. \textbf{What it shows.} The ends are fixed under every rule (Llama 3.3 70B last, gpt-oss-120b ninth); the top three (Gemini 3.8 Flash, Claude Opus 5, GPT-5.5) reorder with the rule. Exact match favours Opus; the graded rules favour Gemini Flash.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_lodo_tau.png}\caption{Leave-one-dataset-out: agreement of the held-out dataset with the pooled ranking of the rest, under weights fitted without it, the full-data best and v1.}\label{figall:fig_lodo_tau}\end{figure}
+\noindent{\small \textbf{What it encodes.} For each dataset held out in turn: the Kendall $\tau$ between its model ranking and the pooled ranking of the other 30, under weights re-fitted without it, the full-data best, and v1. \textbf{How to read it.} If weight search generalised, the re-fitted bars would beat v1's on most datasets. Negative bars are datasets whose ranking opposes the consensus however the weights are set. \textbf{What it shows.} Means are +0.33 (re-fitted), +0.35 (full best) and +0.32 (v1); re-fitting helps on 20 datasets and hurts on 9. The same handful of sets (Alaska Camera, HiTab, Alaska schema) are negative under every rule.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_majority_baselines.png}\caption{Exact-match accuracy of every model on the boolean datasets against the majority-class baseline of each pool.}\label{figall:fig_majority_baselines}\end{figure}
+\noindent{\small \textbf{What it encodes.} For the boolean datasets, every model's exact-match accuracy against the majority-class baseline of the pool (the accuracy of always answering the more common label). \textbf{How to read it.} A model below the baseline line is doing worse than a constant answer on that dataset. \textbf{What it shows.} Every model clears the baseline on every boolean set, usually by a wide margin; the balanced pools make the baseline about 0.5 so this is a weak test, which is why the official-ratio F1 is reported beside it.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_marginals.png}\caption{$J$ against each of the four weights.}\label{figall:fig_marginals}\end{figure}
+\noindent{\small \textbf{What it encodes.} Four panels, one per ingredient; each point is one weighting placed by the weight it gives that ingredient (horizontal) and its $J$ (vertical); the line is the mean $J$ at each weight level. \textbf{How to read it.} A sloping mean line would say that more (or less) of that ingredient helps; a flat line says the ingredient's weight is irrelevant. The vertical scatter at each level is the effect of the other three weights. \textbf{What it shows.} The mean lines drift by at most 0.017 of $J$ across the whole range (precision is the steepest, falling as its weight approaches 1); no ingredient has a slope worth acting on, and the scatter around each line is larger than any slope.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_model_dataset_heatmap.png}\caption{Mean v1 composite score per model and dataset (models in Bradley--Terry order under v1).}\label{figall:fig_model_dataset_heatmap}\end{figure}
+\noindent{\small \textbf{What it encodes.} Rows are the ten models in Bradley--Terry order under v1; columns are the 31 datasets; each cell is the model's mean v1 composite on that dataset (dark = high). \textbf{How to read it.} Columns show how hard a dataset is for everyone (BIRD and the two OfficeQA sets are dark for all models); rows show a model's profile. A leaderboard is a summary of this matrix, so any disagreement between datasets is visible here as a row that is high in one column and low in another. \textbf{What it shows.} Most columns are near ceiling with tiny spreads (the matching sets); the spread that separates models comes from a dozen table and document sets. No row dominates every column.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_model_dataset_ranks.png}\caption{Rank of each model inside each dataset under v1 (ties by average rank).}\label{figall:fig_model_dataset_ranks}\end{figure}
+\noindent{\small \textbf{What it encodes.} The same matrix as the score heatmap, but each column is replaced by the within-dataset rank (1 = best, ties averaged). \textbf{How to read it.} A perfectly consistent suite would show each row as a single colour. Colour changes along a row are datasets that rank that model differently from the rest. \textbf{What it shows.} Only the bottom rows are nearly uniform; the top three rows trade first place from column to column (no model is first on more than 6 datasets), which is the picture behind Kendall's $W$ of 0.26 among datasets.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_native_vs_composite.png}\caption{Per-answer native metric against the v1 composite, by family (log-count hexbins).}\label{figall:fig_native_vs_composite}\end{figure}
+\noindent{\small \textbf{What it encodes.} One panel per family; each answer placed by its dataset's native metric (horizontal) and its v1 composite (vertical), with cell colour showing how many answers fall there (log scale). \textbf{How to read it.} Mass on the diagonal means the composite agrees with the native metric; mass off the diagonal is where the four ingredients give partial credit (above) or penalise (below) relative to the dataset's own rule. \textbf{What it shows.} Entity and schema matching sit almost entirely on the diagonal corners (0,0) and (1,1): the composite is exact match there. Table QA and finance show the off-diagonal cloud of partial credit, which is the only place the weights can act.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_nested.png}\caption{In-bag vs out-of-bag $J$ of the selected weighting against v1.}\label{figall:fig_nested}\end{figure}
+\noindent{\small \textbf{What it encodes.} From 1,000 item bootstraps: the in-bag $J$ of the weighting selected as best on the in-bag items, the same weighting's out-of-bag $J$, and v1's out-of-bag $J$. \textbf{How to read it.} The gap between the first two is the optimism of selection (the winner's curse); the comparison between the second and the third is the honest test of whether searching found anything. \textbf{What it shows.} The selected weighting looks 0.047 better in-bag than out of bag, and out of bag it is -0.007 from v1 with a 95\,\% interval of [-0.033, +0.011]. Searching the weights buys nothing that survives held-out items.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_official_f1_models.png}\caption{Positive-class F1 on the balanced pool (grey) and at the official match ratio (coloured) per model and matching dataset.}\label{figall:fig_official_f1_models}\end{figure}
+\noindent{\small \textbf{What it encodes.} For each matching dataset and model, positive-class F1 on the balanced pool (grey ticks) and at the official match ratio (coloured dots). \textbf{How to read it.} The vertical gap between tick and dot for a model is how much its balanced-pool F1 overstates its official-ratio F1; the spread of dots is the between-model difference that survives re-weighting. \textbf{What it shows.} The gap is large and similar for all models on Amazon--Google, Machamp and Papadakis--Christen, and negligible on the dense sets. Model order is mostly preserved; the absolute numbers are not.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_official_scatter.png}\caption{Suite score against post-stratified official-split estimate for every (dataset, model) pair under v1.}\label{figall:fig_official_scatter}\end{figure}
+\noindent{\small \textbf{What it encodes.} Every (dataset, model) pair placed by its suite score and its post-stratified official estimate under v1. \textbf{How to read it.} Distance from the diagonal is the effect of re-weighting for that cell; the cloud's tightness is how comparable the suite numbers are to published ones. \textbf{What it shows.} Almost every cell is within a few hundredths of the diagonal; the exceptions are the sparse matching sets and OpenSanctions, where the official class ratio differs most from 50/50.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_official_split.png}\caption{Suite score vs post-stratified official estimate; matching F1 at the official ratio.}\label{figall:fig_official_split}\end{figure}
+\noindent{\small \textbf{What it encodes.} Per dataset, the suite score (mean over the balanced, stratified pool) against the same answers re-weighted to the official split's stratum or class proportions; for the matching sets, positive-class F1 on the pool against F1 at the official match ratio. \textbf{How to read it.} Points on the diagonal are datasets whose pool already matches the official split; points below it are where the balanced pool overstates performance. \textbf{What it shows.} Accuracy moves by at most 0.09; F1 on the matching sets drops by up to 0.19 where matches are rare, through precision: at a 2\,\% match rate a 1\,\% false-positive rate halves precision.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_oob_difference.png}\caption{Paired out-of-bag difference between the selected weighting and v1 over 1,000 resamples.}\label{figall:fig_oob_difference}\end{figure}
+\noindent{\small \textbf{What it encodes.} For each of the 1,000 resamples, the out-of-bag $J$ of the selected weighting minus the out-of-bag $J$ of v1; the vertical line is zero. \textbf{How to read it.} Mass to the right of zero means the search beat v1 on held-out items in that resample. The mean and the 2.5--97.5 percentile interval are the paired test. \textbf{What it shows.} The distribution is centred at -0.007 with the interval straddling zero; the selected weighting is ahead in only 28\,\% of resamples.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_optimism_distributions.png}\caption{Distributions behind the optimism gap: in-bag $J$ of the selected weighting, its out-of-bag $J$, and v1's out-of-bag $J$.}\label{figall:fig_optimism_distributions}\end{figure}
+\noindent{\small \textbf{What it encodes.} The three bootstrap distributions behind the optimism gap, as histograms over the 1,000 resamples. \textbf{How to read it.} The in-bag distribution of the selected weighting (shifted right) is what an un-validated search would report; the two out-of-bag distributions overlap almost completely. \textbf{What it shows.} The shift is the selection effect itself, about 0.047 of $J$; the overlap of the out-of-bag distributions is why no weighting can be declared better than v1.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_p_first.png}\caption{Bootstrap probability of first place for every model under every rule, by pooling method.}\label{figall:fig_p_first}\end{figure}
+\noindent{\small \textbf{What it encodes.} The bootstrap probability of first place for every model under every rule, by Bradley--Terry (left) and Borda (right) pooling. \textbf{How to read it.} Each column sums to one. A dark cell is a confident first place; a column with several mid-tone cells is a contested one. \textbf{What it shows.} Bradley--Terry is nearly certain about Gemini Flash under the graded rules and about Opus under exact match; Borda divides first place between Opus and GPT-5.5 under most rules. The pooling method, not only the scoring rule, decides the headline winner.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_pairwise_significance_v1.png}\caption{Number of datasets (of 31) in which the per-item paired test separates each pair of models under v1 (Holm within dataset).}\label{figall:fig_pairwise_significance_v1}\end{figure}
+\noindent{\small \textbf{What it encodes.} For each pair of models, the number of datasets (of 31) in which a Holm-corrected per-item paired test separates them under v1. \textbf{How to read it.} A high count is a pair separated on many datasets; zero is a pair never separated at the item level even where the cross-dataset test suggests a difference. \textbf{What it shows.} The pairs involving the bottom two models are separated on many datasets; pairs inside the top group are separated on few. Item-level evidence agrees with the Friedman picture.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_pareto.png}\caption{Agreement $J$ against anchor correctness $\rho$ for every weighting.}\label{figall:fig_pareto}\end{figure}
+\noindent{\small \textbf{What it encodes.} Every weighting placed by its agreement objective $J$ (horizontal) and its Spearman $\rho$ against the known utility of 31,380 synthetic answers (vertical); the Pareto front and the named points (v1, best $J$, best $\rho$, knee) are marked. \textbf{How to read it.} If agreement and correctness pulled together, the cloud would rise to the upper right. A front that bends away means the two criteria trade off. \textbf{What it shows.} The best-$J$ weighting is among the worst by $\rho$ (0.876) while v1 (0.878) sits near the $\rho$ optimum (0.883); across the lattice $J$ and $\rho$ correlate -0.23. Agreement is not correctness, and v1 is close to the correct end.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_per_dataset_tau_rules.png}\caption{Per-dataset Kendall $\tau$ to the Borda pool under v1, the best weighting, the four single-ingredient corners and the uniform mix.}\label{figall:fig_per_dataset_tau_rules}\end{figure}
+\noindent{\small \textbf{What it encodes.} Rows are the 31 datasets; columns are named weightings (v1, the best, the four corners, the uniform mix); each cell is that dataset's Kendall $\tau$ to the pooled ranking under that weighting (blue positive, red negative). $J$ is the column mean. \textbf{How to read it.} A row that is red in every column is a dataset whose model ranking runs against the consensus whatever the weights; a column that is uniformly bluer than the others would be a weighting that genuinely improves agreement. \textbf{What it shows.} Rows differ far more than columns: the same 3 datasets are negative under every weighting and the same high-agreement datasets are blue everywhere. The weights redistribute a little $\tau$ between datasets; they do not change which datasets agree.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_plateau.png}\caption{Bootstrap band over sorted weightings and the plateau boundary.}\label{figall:fig_plateau}\end{figure}
+\noindent{\small \textbf{What it encodes.} Weightings sorted by full-data $J$ (horizontal) with the 95\,\% bootstrap band of each (shaded) and the plateau boundary: the set of weightings not significantly below the best in a paired bootstrap test. \textbf{How to read it.} A weighting is in the plateau when its band overlaps the best's in the paired sense; the boundary is where $p$ drops below .05. \textbf{What it shows.} 1,749 of 1,771 weightings are in the plateau and v1 is inside it ($p$ = 0.63); only the extreme precision-free, decay-dominated corner falls out. The practical plateau (within 0.02 of the best) holds 1,731 weightings.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_plateau_oob.png}\caption{Full-data $J$, bootstrap band and mean out-of-bag $J$ for every weighting in rank order.}\label{figall:fig_plateau_oob}\end{figure}
+\noindent{\small \textbf{What it encodes.} Three curves over the sorted weightings: full-data $J$, the bootstrap mean with its band, and the mean out-of-bag $J$ when each weighting is evaluated on items it was not selected on. \textbf{How to read it.} The vertical distance between the full-data curve and the out-of-bag curve is the optimism for every weighting, not only the winner. If the out-of-bag curve were steep, some weightings would be reliably better on new items. \textbf{What it shows.} The out-of-bag curve is flat and noisy across the entire lattice: the ordering of weightings on the full data does not reproduce on held-out items.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_rank_bootstrap_v1.png}\caption{Bootstrap distribution of each model's rank under v1 (1,000 item resamples).}\label{figall:fig_rank_bootstrap_v1}\end{figure}
+\noindent{\small \textbf{What it encodes.} For each model, the distribution of its Bradley--Terry rank (left) and Borda rank (right) over 1,000 item bootstraps under v1. \textbf{How to read it.} A narrow box is a rank the data pin down; a wide box is a rank that depends on which items are drawn. Overlapping boxes are models whose order is not established. \textbf{What it shows.} Bradley--Terry pins Gemini Flash to first (P = 0.91) and the last two to their places; the middle four overlap. Borda spreads first place over three models, because it counts dataset-level ranks rather than item-level wins.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_rho_per_dataset.png}\caption{Anchor correctness (Spearman $\rho$ between composite and known utility) per dataset under v1, the best-$J$ and the best-$\rho$ weightings.}\label{figall:fig_rho_per_dataset}\end{figure}
+\noindent{\small \textbf{What it encodes.} Spearman $\rho$ between score and known utility computed within each dataset's anchors, under v1, the best-$J$ and the best-$\rho$ weightings. \textbf{How to read it.} Datasets where the three bars differ are where the weighting changes how well the judge grades answers; equal bars mean the weighting is irrelevant there. \textbf{What it shows.} v1 and best-$\rho$ are close everywhere; best-$J$ falls behind on the numeric and list-answer datasets, which is where decay-only weighting loses the partial credit that token overlap provides.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_rule_agreement.png}\caption{Kendall $\tau$ between the Bradley--Terry rankings produced by each pair of rules.}\label{figall:fig_rule_agreement}\end{figure}
+\noindent{\small \textbf{What it encodes.} Kendall $\tau$ between the Bradley--Terry rankings produced by each pair of rules. \textbf{How to read it.} 1.00 means identical rankings; values near 0.8 mean a few adjacent swaps. \textbf{What it shows.} The graded rules agree with each other at 0.71 or above; exact match is the outlier because it ranks the reasoning-heavy models differently. Changing the weights inside the plateau does not change the leaderboard beyond adjacent swaps.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_run_facts.png}\caption{Run facts per model from the prediction cache: cost, output length, latency and answers still cut off at the final budget.}\label{figall:fig_run_facts}\end{figure}
+\noindent{\small \textbf{What it encodes.} Per model: total API cost for the suite, mean output tokens, median latency, and the number of answers still cut off at the final budget. \textbf{How to read it.} Cost and output length are the price of a model's position; cut-offs are the answers scored as given because the model did not finish. \textbf{What it shows.} One model accounts for most of the bill, output length varies by more than an order of magnitude, and the residual cut-offs are concentrated in the reasoning model that writes its chain of thought into the output budget.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_selected_weights.png}\caption{Weights selected as best on the in-bag items across 1,000 bootstrap resamples; dotted line = v1.}\label{figall:fig_selected_weights}\end{figure}
+\noindent{\small \textbf{What it encodes.} Four histograms: the weight on each ingredient of the weighting selected as in-bag best, over the 1,000 resamples; the dotted line is v1's value. \textbf{How to read it.} If the data pointed to a specific weighting, each histogram would be a narrow spike. Spread across the whole range means the ``best'' weighting depends on which items happen to be drawn. \textbf{What it shows.} 624 different weightings win across the resamples, and every weight spreads over most of its range (standard deviations f1 0.26, decay 0.22, precision 0.16, recall 0.25). The selection is close to uniform over the simplex.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_self_stability.png}\caption{Self-stability of each dataset's model ranking (Kendall $\tau$ between bootstrap halves) under v1.}\label{figall:fig_self_stability}\end{figure}
+\noindent{\small \textbf{What it encodes.} For each dataset, the Kendall $\tau$ between the model rankings obtained on two bootstrap halves of its items (self-stability). \textbf{How to read it.} A value near 1 means the dataset's ranking is reproducible from its own items; a low value means its ranking is driven by a few items. \textbf{What it shows.} Self-stability ranges from 0.57 (hitab) to 0.92 (alaska\_camera). Low-stability sets are the ones whose disagreement with the consensus is partly noise.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_sensitivity.png}\caption{One-step sensitivity: $J$ at v1 and at the best weighting with the range over all lattice neighbours one 0.05 move away.}\label{figall:fig_sensitivity}\end{figure}
+\noindent{\small \textbf{What it encodes.} For v1 and for the best weighting: the $J$ at the point and the range of $J$ over all neighbours one lattice step (0.05) away. \textbf{How to read it.} A long bar would mean a knife-edge optimum; a short bar means the neighbourhood is flat. \textbf{What it shows.} One step moves $J$ by at most 0.012 around v1 and 0.017 around the best: both sit on flat ground, and the best is not a peak but a point on a plateau.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_significant_pairs_per_dataset.png}\caption{How many of the 45 model pairs each dataset separates at the item level under v1 (colour = family).}\label{figall:fig_significant_pairs_per_dataset}\end{figure}
+\noindent{\small \textbf{What it encodes.} For each dataset, how many of the 45 model pairs the per-item paired test separates, coloured by family. \textbf{How to read it.} A dataset with zero separates no pair: either every model scores the same or the items are too few for the differences present. High bars are the datasets carrying the leaderboard's statistical power. \textbf{What it shows.} 12 datasets separate no pair, all of them entity-matching or ceiling sets; 4 datasets separate 20 or more, led by FeTaQA and the two OfficeQA sets. Power lives in a dozen table and document sets.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_tau_native_vs_j.png}\caption{Agreement $J$ against Kendall $\tau$ between each weighting's ranking and the native-metric ranking.}\label{figall:fig_tau_native_vs_j}\end{figure}
+\noindent{\small \textbf{What it encodes.} Each weighting placed by its agreement with the datasets' own native metrics (horizontal: Kendall $\tau$ between the composite's model ranking and the native-metric ranking) and its $J$ (vertical). \textbf{How to read it.} Points to the right rank the models the way the datasets' own metrics would; points to the top make the datasets agree with each other. A strong diagonal would mean the two criteria coincide. \textbf{What it shows.} The correlation is weak (-0.12); v1 is among the most native-faithful weightings (0.910) while the best-$J$ weighting is slightly less so. Agreement among datasets is a different criterion from fidelity to each dataset's own metric.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_times_selected.png}\caption{The twenty weightings most often selected as in-bag best (F1 / decay / precision / recall).}\label{figall:fig_times_selected}\end{figure}
+\noindent{\small \textbf{What it encodes.} The twenty weightings most often chosen as in-bag best across the 1,000 resamples (labels give F1 / decay / precision / recall). \textbf{How to read it.} A dominant weighting would be selected hundreds of times. A flat bar chart with small counts means no weighting is consistently preferred. \textbf{What it shows.} The most-selected weighting wins only 10 of 1,000 resamples, and the winners include decay-dominated, F1-dominated and recall-dominated points alike.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_tokens_heatmap.png}\caption{Mean output tokens per model and dataset.}\label{figall:fig_tokens_heatmap}\end{figure}
+\noindent{\small \textbf{What it encodes.} Mean output tokens per model and dataset. \textbf{How to read it.} Columns show which tasks make every model write more (documents and SQL); rows show each model's verbosity. \textbf{What it shows.} The two OfficeQA sets and BIRD draw the longest replies from every model, and the reasoning models write several times more than the rest on the same items. These are the cells where the output budget bites.}
+\clearpage
 
-\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_truncation.png}\caption{Truncation protocol: answers re-asked at 2,500 and 8,000 output tokens per model.}\label{figall:fig_truncation}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_truncation.png}\caption{Truncation protocol: answers re-asked at 2,500, 8,000 and 16,000 output tokens per model.}\label{figall:fig_truncation}\end{figure}
+\noindent{\small \textbf{What it encodes.} Per model, how many answers were re-asked at each stage of the truncation protocol after being cut off without a final line at the previous budget. \textbf{How to read it.} The trigger is mechanical (finish reason ``length'' and no final-answer line), never correctness; a tall bar is a verbose or reasoning-heavy model, not a worse one. \textbf{What it shows.} The reasoning models dominate the re-asks; the short-answer models almost never hit the first budget.}
+\clearpage
 
 \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{fig_weight_pairs.png}\caption{Best $J$ attainable for each pair of weight values (maximised over the remaining two weights); red star = v1.}\label{figall:fig_weight_pairs}\end{figure}
+\noindent{\small \textbf{What it encodes.} Six heatmaps, one per pair of ingredients; each cell is the best $J$ attainable with those two weights fixed at the cell's values and the other two weights free. The red star is v1. \textbf{How to read it.} A ridge or a hot spot would point to a region of good weightings; a uniform colour means the pair does not constrain $J$. Only the lower-left triangle is feasible because the two weights cannot sum to more than one. \textbf{What it shows.} The feasible triangle is uniformly coloured except for a slightly cooler edge where precision dominates. There is no ridge to follow: the best $J$ is reachable from almost any pair of values.}
+\clearpage
 
 \clearpage
 \section{All tables}
@@ -436,6 +443,9 @@ Every saved table, exported from \texttt{data/}. Each is a separate file under \
 \input{tables/designs_full.tex}
 \clearpage
 
+\input{tables/designs_short.tex}
+\clearpage
+
 \input{tables/diagnostics.tex}
 \clearpage
 
@@ -455,6 +465,9 @@ Every saved table, exported from \texttt{data/}. Each is a separate file under \
 \clearpage
 
 \input{tables/leaderboard_em_only.tex}
+\clearpage
+
+\input{tables/leaderboard_headline.tex}
 \clearpage
 
 \input{tables/leaderboard_pareto_knee.tex}
@@ -482,6 +495,9 @@ Every saved table, exported from \texttt{data/}. Each is a separate file under \
 \clearpage
 
 \input{tables/lofo_full.tex}
+\clearpage
+
+\input{tables/lofo_short.tex}
 \clearpage
 
 \input{tables/majority_baselines.tex}
@@ -560,6 +576,9 @@ Every saved table, exported from \texttt{data/}. Each is a separate file under \
 \clearpage
 
 \input{tables/plateau_top30.tex}
+\clearpage
+
+\input{tables/ranks_by_rule.tex}
 \clearpage
 
 \input{tables/rho_per_dataset.tex}

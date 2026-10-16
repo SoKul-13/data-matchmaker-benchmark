@@ -1,0 +1,2 @@
+models=['deepseek-r1'] items=3083 budget=$160.0
+[deepseek-r1] cached=2960 todo=123

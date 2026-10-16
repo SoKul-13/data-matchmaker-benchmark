@@ -16,7 +16,7 @@ FINAL = Path(__file__).resolve().parents[2]
 REPO = FINAL.parent
 V6 = REPO / "v6_top30_significance"
 PAPER = FINAL / "paper"
-PRETTY = {"claude-opus-5": "Claude Opus 5", "claude-sonnet-5": "Claude Sonnet 5", "gpt-5.5": "GPT-5.5", "gpt-5.4-mini": "GPT-5.4-mini",
+PRETTY = {"gemini-3.1-pro": "Gemini 3.1 Pro", "claude-opus-5": "Claude Opus 5", "claude-sonnet-5": "Claude Sonnet 5", "gpt-5.5": "GPT-5.5", "gpt-5.4-mini": "GPT-5.4-mini",
           "gemini-3.8-flash": "Gemini 3.8 Flash", "grok-4": "Grok 4", "deepseek-chat": "DeepSeek-chat", "deepseek-r1": "DeepSeek-R1",
           "gpt-oss-120b": "gpt-oss-120b", "llama-3.3-70b": "Llama 3.3 70B"}
 FAMC = {"EM": "C0", "SM": "C1", "TQA": "C2", "FIN": "C3"}
@@ -190,9 +190,9 @@ def leaderboard_block(pk, out, rules, headline, rule_pretty, weights_of):
             for (a, bb), k in sp.items():
                 if a in Mp.index and bb in Mp.columns: Mp.loc[a, bb] += k; Mp.loc[bb, a] += k
             fig, ax = plt.subplots(figsize=(5, 4.3)); ax.imshow(Mp.values, cmap="Oranges", aspect="auto")
-            ax.set_xticks(range(10)); ax.set_xticklabels([PRETTY[m] for m in order], rotation=45, ha="right", fontsize=7); ax.set_yticks(range(10)); ax.set_yticklabels([PRETTY[m] for m in order], fontsize=7)
-            for i in range(10):
-                for j in range(10): ax.text(j, i, Mp.values[i, j], ha="center", va="center", fontsize=6)
+            ax.set_xticks(range(len(order))); ax.set_xticklabels([PRETTY[m] for m in order], rotation=45, ha="right", fontsize=7); ax.set_yticks(range(len(order))); ax.set_yticklabels([PRETTY[m] for m in order], fontsize=7)
+            for i in range(len(order)):
+                for j in range(len(order)): ax.text(j, i, Mp.values[i, j], ha="center", va="center", fontsize=6)
             pk.save(fig, "fig_pairwise_significance", "Number of datasets (of 31) in which the per-item paired test separates each pair of models under the headline rule (Holm within dataset).")
         nsp = pd.Series(SIG[headline]["n_significant_pairs_per_dataset"]).sort_values()
         diag = pd.read_csv(out / "diagnostics" / "dataset_diagnostics.csv"); fam_of = dict(zip(diag.dataset, diag.family))
@@ -219,7 +219,7 @@ def leaderboard_block(pk, out, rules, headline, rule_pretty, weights_of):
         if len(em):
             fig, ax = plt.subplots(figsize=(7, 3)); ds = em.groupby("dataset").official_f1_pos.mean().sort_values().index; x = np.arange(len(ds))
             for i, m in enumerate(order):
-                d = em[em.model == m].set_index("dataset").reindex(ds); ax.scatter(x + (i - 4.5) * .07, d.official_f1_pos, s=8, label=PRETTY[m]); ax.scatter(x + (i - 4.5) * .07, d.suite_f1_pos, s=8, marker="_", c="grey")
+                d = em[em.model == m].set_index("dataset").reindex(ds); ax.scatter(x + (i - (len(order) - 1) / 2) * .07, d.official_f1_pos, s=8, label=PRETTY[m]); ax.scatter(x + (i - (len(order) - 1) / 2) * .07, d.suite_f1_pos, s=8, marker="_", c="grey")
             ax.set_xticks(x); ax.set_xticklabels(ds, rotation=45, ha="right", fontsize=7); ax.set_ylabel("positive-class F1 (dots: official ratio; grey: pool)"); ax.legend(frameon=False, fontsize=5, ncol=5)
             pk.save(fig, "fig_official_f1_models", "Positive-class F1 on the balanced pool (grey) and at the official match ratio (coloured) per model and matching dataset.")
         o = off.copy(); o["model"] = o.model.map(PRETTY)
@@ -266,7 +266,7 @@ SETUP_COMMON = r"""
 \subsection{Shared setup (identical across versions)}
 \begin{itemize}
 \item \textbf{Suite.} 31 datasets: 11 entity matching (EM), 6 schema matching (SM), 11 table question answering and understanding (TQA), 3 financial documents (FIN). Official test or dev splits only; 150 items per dataset by seeded stratified sampling, 100 flagged for answering (OfficeQA Pro V2: 90; Alaska schema: 93); 3,083 answered items per model. Entity-matching pools are 50/50 match / non-match (Papadakis--Christen keeps its real 1.8\,\% ratio); schema matching is one question per source column with a candidate list; BIRD is graded on the executed result of the gold SQL.
-\item \textbf{Answers.} Ten models (Claude Opus 5, Claude Sonnet 5, GPT-5.5, GPT-5.4-mini, Gemini 3.8 Flash, Grok 4, DeepSeek-chat, DeepSeek-R1, gpt-oss-120b, Llama 3.3 70B); one prompt per item ending in \texttt{FINAL ANSWER: <answer>}; temperature 0 where accepted (Claude 5 and GPT-5.5 ran at provider defaults, recorded per row); output budget 700 tokens with mechanical re-asks at 2,500 and 8,000 for replies cut off before a final line; every answer cached with tokens, cost and finish reason. The same cache feeds every version, so leaderboards are directly comparable.
+\item \textbf{Answers.} Eleven models (Claude Opus 5, Claude Sonnet 5, GPT-5.5, GPT-5.4-mini, Gemini 3.1 Pro, Gemini 3.8 Flash, Grok 4, DeepSeek-chat, DeepSeek-R1, gpt-oss-120b, Llama 3.3 70B); one prompt per item ending in \texttt{FINAL ANSWER: <answer>}; temperature 0 where accepted (Claude 5 and GPT-5.5 ran at provider defaults, recorded per row); output budget 700 tokens with mechanical re-asks at 2,500, 8,000 and 16,000 for replies cut off before a final line (the budget is counted in each provider's own tokens and, for reasoning models, includes the chain of thought, so it is a termination test rather than an equal text allowance); every answer cached with tokens, cost and finish reason. The same cache feeds every version, so leaderboards are directly comparable.
 \item \textbf{Scoring primitives.} Extraction of the final line, Unicode / case / punctuation normalisation, number parsing with sign, percent and scale words, alias lists per gold (best alias wins), list golds, a hedge flag. Native metric per dataset: numeric tolerance (1\,\%) for numeric golds, exact match for text and boolean, ROUGE-L for free-form.
 \item \textbf{Coverage rule.} A model is in the study only if it covered $\ge 90\,\%$ of the suite; a dataset counts only items every model answered and only with $\ge 20$ such items.
 \item \textbf{Leaderboard machinery.} Bradley--Terry strengths from item-level pairwise wins (MLE, ridge 0.01, SE from the observed information) as the headline pooling; Borda, Kemeny (with cost), Copeland, mean-$z$, reciprocal-rank fusion and family-balanced $z$ as checks; 1,000 item bootstraps of the Borda and Bradley--Terry ranks; Friedman with Iman--Davenport, Nemenyi CD, Holm-corrected pairwise Wilcoxon across datasets; paired permutation and Wilcoxon per item within datasets (Holm); Kendall's $W$ among datasets; majority-class baselines for boolean sets; post-stratified official-split estimates with a weighted bootstrap and positive-class F1 at the official match ratio; floor / ceiling / self-stability diagnostics per dataset.
@@ -297,8 +297,8 @@ def build_v3():
     # view z heatmap + ranks
     fig, axes = plt.subplots(1, 2, figsize=(10, 3.6))
     for ax, M, lab, cmap in [(axes[0], Z.loc[order], "z-score", "RdBu"), (axes[1], V.rank(ascending=False).loc[order], "rank (1 = best)", "viridis_r")]:
-        ax.imshow(M.values, cmap=cmap, aspect="auto"); ax.set_xticks(range(8)); ax.set_xticklabels([VP[v] for v in views], rotation=45, ha="right", fontsize=7); ax.set_yticks(range(10)); ax.set_yticklabels([PRETTY[m] for m in order], fontsize=7); ax.set_title(lab)
-        for i in range(10):
+        ax.imshow(M.values, cmap=cmap, aspect="auto"); ax.set_xticks(range(8)); ax.set_xticklabels([VP[v] for v in views], rotation=45, ha="right", fontsize=7); ax.set_yticks(range(len(order))); ax.set_yticklabels([PRETTY[m] for m in order], fontsize=7); ax.set_title(lab)
+        for i in range(len(order)):
             for j in range(8): ax.text(j, i, f"{M.values[i, j]:.0f}" if "rank" in lab else f"{M.values[i, j]:+.1f}", ha="center", va="center", fontsize=6)
     pk.save(fig, "fig_view_matrix", "Each view's z-score (left) and rank (right) per model on native-metric scores.")
     Jv = combos[combos.n_views == 1].set_index("label")
@@ -329,9 +329,9 @@ def build_v3():
     pn = pf["native"]; mm = pn["models"]
     fig, axes = plt.subplots(1, 2, figsize=(9, 3))
     idx = [mm.index(m) for m in order]
-    axes[0].barh(range(10), np.array(pn["bradley_terry"]["beta"])[idx], xerr=np.array(pb["bt_beta_sd_bootstrap"])[idx], color="C0"); axes[0].set_title("Bradley-Terry strength (bar = bootstrap SD)")
-    axes[1].barh(range(10), np.array(pn["rasch"]["theta"])[idx], xerr=np.array(pn["rasch"]["se_theta"])[idx], color="C1"); axes[1].set_title("Rasch ability (bar = analytic SE)")
-    for ax in axes: ax.set_yticks(range(10)); ax.set_yticklabels([PRETTY[m] for m in order], fontsize=7); ax.invert_yaxis(); ax.axvline(0, c="k", lw=.5)
+    axes[0].barh(range(len(order)), np.array(pn["bradley_terry"]["beta"])[idx], xerr=np.array(pb["bt_beta_sd_bootstrap"])[idx], color="C0"); axes[0].set_title("Bradley-Terry strength (bar = bootstrap SD)")
+    axes[1].barh(range(len(order)), np.array(pn["rasch"]["theta"])[idx], xerr=np.array(pn["rasch"]["se_theta"])[idx], color="C1"); axes[1].set_title("Rasch ability (bar = analytic SE)")
+    for ax in axes: ax.set_yticks(range(len(order))); ax.set_yticklabels([PRETTY[m] for m in order], fontsize=7); ax.invert_yaxis(); ax.axvline(0, c="k", lw=.5)
     pk.save(fig, "fig_parameters", "Fitted Bradley--Terry strengths and Rasch abilities with their uncertainty.")
     fig, ax = plt.subplots(figsize=(5, 2.8)); ax.hist(rasch_items.difficulty.clip(-15, 15), bins=40); ax.set_xlabel("Rasch item difficulty (clipped at $\\pm$15)"); ax.set_ylabel("items")
     pk.save(fig, "fig_rasch_items", "Distribution of Rasch item difficulties over the 3,083 items.")
@@ -340,7 +340,7 @@ def build_v3():
     Zb = np.load(out / "Zb.npz")
     fig, axes = plt.subplots(1, 2, figsize=(8, 3), sharey=True)
     for ax, key, lab in zip(axes, ["bt_beta", "rasch_theta"], ["Bradley-Terry strength", "Rasch ability"]):
-        ax.boxplot([Zb[key][:, mm.index(m)] for m in order], vert=False, showfliers=False, widths=.6); ax.set_yticks(range(1, 11)); ax.set_yticklabels([PRETTY[m] for m in order], fontsize=7); ax.invert_yaxis(); ax.set_xlabel(lab + " over 100 item bootstraps")
+        ax.boxplot([Zb[key][:, mm.index(m)] for m in order], vert=False, showfliers=False, widths=.6); ax.set_yticks(range(1, len(order) + 1)); ax.set_yticklabels([PRETTY[m] for m in order], fontsize=7); ax.invert_yaxis(); ax.set_xlabel(lab + " over 100 item bootstraps")
     pk.save(fig, "fig_parameter_bootstrap", "Bootstrap distributions of the Bradley--Terry strengths and Rasch abilities (100 item resamples).")
     # tables
     pk.to_tex(single.assign(view=[VP[v] for v in views]).round(3), "single_views", "Objective $J$ of each view alone.")
@@ -709,7 +709,7 @@ Under the ensemble pooled by Bradley--Terry, {PRETTY[order[0]]} is first, {PRETT
 
 # ================================================================= comparison
 def build_comparison(v3, v4, v5):
-    pk = Pkg("comparison", "Summary Report: Four Audits of One Judge Side by Side, v2, v3, v4 and v5 on the Same 31 Datasets and Ten Models")
+    pk = Pkg("comparison", "Summary Report: Four Audits of One Judge Side by Side, v2, v3, v4 and v5 on the Same 31 Datasets and Eleven Models")
     o2 = FINAL / "v2_gridsearch" / "output"
     g2 = pd.read_csv(o2 / "grid_exhaustive.csv"); n2 = json.load(open(o2 / "selection" / "nested.json")); c2 = json.load(open(o2 / "anchors" / "correctness.json")); cc2 = pd.read_csv(o2 / "anchors" / "correctness.csv")
     LB2 = {r: pd.read_csv(o2 / "leaderboards" / r / "leaderboard.csv") for r in ["em_only", "v1_original", "top1", "best_anchor", "pareto_knee"]}
@@ -723,18 +723,18 @@ def build_comparison(v3, v4, v5):
             ("v3", "native + BT mix", v3["LB"]["native"], v3["SIG"]["native"]), ("v4", "best J (num tol)", v4["LB"]["top1"], v4["SIG"]["top1"]), ("v4", "best rho", v4["LB"]["best_anchor"], v4["SIG"]["best_anchor"]),
             ("v5", "ensemble", v5["LB"]["ensemble"], v5["SIG"]["ensemble"]), ("all", "exact match", LB2["em_only"], SIG2["em_only"]), ("all", "native metric", v5["LB"]["native"], v5["SIG"]["native"])]
     R = pd.DataFrame({f"{v}: {lab}": lb.set_index("model").loc[order, "rank_bt"].astype(int) for v, lab, lb, _ in HEAD}); R.index = [PRETTY[m] for m in order]
-    fig, ax = plt.subplots(figsize=(8, 4)); ax.imshow(R.values, cmap="viridis_r", vmin=1, vmax=10, aspect="auto"); ax.set_xticks(range(R.shape[1])); ax.set_xticklabels(R.columns, rotation=40, ha="right", fontsize=7); ax.set_yticks(range(10)); ax.set_yticklabels(R.index, fontsize=7)
-    for i in range(10):
+    fig, ax = plt.subplots(figsize=(8, 4)); ax.imshow(R.values, cmap="viridis_r", vmin=1, vmax=10, aspect="auto"); ax.set_xticks(range(R.shape[1])); ax.set_xticklabels(R.columns, rotation=40, ha="right", fontsize=7); ax.set_yticks(range(R.shape[0])); ax.set_yticklabels(R.index, fontsize=7)
+    for i in range(R.shape[0]):
         for j in range(R.shape[1]): ax.text(j, i, R.values[i, j], ha="center", va="center", fontsize=7, color="w" if R.values[i, j] > 5 else "k")
     pk.save(fig, "fig_cmp_ranks", "Bradley--Terry rank of every model under each version's headline rule(s) and the two common baselines.")
     B = pd.DataFrame({f"{v}: {lab}": lb.set_index("model").loc[order, "bt_strength"] for v, lab, lb, _ in HEAD}); B.index = R.index
-    fig, ax = plt.subplots(figsize=(8, 3.4)); x = np.arange(10); k = B.shape[1]
+    fig, ax = plt.subplots(figsize=(8, 3.4)); x = np.arange(B.shape[0]); k = B.shape[1]
     for i, c in enumerate(B.columns): ax.bar(x + (i - (k - 1) / 2) * .8 / k, B[c], .8 / k, label=c)
     ax.set_xticks(x); ax.set_xticklabels(B.index, rotation=30, ha="right", fontsize=7); ax.set_ylabel("Bradley-Terry strength"); ax.legend(frameon=False, fontsize=5, ncol=3); ax.axhline(0, c="k", lw=.5)
     pk.save(fig, "fig_cmp_bt", "Bradley--Terry strengths per model under each version's headline rule(s).")
     PF = pd.DataFrame({f"{v}: {lab}": lb.set_index("model").loc[order, "p_first_bt"] for v, lab, lb, _ in HEAD}); PF.index = R.index
-    fig, ax = plt.subplots(figsize=(8, 3.6)); ax.imshow(PF.values, cmap="Blues", vmin=0, vmax=1, aspect="auto"); ax.set_xticks(range(PF.shape[1])); ax.set_xticklabels(PF.columns, rotation=40, ha="right", fontsize=7); ax.set_yticks(range(10)); ax.set_yticklabels(PF.index, fontsize=7)
-    for i in range(10):
+    fig, ax = plt.subplots(figsize=(8, 3.6)); ax.imshow(PF.values, cmap="Blues", vmin=0, vmax=1, aspect="auto"); ax.set_xticks(range(PF.shape[1])); ax.set_xticklabels(PF.columns, rotation=40, ha="right", fontsize=7); ax.set_yticks(range(PF.shape[0])); ax.set_yticklabels(PF.index, fontsize=7)
+    for i in range(PF.shape[0]):
         for j in range(PF.shape[1]):
             if PF.values[i, j] > .005: ax.text(j, i, f"{PF.values[i, j]:.2f}", ha="center", va="center", fontsize=6, color="w" if PF.values[i, j] > .5 else "k")
     pk.save(fig, "fig_cmp_p_first", "Bootstrap probability of first place under each headline rule.")
@@ -812,7 +812,7 @@ def build_comparison(v3, v4, v5):
     v2_sel = n2["out_of_bag_J_of_selected_mean"] - n2["out_of_bag_J_v1_mean"]
     intro = ""
     setup = r"""\section{Setup}
-Four audit pipelines were run on one cache of answers: 31 datasets (11 entity matching, 6 schema matching, 11 table QA, 3 finance), 100 stratified items each from the official splits (90 and 93 for two small sets), ten models, 3,083 answers per model, USD 161. Each version asks a different question of the deployed judge, whose rule is $R = 0.35\,\mathrm{F1} + 0.35\,e^{-2.5\,|\text{rel.\ err}|} + 0.15\,\mathrm{P} + 0.15\,\mathrm{R}$ (``v1''):
+Four audit pipelines were run on one cache of answers: 31 datasets (11 entity matching, 6 schema matching, 11 table QA, 3 finance), 100 stratified items each from the official splits (90 and 93 for two small sets), eleven models, 3,083 answers per model, USD 161. Each version asks a different question of the deployed judge, whose rule is $R = 0.35\,\mathrm{F1} + 0.35\,e^{-2.5\,|\text{rel.\ err}|} + 0.15\,\mathrm{P} + 0.15\,\mathrm{R}$ (``v1''):
 \begin{itemize}
 \item \textbf{v2}: are v1's four weights the right ones? Every step-0.05 weighting of the four ingredients (1,771) is scored by how consistently the 31 datasets rank the models (mean Kendall $\tau$ to the Borda pool), with correctness on 31,380 synthetic answers of known quality checked beside it, nested-bootstrap selection, a plateau, leave-one-out transfer and sampled designs.
 \item \textbf{v3}: given per-dataset scores, how should they be pooled? Eight aggregation views from the literature (mean, baseline-normalised mean, mean $z$, win rate, Borda, Kemeny, Bradley--Terry, Rasch) and all 255 equal-weight subsets plus 200 sampled mixes, scored by stability under item resampling, transitivity and agreement with the views' consensus; split-half honesty; parameters with standard errors.

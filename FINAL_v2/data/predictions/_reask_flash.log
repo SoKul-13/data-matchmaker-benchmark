@@ -1,0 +1,10 @@
+models=['gemini-3.8-flash'] items=3083 budget=$160.0
+[gemini-3.8-flash] cached=3081 todo=2
+[gemini-3.8-flash] done ok=2 err=0 in 19s | run spend so far $0.01 (in=1551 out=3414 tokens)
+TOTAL estimated spend this run: $0.01
+[gemini-3.8-flash] unfinished at 700: 2 answers; re-ask at 2500; worst-case cost USD 0.02
+   bird: 1
+   tablebench: 1
+archived 2 rows to _replaced/gemini-3.8-flash.jsonl; running the model at max_tokens=2500 ...
+tagged 2 replacement rows (attempt 2); still unfinished at 2500: 0; missing / errored: 0
+[gemini-3.8-flash] unfinished at 2500: 0 answers; re-ask at 8000; worst-case cost USD 0.00

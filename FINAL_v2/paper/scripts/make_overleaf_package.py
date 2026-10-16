@@ -262,9 +262,9 @@ Mp = pd.DataFrame(0, index=order_v1, columns=order_v1, dtype=int)
 for (a, bb), n in sig_pairs.items():
     if a in Mp.index and bb in Mp.columns: Mp.loc[a, bb] += n; Mp.loc[bb, a] += n
 fig, ax = plt.subplots(figsize=(5, 4.3))
-im = ax.imshow(Mp.values, cmap="Oranges", aspect="auto"); ax.set_xticks(range(10)); ax.set_xticklabels([PRETTY[m] for m in order_v1], rotation=45, ha="right", fontsize=7); ax.set_yticks(range(10)); ax.set_yticklabels([PRETTY[m] for m in order_v1], fontsize=7)
-for i in range(10):
-    for j in range(10): ax.text(j, i, Mp.values[i, j], ha="center", va="center", fontsize=6)
+im = ax.imshow(Mp.values, cmap="Oranges", aspect="auto"); ax.set_xticks(range(len(order_v1))); ax.set_xticklabels([PRETTY[m] for m in order_v1], rotation=45, ha="right", fontsize=7); ax.set_yticks(range(len(order_v1))); ax.set_yticklabels([PRETTY[m] for m in order_v1], fontsize=7)
+for i in range(len(order_v1)):
+    for j in range(len(order_v1)): ax.text(j, i, Mp.values[i, j], ha="center", va="center", fontsize=6)
 fig.colorbar(im, ax=ax, shrink=.6, label="datasets with a Holm-significant item-level difference")
 save(fig, "fig_pairwise_significance_v1", "Number of datasets (of 31) in which the per-item paired test separates each pair of models under v1 (Holm within dataset).")
 
@@ -276,7 +276,7 @@ save(fig, "fig_significant_pairs_per_dataset", "How many of the 45 model pairs e
 mb = PARAMS["v1_original"]["majority_baselines"]; bsets = list(mb.keys())
 fig, ax = plt.subplots(figsize=(7, 2.8))
 x = np.arange(len(bsets))
-for i, m in enumerate(order_v1): ax.scatter(x + (i - 4.5) * .07, [PDM["em_only"].loc[m, d] for d in bsets], s=8, label=PRETTY[m] if i < 10 else None)
+for i, m in enumerate(order_v1): ax.scatter(x + (i - (len(order_v1) - 1) / 2) * .07, [PDM["em_only"].loc[m, d] for d in bsets], s=8, label=PRETTY[m])
 ax.plot(x, [mb[d]["majority_class_accuracy"] for d in bsets], "k_", ms=14, label="majority class")
 ax.set_xticks(x); ax.set_xticklabels(bsets, rotation=45, ha="right", fontsize=7); ax.set_ylabel("exact-match accuracy"); ax.legend(frameon=False, fontsize=5, ncol=4)
 save(fig, "fig_majority_baselines", "Exact-match accuracy of every model on the boolean datasets against the majority-class baseline of each pool.")
@@ -291,7 +291,7 @@ fig, ax = plt.subplots(figsize=(7, 3))
 ds = em.groupby("dataset").official_f1_pos.mean().sort_values().index; x = np.arange(len(ds))
 for i, m in enumerate(order_v1):
     d = em[em.model == m].set_index("dataset").reindex(ds)
-    ax.scatter(x + (i - 4.5) * .07, d.official_f1_pos, s=8, label=PRETTY[m]); ax.scatter(x + (i - 4.5) * .07, d.suite_f1_pos, s=8, marker="_", c="grey")
+    ax.scatter(x + (i - (len(order_v1) - 1) / 2) * .07, d.official_f1_pos, s=8, label=PRETTY[m]); ax.scatter(x + (i - (len(order_v1) - 1) / 2) * .07, d.suite_f1_pos, s=8, marker="_", c="grey")
 ax.set_xticks(x); ax.set_xticklabels(ds, rotation=45, ha="right", fontsize=7); ax.set_ylabel("positive-class F1 (dots: official ratio; grey: pool)"); ax.legend(frameon=False, fontsize=5, ncol=5)
 save(fig, "fig_official_f1_models", "Positive-class F1 on the balanced pool (grey) and at the official match ratio (coloured) per model and matching dataset.")
 
@@ -367,22 +367,22 @@ for f in sorted((ROOT / "data" / "predictions").glob("*.jsonl")):
         r = json.loads(l)
         if r.get("error"): continue
         rows.append({"model": m, "dataset": r["dataset"], "out_tokens": r.get("out_tokens", 0), "in_tokens": r.get("in_tokens", 0), "latency": r.get("latency_s", np.nan), "cost": r.get("cost_usd", 0.0),
-                     "attempt": r.get("attempt") or 1, "cut": r.get("finish") in ("length", "max_tokens")})
+                     "attempt": r.get("attempt") or 1, "cut": ("length" in str(r.get("finish")).lower() or "max_tokens" in str(r.get("finish")).lower())})
 run = pd.DataFrame(rows); run = run[run.model.isin(models)]
 facts = run.groupby("model").agg(answers=("dataset", "size"), cost_usd=("cost", "sum"), mean_out_tokens=("out_tokens", "mean"), median_latency_s=("latency", "median"),
-                                 reasked_2500=("attempt", lambda a: (a == 2).sum()), reasked_8000=("attempt", lambda a: (a == 3).sum()), still_cut=("cut", "sum")).loc[order_v1]
+                                 reasked_2500=("attempt", lambda a: (a == 2).sum()), reasked_8000=("attempt", lambda a: (a == 3).sum()), reasked_16000=("attempt", lambda a: (a == 4).sum()), still_cut=("cut", "sum")).loc[order_v1]
 fig, axes = plt.subplots(1, 4, figsize=(10, 2.8))
 for ax, c, lab in zip(axes, ["cost_usd", "mean_out_tokens", "median_latency_s", "still_cut"], ["cost (USD)", "mean output tokens", "median latency (s)", "answers cut at final budget"]):
-    ax.barh(range(10), facts[c]); ax.set_yticks(range(10)); ax.set_yticklabels([PRETTY[m] for m in order_v1], fontsize=6); ax.invert_yaxis(); ax.set_xlabel(lab)
+    ax.barh(range(len(order_v1)), facts[c]); ax.set_yticks(range(len(order_v1))); ax.set_yticklabels([PRETTY[m] for m in order_v1], fontsize=6); ax.invert_yaxis(); ax.set_xlabel(lab)
 save(fig, "fig_run_facts", "Run facts per model from the prediction cache: cost, output length, latency and answers still cut off at the final budget.")
 
-fig, ax = plt.subplots(figsize=(6, 2.8)); x = np.arange(10)
-ax.bar(x, facts.reasked_2500, label="re-asked at 2,500"); ax.bar(x, facts.reasked_8000, bottom=facts.reasked_2500, label="re-asked at 8,000")
+fig, ax = plt.subplots(figsize=(6, 2.8)); x = np.arange(len(order_v1))
+ax.bar(x, facts.reasked_2500, label="re-asked at 2,500"); ax.bar(x, facts.reasked_8000, bottom=facts.reasked_2500, label="re-asked at 8,000"); ax.bar(x, facts.reasked_16000, bottom=facts.reasked_2500 + facts.reasked_8000, label="re-asked at 16,000")
 ax.set_xticks(x); ax.set_xticklabels([PRETTY[m] for m in order_v1], rotation=30, ha="right", fontsize=7); ax.set_ylabel("answers"); ax.legend(frameon=False, fontsize=7)
-save(fig, "fig_truncation", "Truncation protocol: answers re-asked at 2,500 and 8,000 output tokens per model.")
+save(fig, "fig_truncation", "Truncation protocol: answers re-asked at 2,500, 8,000 and 16,000 output tokens per model.")
 
 tok = run.groupby(["dataset", "model"]).out_tokens.mean().unstack().loc[datasets, order_v1]
-fig, ax = plt.subplots(figsize=(9, 3.6)); im = ax.imshow(tok.T.values, cmap="magma", aspect="auto"); ax.set_xticks(range(len(datasets))); ax.set_xticklabels(datasets, rotation=60, ha="right", fontsize=6); ax.set_yticks(range(10)); ax.set_yticklabels([PRETTY[m] for m in order_v1], fontsize=7)
+fig, ax = plt.subplots(figsize=(9, 3.6)); im = ax.imshow(tok.T.values, cmap="magma", aspect="auto"); ax.set_xticks(range(len(datasets))); ax.set_xticklabels(datasets, rotation=60, ha="right", fontsize=6); ax.set_yticks(range(len(order_v1))); ax.set_yticklabels([PRETTY[m] for m in order_v1], fontsize=7)
 fig.colorbar(im, ax=ax, shrink=.7, label="mean output tokens")
 save(fig, "fig_tokens_heatmap", "Mean output tokens per model and dataset.")
 
@@ -433,6 +433,15 @@ for r in RULES:
     to_tex(PDM[r].loc[order_v1].rename(index=PRETTY).T.round(3).reset_index().rename(columns={"index": "dataset"}), f"per_dataset_mean_{r}", f"Mean score per dataset and model under rule {tex_escape(RULE_PRETTY[r])}.", longtable=True)
 to_tex(PDS["v1_original"].loc[order_v1].rename(index=PRETTY).T.round(3).reset_index().rename(columns={"index": "dataset"}), "per_dataset_se_v1", "Standard error of the per-dataset mean under v1.", longtable=True)
 to_tex(rule_agree.round(3).rename(index=RULE_PRETTY, columns=RULE_PRETTY).reset_index().rename(columns={"index": "rule"}), "rule_agreement", "Kendall $\\tau$ between the Bradley--Terry rankings of the rules.")
+_rows = []
+for r in RULES:
+    d = LB[r].set_index("model"); _rows.append({"rule": RULE_PRETTY[r], **{PRETTY[m]: f"{int(d.loc[m, 'rank_bt'])} ({int(d.loc[m, 'rank_borda'])})" for m in order_v1}, "Friedman p": f"{SIG[r]['friedman']['friedman_p']:.1e}", "W": f"{SIG[r]['kendall_W_datasets']['kendall_W']:.2f}"})
+to_tex(pd.DataFrame(_rows), "ranks_by_rule", "Bradley--Terry rank (Borda rank in brackets) under each reported rule, with the Friedman $p$ and Kendall's $W$ among datasets.")
+_d = LB["v1_original"].set_index("model").loc[order_v1]
+to_tex(pd.DataFrame({"rank": range(1, len(order_v1) + 1), "model": [PRETTY[m] for m in order_v1], "BT strength": _d.bt_strength.round(3), "SE": _d.bt_se_vs_ref.round(3), "BT 95%": [f"[{int(a)}, {int(b)}]" for a, b in zip(_d.bt_rank_lo95, _d.bt_rank_hi95)], "P(first) BT": _d.p_first_bt.round(2), "Borda rank": _d.rank_borda.astype(int), "Borda 95%": [f"[{int(a)}, {int(b)}]" for a, b in zip(_d.borda_rank_lo95, _d.borda_rank_hi95)], "P(first) Borda": _d.p_first_borda.round(2), "mean score": _d.mean_score.round(3)}), "leaderboard_headline", "Leaderboard under the deployed rule (v1 weights): Bradley--Terry strength $\\pm$ SE vs reference with the 95\\,\\% bootstrap rank interval, Borda rank with its interval, and the mean composite over the suite.")
+_dsj = json.load(open(OUT / "designs_summary.json"))
+to_tex(pd.DataFrame([{"design": k, "best J (mean)": _dsj["best_J_mean"][k], "sd": _dsj["best_J_sd"][k], "regret mean": _dsj["regret_mean"][k], "regret max": _dsj["regret_max"][k]} for k in _dsj["best_J_mean"]]), "designs_short", "Sampled designs at a budget of 100 weightings, 20 seeds each, against the exhaustive optimum.", fmt="%.4f")
+to_tex(pd.DataFrame([{"family": f, "LOFO weights": f"{r.w_f1:.2f} / {r.w_decay:.2f} / {r.w_precision:.2f} / {r.w_recall:.2f}", "tau: LOFO weights": r.tau_heldout_mean} for f, r in ((row.held_out, row) for row in lofo[lofo.weights_from == "lodo_weights"].itertuples())]).merge(pd.DataFrame([{"family": row.held_out, "full best": row.tau_heldout_mean} for row in lofo[lofo.weights_from == "full_best"].itertuples()])).merge(pd.DataFrame([{"family": row.held_out, "v1": row.tau_heldout_mean} for row in lofo[lofo.weights_from == "v1"].itertuples()])), "lofo_short", "Leave-one-family-out: weights re-fitted without the family (F1 / decay / precision / recall) and the held-out family's $\\tau$ to the pooled rest under those weights, the full-data best and v1.")
 o = off.copy(); o["model"] = o.model.map(PRETTY)
 to_tex(o[["dataset", "model", "suite_mean", "official_estimate", "official_lo95", "official_hi95", "effective_n", "suite_f1_pos", "official_f1_pos", "official_f1_lo95", "official_f1_hi95", "official_positive_share"]].round(3), "official_split_v1", "Official-split estimates under v1 for every dataset and model.", longtable=True)
 to_tex(off.groupby("dataset")[["suite_mean", "official_estimate", "suite_f1_pos", "official_precision_pos", "official_recall_pos", "official_f1_pos", "official_positive_share"]].mean().round(3).reset_index(), "official_split_by_dataset", "Official-split estimates under v1 averaged over the ten models.")
@@ -460,9 +469,38 @@ src = (PAPER / "summary_results.tex").read_text()
 body = src[src.index(r"\section{Setup}"): src.index(r"\end{document}")]
 pre = src[: src.index(r"\begin{document}")]
 pre = pre.replace(r"\graphicspath{{figures/}}", r"\graphicspath{{figures/}}")
-app = ["\\clearpage\n\\appendix\n\\section{All figures}\n\\label{app:figures}\nEvery figure that can be drawn from the saved outputs. Source data for each is in \\texttt{data/}.\n"]
+# ---- reading guide per figure (appendix A), numbers filled from the data
+import sys as _sys; _sys.path.insert(0, str(PAPER / "scripts"))
+from figure_explanations_v2 import EXPLANATIONS
+_dj = json.load(open(OUT / "diagnostics" / "diagnostics.json")); _pt = np.array(_dj["pairwise_tau"]); _iu = np.triu_indices(len(_pt), 1)
+_s = SIG["v1_original"]; _lb = LB["v1_original"].sort_values("rank_bt"); _d = draws["J_out_sel"] - draws["J_out_v1"]
+_marg = max(grid.groupby(w).J.mean().max() - grid.groupby(w).J.mean().min() for w in W)
+_tau_cols = [c for c in grid.columns if c.startswith("tau_") and c != "tau_native"]
+_stab = diag.sort_values("ranking_self_stability_tau")
+_off = OFF["v1_original"].groupby("dataset").agg(suite=("suite_mean", "mean"), official=("official_estimate", "mean"), f1p=("suite_f1_pos", "mean"), f1o=("official_f1_pos", "mean"))
+_nsp = pd.Series(_s["n_significant_pairs_per_dataset"])
+N = {"Jmin": f"{grid.J.min():.3f}", "Jmax": f"{grid.J.max():.3f}", "v1J": f"{v1_row.J:.3f}", "bestJ": f"{best_row.J:.3f}", "plateau": f"{nested['plateau_size']:,}", "practical": f"{nested['practical_plateau_size_within_0.02']:,}",
+     "v1rank": f"{int(v1_row['rank']):,}", "Jrange": f"{grid.J.max() - grid.J.min():.3f}", "marg_max": f"{_marg:.3f}", "v1rank_bt": f"{int((grid.J_bt > v1_row.J_bt).sum() + 1):,}", "v1rank_kemeny": f"{int((grid.J_kemeny > v1_row.J_kemeny).sum() + 1):,}",
+     "rho_tau_native": f"{spearmanr(grid.tau_native, grid.J).correlation:+.2f}" if False else f"{grid[['tau_native', 'J']].corr(method='spearman').iloc[0, 1]:+.2f}", "v1_tau_native": f"{v1_row.tau_native:.3f}", "n_neg": str(int(sum(v1_row[c] < 0 for c in _tau_cols))),
+     "max_first": str(int((PDM["v1_original"].loc[all_models if False else list(PDM["v1_original"].index)].rank(ascending=False, axis=0) == 1).sum(1).max())), "W": f"{_s['kendall_W_datasets']['kendall_W']:.2f}",
+     "gap": f"{nested['optimism_gap']:.3f}", "oob_diff": f"{_d.mean():+.3f}", "oob_lo": f"{np.percentile(_d, 2.5):+.3f}", "oob_hi": f"{np.percentile(_d, 97.5):+.3f}", "share_ahead": f"{100 * (_d > 0).mean():.0f}\\,\\%",
+     "ndistinct": str(nested["n_distinct_selected"]), "sd_weights": ", ".join(f"{k} {v:.2f}" for k, v in nested["selected_weights_sd"].items()), "v1p": f"{nested['v1_p_vs_best']:.2f}", "top_sel": str(int(plateau.times_selected.max())),
+     "sens_v1": f"{sens['v1']['J_max'] - sens['v1']['J_min']:.3f}", "sens_best": f"{sens['best']['J_max'] - sens['best']['J_min']:.3f}",
+     "lodo_refit": f"{piv['lodo_weights'].mean():+.2f}", "lodo_best": f"{piv['full_best'].mean():+.2f}", "lodo_v1": f"{piv['v1'].mean():+.2f}", "lodo_wins": str(int((piv['lodo_weights'] > piv['v1']).sum())), "lodo_losses": str(int((piv['lodo_weights'] < piv['v1']).sum())),
+     "design_regret": f"{designs.regret.max():.3f}", "design_worst_rank": str(int(designs.best_rank_in_exhaustive.max())),
+     "rho_bestJ": f"{corr_json['best_J']['rho']:.3f}", "rho_v1": f"{corr_json['v1']['rho']:.3f}", "rho_best": f"{corr_json['best_rho']['rho']:.3f}", "J_rho_corr": f"{corr_json['spearman_J_vs_rho_across_grid']:+.2f}", "auc_min": f"{corr.auc.min():.3f}", "auc_max": f"{corr.auc.max():.3f}",
+     "last": PRETTY[_lb.model.iloc[-1]], "p_first_bt": f"{_lb.p_first_bt.iloc[0]:.2f}", "rule_tau_min": f"{rule_agree.values[np.triu_indices(len(rule_agree), 1)].min():.2f}", "cd": f"{_s['friedman']['nemenyi_cd_05']:.2f}",
+     "n_zero": str(int((_nsp == 0).sum())), "n_20": str(int((_nsp >= 20).sum())), "off_shift": f"{(_off.official - _off.suite).abs().max():.2f}", "off_f1drop": f"{(_off.f1p - _off.f1o).max():.2f}",
+     "mean_pair_tau": f"{_pt[_iu].mean():+.2f}", "n_ceiling": str(int(diag.ceiling.sum())), "stab_min": f"{_stab.ranking_self_stability_tau.iloc[0]:.2f}", "stab_min_ds": _stab.dataset.iloc[0].replace("_", "\\_"), "stab_max": f"{_stab.ranking_self_stability_tau.iloc[-1]:.2f}", "stab_max_ds": _stab.dataset.iloc[-1].replace("_", "\\_")}
+
+def explain(name):
+    t = EXPLANATIONS.get(name, "")
+    for k, v in N.items(): t = t.replace("«" + k + "»", v)
+    return t.replace("\n", " ")
+
+app = ["\\clearpage\n\\appendix\n\\section{All figures, with a reading guide}\n\\label{app:figures}\nEvery figure that can be drawn from the saved outputs, each followed by what it encodes, how to read it and what it shows. Source data for each is in \\texttt{data/}.\n"]
 for name in sorted(captions):
-    app.append(f"\\begin{{figure}}[htbp]\\centering\\includegraphics[width=0.9\\textwidth]{{{name}.png}}\\caption{{{captions[name]}}}\\label{{figall:{name}}}\\end{{figure}}\n")
+    app.append(f"\\begin{{figure}}[htbp]\\centering\\includegraphics[width=0.9\\textwidth]{{{name}.png}}\\caption{{{captions[name]}}}\\label{{figall:{name}}}\\end{{figure}}\n\\noindent{{\\small {explain(name)}}}\n\\clearpage\n")
 app.append("\\clearpage\n\\section{All tables}\n\\label{app:tables}\nEvery saved table, exported from \\texttt{data/}. Each is a separate file under \\texttt{tables/}; include any of them in the main text with \\texttt{\\textbackslash input}.\n")
 for name in sorted(table_caps):
     app.append(f"\\input{{tables/{name}.tex}}\n\\clearpage\n")
@@ -481,7 +519,7 @@ Upload this folder (or the zip) as a new Overleaf project; compile `main.tex` wi
 * `tables/` - {len(list(TAB.glob('*.tex')))} LaTeX tables, one file each; `\\input{{tables/<name>.tex}}`.
 * `data/` - every output file of the final v2 run (CSV / JSON / NPZ), the generated report `REPORT.md`, the official census and the dataset table.
 
-Generated by `FINAL_v2/paper/scripts/make_overleaf_package.py` from the run of 2026-09-27 13:12 (31 datasets x 10 models).
+Generated by `FINAL_v2/paper/scripts/make_overleaf_package.py` from the run of {json.load(open(OUT / "run_manifest.json"))["generated"]} (31 datasets x {len(order_v1)} models).
 """
 (PKG / "README.md").write_text(readme)
 zp = PAPER / "v2_overleaf.zip"

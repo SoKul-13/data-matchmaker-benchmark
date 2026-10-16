@@ -14,14 +14,14 @@
       "wdc_products"
     ],
     "best_weights": {
-      "f1": 0.0,
-      "decay": 0.7,
-      "precision": 0.0,
-      "recall": 0.3
+      "f1": 0.35,
+      "decay": 0.6,
+      "precision": 0.05,
+      "recall": 0.0
     },
-    "J_family_best": 0.3605829130331274,
-    "J_family_under_global_best": 0.3605829130331274,
-    "J_family_under_v1": 0.3605829130331274,
+    "J_family_best": 0.35791317268954376,
+    "J_family_under_global_best": 0.35791317268954376,
+    "J_family_under_v1": 0.35791317268954376,
     "L1_distance_to_global_best": 0.0
   },
   "SM": {
@@ -39,10 +39,10 @@
       "precision": 0.0,
       "recall": 0.0
     },
-    "J_family_best": 0.5803083833249911,
-    "J_family_under_global_best": 0.5239170953216786,
-    "J_family_under_v1": 0.5033353630601863,
-    "L1_distance_to_global_best": 0.6000000000000001
+    "J_family_best": 0.5561894271781841,
+    "J_family_under_global_best": 0.5351533217741894,
+    "J_family_under_v1": 0.5124439535499108,
+    "L1_distance_to_global_best": 0.8
   },
   "TQA": {
     "datasets": [
@@ -59,15 +59,15 @@
       "wikitablequestions"
     ],
     "best_weights": {
-      "f1": 0.0,
-      "decay": 0.0,
-      "precision": 0.2,
-      "recall": 0.8
+      "f1": 0.05,
+      "decay": 0.05,
+      "precision": 0.25,
+      "recall": 0.65
     },
-    "J_family_best": 0.49674511196505655,
-    "J_family_under_global_best": 0.46433056817762347,
-    "J_family_under_v1": 0.4795576955333237,
-    "L1_distance_to_global_best": 1.4
+    "J_family_best": 0.4842011508909907,
+    "J_family_under_global_best": 0.46972162024585873,
+    "J_family_under_v1": 0.4632031727363929,
+    "L1_distance_to_global_best": 1.6999999999999997
   },
   "FIN": {
     "datasets": [
@@ -76,14 +76,14 @@
       "tat_qa"
     ],
     "best_weights": {
-      "f1": 0.05,
+      "f1": 0.0,
       "decay": 0.05,
-      "precision": 0.5,
-      "recall": 0.4
+      "precision": 0.0,
+      "recall": 0.95
     },
-    "J_family_best": 0.8222222222222223,
-    "J_family_under_global_best": 0.7350383436515102,
-    "J_family_under_v1": 0.689182081629092,
-    "L1_distance_to_global_best": 1.3
+    "J_family_best": 0.8424242424242424,
+    "J_family_under_global_best": 0.6969696969696969,
+    "J_family_under_v1": 0.6850441205230687,
+    "L1_distance_to_global_best": 1.9
   }
 }

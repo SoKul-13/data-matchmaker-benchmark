@@ -25,4 +25,4 @@ majority-class baselines, official-split (post-stratified) estimates, dataset di
 Run (minutes, from cached answers): `uv sync` once, then `bash v2_gridsearch/scripts/run_all.sh`; add `--fine` to also evaluate the
 step-0.02 lattice (23,426 points). The paid model run is `notes/RUN_MODELS.md`; nothing here calls an API otherwise.
 
-Current state (2026-09-27): the model run is complete — 31 datasets × 10 models × 100 items (Gemini 3.1 Pro left out by quota); `REPORT.md` is the full-data result. Findings summary in `../v6_top30_significance/notes/00_STATUS_AND_PLAN.md`.
+Current state (2026-10-16): the model run is complete — 31 datasets × 11 models × 100 items (Gemini 3.1 Pro included; 123 DeepSeek-R1 16,000-token re-asks pending); `REPORT.md` is the full-data result. Findings summary in `../v6_top30_significance/notes/00_STATUS_AND_PLAN.md`.

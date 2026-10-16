@@ -42,7 +42,8 @@ def main():
     _pairs = {(d, r["uid"]) for d, items in pools.items() for r in items if r.get("in_real_subset") and any((m, d, r["uid"]) in preds for m in all_models)}
     _cov = {m: sum((m, d, u) in preds for d, u in _pairs) / max(1, len(_pairs)) for m in all_models}
     dropped_models = {m: round(c, 3) for m, c in _cov.items() if c < 0.9}; all_models = [m for m in all_models if _cov[m] >= 0.9]
-    if dropped_models: print("models left out (suite coverage < 90 %):", dropped_models); rows, cov, baseline = [], {}, {}
+    if dropped_models: print("models left out (suite coverage < 90 %):", dropped_models)
+    rows, cov, baseline = [], {}, {}
     for d, items in pools.items():
         real = [r for r in items if r.get("in_real_subset")]
         if not real:

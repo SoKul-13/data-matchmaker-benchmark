@@ -1,0 +1,28 @@
+models=['claude-opus-5'] items=3083 budget=$160.0
+[claude-opus-5] cached=3269 todo=13
+[claude-opus-5] done ok=13 err=0 in 254s | run spend so far $8.52 (in=20690 out=109465 tokens)
+TOTAL estimated spend this run: $8.52
+[claude-opus-5] unfinished at 8000: 13 answers; re-ask at 16000; worst-case cost USD 15.89
+   bird: 1
+   officeqa: 7
+   officeqa_pro_v2: 5
+archived 13 rows to _replaced/claude-opus-5.jsonl; running the model at max_tokens=16000 ...
+tagged 13 replacement rows (attempt 4); still unfinished at 16000: 0; missing / errored: 0
+models=['claude-sonnet-5'] items=3083 budget=$160.0
+[claude-sonnet-5] cached=3272 todo=10
+[claude-sonnet-5] done ok=10 err=0 in 214s | run spend so far $1.54 (in=28364 out=97293 tokens)
+TOTAL estimated spend this run: $1.54
+[claude-sonnet-5] unfinished at 8000: 10 answers; re-ask at 16000; worst-case cost USD 2.44
+   bird: 1
+   officeqa: 1
+   officeqa_pro_v2: 8
+archived 10 rows to _replaced/claude-sonnet-5.jsonl; running the model at max_tokens=16000 ...
+tagged 10 replacement rows (attempt 4); still unfinished at 16000: 2; missing / errored: 0
+models=['gpt-oss-120b'] items=3083 budget=$160.0
+[gpt-oss-120b] cached=3082 todo=1
+[gpt-oss-120b] done ok=1 err=0 in 64s | run spend so far $0.00 (in=3539 out=7299 tokens)
+TOTAL estimated spend this run: $0.00
+[gpt-oss-120b] unfinished at 8000: 1 answers; re-ask at 16000; worst-case cost USD 0.01
+   officeqa_pro_v2: 1
+archived 1 rows to _replaced/gpt-oss-120b.jsonl; running the model at max_tokens=16000 ...
+tagged 1 replacement rows (attempt 4); still unfinished at 16000: 0; missing / errored: 0
