@@ -1,0 +1,218 @@
+[abt_buy] 100 items x 11 models
+[alaska_camera] 100 items x 11 models
+[alaska_schema] 93 items x 11 models
+[amazon_google] 100 items x 11 models
+[bird] 100 items x 11 models
+[dblp_acm] 100 items x 11 models
+[dblp_scholar] 100 items x 11 models
+[fetaqa] 100 items x 11 models
+[fintagging] 100 items x 11 models
+[hitab] 100 items x 11 models
+[machamp] 100 items x 11 models
+[magneto_gdc] 100 items x 11 models
+[mmtu] 100 items x 11 models
+[officeqa] 100 items x 11 models
+[officeqa_pro_v2] 90 items x 11 models
+[opensanctions_pairs] 100 items x 11 models
+[papadakis_dn] 100 items x 11 models
+[realhitbench] 100 items x 11 models
+[smat] 100 items x 11 models
+[suc] 100 items x 11 models
+[tab_fact] 100 items x 11 models
+[tabis] 100 items x 11 models
+[tablebench] 100 items x 11 models
+[tableeval] 100 items x 11 models
+[tat_qa] 100 items x 11 models
+[tpcdi_cells] 100 items x 11 models
+[valentine] 100 items x 11 models
+[walmart_amazon] 100 items x 11 models
+[wdc_lspc] 100 items x 11 models
+[wdc_products] 100 items x 11 models
+[wikitablequestions] 100 items x 11 models
+
+33913 rows; datasets 31, models 11
+11 models x 31 datasets; lattice has 3,108,105 points; sampling 100 per design
+best J 0.426 (em_only) {'em': 1.0, 'num_tol': 0.0, 'num_decay': 0.0, 'tok_prec': 0.0, 'tok_rec': 0.0, 'tok_f1': 0.0, 'edit_sim': 0.0, 'rouge_l': 0.0, 'jaccard': 0.0}; v1 rubric J 0.395 rank 299; EM J 0.426 rank 1
+                   best_J_mean  best_J_sd  best_J_max  mean_J  regret_mean  regret_max  min_pairwise_L1  mean_nearest_L1  discrepancy  zero_share
+dirichlet_lattice       0.4238     0.0019      0.4271  0.4087       0.0055      0.0101            0.195           0.4027       2.6738      0.8820
+lhs_simplex             0.4242     0.0018      0.4283  0.4088       0.0050      0.0097            0.215           0.4096       2.6718      0.8780
+uniform_lattice         0.4255     0.0019      0.4293  0.4089       0.0038      0.0063            0.235           0.4650       2.5904      0.9705
+{
+ "in_bag_J_of_selected_mean": 0.3750593960285187,
+ "out_of_bag_J_of_selected_mean": 0.32740747928619385,
+ "optimism_gap": 0.04765191674232483,
+ "out_of_bag_J_ref_mean": 0.3310997486114502,
+ "plateau_size": 305,
+ "practical_plateau_size": 304,
+ "ref_in_practical_plateau": true
+}
+           held_out  tau_heldout_mean
+            abt_buy          0.755481
+      alaska_camera         -0.396509
+      alaska_schema         -0.200000
+      amazon_google          0.000000
+               bird          0.598366
+           dblp_acm          0.521157
+       dblp_scholar         -0.038881
+             fetaqa          0.440386
+         fintagging          0.513783
+              hitab         -0.149592
+            machamp          0.675511
+        magneto_gdc          0.550482
+               mmtu          0.440386
+           officeqa          0.531048
+    officeqa_pro_v2          0.467099
+opensanctions_pairs          0.036699
+       papadakis_dn         -0.083225
+       realhitbench          0.747958
+               smat          0.250417
+                suc          0.622799
+           tab_fact         -0.055565
+              tabis          0.366988
+         tablebench          0.411377
+          tableeval          0.304886
+             tat_qa          0.547267
+        tpcdi_cells          0.586588
+          valentine          0.476393
+     walmart_amazon          0.686493
+           wdc_lspc          0.422116
+       wdc_products          0.334242
+ wikitablequestions          0.686493
+{
+ "reference": {
+  "weights": {
+   "em": 0.0,
+   "num_tol": 0.0,
+   "num_decay": 0.35,
+   "tok_prec": 0.15,
+   "tok_rec": 0.15,
+   "tok_f1": 0.35,
+   "edit_sim": 0.0,
+   "rouge_l": 0.0,
+   "jaccard": 0.0
+  },
+  "J": 0.3946778364435099,
+  "rho": 0.8776693107582102,
+  "rho_ds": 0.8681278619026256,
+  "auc": 0.9939748961497813,
+  "wrong_mean": 0.03375782336595383,
+  "hedge_gap": -0.5064842532639455,
+  "rank_by_J": 299,
+  "rank_by_rho": 112
+ },
+ "best_J": {
+  "weights": {
+   "em": 1.0,
+   "num_tol": 0.0,
+   "num_decay": 0.0,
+   "tok_prec": 0.0,
+   "tok_rec": 0.0,
+   "tok_f1": 0.0,
+   "edit_sim": 0.0,
+   "rouge_l": 0.0,
+   "jaccard": 0.0
+  },
+  "J": 0.4264046155810555,
+  "rho": 0.8280950674676447,
+  "rho_ds": 0.8301721896776463,
+  "auc": 0.9887643100949755,
+  "wrong_mean": 0.011440107671601614,
+  "hedge_gap": -0.8070177237212726,
+  "rank_by_J": 1,
+  "rank_by_rho": 304
+ },
+ "best_rho": {
+  "weights": {
+   "em": 0.2,
+   "num_tol": 0.0,
+   "num_decay": 0.25,
+   "tok_prec": 0.25,
+   "tok_rec": 0.05,
+   "tok_f1": 0.05,
+   "edit_sim": 0.15,
+   "rouge_l": 0.05,
+   "jaccard": 0.0
+  },
+  "J": 0.4050136384615193,
+  "rho": 0.884166520693592,
+  "rho_ds": 0.8646126257286083,
+  "auc": 0.9940700936024288,
+  "wrong_mean": 0.05322945755140912,
+  "hedge_gap": -0.6080227397616953,
+  "rank_by_J": 211,
+  "rank_by_rho": 1
+ },
+ "pareto_knee": {
+  "weights": {
+   "em": 0.2,
+   "num_tol": 0.05,
+   "num_decay": 0.2,
+   "tok_prec": 0.0,
+   "tok_rec": 0.05,
+   "tok_f1": 0.1,
+   "edit_sim": 0.0,
+   "rouge_l": 0.25,
+   "jaccard": 0.15
+  },
+  "J": 0.4245078604173625,
+  "rho": 0.8768765617871694,
+  "rho_ds": 0.8694292699328267,
+  "auc": 0.9939667984411537,
+  "wrong_mean": 0.027125005901786448,
+  "hedge_gap": -0.5824982693735022,
+  "rank_by_J": 3,
+  "rank_by_rho": 144
+ },
+ "extra_rules": {
+  "exact_match": {
+   "rho": 0.8280950674676447,
+   "rho_ds": 0.8301721896776463,
+   "auc": 0.9887643100949755,
+   "wrong_mean": 0.011440107671601614,
+   "hedge_gap": -0.8070177237212726
+  }
+ },
+ "spearman_J_vs_rho_across_candidates": -0.17490223479802885
+}
+[em_only] BT ranking: claude-opus-5=1, claude-sonnet-5=7, deepseek-chat=9, deepseek-r1=6, gemini-3.1-pro=4, gemini-3.8-flash=3, gpt-5.4-mini=8, gpt-5.5=2, gpt-oss-120b=10, grok-4=5, llama-3.3-70b=11
+[v1_rubric] BT ranking: claude-opus-5=2, claude-sonnet-5=4, deepseek-chat=9, deepseek-r1=7, gemini-3.1-pro=5, gemini-3.8-flash=1, gpt-5.4-mini=8, gpt-5.5=3, gpt-oss-120b=10, grok-4=6, llama-3.3-70b=11
+[top1] BT ranking: claude-opus-5=1, claude-sonnet-5=7, deepseek-chat=9, deepseek-r1=6, gemini-3.1-pro=4, gemini-3.8-flash=3, gpt-5.4-mini=8, gpt-5.5=2, gpt-oss-120b=10, grok-4=5, llama-3.3-70b=11
+[top2] BT ranking: claude-opus-5=2, claude-sonnet-5=4, deepseek-chat=9, deepseek-r1=7, gemini-3.1-pro=5, gemini-3.8-flash=1, gpt-5.4-mini=8, gpt-5.5=3, gpt-oss-120b=10, grok-4=6, llama-3.3-70b=11
+[top3] BT ranking: claude-opus-5=2, claude-sonnet-5=5, deepseek-chat=9, deepseek-r1=7, gemini-3.1-pro=4, gemini-3.8-flash=1, gpt-5.4-mini=8, gpt-5.5=3, gpt-oss-120b=10, grok-4=6, llama-3.3-70b=11
+[top4] BT ranking: claude-opus-5=2, claude-sonnet-5=4, deepseek-chat=9, deepseek-r1=7, gemini-3.1-pro=6, gemini-3.8-flash=1, gpt-5.4-mini=8, gpt-5.5=3, gpt-oss-120b=10, grok-4=5, llama-3.3-70b=11
+[top5] BT ranking: claude-opus-5=2, claude-sonnet-5=5, deepseek-chat=9, deepseek-r1=7, gemini-3.1-pro=4, gemini-3.8-flash=1, gpt-5.4-mini=8, gpt-5.5=3, gpt-oss-120b=10, grok-4=6, llama-3.3-70b=11
+[best_anchor] BT ranking: claude-opus-5=2, claude-sonnet-5=4, deepseek-chat=9, deepseek-r1=8, gemini-3.1-pro=5, gemini-3.8-flash=1, gpt-5.4-mini=7, gpt-5.5=3, gpt-oss-120b=10, grok-4=6, llama-3.3-70b=11
+[pareto_knee] BT ranking: claude-opus-5=2, claude-sonnet-5=5, deepseek-chat=9, deepseek-r1=7, gemini-3.1-pro=4, gemini-3.8-flash=1, gpt-5.4-mini=8, gpt-5.5=3, gpt-oss-120b=10, grok-4=6, llama-3.3-70b=11
+            dataset  mean_score  spread_across_models  ranking_self_stability_tau  exclude_from_objective
+            abt_buy       0.971                 0.060                       0.748                   False
+      alaska_camera       0.945                 0.190                       0.924                   False
+      alaska_schema       0.929                 0.118                       0.676                   False
+      amazon_google       0.935                 0.100                       0.683                   False
+               bird       0.190                 0.209                       0.828                   False
+           dblp_acm       0.987                 0.090                       0.883                   False
+       dblp_scholar       0.948                 0.060                       0.713                   False
+             fetaqa       0.387                 0.192                       0.906                   False
+         fintagging       0.883                 0.051                       0.649                   False
+              hitab       0.772                 0.068                       0.575                   False
+            machamp       0.887                 0.070                       0.584                   False
+        magneto_gdc       0.937                 0.225                       0.684                   False
+               mmtu       0.873                 0.110                       0.768                   False
+           officeqa       0.130                 0.124                       0.862                   False
+    officeqa_pro_v2       0.142                 0.220                       0.783                   False
+opensanctions_pairs       0.835                 0.240                       0.905                   False
+       papadakis_dn       0.940                 0.030                       0.741                   False
+       realhitbench       0.675                 0.143                       0.783                   False
+               smat       0.915                 0.150                       0.707                   False
+                suc       0.917                 0.246                       0.818                   False
+           tab_fact       0.802                 0.200                       0.827                   False
+              tabis       0.918                 0.210                       0.836                   False
+         tablebench       0.823                 0.218                       0.659                   False
+          tableeval       0.755                 0.166                       0.742                   False
+             tat_qa       0.804                 0.109                       0.762                   False
+        tpcdi_cells       0.456                 0.020                       0.779                   False
+          valentine       0.985                 0.030                       0.722                    True
+     walmart_amazon       0.959                 0.060                       0.761                   False
+           wdc_lspc       0.982                 0.040                       0.788                    True
+       wdc_products       0.978                 0.020                       0.623                    True
+ wikitablequestions       0.847                 0.132                       0.729                   False
+wrote /Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/v6_top30_significance/v4_random_search/REPORT.md

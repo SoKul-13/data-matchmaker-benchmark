@@ -423,6 +423,16 @@ to_tex(corr[corr.label.notna()][["label", "rank", "w_f1", "w_decay", "w_precisio
 to_tex(corr[corr.pareto == True][["rank", "w_f1", "w_decay", "w_precision", "w_recall", "J", "rho", "auc", "wrong_mean", "hedge_gap"]].round(3), "pareto_front", "The $(J,\\rho)$ Pareto front.")
 to_tex(op.reset_index().round(3), "anchor_operators", "Anchor operators: known utility, mean v1 score, exact-match rate and count.")
 to_tex(rho_ds.round(3).reset_index().rename(columns={"index": "dataset"}), "rho_per_dataset", "Anchor correctness per dataset under three weightings.")
+HUMAN = ROOT / "data" / "labels" / "human_correctness.csv"
+if HUMAN.exists():  # written by shared/scripts/03_label_agreement.py once the human labels are in; absent until then
+    hc = pd.read_csv(HUMAN); hj = json.load(open(HUMAN.with_suffix(".json")))
+    hc["rule"] = hc.rule.map(RULE_PRETTY).fillna(hc.rule)
+    to_tex(hc[["rule", "weights", "rho_human", "auc_correct_vs_wrong", "mean_score_on_wrong", "mean_score_on_correct", "hedge_gap", "model_rank_rho_vs_human"]].round(3),
+           "human_correctness", f"Real-label correctness: every leaderboard rule scored on the {hj['n_labelled']} human-labelled answers "
+           f"({hj['n_human_correct']} judged correct, {hj['n_human_wrong']} wrong, {hj['n_hedged']} hedged) against the labellers' utility: Spearman $\\rho$, AUC correct-vs-wrong, "
+           "mean score on wrong answers, hedge gap, and Spearman $\\rho$ between the rule's model ranking and the human ranking on the labelled rows.")
+    shutil.copy(HUMAN, DAT / "human_correctness.csv"); shutil.copy(HUMAN.with_suffix(".json"), DAT / "human_correctness.json")
+    shutil.copy(HUMAN.with_name("human_labels.csv"), DAT / "human_labels.csv")
 for r in RULES:
     d = LB[r].copy(); d["model"] = d.model.map(PRETTY)
     to_tex(d[["model", "bt_strength", "bt_se_vs_ref", "rank_bt", "bt_rank_lo95", "bt_rank_hi95", "p_first_bt", "rank_borda", "borda_rank_lo95", "borda_rank_hi95", "p_first_borda", "rank_kemeny", "rank_copeland", "rank_mean_z", "rank_rrf", "rank_family_balanced_z", "mean_score"]].round(3),

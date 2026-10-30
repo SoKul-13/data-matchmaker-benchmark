@@ -1,0 +1,14 @@
+models=['deepseek-r1'] items=3083 budget=$160.0
+[deepseek-r1] cached=2960 todo=123
+[deepseek-r1] done ok=123 err=0 in 755s | run spend so far $3.81 (in=209403 out=1686631 tokens)
+TOTAL estimated spend this run: $3.81
+[deepseek-r1] unfinished at 8000: 123 answers; re-ask at 16000; worst-case cost USD 4.41
+   officeqa: 29
+   officeqa_pro_v2: 81
+   realhitbench: 5
+   smat: 1
+   tablebench: 4
+   tableeval: 1
+   wikitablequestions: 2
+archived 123 rows to _replaced/deepseek-r1.jsonl; running the model at max_tokens=16000 ...
+tagged 123 replacement rows (attempt 4); still unfinished at 16000: 81; missing / errored: 0

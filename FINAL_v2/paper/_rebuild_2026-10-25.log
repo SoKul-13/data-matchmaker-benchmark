@@ -1,0 +1,107 @@
+== pipelines (logs: <version>/output/_rerun_2026-10-25_1813.log)
+ok: v2_gridsearch Generated 2026-10-25 18:54
+ok: ../v6_top30_significance/v3_aggregation Generated 2026-10-25 20:13
+ok: ../v6_top30_significance/v4_random_search Generated 2026-10-25 18:31
+ok: ../v6_top30_significance/v5_metric_library Generated 2026-10-25 19:14
+== paper outputs
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_overleaf_package.py:137: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+  fig.tight_layout(rect=(0, 0, .9, 1)); fig.savefig(FIG / "fig_weight_pairs.png", dpi=200); fig.savefig(FIG / "fig_weight_pairs.pdf"); plt.close(fig)
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_overleaf_package.py:203: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  rho_ds[lab] = anch.assign(s=s).groupby("dataset").apply(lambda d: d[["s", "utility"]].corr(method="spearman").iloc[0, 1])
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_overleaf_package.py:203: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  rho_ds[lab] = anch.assign(s=s).groupby("dataset").apply(lambda d: d[["s", "utility"]].corr(method="spearman").iloc[0, 1])
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_overleaf_package.py:216: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+  axes[0].legend(frameon=False)
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_overleaf_package.py:232: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot([b[key][:, i] for i in idx], vert=False, widths=.6, showfliers=False, medianprops={"color": "C3"})
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_overleaf_package.py:232: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot([b[key][:, i] for i in idx], vert=False, widths=.6, showfliers=False, medianprops={"color": "C3"})
+figures 47  tables 55  data files 120  zip 39.2 MB
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_version_packages.py:154: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot([b[key][:, i] for i in idx], vert=False, widths=.6, showfliers=False, medianprops={"color": "C3"})
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_version_packages.py:154: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot([b[key][:, i] for i in idx], vert=False, widths=.6, showfliers=False, medianprops={"color": "C3"})
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_version_packages.py:343: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot([Zb[key][:, mm.index(m)] for m in order], vert=False, showfliers=False, widths=.6); ax.set_yticks(range(1, len(order) + 1)); ax.set_yticklabels([PRETTY[m] for m in order], fontsize=7); ax.invert_yaxis(); ax.set_xlabel(lab + " over 100 item bootstraps")
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_version_packages.py:343: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot([Zb[key][:, mm.index(m)] for m in order], vert=False, showfliers=False, widths=.6); ax.set_yticks(range(1, len(order) + 1)); ax.set_yticklabels([PRETTY[m] for m in order], fontsize=7); ax.invert_yaxis(); ax.set_xlabel(lab + " over 100 item bootstraps")
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_version_packages.py:154: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot([b[key][:, i] for i in idx], vert=False, widths=.6, showfliers=False, medianprops={"color": "C3"})
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_version_packages.py:154: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot([b[key][:, i] for i in idx], vert=False, widths=.6, showfliers=False, medianprops={"color": "C3"})
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_version_packages.py:490: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  rho_ds = pd.DataFrame({k: anch.groupby("dataset").apply(lambda d: d[[k, "utility"]].corr(method="spearman").iloc[0, 1]) for k in ["v1", "bestJ", "bestrho"]})
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_version_packages.py:490: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  rho_ds = pd.DataFrame({k: anch.groupby("dataset").apply(lambda d: d[[k, "utility"]].corr(method="spearman").iloc[0, 1]) for k in ["v1", "bestJ", "bestrho"]})
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_version_packages.py:490: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  rho_ds = pd.DataFrame({k: anch.groupby("dataset").apply(lambda d: d[[k, "utility"]].corr(method="spearman").iloc[0, 1]) for k in ["v1", "bestJ", "bestrho"]})
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_version_packages.py:154: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot([b[key][:, i] for i in idx], vert=False, widths=.6, showfliers=False, medianprops={"color": "C3"})
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/make_version_packages.py:154: MatplotlibDeprecationWarning: vert: bool was deprecated in Matplotlib 3.11 and will be removed in 3.13. Use orientation: {'vertical', 'horizontal'} instead.
+  ax.boxplot([b[key][:, i] for i in idx], vert=False, widths=.6, showfliers=False, medianprops={"color": "C3"})
+v3: figures 26 tables 20 data 295 zip 6.3 MB
+v4: figures 34 tables 39 data 114 zip 20.7 MB
+v5: figures 29 tables 34 data 104 zip 20.7 MB
+comparison: figures 7 tables 7 data 293 zip 40.6 MB
+/Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/scripts/detailed_analysis_v2.py:249: FutureWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  rho_ds = anch.groupby("dataset").apply(lambda d: pd.Series({"rho v1": spearmanr(d.v1, d.utility).correlation, "rho em": spearmanr(d.em, d.utility).correlation, "n": len(d)})).sort_values("rho v1")
+wrote /Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/v2/DETAILED_ANALYSIS.md (79 k chars)
+wrote /Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/v2/DETAILED_ANALYSIS.html (5.6 MB), 13 sections
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+1 extra bytes in post.stringData array
+'created' timestamp seems very low; regarding as unix timestamp
+wrote 16 figures to /Users/guardian/Documents/GitHub/bcc/data-matchmaker-benchmark/FINAL_v2/paper/v2/figures_paper
+== compile
+ok: summary_results.pdf
+ok: v2/main.pdf
+ok: v3/main.pdf
+ok: v4/main.pdf
+ok: v5/main.pdf
+ok: comparison/main.pdf
+done. Hand-written numbers live in paper/summary_results.tex and notes/{EVAL_PROCESS,FINAL_V2_REVIEW,PROJECT_SUMMARY}.md: re-check them against v2_gridsearch/REPORT.md.

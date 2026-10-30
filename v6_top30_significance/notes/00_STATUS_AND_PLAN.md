@@ -34,10 +34,10 @@ Borda / z-mean / family-balanced checks; nested selection everywhere it applies;
 
 ## What the reports show on the full run (2026-09-27; 31 datasets × 10 models × 100 items; Gemini 3.1 Pro left out at 252/3,083 by Google's daily quota)
 
-* **v2 (audit of v1's weights).** Exhaustive 1,771-point grid on the final cache (after the 700 → 2,500 → 8,000 → 16,000-token re-asks; eleven models): best weighting
-  decay .70 / recall .30, J .421 vs v1 .404. The J landscape is flat: the plateau of statistically equivalent weightings covers 100 % of the lattice,
-  out of bag the selected weighting is −.008 vs v1 (CI [−.039, +.013]), optimism gap ≈ .05. Because the range of J is only .40–.42, v1's *rank* and the
-  sign of the J-vs-ρ correlation moved between the 2,500-token cache (rank 724, +.38) and the 8,000-token cache (rank 1,483, −.34) while the
+* **v2 (audit of v1's weights).** Exhaustive 1,771-point grid on the final cache (after the 700 → 2,500 → 8,000 → 16,000 → 32,000-token re-asks; eleven models): best weighting
+  F1 .35 / decay .60 / precision .05, J .425 vs v1 .411 (final 2026-10-25 run, eleven models). The J landscape is flat: the plateau of statistically equivalent weightings covers 1,754 of 1,771,
+  out of bag the selected weighting is −.006 vs v1 (CI [−.032, +.011]), optimism gap ≈ .046. Because the range of J is only .39–.43, v1's *rank* and the
+  J-vs-ρ correlation moved across caches (2,500-token: rank 724, +.38; 8,000-token: 1,483, −.34; eleven models: 1,602, −.23; final: 1,130, −.14) while the
   substantive result did not: report the plateau and the out-of-bag difference, not the rank or that correlation. Anchors: v1 ρ .878 within .005 of
   the best possible (.883). Verdict: v1's hand-set weights are as good as any weighting of the four ingredients, on agreement and on correctness.
 * **v4 (nine components).** Best candidate = numeric tolerance alone (J .438), tied with exact match alone (.437); v1 rubric .403 (rank 289);
@@ -51,7 +51,7 @@ Borda / z-mean / family-balanced checks; nested selection everywhere it applies;
   gpt-5.5 and Gemini Flash over gpt-oss-120b and Llama 3.3 70B (last). First place depends on the pooling rule: Bradley–Terry puts Gemini 3.8 Flash
   first under the calibrated rules, Borda puts gpt-5.5 first with Opus second; under exact match Opus is first under both. Kendall's W among
   datasets ≈ .27–.29: the datasets agree only moderately, which is the reason a calibrated rule and a stated pooling rule are needed at all.
-* **Run facts for the paper (updated 2026-10-16).** 1,544 answers (5 %) hit the 700-token budget and were re-asked at 2,500; 461 at 8,000; 242 at 16,000; 2 at 32,000. 41 answers (all DeepSeek R1, 30 of them OfficeQA) never finish at 16,000 and are scored as failures; 123 R1 answers await the 16,000 stage on provider balance. Eleven models in the study (Gemini 3.1 Pro completed 2026-10-16). Cost USD 174 in the final cache, 224 over the project.
+* **Run facts for the paper (updated 2026-10-25).** 1,080 answers hit the 700-token budget and were re-asked at 2,500; 279 at 8,000; 118 at 16,000; 124 at 32,000. 55 answers (all DeepSeek R1: 35 OfficeQA Pro V2, 19 OfficeQA, 1 BIRD) never finish at 32,000 and are scored as failures; every other model finished every answer. Eleven models in the study (Gemini 3.1 Pro completed 2026-10-16). Cost USD 178 in the final cache, 235 over the project.
   temperature 0 was refused by Claude 5 and gpt-5.5 (recorded per row); one refusal (Sonnet); ≈ 2 % of gpt-5.5 / R1 answers lack a final-answer line
   and rely on the last-line fallback. Cost ≈ USD 161 (Opus 99). Gemini 3.1 Pro trickles in via the cloud routine `gemini-pro-trickle` (240 items/day, branch + PR).
 

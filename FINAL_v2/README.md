@@ -11,7 +11,7 @@ FINAL_v2/
   config/          datasets.toml (31-dataset suite; finqa / financebench disabled), models.toml (13 models, temperature 0)
   data/            pool/ (150 items per dataset, 100 flagged for answering, + _official_strata.json), predictions/ (cached model answers), raw -> ../../data_raw
   v2_gridsearch/   scripts 01-06 + run_all.sh, output/, REPORT.md
-  notes/           RUN_MODELS.md (the paid step), HUMAN_LABELLING_PROTOCOL.md, CODE_FLOW.md (v6-wide; the v2 section applies here)
+  notes/           RUN_MODELS.md (the paid step), HUMAN_LABELLING_PROTOCOL.md + LABELLING_GUIDE_FOR_LABELLERS.md (kit: shared/scripts/02-04, data/labels/handoff), CODE_FLOW.md (v6-wide; the v2 section applies here)
 ```
 
 What v2 does: evaluates **every** weighting of v1's four ingredients (token F1, numeric decay, precision, recall) on the step-0.05 lattice
@@ -25,4 +25,4 @@ majority-class baselines, official-split (post-stratified) estimates, dataset di
 Run (minutes, from cached answers): `uv sync` once, then `bash v2_gridsearch/scripts/run_all.sh`; add `--fine` to also evaluate the
 step-0.02 lattice (23,426 points). The paid model run is `notes/RUN_MODELS.md`; nothing here calls an API otherwise.
 
-Current state (2026-10-16): the model run is complete — 31 datasets × 11 models × 100 items (Gemini 3.1 Pro included; 123 DeepSeek-R1 16,000-token re-asks pending); `REPORT.md` is the full-data result. Findings summary in `../v6_top30_significance/notes/00_STATUS_AND_PLAN.md`.
+Current state (2026-10-25): the model run is complete — 31 datasets × 11 models × 100 items (Gemini 3.1 Pro included; truncation protocol complete through 32,000 tokens, 55 DeepSeek-R1 answers non-terminating); `REPORT.md` is the full-data result. Findings summary in `../v6_top30_significance/notes/00_STATUS_AND_PLAN.md`.

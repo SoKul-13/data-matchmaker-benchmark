@@ -21,7 +21,10 @@ All four versions run on the same 31 datasets, the same ten models and the same 
 * `main.pdf` - compiled locally with tectonic as a check (not needed by Overleaf).
 
 ## Other files here
-* `summary_results.tex` / `summary_results.pdf` - the Setup + Results text of the v2 report on its own (the same text that `v2/main.tex` starts with).
+* `summary_results.tex` / `summary_results.pdf` - the Setup + Results text of the v2 report on its own (the same text that `v2/main.tex` starts with), with a one-line summary per section and a *Notable* paragraph under every figure and table. Its tables are `\input` from `v2/tables/`, so it is only as current as the last package build.
+* `v2/DETAILED_ANALYSIS.md` / `.html` - section-by-section analysis of every v2 output file (run facts, scoring, grid, selection, transfer, anchors, leaderboards, significance, comparability, diagnostics); the HTML embeds the figures.
+* `v2/figures_paper/` and `v2_figures_paper.zip` - the 16 publication figures (PDF + PNG), `FIGURES.md` with captions and placement, `figures_paper.tex` with ready `\begin{figure}` blocks.
+* `v2/main.tex` appendix A carries a reading guide (what it encodes, how to read it, what it shows) under each of the 47 figures; the text lives in `scripts/figure_explanations_v2.py`.
 * `PAPER_PLAN.md`, `METHODS_AND_RELATED_WORK.md`, `DATASETS_TABLE.md`, `draft.md` - planning notes, the methods / related-work write-up, the 31-dataset table and the partial paper draft.
 * `figures/` - the eleven original v2 figures (also copied into `v2/figures/`).
-* `scripts/make_overleaf_package.py` - rebuilds `v2/`; `scripts/make_version_packages.py` - rebuilds `v3/`, `v4/`, `v5/` and `comparison/`. Run both from `FINAL_v2/` with `uv run python ...`.
+* `scripts/rebuild_all.sh` - one command for everything: the four pipelines, then every package, analysis and figure, then the compiles (`--paper` skips the pipelines). The individual steps: `make_overleaf_package.py` (v2), `make_version_packages.py` (v3, v4, v5, comparison), `detailed_analysis_v2.py`, `md_to_html_report.py`, `make_paper_figures.py`. Run from `FINAL_v2/` with `uv run python ...`.

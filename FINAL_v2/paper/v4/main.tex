@@ -20,7 +20,7 @@
 \subsection{Shared setup (identical across versions)}
 \begin{itemize}
 \item \textbf{Suite.} 31 datasets: 11 entity matching (EM), 6 schema matching (SM), 11 table question answering and understanding (TQA), 3 financial documents (FIN). Official test or dev splits only; 150 items per dataset by seeded stratified sampling, 100 flagged for answering (OfficeQA Pro V2: 90; Alaska schema: 93); 3,083 answered items per model. Entity-matching pools are 50/50 match / non-match (Papadakis--Christen keeps its real 1.8\,\% ratio); schema matching is one question per source column with a candidate list; BIRD is graded on the executed result of the gold SQL.
-\item \textbf{Answers.} Ten models (Claude Opus 5, Claude Sonnet 5, GPT-5.5, GPT-5.4-mini, Gemini 3.8 Flash, Grok 4, DeepSeek-chat, DeepSeek-R1, gpt-oss-120b, Llama 3.3 70B); one prompt per item ending in \texttt{FINAL ANSWER: <answer>}; temperature 0 where accepted (Claude 5 and GPT-5.5 ran at provider defaults, recorded per row); output budget 700 tokens with mechanical re-asks at 2,500 and 8,000 for replies cut off before a final line; every answer cached with tokens, cost and finish reason. The same cache feeds every version, so leaderboards are directly comparable.
+\item \textbf{Answers.} Eleven models (Claude Opus 5, Claude Sonnet 5, GPT-5.5, GPT-5.4-mini, Gemini 3.1 Pro, Gemini 3.8 Flash, Grok 4, DeepSeek-chat, DeepSeek-R1, gpt-oss-120b, Llama 3.3 70B); one prompt per item ending in \texttt{FINAL ANSWER: <answer>}; temperature 0 where accepted (Claude 5 and GPT-5.5 ran at provider defaults, recorded per row); output budget 700 tokens with mechanical re-asks at 2,500, 8,000, 16,000 and 32,000 for replies cut off before a final line (the budget is counted in each provider's own tokens and, for reasoning models, includes the chain of thought, so it is a termination test rather than an equal text allowance; 55 DeepSeek-R1 answers never terminate at 32,000 and are scored as given); every answer cached with tokens, cost and finish reason. The same cache feeds every version, so leaderboards are directly comparable.
 \item \textbf{Scoring primitives.} Extraction of the final line, Unicode / case / punctuation normalisation, number parsing with sign, percent and scale words, alias lists per gold (best alias wins), list golds, a hedge flag. Native metric per dataset: numeric tolerance (1\,\%) for numeric golds, exact match for text and boolean, ROUGE-L for free-form.
 \item \textbf{Coverage rule.} A model is in the study only if it covered $\ge 90\,\%$ of the suite; a dataset counts only items every model answered and only with $\ge 20$ such items.
 \item \textbf{Leaderboard machinery.} Bradley--Terry strengths from item-level pairwise wins (MLE, ridge 0.01, SE from the observed information) as the headline pooling; Borda, Kemeny (with cost), Copeland, mean-$z$, reciprocal-rank fusion and family-balanced $z$ as checks; 1,000 item bootstraps of the Borda and Bradley--Terry ranks; Friedman with Iman--Davenport, Nemenyi CD, Holm-corrected pairwise Wilcoxon across datasets; paired permutation and Wilcoxon per item within datasets (Holm); Kendall's $W$ among datasets; majority-class baselines for boolean sets; post-stratified official-split estimates with a weighted bootstrap and positive-class F1 at the official match ratio; floor / ceiling / self-stability diagnostics per dataset.
@@ -41,21 +41,21 @@
 \section{Results}
 \begin{table}[htbp]\centering\small\caption{v4 audit summary.}\label{tab:v4_summary}
 \begin{tabularx}{\textwidth}{>{\bfseries}p{0.30\textwidth} L}\toprule
-Candidates & 305 (3 designs $\times$ 100 + 5 baselines) on a lattice of 3,108,105 points; $J$ range 0.400--0.442 \\
-Best & numeric tolerance 1.00 (num\_\allowbreak{}tol\_\allowbreak{}only), $J = 0.442$, $\tau$ native 0.97; exact match alone $J = 0.439$ (rank 2); v1 rubric $J = 0.404$ (rank 295 of 305) \\
-Best per design & Dirichlet 0.439, LHS 0.437, uniform lattice 0.442; regret over seeds $\le$ 0.014 \\
-Nested selection ($B$ = 1,000) & in-bag $J$ of selected 0.387, out-of-bag 0.337 (optimism gap 0.050); v1 rubric out-of-bag 0.339 \\
-Selected vs v1 rubric, out of bag & $-0.002$, 95\,\% CI $[-0.033, +0.024]$; 204 distinct candidates selected \\
-Plateau & 305 of 305 not significantly below the best; practical plateau (within 0.02): 303; v1 rubric inside: yes \\
-Transfer (LODO) & mean held-out $\tau$: re-fitted weights +0.41, full best +0.41, v1 rubric +0.37 \\
-Anchors & v1 rubric $\rho$ 0.878; best-$J$ 0.796; best-$\rho$ 0.884; knee 0.884; exact match nan; Spearman($J$, $\rho$) across candidates -0.19 \\
-Sensitivity & one step moves $J$ by at most 0.008 around the v1 rubric and 0.021 around the best \\
-Leaderboard (v1 rubric, BT) & first Gemini 3.8 Flash, then Claude Opus 5, GPT-5.5; last Llama 3.3 70B; Friedman $p$ = 1.0e-12; $W$ = 0.26 \\
-Leaderboard (best $J$ = numeric tolerance, BT) & first Claude Opus 5; identical ranking to exact match ($\tau$ = 1.00) \\
+Candidates & 305 (3 designs $\times$ 100 + 5 baselines) on a lattice of 3,108,105 points; $J$ range 0.398--0.437 \\
+Best & exact match 1.00 (em\_\allowbreak{}only), $J = 0.437$, $\tau$ native 0.92; exact match alone $J = 0.437$ (rank 1); v1 rubric $J = 0.411$ (rank 230 of 305) \\
+Best per design & Dirichlet 0.436, LHS 0.438, uniform lattice 0.441; regret over seeds $\le$ 0.015 \\
+Nested selection ($B$ = 1,000) & in-bag $J$ of selected 0.382, out-of-bag 0.334 (optimism gap 0.048); v1 rubric out-of-bag 0.339 \\
+Selected vs v1 rubric, out of bag & $-0.005$, 95\,\% CI $[-0.033, +0.017]$; 230 distinct candidates selected \\
+Plateau & 305 of 305 not significantly below the best; practical plateau (within 0.02): 304; v1 rubric inside: yes \\
+Transfer (LODO) & mean held-out $\tau$: re-fitted weights +0.42, full best +0.42, v1 rubric +0.38 \\
+Anchors & v1 rubric $\rho$ 0.878; best-$J$ 0.828; best-$\rho$ 0.884; knee 0.884; exact match nan; Spearman($J$, $\rho$) across candidates +0.00 \\
+Sensitivity & one step moves $J$ by at most 0.013 around the v1 rubric and 0.020 around the best \\
+Leaderboard (v1 rubric, BT) & first Gemini 3.8 Flash, then Claude Opus 5, GPT-5.5; last Llama 3.3 70B; Friedman $p$ = 1.3e-14; $W$ = 0.27 \\
+Leaderboard (best $J$ = exact match 1.00, BT) & first Claude Opus 5; $\tau$ to the exact-match ranking 1.00 \\
 \bottomrule\end{tabularx}\end{table}
 
 \subsection{A single typed metric matches the nine-component composite}
-The best candidate is numeric tolerance alone ($J = 0.442$), with exact match alone second (0.439); every mixed candidate is below both (Figures~\ref{fig:fig_landscape}, \ref{fig:fig_j_by_design}, \ref{fig:fig_top_weights}). The v1 rubric sits at rank 295 of 305, but the whole candidate range is 0.042 wide. The three designs find the same region (Table~\ref{tab:designs_summary}); the uniform lattice has the best coverage and the highest best-$J$.
+The best candidate is exact match 1.00 ($J = 0.437$); the single-metric baselines exact match (0.437, rank 1) and numeric tolerance (0.434, rank 2) sit at or near the top, and the best mixed candidate reaches 0.432 (Figures~\ref{fig:fig_landscape}, \ref{fig:fig_j_by_design}, \ref{fig:fig_top_weights}). The v1 rubric sits at rank 230 of 305, but the whole candidate range is 0.039 wide. The three designs find the same region (Table~\ref{tab:designs_summary}); uniform lattice has the highest best-$J$ and the uniform lattice the best coverage.
 \begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_landscape.png}\caption{All 305 candidates sorted by $J$, with the baselines marked.}\label{fig:fig_landscape}\end{figure}
 \begin{figure}[htbp]\centering\includegraphics[width=0.6\textwidth]{fig_j_by_design.png}\caption{Distribution of $J$ over the 100 candidates of each design, with the five baselines marked.}\label{fig:fig_j_by_design}\end{figure}
 \begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_top_weights.png}\caption{Component weights of the fifteen best candidates.}\label{fig:fig_top_weights}\end{figure}
@@ -64,28 +64,28 @@ The best candidate is numeric tolerance alone ($J = 0.442$), with exact match al
 
 
 \subsection{Honest selection}
-As in v2, the in-bag winner loses 0.050 out of bag and ends -0.002 from the v1 rubric with an interval that includes zero; 204 different candidates are selected across resamples and the plateau covers 305 of 305 (Figures~\ref{fig:fig_nested}, \ref{fig:fig_oob_difference}, \ref{fig:fig_selected_weights}).
+As in v2, the in-bag winner loses 0.048 out of bag and ends -0.005 from the v1 rubric with an interval that includes zero; 230 different candidates are selected across resamples and the plateau covers 305 of 305 (Figures~\ref{fig:fig_nested}, \ref{fig:fig_oob_difference}, \ref{fig:fig_selected_weights}).
 \begin{figure}[htbp]\centering\includegraphics[width=0.6\textwidth]{fig_nested.png}\caption{In-bag vs out-of-bag $J$ of the selected candidate against the v1 rubric.}\label{fig:fig_nested}\end{figure}
 \begin{figure}[htbp]\centering\includegraphics[width=0.5\textwidth]{fig_oob_difference.png}\caption{Paired out-of-bag difference between the selected candidate and the v1 rubric over 1,000 resamples.}\label{fig:fig_oob_difference}\end{figure}
 \begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_selected_weights.png}\caption{Weights selected as in-bag best across 1,000 bootstrap resamples; dotted = v1 rubric.}\label{fig:fig_selected_weights}\end{figure}
 
 
 \subsection{Transfer}
-Re-fitted weights predict a held-out dataset no better than the v1 rubric (Figure~\ref{fig:fig_lodo_tau}); the per-family optima are numeric tolerance for EM and SM but recall- and precision-heavy mixes for TQA and FIN (Figure~\ref{fig:fig_family_weights}, Table~\ref{tab:per_family}).
+Re-fitted weights predict a held-out dataset no better than the v1 rubric (Figure~\ref{fig:fig_lodo_tau}); the per-family optima differ by family (Figure~\ref{fig:fig_family_weights}, Table~\ref{tab:per_family}).
 \begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_lodo_tau.png}\caption{Leave-one-dataset-out: agreement of the held-out dataset with the pooled rest under re-fitted weights, the full best and the v1 rubric.}\label{fig:fig_lodo_tau}\end{figure}
 \begin{figure}[htbp]\centering\includegraphics[width=0.7\textwidth]{fig_family_weights.png}\caption{Per-family optimum, global optimum and the v1 rubric over the nine components.}\label{fig:fig_family_weights}\end{figure}
 \input{tables/per_family.tex}
 
 
 \subsection{Correctness}
-Numeric tolerance alone is the best by $J$ but the worst labelled rule on the anchors ($\rho$ = 0.796 vs 0.878 for the v1 rubric): it gives no partial credit to near misses, which the anchors reward (Figure~\ref{fig:fig_anchor_operators}). The Pareto knee (em 0.40, num\_\allowbreak{}tol 0.10, num\_\allowbreak{}decay 0.15, tok\_\allowbreak{}prec 0.10, edit\_\allowbreak{}sim 0.10, rouge\_\allowbreak{}l 0.15) keeps $J$ = 0.432 and $\rho$ = 0.884. Across candidates $J$ and $\rho$ correlate -0.19: agreement and correctness pull apart here as in v2.
+The best-by-$J$ candidate (exact match 1.00) is the worst labelled rule on the anchors ($\rho$ = 0.828 vs 0.878 for the v1 rubric): a binary metric gives no partial credit to near misses, which the anchors reward (Figure~\ref{fig:fig_anchor_operators}). The Pareto knee (em 0.40, num\_\allowbreak{}tol 0.10, num\_\allowbreak{}decay 0.15, tok\_\allowbreak{}prec 0.10, edit\_\allowbreak{}sim 0.10, rouge\_\allowbreak{}l 0.15) keeps $J$ = 0.431 and $\rho$ = 0.884. Across candidates $J$ and $\rho$ correlate +0.00: agreement and correctness pull apart here as in v2.
 \input{tables/anchors_rules.tex}
 \begin{figure}[htbp]\centering\includegraphics[width=0.7\textwidth]{fig_pareto.png}\caption{Agreement $J$ against anchor correctness $\rho$ for every candidate.}\label{fig:fig_pareto}\end{figure}
 \begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_anchor_operators.png}\caption{Anchors: known utility of each operator against the mean score it receives under the v1 rubric, the best-$J$ and the best-$\rho$ candidates.}\label{fig:fig_anchor_operators}\end{figure}
 
 
 \subsection{Leaderboard}
-Under the v1 rubric the ranking is the one v2 reports (same answers, same rule): Gemini 3.8 Flash first by Bradley--Terry, GPT-5.5 first by Borda, Llama 3.3 70B last. Under the best-$J$ rule (numeric tolerance) and under exact match Claude Opus 5 is first. Rule choice moves the top three and nothing else.
+Under the v1 rubric the ranking is the one v2 reports (same answers, same rule): Gemini 3.8 Flash first by Bradley--Terry, GPT-5.5 first by Borda, Llama 3.3 70B last. Under the best-$J$ rule (exact match 1.00) Claude Opus 5 is first, as under exact match. Rule choice moves the top three and nothing else.
 \input{tables/leaderboard_headline.tex}
 \input{tables/ranks_by_rule.tex}
 \begin{figure}[htbp]\centering\includegraphics[width=0.85\textwidth]{fig_bt_all_rules.png}\caption{Bradley--Terry strengths ($\pm$ SE vs reference) under every reported rule; models fixed in the headline order.}\label{fig:fig_bt_all_rules}\end{figure}

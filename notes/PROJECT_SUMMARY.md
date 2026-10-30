@@ -9,16 +9,16 @@ anchor-calibrated ensemble) live in `v6_top30_significance/` on the same answers
 
 ## The headline result
 The deployed weights are as good as any weighting of their ingredients. Over all 1,771 weightings the agreement objective spans only
-0.38–0.41; 1,749 are statistically indistinguishable from the best; with honest (out-of-bag) selection the best is 0.007 below v1 with a
+0.39–0.43; 1,754 are statistically indistinguishable from the best; with honest (out-of-bag) selection the best is 0.006 below v1 with a
 confidence interval spanning zero; and v1's correctness on 31,380 known-quality answers (ρ 0.878) is within 0.005 of the best achievable.
-The sister methods agree: v4 finds a single typed metric (numeric tolerance) matches the nine-component composite; v5's calibrated ensemble
+The sister methods agree: v4 finds a single binary metric (exact match alone at eleven models, numeric tolerance at ten) matches the nine-component composite on agreement while being worst on correctness; v5's calibrated ensemble
 reaches ρ 0.904 with decay-dominated weights.
 
 ## The leaderboard
 Eleven models, 3,083 answers each, Friedman p < 0.001 under every rule. Claude Opus 5, GPT-5.5 and Gemini 3.8 Flash are above the open models
 with Holm-corrected significance; Llama 3.3 70B is last; the order inside the top four depends on the pooling rule (Bradley–Terry favours
-Gemini Flash under the calibrated rules, Borda favours GPT-5.5, exact match favours Opus). Datasets agree only moderately (Kendall's W ≈ 0.26).
-Gemini 3.1 Pro completed on 2026-10-16 and enters fifth by Bradley–Terry under v1 (fourth under exact match).
+Gemini Flash under the calibrated rules, Borda favours GPT-5.5, exact match favours Opus). Datasets agree only moderately (Kendall's W ≈ 0.28).
+Gemini 3.1 Pro enters sixth by Bradley–Terry under v1 (fifth under exact match); DeepSeek-R1 is fourth once its reasoning is allowed to finish (its earlier seventh place was a 8,000-token budget artefact on the OfficeQA sets).
 
 ## How the suite was chosen
 231 candidate datasets surveyed; 111 scored on a seven-criterion rubric; adoption re-measured from ~220 top-cited papers after the user
@@ -27,8 +27,8 @@ rejected judgement-only scoring; the evidence top 30 plus the benchmark's origin
 published results (balanced matching pools inflate positive-class F1 by up to 0.19 on the sparse matching sets).
 
 ## What it cost and what went wrong
-USD 174 in the final cache, USD 224 over the project (Claude Opus 107). Problems met and resolved: 700-token truncations (protocol extended to 16,000 tokens on 2026-10-16; 41 DeepSeek R1 answers still never terminate), an OpenAI project spend
-limit, Google's daily quota for Gemini Pro (GitHub Actions trickle, finished locally once the project was funded), a DeepSeek balance that ran out mid-pass (123 R1 re-asks pending), a coverage-rule bug that produced
+USD 178 in the final cache, USD 235 over the project (Claude Opus 107). Problems met and resolved: 700-token truncations (protocol extended to 16,000 and 32,000 tokens on 2026-10-16/25; 55 DeepSeek R1 answers still never terminate), an OpenAI project spend
+limit, Google's daily quota for Gemini Pro (GitHub Actions trickle, finished locally once the project was funded), a DeepSeek balance that ran out mid-pass (topped up, pass completed 2026-10-25), a coverage-rule bug that produced
 empty cells and NaN rankings (suite-wide model rule), a stale anchor cache (rebuilt), v3's runtime at ten models (shorter split-half loop),
 and an unstable rank for v1 inside a flat objective (report the plateau, not the rank).
 
@@ -51,7 +51,7 @@ and an unstable rank for v1 inside a flat objective (report the plateau, not the
 | Daily Gemini Pro collection | `.github/workflows/gemini-pro-trickle.yml`, branch `gemini-pro-trickle`, PR #1 |
 
 ## Open items
-1. Top up DeepSeek (≈ USD 5), run `01_reask_truncated.py --model deepseek-r1 --from 8000 --to 16000` for the 123 pending items, then re-run all four pipelines and the paper scripts. Close the Gemini trickle PR (branch superseded by the local cache).
+1. Close the Gemini trickle PR on GitHub (branch superseded by the local cache); commit and push the final cache and `FINAL_v2/paper/`.
 2. Optional checks: 3× repeat subset (≈ USD 4), format-repair turn (cents), 50-answer hand check of the extraction fallback.
 3. Code items from the variants plan: ceiling datasets out of the objective; F1 as native metric for boolean sets; extraction-path logging.
 4. Human labels on 400 answers (`FINAL_v2/notes/HUMAN_LABELLING_PROTOCOL.md`).

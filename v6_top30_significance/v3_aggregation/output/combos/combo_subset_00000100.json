@@ -6,53 +6,53 @@
   "weights": {
     "kemeny_score": 1.0
   },
-  "J": 0.8839579088489652,
-  "stability": 0.8498181818181817,
-  "transitivity": 0.9816498172140428,
-  "reference": 0.8545454545454545,
-  "rank_among_candidates": 344,
+  "J": 0.8870038147043553,
+  "stability": 0.8698181818181817,
+  "transitivity": 0.9174698042719671,
+  "reference": 0.8909090909090909,
+  "rank_among_candidates": 237,
   "mixed_scores": {
     "claude-opus-5": 1.5075567224342727,
-    "claude-sonnet-5": 0.603022688973709,
+    "claude-sonnet-5": 0.3015113444868545,
     "deepseek-chat": -0.9045340334605636,
-    "deepseek-r1": -0.3015113444868545,
-    "gemini-3.1-pro": 0.0,
+    "deepseek-r1": 0.603022688973709,
+    "gemini-3.1-pro": -0.3015113444868545,
     "gemini-3.8-flash": 0.9045340334605636,
     "gpt-5.4-mini": -0.603022688973709,
     "gpt-5.5": 1.206045377947418,
     "gpt-oss-120b": -1.206045377947418,
-    "grok-4": 0.3015113444868545,
+    "grok-4": 0.0,
     "llama-3.3-70b": -1.5075567224342727
   },
   "ranks": {
     "claude-opus-5": 1,
-    "claude-sonnet-5": 4,
+    "claude-sonnet-5": 5,
     "deepseek-chat": 9,
-    "deepseek-r1": 7,
-    "gemini-3.1-pro": 6,
+    "deepseek-r1": 4,
+    "gemini-3.1-pro": 7,
     "gemini-3.8-flash": 3,
     "gpt-5.4-mini": 8,
     "gpt-5.5": 2,
     "gpt-oss-120b": 10,
-    "grok-4": 5,
+    "grok-4": 6,
     "llama-3.3-70b": 11
   },
   "rank_ci95": {
     "claude-opus-5": [
       1.0,
-      3.0
+      2.5249999999999915
     ],
     "claude-sonnet-5": [
-      3.0,
+      4.0,
       7.0
     ],
     "deepseek-chat": [
-      7.0,
+      7.475,
       9.0
     ],
     "deepseek-r1": [
-      3.475,
-      8.524999999999991
+      3.0,
+      7.0
     ],
     "gemini-3.1-pro": [
       4.0,
@@ -60,10 +60,10 @@
     ],
     "gemini-3.8-flash": [
       1.475,
-      4.5249999999999915
+      5.0
     ],
     "gpt-5.4-mini": [
-      6.0,
+      7.0,
       9.0
     ],
     "gpt-5.5": [
@@ -76,7 +76,7 @@
     ],
     "grok-4": [
       4.0,
-      8.0
+      8.524999999999991
     ],
     "llama-3.3-70b": [
       11.0,
@@ -89,16 +89,16 @@
         0,
         7,
         5,
+        3,
         1,
         9,
         4,
-        3,
         6,
         2,
         8,
         10
       ],
-      "kendall_cost": 417.0
+      "kendall_cost": 414.0
     }
   }
 }

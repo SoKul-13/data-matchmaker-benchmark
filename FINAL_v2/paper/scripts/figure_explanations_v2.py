@@ -130,7 +130,7 @@ EXPLANATIONS = {
     # ------------------------------------------------------------------ leaderboards
     "fig_leaderboard_rules": r"""\textbf{What it encodes.} Bradley--Terry strengths (log-odds of winning an item against the reference model, with standard errors) and bootstrap rank intervals under exact match, v1 and the best-$J$ weighting.
 \textbf{How to read it.} Overlapping intervals mean the order is not established; a model whose point moves between panels is one whose position depends on the scoring rule.
-\textbf{What it shows.} The ends are fixed under every rule («last» last, gpt-oss-120b ninth); the top three (Gemini 3.8 Flash, Claude Opus 5, GPT-5.5) reorder with the rule. Exact match favours Opus; the graded rules favour Gemini Flash.""",
+\textbf{What it shows.} The ends are fixed under every rule («last» last, gpt-oss-120b tenth); the top three (Gemini 3.8 Flash, Claude Opus 5, GPT-5.5) reorder with the rule. Exact match favours Opus; the graded rules favour Gemini Flash.""",
 
     "fig_bt_all_rules": r"""\textbf{What it encodes.} Nine small panels, one per reported rule (exact match, v1, the five best by $J$, the best by $\rho$, the Pareto knee), each showing Bradley--Terry strength $\pm$ SE for the ten models in a fixed order; the first-placed model is orange.
 \textbf{How to read it.} Scan a row across panels to see whether a model's strength is stable; scan the orange markers to see who is first under which rule.

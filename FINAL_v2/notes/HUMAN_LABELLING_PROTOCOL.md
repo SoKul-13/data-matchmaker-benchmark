@@ -1,5 +1,24 @@
 # Human labelling protocol: what to make so the anchors can be replaced by real judgements
 
+**Status 2026-10-28: the kit is complete and tested end to end.** Sample drawn, hand-off folders built, agreement and merge script tested on a
+simulated return (then deleted), and the real-label correctness table wired into the v2 Overleaf package (it appears only once the labels exist).
+
+| Step | Command / file |
+|---|---|
+| Draw the sample (done, seed 20260923) | `uv run python shared/scripts/02_make_label_sample.py` → `data/labels/labeller_sheet.csv` (401 rows, `assigned_to` = 3 of 20 grader letters per row), `assignments.csv`, `pilot_30.csv`; `--labellers N --per-row k` to change the layout |
+| Build the kit (done) | `uv run python shared/scripts/04_make_labeller_handoff.py` → `data/labels/handoff/grader_kit.zip` (walkthrough, guide, pilot and main sheets as xlsx with drop-downs + csv) |
+| Walkthroughs | `notes/WALKTHROUGH_LABELLERS.md` (in the kit), `notes/WALKTHROUGH_COORDINATOR.md` (you) |
+| Give every grader | the same `grader_kit.zip` plus, separately, their letter (A to T) |
+| Collect returns | `data/labels/returned/02_pilot_<letter>.xlsx` then `03_main_<letter>.xlsx` (`.csv` also accepted); validate each with `03_label_agreement.py [--pilot] --check <letter>`. Google Forms route: `notes/GOOGLE_FORMS_OPTION.md` + `shared/scripts/05_forms_to_returned.py` |
+| Pilot review | `uv run python shared/scripts/03_label_agreement.py --pilot` → multi-rater α, per-type agreement, per-grader drift, `pilot_adjudication_queue.csv`; discuss, tighten the guide if α < 0.6 |
+| Main round | `uv run python shared/scripts/03_label_agreement.py` → agreement statistics + `adjudication_queue.csv` (labels span > one level, hedged tie, or missing) |
+| Adjudicate | the adjudicator fills `data/labels/adjudicated.csv` (columns `row_id, utility, hedged`) for every queued row |
+| Merge + correctness | re-run `03_label_agreement.py` → `human_labels.csv` (pipeline format) and `human_correctness.{csv,json}`: every v2 leaderboard rule (exact match, v1, top1–5, best anchor, knee) scored on the labelled rows vs the human utility: ρ, AUC, wrong-mean, hedge gap, model-ranking ρ |
+| Into the paper | `bash paper/scripts/rebuild_all.sh --paper` → `paper/v2/tables/human_correctness.tex` + the three files copied to `paper/v2/data/`; quote beside the synthetic anchor table (`anchors_rules`). Optionally v5: `02_select_metrics.py --labels data/labels/human_labels.csv` |
+
+Graders to recruit: people who read financial tables and data records for a living (analysts, data engineers, annotators with a
+data-management background); state their background in the paper. Default 20 graders, 3 per row, about an hour each. The researcher never labels. Never give graders `sample_master.csv`.
+
 Purpose: v5 (and v2's section 5) validate the scoring rule against *synthetic* answers of known utility. Reviewers will ask for human
 judgements. This protocol produces a label file the pipeline already accepts (`02_select_metrics.py --labels` in v5; the same file is
 read by v2's step 4 when present) and is sized so two people can finish it in one to two days.

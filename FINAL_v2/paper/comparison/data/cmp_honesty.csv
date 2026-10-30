@@ -1,5 +1,5 @@
 version,test,optimism gap,selected - reference (held out),reference,distinct selections,plateau
-v2,"nested item bootstrap (B = 1,000)",0.04903674167007255,-0.007620114037280873,v1 weights,608,"1765 of 1,771"
-v3,split-half (20 splits),0.03207130228191067,0.02427983120362126,pure Bradley-Terry,10,--
-v4,"nested item bootstrap (B = 1,000)",0.04954010248184204,-0.001980729401111603,v1 rubric,204,305 of 305
-v5,leave-one-dataset-out re-selection + utility perturbation,0.0007503816465793678,0.07984842137707249,native typed metric,same set in 90% of folds,top-100 ensemble
+v2,"nested item bootstrap (B = 1,000)",0.04647103774027789,-0.006200348115122659,v1 weights,617,"1754 of 1,771"
+v3,split-half (20 splits),0.02295053890438095,0.03703620168379031,pure Bradley-Terry,10,--
+v4,"nested item bootstrap (B = 1,000)",0.04833987355232239,-0.004862621426582336,v1 rubric,230,305 of 305
+v5,leave-one-dataset-out re-selection + utility perturbation,0.0009096882944796825,0.08038516264758733,native typed metric,same set in 90% of folds,top-100 ensemble

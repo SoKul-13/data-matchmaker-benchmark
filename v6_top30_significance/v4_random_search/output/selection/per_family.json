@@ -24,9 +24,9 @@
       "rouge_l": 0.0,
       "jaccard": 0.0
     },
-    "J_family_best": 0.35813470785906626,
-    "J_family_under_global_best": 0.35813470785906626,
-    "J_family_under_v1_rubric": 0.35813470785906626,
+    "J_family_best": 0.35791317268954376,
+    "J_family_under_global_best": 0.35791317268954376,
+    "J_family_under_v1_rubric": 0.35791317268954376,
     "L1_distance_to_global_best": 0.0
   },
   "SM": {
@@ -49,9 +49,9 @@
       "rouge_l": 0.0,
       "jaccard": 0.0
     },
-    "J_family_best": 0.5802216484406818,
-    "J_family_under_global_best": 0.5461887295417823,
-    "J_family_under_v1_rubric": 0.5403288795274918,
+    "J_family_best": 0.5438160713861322,
+    "J_family_under_global_best": 0.5409111047715087,
+    "J_family_under_v1_rubric": 0.5124439535499108,
     "L1_distance_to_global_best": 2.0
   },
   "TQA": {
@@ -79,9 +79,9 @@
       "rouge_l": 0.0,
       "jaccard": 0.0
     },
-    "J_family_best": 0.5115254904476846,
-    "J_family_under_global_best": 0.5115254904476846,
-    "J_family_under_v1_rubric": 0.4514024551315245,
+    "J_family_best": 0.5230713568128471,
+    "J_family_under_global_best": 0.5230713568128471,
+    "J_family_under_v1_rubric": 0.4831005785782626,
     "L1_distance_to_global_best": 0.0
   },
   "FIN": {
@@ -91,19 +91,19 @@
       "tat_qa"
     ],
     "best_weights": {
-      "em": 0.15,
-      "num_tol": 0.05,
+      "em": 0.0,
+      "num_tol": 0.15,
       "num_decay": 0.05,
-      "tok_prec": 0.05,
-      "tok_rec": 0.5,
+      "tok_prec": 0.25,
+      "tok_rec": 0.05,
       "tok_f1": 0.0,
       "edit_sim": 0.0,
-      "rouge_l": 0.05,
-      "jaccard": 0.15
+      "rouge_l": 0.15,
+      "jaccard": 0.35
     },
-    "J_family_best": 0.7706746355884523,
-    "J_family_under_global_best": 0.7056213302815536,
-    "J_family_under_v1_rubric": 0.6728111897994425,
-    "L1_distance_to_global_best": 1.7
+    "J_family_best": 0.8807710121010884,
+    "J_family_under_global_best": 0.7376729632539348,
+    "J_family_under_v1_rubric": 0.7706746355884525,
+    "L1_distance_to_global_best": 2.0
   }
 }

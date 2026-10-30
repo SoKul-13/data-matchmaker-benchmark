@@ -3,20 +3,20 @@
 * Library: 100 metrics; 10 constant on this data; 45 cluster representatives (|Spearman| ≥ 0.95); 28 candidates after the anchor-agreement floor.
 * Anchor: synthetic anchors (31380 answers, 20 operators) across 31 datasets (including the 0 datasets whose model predictions are still pending).
 * Selected metrics: tok_f1, num_decay_2p5, prefix_ratio (LODO Spearman with utility 0.875; native typed metric alone 0.814; EM alone 0.831).
-* Grid: step 0.02 × 5 hedge penalties = 6,630 weightings; top 100 kept. Ensemble mean weights: tok_f1 0.18, num_decay_2p5 0.75, prefix_ratio 0.07; mean λ 0.66.
-* Objective terms (ensemble mean): anchor ρ 0.904, AUC 0.997, cross-dataset JS 0.054, wrong→ 0.032, native τ 0.897.
+* Grid: step 0.02 × 5 hedge penalties = 6,630 weightings; top 100 kept. Ensemble mean weights: tok_f1 0.17, num_decay_2p5 0.75, prefix_ratio 0.07; mean λ 0.63.
+* Objective terms (ensemble mean): anchor ρ 0.904, AUC 0.996, cross-dataset JS 0.054, wrong→ 0.032, native τ 0.893.
 
 ## Baselines under the same objective
 
 | baseline                      |   rho |   auc |    js |   bad |   tau_native |     J |
 |:------------------------------|------:|------:|------:|------:|-------------:|------:|
-| native_style_metric           | 0.826 | 0.935 | 0.031 | 0.014 |        0.991 | 0.925 |
-| em_norm                       | 0.849 | 0.963 | 0.024 | 0.012 |        0.923 | 0.928 |
-| tok_f1                        | 0.859 | 0.965 | 0.079 | 0.032 |        0.883 | 0.906 |
-| rouge_l                       | 0.862 | 0.965 | 0.082 | 0.032 |        0.885 | 0.906 |
-| num_tol_1                     | 0.806 | 0.919 | 0.032 | 0.016 |        0.94  | 0.908 |
-| uniform_over_selected_no_gate | 0.882 | 0.97  | 0.098 | 0.028 |        0.906 | 0.912 |
-| ensemble_top100               | 0.904 | 0.997 | 0.054 | 0.032 |        0.897 | 0.933 |
+| native_style_metric           | 0.826 | 0.935 | 0.031 | 0.014 |        0.992 | 0.925 |
+| em_norm                       | 0.849 | 0.963 | 0.024 | 0.012 |        0.916 | 0.927 |
+| tok_f1                        | 0.859 | 0.965 | 0.079 | 0.032 |        0.884 | 0.906 |
+| rouge_l                       | 0.862 | 0.965 | 0.082 | 0.032 |        0.884 | 0.906 |
+| num_tol_1                     | 0.806 | 0.919 | 0.032 | 0.016 |        0.942 | 0.909 |
+| uniform_over_selected_no_gate | 0.882 | 0.97  | 0.098 | 0.028 |        0.907 | 0.912 |
+| ensemble_top100               | 0.904 | 0.996 | 0.054 | 0.032 |        0.893 | 0.933 |
 
 ## Probes: mean score per anchor operator vs known utility
 
@@ -27,23 +27,23 @@
 | unit_variant     |      1    |  632 |       0.96 | 0.84 |     1    |     0.84 |               0.04 |
 | tagged           |      1    | 3083 |       1    | 1    |     1    |     1    |               0    |
 | paraphrase       |      0.95 | 3083 |       0.98 | 0.93 |     0.99 |     0.96 |               0.03 |
-| near_miss_small  |      0.75 |  632 |       0.76 | 0.1  |     0.1  |     0.11 |               0.02 |
+| near_miss_small  |      0.75 |  632 |       0.77 | 0.1  |     0.1  |     0.11 |               0.02 |
 | superset         |      0.6  | 1213 |       0.38 | 0.04 |     0.1  |     0.65 |               0.22 |
 | typo             |      0.6  | 1104 |       0.29 | 0.1  |     0.1  |     0.46 |               0.31 |
 | partial          |      0.5  | 1213 |       0.29 | 0.06 |     0.12 |     0.48 |               0.21 |
-| near_miss_medium |      0.45 |  632 |       0.62 | 0.01 |     0.01 |     0.02 |               0.17 |
-| shuffled         |      0.4  |  109 |       0.75 | 0.01 |     0.4  |     1    |               0.35 |
-| hedge            |      0.3  | 2974 |       0.17 | 0.19 |     0.4  |     0.5  |               0.13 |
-| list_dump        |      0.25 | 1845 |       0.14 | 0.01 |     0.14 |     0.39 |               0.11 |
+| near_miss_medium |      0.45 |  632 |       0.62 | 0.01 |     0.01 |     0.02 |               0.18 |
+| shuffled         |      0.4  |  109 |       0.74 | 0.01 |     0.4  |     1    |               0.34 |
+| hedge            |      0.3  | 2974 |       0.18 | 0.19 |     0.4  |     0.5  |               0.12 |
+| list_dump        |      0.25 | 1845 |       0.15 | 0.01 |     0.14 |     0.39 |               0.1  |
 | digit_typo       |      0.2  |  632 |       0.43 | 0    |     0.24 |     0.01 |               0.23 |
-| near_miss_large  |      0.15 |  632 |       0.32 | 0    |     0    |     0.01 |               0.16 |
+| near_miss_large  |      0.15 |  632 |       0.32 | 0    |     0    |     0.01 |               0.17 |
 | sign_flip        |      0.05 |  632 |       0.02 | 0    |     0    |     0.02 |               0.03 |
 | magnitude        |      0.05 |  632 |       0.2  | 0.01 |     0.13 |     0.03 |               0.15 |
 | flip             |      0    | 1238 |       0    | 0    |     0    |     0    |               0    |
 | no_answer        |      0    | 3083 |       0    | 0    |     0    |     0    |               0    |
 | wrong_random     |      0    | 1845 |       0.11 | 0.04 |     0.05 |     0.1  |               0.11 |
 
-Probe MAE to utility: ensemble 0.114, native 0.155, EM 0.199, F1 0.144.
+Probe MAE to utility: ensemble 0.113, native 0.155, EM 0.199, F1 0.144.
 
 ## Leave-one-dataset-out
 
@@ -53,36 +53,36 @@ Probe MAE to utility: ensemble 0.114, native 0.155, EM 0.199, F1 0.144.
 | alaska_camera       | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.921 |              0.921 |         0.058 | True             |
 | alaska_schema       | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.927 |              0.928 |         0.058 | True             |
 | amazon_google       | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.918 |              0.918 |         0.058 | True             |
-| bird                | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.877 |              0.878 |         0.057 | True             |
+| bird                | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.877 |              0.878 |         0.056 | True             |
 | dblp_acm            | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.919 |              0.919 |         0.058 | True             |
 | dblp_scholar        | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.92  |              0.92  |         0.058 | True             |
-| fetaqa              | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.875 |              0.888 |         0.062 | True             |
-| fintagging          | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.906 |              0.906 |         0.057 | True             |
-| hitab               | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.886 |              0.887 |         0.057 | True             |
+| fetaqa              | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.874 |              0.888 |         0.061 | True             |
+| fintagging          | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.907 |              0.906 |         0.072 | True             |
+| hitab               | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.887 |              0.888 |         0.057 | True             |
 | machamp             | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.921 |              0.921 |         0.058 | True             |
 | magneto_gdc         | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.938 |              0.939 |         0.058 | True             |
 | mmtu                | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.893 |              0.893 |         0.058 | True             |
-| officeqa            | ['tok_f1', 'num_tol_10', 'prefix_ratio']              |              0.89  |              0.899 |         0.038 | False            |
-| officeqa_pro_v2     | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.903 |              0.904 |         0.054 | True             |
+| officeqa            | ['tok_f1', 'num_tol_10', 'prefix_ratio']              |              0.89  |              0.9   |         0.038 | False            |
+| officeqa_pro_v2     | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.903 |              0.905 |         0.057 | True             |
 | opensanctions_pairs | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.919 |              0.919 |         0.058 | True             |
 | papadakis_dn        | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.91  |              0.91  |         0.058 | True             |
-| realhitbench        | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.896 |              0.896 |         0.057 | True             |
-| smat                | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.939 |              0.94  |         0.058 | True             |
-| suc                 | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.866 |              0.867 |         0.057 | True             |
+| realhitbench        | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.896 |              0.897 |         0.057 | True             |
+| smat                | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.941 |              0.941 |         0.058 | True             |
+| suc                 | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.865 |              0.867 |         0.057 | True             |
 | tab_fact            | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.918 |              0.918 |         0.058 | True             |
-| tabis               | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.598 |              0.598 |         0.084 | True             |
+| tabis               | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.598 |              0.598 |         0.083 | True             |
 | tablebench          | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.884 |              0.885 |         0.057 | True             |
-| tableeval           | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.868 |              0.869 |         0.057 | True             |
-| tat_qa              | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.894 |              0.895 |         0.066 | True             |
-| tpcdi_cells         | ['tok_f1', 'num_decay_2p5', 'prefix_ratio', 'em_raw'] |              0.867 |              0.866 |         0.065 | False            |
-| valentine           | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.899 |              0.901 |         0.058 | True             |
+| tableeval           | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.869 |              0.87  |         0.057 | True             |
+| tat_qa              | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.896 |              0.896 |         0.058 | True             |
+| tpcdi_cells         | ['tok_f1', 'num_decay_2p5', 'prefix_ratio', 'em_raw'] |              0.867 |              0.868 |         0.066 | False            |
+| valentine           | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.899 |              0.902 |         0.058 | True             |
 | walmart_amazon      | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.917 |              0.917 |         0.058 | True             |
 | wdc_lspc            | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.921 |              0.921 |         0.058 | True             |
 | wdc_products        | ['tok_f1', 'num_decay_2p5', 'prefix_ratio']           |              0.921 |              0.921 |         0.058 | True             |
-| wikitablequestions  | ['tok_f1', 'num_decay_2p5', 'prefix_ratio', 'em_raw'] |              0.875 |              0.867 |         0.064 | False            |
+| wikitablequestions  | ['tok_f1', 'num_decay_2p5', 'prefix_ratio', 'em_raw'] |              0.876 |              0.867 |         0.065 | False            |
 
 Mean held-out ρ: LODO weights 0.894 vs full weights 0.895; same selection in 90% of folds.
-Severity-scale perturbation (±0.15, 5 draws): mean L1 shift of ensemble weights 0.031; selection changed in 0% of draws.
+Severity-scale perturbation (±0.15, 5 draws): mean L1 shift of ensemble weights 0.042; selection changed in 0% of draws.
 
 ## Leaderboard
 
@@ -90,30 +90,30 @@ Severity-scale perturbation (±0.15, 5 draws): mean L1 shift of ensemble weights
 | Model | Abt-Buy | alaska_camera | alaska_schema | Amazon-Google | bird | dblp_acm | DBLP-Scholar | FeTaQA | fintagging | HiTab | machamp | magneto_gdc | mmtu | OfficeQA | officeqa_pro_v2 | opensanctions_pairs | papadakis_dn | realhitbench | smat | suc | TabFact | tabis | tablebench | tableeval | TAT-QA | TPC-DI | valentine | Walmart-Amazon | wdc_lspc | WDC | WTQ | Common (z-mean) | Borda | Kemeny | 95% CI (items) | Rank range over 100 weightings | Native Borda |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | claude-opus-5 | 1.00 | 0.82 | 0.93 | 0.94 | 0.39 | 1.00 | 0.95 | 0.63 | 0.87 | 0.78 | 0.90 | 0.96 | 0.88 | 0.41 | 0.50 | 0.94 | 0.92 | 0.78 | 0.91 | 1.00 | 0.66 | 0.92 | 0.88 | 0.78 | 0.83 | 0.42 | 1.00 | 0.98 | 0.99 | 0.98 | 0.88 | +0.56 | 1 | 1 | [1, 3] | 1–2 | 2 |
-| gpt-5.5 | 1.00 | 1.00 | 0.91 | 0.94 | 0.21 | 1.00 | 0.96 | 0.62 | 0.85 | 0.76 | 0.90 | 0.96 | 0.90 | 0.36 | 0.31 | 0.75 | 0.95 | 0.77 | 0.92 | 0.97 | 0.84 | 0.92 | 0.88 | 0.80 | 0.80 | 0.42 | 1.00 | 0.97 | 1.00 | 0.98 | 0.86 | +0.51 | 2 | 2 | [1, 3] | 1–2 | 1 |
-| gemini-3.8-flash | 0.98 | 0.89 | 0.90 | 0.93 | 0.40 | 1.00 | 0.93 | 0.66 | 0.85 | 0.76 | 0.90 | 0.95 | 0.89 | 0.43 | 0.41 | 0.86 | 0.94 | 0.79 | 0.89 | 0.99 | 0.86 | 0.91 | 0.87 | 0.79 | 0.81 | 0.42 | 0.97 | 0.99 | 0.98 | 0.99 | 0.88 | +0.48 | 3 | 3 | [1, 3] | 3–3 | 3 |
-| claude-sonnet-5 | 0.97 | 0.98 | 0.92 | 0.96 | 0.33 | 1.00 | 0.97 | 0.56 | 0.85 | 0.78 | 0.90 | 0.95 | 0.88 | 0.34 | 0.32 | 0.73 | 0.95 | 0.71 | 0.92 | 0.95 | 0.74 | 0.88 | 0.90 | 0.76 | 0.83 | 0.42 | 0.99 | 0.95 | 0.98 | 0.97 | 0.87 | +0.26 | 4 | 4 | [4, 7] | 4–4 | 4 |
-| deepseek-r1 | 0.97 | 0.99 | 0.94 | 0.94 | 0.28 | 0.99 | 0.95 | 0.59 | 0.82 | 0.79 | 0.90 | 0.97 | 0.82 | 0.17 | 0.07 | 0.85 | 0.94 | 0.71 | 0.90 | 0.97 | 0.77 | 0.93 | 0.83 | 0.79 | 0.79 | 0.42 | 0.99 | 0.96 | 1.00 | 0.98 | 0.85 | +0.09 | 5 | 7 | [4, 8] | 5–6 | 6 |
-| gemini-3.1-pro | 0.98 | 0.81 | 0.91 | 0.93 | 0.21 | 1.00 | 0.94 | 0.61 | 0.83 | 0.78 | 0.89 | 0.94 | 0.90 | 0.27 | 0.27 | 0.97 | 0.93 | 0.75 | 0.85 | 0.97 | 0.83 | 0.91 | 0.88 | 0.80 | 0.80 | 0.42 | 1.00 | 0.97 | 0.98 | 0.98 | 0.85 | +0.17 | 6 | 6 | [4, 8] | 5–7 | 5 |
-| grok-4 | 0.96 | 0.94 | 0.91 | 0.94 | 0.15 | 1.00 | 0.95 | 0.64 | 0.84 | 0.74 | 0.89 | 0.93 | 0.88 | 0.27 | 0.26 | 0.85 | 0.95 | 0.69 | 0.92 | 0.97 | 0.85 | 0.94 | 0.85 | 0.81 | 0.79 | 0.40 | 0.97 | 0.96 | 1.00 | 0.98 | 0.87 | +0.09 | 7 | 5 | [4, 8] | 6–7 | 7 |
-| gpt-5.4-mini | 0.96 | 0.97 | 0.95 | 0.93 | 0.23 | 0.99 | 0.94 | 0.34 | 0.84 | 0.79 | 0.89 | 0.90 | 0.88 | 0.25 | 0.32 | 0.90 | 0.95 | 0.71 | 0.94 | 0.96 | 0.82 | 0.86 | 0.87 | 0.78 | 0.79 | 0.42 | 0.98 | 0.95 | 0.97 | 0.97 | 0.85 | +0.02 | 8 | 8 | [5, 9] | 8–8 | 8 |
-| deepseek-chat | 0.96 | 1.00 | 0.93 | 0.96 | 0.27 | 1.00 | 0.96 | 0.62 | 0.79 | 0.82 | 0.89 | 0.94 | 0.86 | 0.12 | 0.28 | 0.76 | 0.94 | 0.70 | 0.90 | 0.91 | 0.84 | 0.74 | 0.87 | 0.74 | 0.79 | 0.42 | 0.97 | 0.95 | 0.96 | 0.97 | 0.85 | -0.19 | 9 | 9 | [7, 9] | 9–9 | 9 |
-| gpt-oss-120b | 0.94 | 1.00 | 0.92 | 0.86 | 0.12 | 0.91 | 0.91 | 0.61 | 0.81 | 0.75 | 0.83 | 0.95 | 0.82 | 0.18 | 0.22 | 0.78 | 0.93 | 0.65 | 0.89 | 0.96 | 0.83 | 0.88 | 0.85 | 0.80 | 0.78 | 0.40 | 0.97 | 0.94 | 0.98 | 0.98 | 0.83 | -0.76 | 10 | 10 | [10, 11] | 10–10 | 10 |
-| llama-3.3-70b | 0.96 | 0.99 | 0.78 | 0.95 | 0.20 | 0.97 | 0.97 | 0.25 | 0.79 | 0.79 | 0.87 | 0.66 | 0.81 | 0.22 | 0.28 | 0.79 | 0.94 | 0.64 | 0.73 | 0.83 | 0.78 | 0.79 | 0.73 | 0.69 | 0.76 | 0.40 | 0.96 | 0.93 | 0.96 | 0.97 | 0.76 | -1.22 | 11 | 11 | [10, 11] | 11–11 | 11 |
+| gpt-5.5 | 1.00 | 1.00 | 0.91 | 0.94 | 0.21 | 1.00 | 0.96 | 0.62 | 0.85 | 0.76 | 0.90 | 0.96 | 0.90 | 0.36 | 0.31 | 0.75 | 0.95 | 0.77 | 0.92 | 0.97 | 0.84 | 0.92 | 0.88 | 0.80 | 0.80 | 0.42 | 1.00 | 0.97 | 1.00 | 0.98 | 0.86 | +0.50 | 2 | 2 | [1, 3] | 1–2 | 1 |
+| gemini-3.8-flash | 0.98 | 0.89 | 0.90 | 0.93 | 0.40 | 1.00 | 0.93 | 0.66 | 0.85 | 0.76 | 0.90 | 0.95 | 0.89 | 0.44 | 0.41 | 0.86 | 0.94 | 0.79 | 0.89 | 0.99 | 0.86 | 0.91 | 0.88 | 0.79 | 0.81 | 0.42 | 0.97 | 0.99 | 0.98 | 0.99 | 0.88 | +0.48 | 3 | 3 | [1, 4] | 3–3 | 3 |
+| claude-sonnet-5 | 0.97 | 0.98 | 0.92 | 0.96 | 0.33 | 1.00 | 0.97 | 0.56 | 0.85 | 0.78 | 0.90 | 0.95 | 0.88 | 0.34 | 0.32 | 0.73 | 0.95 | 0.71 | 0.92 | 0.95 | 0.74 | 0.88 | 0.90 | 0.76 | 0.83 | 0.42 | 0.99 | 0.95 | 0.98 | 0.97 | 0.87 | +0.25 | 4 | 5 | [4, 7] | 4–5 | 5 |
+| deepseek-r1 | 0.97 | 0.99 | 0.94 | 0.94 | 0.29 | 0.99 | 0.95 | 0.59 | 0.82 | 0.79 | 0.90 | 0.97 | 0.84 | 0.28 | 0.26 | 0.85 | 0.94 | 0.73 | 0.91 | 0.97 | 0.77 | 0.93 | 0.85 | 0.79 | 0.79 | 0.42 | 0.99 | 0.96 | 1.00 | 0.98 | 0.86 | +0.22 | 5 | 4 | [3, 7] | 4–5 | 4 |
+| gemini-3.1-pro | 0.98 | 0.81 | 0.91 | 0.93 | 0.21 | 1.00 | 0.94 | 0.61 | 0.83 | 0.78 | 0.89 | 0.94 | 0.90 | 0.27 | 0.27 | 0.97 | 0.93 | 0.75 | 0.85 | 0.97 | 0.83 | 0.91 | 0.88 | 0.80 | 0.80 | 0.42 | 1.00 | 0.97 | 0.98 | 0.98 | 0.85 | +0.16 | 6 | 7 | [4, 8] | 6–7 | 6 |
+| grok-4 | 0.96 | 0.94 | 0.91 | 0.94 | 0.15 | 1.00 | 0.95 | 0.64 | 0.84 | 0.74 | 0.89 | 0.93 | 0.88 | 0.27 | 0.26 | 0.85 | 0.95 | 0.69 | 0.92 | 0.97 | 0.85 | 0.94 | 0.85 | 0.81 | 0.79 | 0.40 | 0.97 | 0.96 | 1.00 | 0.98 | 0.87 | +0.07 | 7 | 6 | [4, 8] | 6–7 | 7 |
+| gpt-5.4-mini | 0.96 | 0.97 | 0.95 | 0.93 | 0.23 | 0.99 | 0.94 | 0.34 | 0.84 | 0.79 | 0.89 | 0.90 | 0.88 | 0.25 | 0.32 | 0.90 | 0.95 | 0.72 | 0.94 | 0.96 | 0.82 | 0.86 | 0.87 | 0.78 | 0.79 | 0.42 | 0.98 | 0.95 | 0.97 | 0.97 | 0.85 | +0.01 | 8 | 8 | [6, 9] | 8–9 | 8 |
+| deepseek-chat | 0.96 | 1.00 | 0.93 | 0.96 | 0.27 | 1.00 | 0.96 | 0.62 | 0.79 | 0.82 | 0.89 | 0.94 | 0.86 | 0.12 | 0.28 | 0.76 | 0.94 | 0.71 | 0.89 | 0.91 | 0.84 | 0.74 | 0.87 | 0.74 | 0.79 | 0.42 | 0.97 | 0.95 | 0.96 | 0.97 | 0.85 | -0.21 | 9 | 9 | [7, 9] | 8–9 | 9 |
+| gpt-oss-120b | 0.94 | 1.00 | 0.92 | 0.86 | 0.12 | 0.91 | 0.91 | 0.61 | 0.81 | 0.75 | 0.83 | 0.95 | 0.82 | 0.18 | 0.22 | 0.78 | 0.93 | 0.65 | 0.89 | 0.96 | 0.83 | 0.88 | 0.85 | 0.80 | 0.78 | 0.40 | 0.97 | 0.94 | 0.98 | 0.98 | 0.83 | -0.79 | 10 | 10 | [10, 11] | 10–10 | 10 |
+| llama-3.3-70b | 0.96 | 0.99 | 0.78 | 0.95 | 0.20 | 0.97 | 0.97 | 0.25 | 0.79 | 0.79 | 0.87 | 0.66 | 0.81 | 0.23 | 0.28 | 0.79 | 0.94 | 0.64 | 0.73 | 0.83 | 0.78 | 0.78 | 0.73 | 0.69 | 0.76 | 0.40 | 0.96 | 0.93 | 0.96 | 0.97 | 0.76 | -1.24 | 11 | 11 | [10, 11] | 11–11 | 11 |
 
-Dataset agreement with pooled rank (tau): Abt-Buy 0.80, alaska_camera -0.32, alaska_schema 0.02, Amazon-Google 0.04, bird 0.53, dblp_acm 0.54, DBLP-Scholar 0.02, FeTaQA 0.31, fintagging 0.60, HiTab -0.24, machamp 0.80, magneto_gdc 0.60, mmtu 0.53, OfficeQA 0.60, officeqa_pro_v2 0.38, opensanctions_pairs 0.11, papadakis_dn 0.04, realhitbench 0.71, smat 0.35, suc 0.71, TabFact -0.09, tabis 0.43, tablebench 0.45, tableeval 0.24, TAT-QA 0.71, TPC-DI 0.61, valentine 0.56, Walmart-Amazon 0.72, wdc_lspc 0.50, WDC 0.32, WTQ 0.71
+Dataset agreement with pooled rank (tau): Abt-Buy 0.80, alaska_camera -0.32, alaska_schema 0.02, Amazon-Google 0.04, bird 0.49, dblp_acm 0.54, DBLP-Scholar 0.02, FeTaQA 0.31, fintagging 0.60, HiTab -0.24, machamp 0.80, magneto_gdc 0.60, mmtu 0.53, OfficeQA 0.78, officeqa_pro_v2 0.45, opensanctions_pairs 0.11, papadakis_dn 0.04, realhitbench 0.71, smat 0.35, suc 0.71, TabFact -0.09, tabis 0.43, tablebench 0.45, tableeval 0.20, TAT-QA 0.71, TPC-DI 0.61, valentine 0.56, Walmart-Amazon 0.72, wdc_lspc 0.50, WDC 0.32, WTQ 0.78
 Mean pairwise dataset tau: 0.19; pooled vs native-metric pooled rank: tau 0.93
 
 Rule agreement (tau):
 |            |   mean_score |   mean_z |   mean_rank |   borda |   copeland |   rrf |   kemeny |
 |:-----------|-------------:|---------:|------------:|--------:|-----------:|------:|---------:|
-| mean_score |         1    |     0.89 |        0.85 |    0.85 |       0.89 |  0.85 |     0.89 |
-| mean_z     |         0.89 |     1    |        0.96 |    0.96 |       0.93 |  0.96 |     0.93 |
-| mean_rank  |         0.85 |     0.96 |        1    |    1    |       0.89 |  1    |     0.89 |
-| borda      |         0.85 |     0.96 |        1    |    1    |       0.89 |  1    |     0.89 |
-| copeland   |         0.89 |     0.93 |        0.89 |    0.89 |       1    |  0.89 |     1    |
-| rrf        |         0.85 |     0.96 |        1    |    1    |       0.89 |  1    |     0.89 |
-| kemeny     |         0.89 |     0.93 |        0.89 |    0.89 |       1    |  0.89 |     1    |
+| mean_score |         1    |     0.93 |        0.93 |    0.93 |       0.9  |  0.93 |     0.93 |
+| mean_z     |         0.93 |     1    |        1    |    1    |       0.93 |  1    |     0.93 |
+| mean_rank  |         0.93 |     1    |        1    |    1    |       0.93 |  1    |     0.93 |
+| borda      |         0.93 |     1    |        1    |    1    |       0.93 |  1    |     0.93 |
+| copeland   |         0.9  |     0.93 |        0.93 |    0.93 |       1    |  0.93 |     0.97 |
+| rrf        |         0.93 |     1    |        1    |    1    |       0.93 |  1    |     0.93 |
+| kemeny     |         0.93 |     0.93 |        0.93 |    0.93 |       0.97 |  0.93 |     1    |
 
 ## Caveats
 

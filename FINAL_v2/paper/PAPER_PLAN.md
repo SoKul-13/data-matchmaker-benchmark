@@ -46,7 +46,7 @@ workshops, or an LLM-evaluation track). 4–8 pages plus appendix. Lead contribu
 * The winner's curse and the nested bootstrap: select in-bag, score out-of-bag; the optimism gap is the measured size of the curse.
 * The plateau: a set of weightings not distinguishable from the best; a flat objective means rank is noise.
 * Post-stratification: the same answers re-weighted to the official stratum proportions, so per-dataset numbers are comparable to published ones.
-* The truncation protocol: four budgets (700 / 2,500 / 8,000 / 16,000), mechanical trigger, archived originals, tagged replacements; budgets are provider tokens and include chain of thought; persistent non-termination at 16,000 is a model property (DeepSeek-R1 on OfficeQA and BIRD).
+* The truncation protocol: five budgets (700 / 2,500 / 8,000 / 16,000 / 32,000), mechanical trigger, archived originals, tagged replacements; budgets are provider tokens and include chain of thought; persistent non-termination at 32,000 is a model property (55 DeepSeek-R1 answers, OfficeQA and BIRD).
 
 ## 5. Comparisons to make
 * v1 vs best-J vs best-ρ vs exact match (the four rules), on J, ρ, AUC, and the leaderboard they induce (rule-agreement τ matrix).
@@ -54,7 +54,7 @@ workshops, or an LLM-evaluation track). 4–8 pages plus appendix. Lead contribu
 * Suite score vs official-split estimate (accuracy) and balanced-pool F1 vs official-ratio F1 (matching sets).
 * Global vs per-family optimum vs v1 (transfer).
 * Exhaustive vs sampled designs (regret ≤ 0.005).
-* Optional, from the sibling pipelines on the same answers: v4 (nine components, best = numeric tolerance alone) and v3 (view mixes vs pure BT);
+* Optional, from the sibling pipelines on the same answers: v4 (nine components, best by agreement = exact match alone at eleven models, numeric tolerance at ten; both worst on correctness) and v3 (view mixes vs pure BT);
   one paragraph each in Discussion, or an appendix.
 
 ## 6. Papers to reference (and what for)

@@ -1,6 +1,6 @@
 # v2 report: an audit of the deployed judge's weights, done exhaustively
 
-Generated 2026-10-16 14:32. Data: 31 datasets × 11 models, 3083 answered items in total (abt_buy 100, alaska_camera 100, alaska_schema 93, amazon_google 100, bird 100, dblp_acm 100, dblp_scholar 100, fetaqa 100, fintagging 100, hitab 100, machamp 100, magneto_gdc 100, mmtu 100, officeqa 100, officeqa_pro_v2 90, opensanctions_pairs 100, papadakis_dn 100, realhitbench 100, smat 100, suc 100, tab_fact 100, tabis 100, tablebench 100, tableeval 100, tat_qa 100, tpcdi_cells 100, valentine 100, walmart_amazon 100, wdc_lspc 100, wdc_products 100, wikitablequestions 100). Models: claude-opus-5, claude-sonnet-5, deepseek-chat, deepseek-r1, gemini-3.1-pro, gemini-3.8-flash, gpt-5.4-mini, gpt-5.5, gpt-oss-120b, grok-4, llama-3.3-70b. Every number below is read from `output/`; `scripts/run_all.sh` regenerates everything from the cached answers in a few minutes.
+Generated 2026-10-25 18:54. Data: 31 datasets × 11 models, 3083 answered items in total (abt_buy 100, alaska_camera 100, alaska_schema 93, amazon_google 100, bird 100, dblp_acm 100, dblp_scholar 100, fetaqa 100, fintagging 100, hitab 100, machamp 100, magneto_gdc 100, mmtu 100, officeqa 100, officeqa_pro_v2 90, opensanctions_pairs 100, papadakis_dn 100, realhitbench 100, smat 100, suc 100, tab_fact 100, tabis 100, tablebench 100, tableeval 100, tat_qa 100, tpcdi_cells 100, valentine 100, walmart_amazon 100, wdc_lspc 100, wdc_products 100, wikitablequestions 100). Models: claude-opus-5, claude-sonnet-5, deepseek-chat, deepseek-r1, gemini-3.1-pro, gemini-3.8-flash, gpt-5.4-mini, gpt-5.5, gpt-oss-120b, grok-4, llama-3.3-70b. Every number below is read from `output/`; `scripts/run_all.sh` regenerates everything from the cached answers in a few minutes.
 
 ## 1. Question and design
 
@@ -8,12 +8,12 @@ v1 scores an answer as 0.35·F1 + 0.35·numeric-decay + 0.15·precision + 0.15·
 
 ## 2. Exhaustive grid
 
-* Best weighting: f1 0.35, decay 0.60, precision 0.05, recall 0.00 with J = 0.414 (τ to native metrics 0.92).
-* v1: J = 0.392, rank 1602 of 1,771; 1601 weightings are better (90 %), 4 tie.
-* Corners and uniform: only f1 0.409, only decay 0.394, only precision 0.386, only recall 0.389, uniform 0.401.
-* J quantiles over the lattice: median 0.401, 90 % 0.407, 99 % 0.412.
-* Objective robustness: the best under Kemeny pooling is f1 0.35, decay 0.20, precision 0.05, recall 0.40 (J 0.418, v1 rank 1404); under Copeland f1 0.05, decay 0.60, precision 0.25, recall 0.10 (v1 rank 1542); under Bradley–Terry f1 0.25, decay 0.60, precision 0.10, recall 0.05 (v1 rank 615). v1's J under the four rules: Borda 0.392, Kemeny 0.402, Copeland 0.402, BT 0.390.
-* Top 5 by J: #1 f1 0.35, decay 0.60, precision 0.05, recall 0.00 (J 0.414); #2 f1 0.80, decay 0.00, precision 0.20, recall 0.00 (J 0.414); #3 f1 0.85, decay 0.00, precision 0.15, recall 0.00 (J 0.414); #4 f1 0.20, decay 0.00, precision 0.50, recall 0.30 (J 0.414); #5 f1 0.00, decay 0.15, precision 0.15, recall 0.70 (J 0.413).
+* Best weighting: f1 0.35, decay 0.60, precision 0.05, recall 0.00 with J = 0.425 (τ to native metrics 0.92).
+* v1: J = 0.411, rank 1130 of 1,771; 1128 weightings are better (64 %), 12 tie.
+* Corners and uniform: only f1 0.412, only decay 0.415, only precision 0.393, only recall 0.395, uniform 0.418.
+* J quantiles over the lattice: median 0.413, 90 % 0.418, 99 % 0.422.
+* Objective robustness: the best under Kemeny pooling is f1 0.20, decay 0.25, precision 0.30, recall 0.25 (J 0.427, v1 rank 1163); under Copeland f1 0.20, decay 0.25, precision 0.40, recall 0.15 (v1 rank 322); under Bradley–Terry f1 0.35, decay 0.60, precision 0.05, recall 0.00 (v1 rank 319). v1's J under the four rules: Borda 0.411, Kemeny 0.415, Copeland 0.424, BT 0.403.
+* Top 5 by J: #1 f1 0.35, decay 0.60, precision 0.05, recall 0.00 (J 0.425); #2 f1 0.30, decay 0.60, precision 0.10, recall 0.00 (J 0.424); #3 f1 0.60, decay 0.15, precision 0.00, recall 0.25 (J 0.424); #4 f1 0.65, decay 0.15, precision 0.00, recall 0.20 (J 0.424); #5 f1 0.30, decay 0.15, precision 0.40, recall 0.15 (J 0.424).
 
 Figures: `fig_landscape` (sorted J with v1 and corners), `fig_marginals` (J against each weight), `fig_designs`.
 
@@ -21,20 +21,20 @@ Figures: `fig_landscape` (sorted J with v1 and corners), `fig_marginals` (J agai
 
 | design | best J found (mean ± sd) | regret vs exhaustive (mean / max) | rank of found best in the grid (median / worst) | min pairwise L1 | centred L2 discrepancy | share with a zero weight |
 |---|---|---|---|---|---|---|
-| dirichlet_lattice | 0.412 ± 0.001 | 0.002 / 0.004 | 12 / 58 | 0.10 | 0.538 | 0.27 |
-| lhs_simplex | 0.413 ± 0.001 | 0.002 / 0.004 | 14 / 49 | 0.10 | 0.531 | 0.28 |
-| uniform_lattice | 0.412 ± 0.001 | 0.002 / 0.004 | 14 / 60 | 0.10 | 0.526 | 0.45 |
+| dirichlet_lattice | 0.422 ± 0.001 | 0.002 / 0.004 | 16 / 51 | 0.10 | 0.538 | 0.27 |
+| lhs_simplex | 0.423 ± 0.001 | 0.002 / 0.004 | 13 / 65 | 0.10 | 0.531 | 0.28 |
+| uniform_lattice | 0.423 ± 0.001 | 0.002 / 0.004 | 12 / 45 | 0.10 | 0.526 | 0.45 |
 
 Reading: with four weights the exhaustive grid is cheap, so the sampled designs only matter as a rehearsal for v3/v4; their regret and discrepancy are reported for that comparison.
 
 ## 3. Is the best weighting real? Nested selection and plateau
 
-* Nested item bootstrap (B = 1000): the weighting selected on in-bag items has mean in-bag J 0.370 but out-of-bag J 0.323 (**optimism gap 0.047**). v1's out-of-bag J is 0.330; the full-data best's is 0.328.
-* Selected vs v1 out of bag: mean difference -0.007, 95 % CI [-0.033, +0.011], one-sided bootstrap p = 0.721 (share of resamples where the selected weighting is ahead: 0.28).
-* Full-data best vs v1: in-bag p = 0.634; out-of-bag p = 0.644.
-* Selection instability: 624 distinct weightings were selected across resamples; mean selected weights f1 0.30, decay 0.28, precision 0.16, recall 0.27 (sd f1 0.26, decay 0.22, precision 0.16, recall 0.25). Most often: f1 0.00, decay 0.70, precision 0.00, recall 0.30 (1 %); f1 0.00, decay 0.35, precision 0.00, recall 0.65 (1 %); f1 0.00, decay 0.40, precision 0.00, recall 0.60 (1 %).
-* **Plateau** (weightings not significantly below the best, paired bootstrap p > .05): 1749 of 1771 (99 %); v1 inside: True (p vs best 0.63). Practical plateau (bootstrap-mean J within 0.02 of the best): 1731 weightings, v1 inside: True; weight ranges inside it: f1 [0.00, 1.00], decay [0.00, 1.00], precision [0.00, 0.85], recall [0.00, 0.95].
-* v1 is in the top 5 % of in-bag J in 6 % of resamples.
+* Nested item bootstrap (B = 1000): the weighting selected on in-bag items has mean in-bag J 0.379 but out-of-bag J 0.332 (**optimism gap 0.046**). v1's out-of-bag J is 0.339; the full-data best's is 0.335.
+* Selected vs v1 out of bag: mean difference -0.006, 95 % CI [-0.032, +0.011], one-sided bootstrap p = 0.709 (share of resamples where the selected weighting is ahead: 0.29).
+* Full-data best vs v1: in-bag p = 0.663; out-of-bag p = 0.674.
+* Selection instability: 617 distinct weightings were selected across resamples; mean selected weights f1 0.26, decay 0.31, precision 0.17, recall 0.26 (sd f1 0.23, decay 0.21, precision 0.17, recall 0.23). Most often: f1 0.00, decay 0.30, precision 0.00, recall 0.70 (1 %); f1 0.00, decay 0.35, precision 0.00, recall 0.65 (1 %); f1 0.00, decay 0.45, precision 0.00, recall 0.55 (1 %).
+* **Plateau** (weightings not significantly below the best, paired bootstrap p > .05): 1754 of 1771 (99 %); v1 inside: True (p vs best 0.66). Practical plateau (bootstrap-mean J within 0.02 of the best): 1728 weightings, v1 inside: True; weight ranges inside it: f1 [0.00, 1.00], decay [0.00, 1.00], precision [0.00, 0.85], recall [0.00, 0.95].
+* v1 is in the top 5 % of in-bag J in 8 % of resamples.
 
 Figures: `selection/fig_nested`, `selection/fig_plateau`.
 
@@ -42,52 +42,52 @@ Figures: `selection/fig_nested`, `selection/fig_plateau`.
 
 | held out | J on the rest (LODO weights) | LODO weights | τ held-out → pooled rest: LODO weights | full best | v1 |
 |---|---|---|---|---|---|
-| abt_buy | 0.406 | f1 0.20, decay 0.00, precision 0.50, recall 0.30 | +0.86 | +0.72 | +0.72 |
-| alaska_camera | 0.449 | f1 0.00, decay 0.55, precision 0.10, recall 0.35 | -0.38 | -0.40 | -0.40 |
-| alaska_schema | 0.435 | f1 0.45, decay 0.25, precision 0.20, recall 0.10 | -0.18 | -0.09 | -0.16 |
-| amazon_google | 0.430 | f1 0.55, decay 0.00, precision 0.30, recall 0.15 | +0.00 | -0.06 | -0.06 |
-| bird | 0.412 | f1 0.35, decay 0.60, precision 0.05, recall 0.00 | +0.37 | +0.37 | +0.56 |
-| dblp_acm | 0.409 | f1 0.00, decay 0.15, precision 0.15, recall 0.70 | +0.56 | +0.54 | +0.54 |
-| dblp_scholar | 0.431 | f1 0.05, decay 0.55, precision 0.30, recall 0.10 | -0.02 | +0.00 | -0.04 |
-| fetaqa | 0.418 | f1 0.00, decay 0.15, precision 0.00, recall 0.85 | +0.41 | +0.38 | +0.33 |
-| fintagging | 0.408 | f1 0.20, decay 0.25, precision 0.30, recall 0.25 | +0.44 | +0.60 | +0.49 |
-| hitab | 0.440 | f1 0.45, decay 0.20, precision 0.20, recall 0.15 | -0.34 | -0.35 | -0.38 |
-| machamp | 0.406 | f1 0.80, decay 0.00, precision 0.20, recall 0.00 | +0.67 | +0.72 | +0.71 |
-| magneto_gdc | 0.414 | f1 0.00, decay 0.25, precision 0.20, recall 0.55 | +0.49 | +0.45 | +0.45 |
-| mmtu | 0.409 | f1 0.25, decay 0.10, precision 0.15, recall 0.50 | +0.40 | +0.53 | +0.48 |
-| officeqa | 0.412 | f1 0.50, decay 0.00, precision 0.35, recall 0.15 | +0.51 | +0.60 | +0.53 |
-| officeqa_pro_v2 | 0.410 | f1 0.00, decay 0.60, precision 0.00, recall 0.40 | +0.45 | +0.45 | +0.44 |
-| opensanctions_pairs | 0.422 | f1 0.35, decay 0.60, precision 0.05, recall 0.00 | +0.04 | +0.04 | +0.00 |
-| papadakis_dn | 0.433 | f1 0.50, decay 0.00, precision 0.35, recall 0.15 | -0.10 | -0.02 | -0.08 |
-| realhitbench | 0.409 | f1 0.60, decay 0.20, precision 0.20, recall 0.00 | +0.64 | +0.64 | +0.60 |
-| smat | 0.419 | f1 0.25, decay 0.15, precision 0.05, recall 0.55 | +0.16 | +0.37 | +0.27 |
-| suc | 0.410 | f1 0.10, decay 0.75, precision 0.00, recall 0.15 | +0.60 | +0.55 | +0.48 |
-| tab_fact | 0.427 | f1 0.30, decay 0.00, precision 0.45, recall 0.25 | -0.04 | -0.09 | -0.06 |
-| tabis | 0.420 | f1 0.00, decay 0.05, precision 0.50, recall 0.45 | +0.44 | +0.41 | +0.37 |
-| tablebench | 0.415 | f1 0.80, decay 0.00, precision 0.20, recall 0.00 | +0.44 | +0.38 | +0.38 |
-| tableeval | 0.416 | f1 0.20, decay 0.00, precision 0.50, recall 0.30 | +0.29 | +0.24 | +0.20 |
-| tat_qa | 0.411 | f1 0.20, decay 0.75, precision 0.05, recall 0.00 | +0.37 | +0.56 | +0.51 |
-| tpcdi_cells | 0.412 | f1 0.50, decay 0.10, precision 0.00, recall 0.40 | +0.54 | +0.51 | +0.51 |
-| valentine | 0.412 | f1 0.00, decay 0.05, precision 0.50, recall 0.45 | +0.42 | +0.47 | +0.40 |
-| walmart_amazon | 0.404 | f1 0.25, decay 0.15, precision 0.05, recall 0.55 | +0.73 | +0.65 | +0.65 |
-| wdc_lspc | 0.418 | f1 0.05, decay 0.15, precision 0.35, recall 0.45 | +0.48 | +0.50 | +0.46 |
-| wdc_products | 0.414 | f1 0.80, decay 0.00, precision 0.20, recall 0.00 | +0.31 | +0.31 | +0.31 |
-| wikitablequestions | 0.403 | f1 0.80, decay 0.00, precision 0.20, recall 0.00 | +0.71 | +0.75 | +0.71 |
+| abt_buy | 0.412 | f1 0.20, decay 0.25, precision 0.30, recall 0.25 | +0.78 | +0.76 | +0.76 |
+| alaska_camera | 0.451 | f1 0.20, decay 0.25, precision 0.30, recall 0.25 | -0.28 | -0.28 | -0.25 |
+| alaska_schema | 0.439 | f1 0.35, decay 0.15, precision 0.35, recall 0.15 | -0.04 | +0.02 | -0.05 |
+| amazon_google | 0.439 | f1 0.20, decay 0.25, precision 0.30, recall 0.25 | +0.02 | +0.02 | +0.02 |
+| bird | 0.422 | f1 0.35, decay 0.60, precision 0.05, recall 0.00 | +0.42 | +0.42 | +0.60 |
+| dblp_acm | 0.422 | f1 0.35, decay 0.60, precision 0.05, recall 0.00 | +0.50 | +0.50 | +0.54 |
+| dblp_scholar | 0.441 | f1 0.35, decay 0.20, precision 0.05, recall 0.40 | +0.00 | +0.02 | +0.04 |
+| fetaqa | 0.426 | f1 0.10, decay 0.60, precision 0.20, recall 0.10 | +0.40 | +0.45 | +0.39 |
+| fintagging | 0.426 | f1 0.15, decay 0.25, precision 0.35, recall 0.25 | +0.48 | +0.56 | +0.49 |
+| hitab | 0.444 | f1 0.20, decay 0.25, precision 0.30, recall 0.25 | -0.18 | -0.16 | -0.20 |
+| machamp | 0.414 | f1 0.20, decay 0.25, precision 0.30, recall 0.25 | +0.76 | +0.81 | +0.80 |
+| magneto_gdc | 0.418 | f1 0.00, decay 0.15, precision 0.00, recall 0.85 | +0.60 | +0.56 | +0.56 |
+| mmtu | 0.424 | f1 0.15, decay 0.05, precision 0.60, recall 0.20 | +0.40 | +0.49 | +0.44 |
+| officeqa | 0.419 | f1 0.30, decay 0.00, precision 0.45, recall 0.25 | +0.49 | +0.71 | +0.67 |
+| officeqa_pro_v2 | 0.415 | f1 0.10, decay 0.75, precision 0.00, recall 0.15 | +0.64 | +0.60 | +0.66 |
+| opensanctions_pairs | 0.435 | f1 0.15, decay 0.70, precision 0.00, recall 0.15 | +0.06 | +0.07 | +0.04 |
+| papadakis_dn | 0.444 | f1 0.20, decay 0.25, precision 0.30, recall 0.25 | -0.08 | +0.00 | -0.04 |
+| realhitbench | 0.416 | f1 0.20, decay 0.25, precision 0.30, recall 0.25 | +0.66 | +0.67 | +0.64 |
+| smat | 0.429 | f1 0.20, decay 0.25, precision 0.30, recall 0.25 | +0.31 | +0.37 | +0.31 |
+| suc | 0.418 | f1 0.15, decay 0.25, precision 0.35, recall 0.25 | +0.55 | +0.59 | +0.51 |
+| tab_fact | 0.439 | f1 0.15, decay 0.25, precision 0.35, recall 0.25 | -0.02 | -0.06 | -0.02 |
+| tabis | 0.422 | f1 0.20, decay 0.00, precision 0.50, recall 0.30 | +0.47 | +0.49 | +0.45 |
+| tablebench | 0.427 | f1 0.35, decay 0.20, precision 0.05, recall 0.40 | +0.45 | +0.42 | +0.45 |
+| tableeval | 0.428 | f1 0.05, decay 0.60, precision 0.25, recall 0.10 | +0.24 | +0.27 | +0.24 |
+| tat_qa | 0.424 | f1 0.00, decay 1.00, precision 0.00, recall 0.00 | +0.16 | +0.60 | +0.55 |
+| tpcdi_cells | 0.420 | f1 0.15, decay 0.70, precision 0.00, recall 0.15 | +0.57 | +0.62 | +0.62 |
+| valentine | 0.424 | f1 0.20, decay 0.00, precision 0.50, recall 0.30 | +0.42 | +0.47 | +0.40 |
+| walmart_amazon | 0.414 | f1 0.00, decay 0.25, precision 0.15, recall 0.60 | +0.74 | +0.69 | +0.69 |
+| wdc_lspc | 0.420 | f1 0.00, decay 0.25, precision 0.15, recall 0.60 | +0.51 | +0.58 | +0.54 |
+| wdc_products | 0.425 | f1 0.10, decay 0.80, precision 0.00, recall 0.10 | +0.38 | +0.35 | +0.35 |
+| wikitablequestions | 0.418 | f1 0.20, decay 0.25, precision 0.30, recall 0.25 | +0.70 | +0.78 | +0.71 |
 
-Mean held-out τ: LODO weights +0.33, full best +0.35, v1 +0.32.
+Mean held-out τ: LODO weights +0.36, full best +0.40, v1 +0.38.
 
 | held-out family | J on the rest | LOFO weights | τ held-out: LOFO weights | full best | v1 |
 |---|---|---|---|---|---|
-| EM | 0.471 | f1 0.70, decay 0.15, precision 0.05, recall 0.10 | +0.32 | +0.31 | +0.32 |
-| SM | 0.420 | f1 0.05, decay 0.25, precision 0.00, recall 0.70 | +0.33 | +0.30 | +0.28 |
-| TQA | 0.421 | f1 0.05, decay 0.00, precision 0.60, recall 0.35 | +0.33 | +0.37 | +0.33 |
-| FIN | 0.400 | f1 0.05, decay 0.75, precision 0.05, recall 0.15 | +0.45 | +0.49 | +0.44 |
+| EM | 0.485 | f1 0.05, decay 0.60, precision 0.25, recall 0.10 | +0.33 | +0.32 | +0.32 |
+| SM | 0.428 | f1 0.10, decay 0.15, precision 0.10, recall 0.65 | +0.36 | +0.29 | +0.28 |
+| TQA | 0.433 | f1 0.30, decay 0.60, precision 0.10, recall 0.00 | +0.37 | +0.37 | +0.36 |
+| FIN | 0.405 | f1 0.10, decay 0.85, precision 0.00, recall 0.05 | +0.50 | +0.58 | +0.56 |
 
 Per-family best weightings:
 * EM: f1 0.35, decay 0.60, precision 0.05, recall 0.00 (J 0.358; under the global best 0.358; under v1 0.358; L1 distance to global best 0.00) — datasets: abt_buy, alaska_camera, amazon_google, dblp_acm, dblp_scholar, machamp, opensanctions_pairs, papadakis_dn, walmart_amazon, wdc_lspc, wdc_products
-* SM: f1 0.00, decay 1.00, precision 0.00, recall 0.00 (J 0.556; under the global best 0.535; under v1 0.512; L1 distance to global best 0.80) — datasets: alaska_schema, fintagging, magneto_gdc, smat, tpcdi_cells, valentine
-* TQA: f1 0.05, decay 0.05, precision 0.25, recall 0.65 (J 0.484; under the global best 0.470; under v1 0.463; L1 distance to global best 1.70) — datasets: bird, fetaqa, hitab, mmtu, realhitbench, suc, tab_fact, tabis, tablebench, tableeval, wikitablequestions
-* FIN: f1 0.00, decay 0.05, precision 0.00, recall 0.95 (J 0.842; under the global best 0.697; under v1 0.685; L1 distance to global best 1.90) — datasets: officeqa, officeqa_pro_v2, tat_qa
+* SM: f1 0.00, decay 1.00, precision 0.00, recall 0.00 (J 0.549; under the global best 0.535; under v1 0.512; L1 distance to global best 0.80) — datasets: alaska_schema, fintagging, magneto_gdc, smat, tpcdi_cells, valentine
+* TQA: f1 0.05, decay 0.05, precision 0.25, recall 0.65 (J 0.494; under the global best 0.483; under v1 0.483; L1 distance to global best 1.70) — datasets: bird, fetaqa, hitab, mmtu, realhitbench, suc, tab_fact, tabis, tablebench, tableeval, wikitablequestions
+* FIN: f1 0.95, decay 0.05, precision 0.00, recall 0.00 (J 0.879; under the global best 0.772; under v1 0.771; L1 distance to global best 1.20) — datasets: officeqa, officeqa_pro_v2, tat_qa
 
 ## 5. Correctness on known-quality anchors (borrowed from v5; does not change the objective)
 
@@ -95,20 +95,20 @@ Per-family best weightings:
 
 | rule | weights | J (agreement) | ρ to utility | mean per-dataset ρ | AUC correct vs wrong | mean score of wrong answers | hedge gap | rank by J | rank by ρ |
 |---|---|---|---|---|---|---|---|---|---|
-| v1 | f1 0.35, decay 0.35, precision 0.15, recall 0.15 | 0.392 | 0.878 | 0.868 | 0.994 | 0.034 | -0.51 | 1602 | 370 |
-| best_J | f1 0.35, decay 0.60, precision 0.05, recall 0.00 | 0.414 | 0.876 | 0.866 | 0.994 | 0.036 | -0.56 | 1 | 722 |
-| best_rho | f1 0.00, decay 0.35, precision 0.60, recall 0.05 | 0.391 | 0.883 | 0.871 | 0.994 | 0.034 | -0.57 | 1667 | 1 |
-| pareto_knee | f1 0.35, decay 0.60, precision 0.05, recall 0.00 | 0.414 | 0.876 | 0.866 | 0.994 | 0.036 | -0.56 | 1 | 722 |
+| v1 | f1 0.35, decay 0.35, precision 0.15, recall 0.15 | 0.411 | 0.878 | 0.868 | 0.994 | 0.034 | -0.51 | 1130 | 370 |
+| best_J | f1 0.35, decay 0.60, precision 0.05, recall 0.00 | 0.425 | 0.876 | 0.866 | 0.994 | 0.036 | -0.56 | 1 | 722 |
+| best_rho | f1 0.00, decay 0.35, precision 0.60, recall 0.05 | 0.405 | 0.883 | 0.871 | 0.994 | 0.034 | -0.57 | 1622 | 1 |
+| pareto_knee | f1 0.35, decay 0.60, precision 0.05, recall 0.00 | 0.425 | 0.876 | 0.866 | 0.994 | 0.036 | -0.56 | 1 | 722 |
 | exact match | – | – | 0.828 | 0.830 | 0.989 | 0.011 | -0.81 | – | – |
 
-Spearman correlation between J and ρ across all 1,771 weightings: **-0.23**. Pareto front size 17. rho and auc are correctness against known-utility anchors; J is agreement among datasets. If the best-J weighting also has high rho, agreement and correctness pull the same way; if not, the Pareto knee is the defensible compromise.
+Spearman correlation between J and ρ across all 1,771 weightings: **-0.14**. Pareto front size 17. rho and auc are correctness against known-utility anchors; J is agreement among datasets. If the best-J weighting also has high rho, agreement and correctness pull the same way; if not, the Pareto knee is the defensible compromise.
 
 Figure: `anchors/fig_pareto`.
 
 ## 6. Sensitivity
 
-* v1: 12 lattice neighbours within one 0.05 move; J centre 0.392, neighbours min 0.388 / mean 0.394 / max 0.400 (range 0.012); 77 % of neighbours are better.
-* best: 9 lattice neighbours within one 0.05 move; J centre 0.414, neighbours min 0.398 / mean 0.406 / max 0.414 (range 0.017); 0 % of neighbours are better.
+* v1: 12 lattice neighbours within one 0.05 move; J centre 0.411, neighbours min 0.406 / mean 0.412 / max 0.419 (range 0.012); 62 % of neighbours are better.
+* best: 9 lattice neighbours within one 0.05 move; J centre 0.425, neighbours min 0.413 / mean 0.418 / max 0.425 (range 0.012); 0 % of neighbours are better.
 
 ## 7. Leaderboards under the naive, deployed and calibrated rules
 
@@ -116,29 +116,29 @@ Bradley–Terry (headline) rankings, with Borda in brackets; full tables, streng
 
 | rule | weights | claude-opus-5 | claude-sonnet-5 | deepseek-chat | deepseek-r1 | gemini-3.1-pro | gemini-3.8-flash | gpt-5.4-mini | gpt-5.5 | gpt-oss-120b | grok-4 | llama-3.3-70b | Friedman p | Kendall's W | significant pairs (Holm) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| em_only | – | 1 (1) | 7 (4) | 9 (8) | 6 (5) | 4 (7) | 3 (3) | 8 (9) | 2 (2) | 10 (10) | 5 (6) | 11 (11) | 0.000 | 0.27 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| v1_original | f1 0.35, decay 0.35, precision 0.15, recall 0.15 | 2 (2) | 4 (4) | 9 (8) | 7 (5) | 5 (6) | 1 (3) | 8 (9) | 3 (1) | 10 (10) | 6 (7) | 11 (11) | 0.000 | 0.26 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| top1 | f1 0.35, decay 0.60, precision 0.05, recall 0.00 | 2 (2) | 4 (4) | 9 (9) | 7 (7) | 5 (5) | 1 (3) | 8 (8) | 3 (1) | 10 (10) | 6 (5) | 11 (11) | 0.000 | 0.26 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| top2 | f1 0.80, decay 0.00, precision 0.20, recall 0.00 | 3 (1) | 7 (5) | 8 (8) | 6 (7) | 4 (4) | 1 (3) | 9 (9) | 2 (2) | 10 (10) | 5 (6) | 11 (11) | 0.000 | 0.26 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.5 > gpt-5.4-mini, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| top3 | f1 0.85, decay 0.00, precision 0.15, recall 0.00 | 3 (1) | 7 (5) | 8 (8) | 6 (7) | 4 (4) | 1 (3) | 9 (9) | 2 (2) | 10 (10) | 5 (6) | 11 (11) | 0.000 | 0.26 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.5 > gpt-5.4-mini, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| top4 | f1 0.20, decay 0.00, precision 0.50, recall 0.30 | 3 (1) | 7 (5) | 8 (8) | 5 (5) | 4 (4) | 1 (3) | 9 (9) | 2 (2) | 10 (10) | 6 (7) | 11 (11) | 0.000 | 0.26 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.5 > gpt-5.4-mini, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| top5 | f1 0.00, decay 0.15, precision 0.15, recall 0.70 | 2 (1) | 4 (6) | 8 (8) | 7 (4) | 5 (6) | 1 (3) | 9 (9) | 3 (2) | 10 (10) | 6 (5) | 11 (11) | 0.000 | 0.27 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.5 > gpt-5.4-mini, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| best_anchor | f1 0.00, decay 0.35, precision 0.60, recall 0.05 | 2 (2) | 4 (4) | 9 (9) | 8 (6) | 5 (5) | 1 (3) | 6 (8) | 3 (1) | 10 (10) | 7 (7) | 11 (11) | 0.000 | 0.25 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| pareto_knee | f1 0.35, decay 0.60, precision 0.05, recall 0.00 | 2 (2) | 4 (4) | 9 (9) | 7 (7) | 5 (5) | 1 (3) | 8 (8) | 3 (1) | 10 (10) | 6 (5) | 11 (11) | 0.000 | 0.26 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| em_only | – | 1 (1) | 7 (5) | 9 (8) | 4 (4) | 5 (7) | 3 (3) | 8 (9) | 2 (2) | 10 (10) | 6 (6) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| v1_original | f1 0.35, decay 0.35, precision 0.15, recall 0.15 | 2 (2) | 5 (5) | 9 (8) | 4 (4) | 6 (6) | 1 (3) | 8 (9) | 3 (1) | 10 (10) | 7 (7) | 11 (11) | 0.000 | 0.27 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| top1 | f1 0.35, decay 0.60, precision 0.05, recall 0.00 | 2 (2) | 5 (5) | 9 (9) | 4 (4) | 6 (6) | 1 (3) | 8 (8) | 3 (1) | 10 (10) | 7 (6) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| top2 | f1 0.30, decay 0.60, precision 0.10, recall 0.00 | 2 (2) | 5 (5) | 9 (9) | 4 (4) | 6 (6) | 1 (3) | 8 (8) | 3 (1) | 10 (10) | 7 (6) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| top3 | f1 0.60, decay 0.15, precision 0.00, recall 0.25 | 2 (2) | 5 (5) | 9 (8) | 4 (4) | 6 (5) | 1 (3) | 8 (9) | 3 (1) | 10 (10) | 7 (7) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.5 > gpt-5.4-mini, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| top4 | f1 0.65, decay 0.15, precision 0.00, recall 0.20 | 2 (2) | 5 (5) | 9 (8) | 4 (4) | 6 (5) | 1 (3) | 8 (9) | 3 (1) | 10 (10) | 7 (7) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.5 > gpt-5.4-mini, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| top5 | f1 0.30, decay 0.15, precision 0.40, recall 0.15 | 2 (2) | 5 (5) | 9 (8) | 3 (4) | 6 (6) | 1 (3) | 8 (9) | 4 (1) | 10 (10) | 7 (7) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.5 > gpt-5.4-mini, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| best_anchor | f1 0.00, decay 0.35, precision 0.60, recall 0.05 | 2 (2) | 5 (5) | 9 (9) | 3 (4) | 6 (6) | 1 (3) | 7 (8) | 4 (1) | 10 (10) | 8 (7) | 11 (11) | 0.000 | 0.26 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| pareto_knee | f1 0.35, decay 0.60, precision 0.05, recall 0.00 | 2 (2) | 5 (5) | 9 (9) | 4 (4) | 6 (6) | 1 (3) | 8 (8) | 3 (1) | 10 (10) | 7 (6) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
 
 Agreement between the BT rankings of the rules (Kendall τ):
 
 | | em_only | v1_original | top1 | top2 | top3 | top4 | top5 | best_anchor | pareto_knee |
 |---|---|---|---|---|---|---|---|---|---|
-| em_only | +1.00 | +0.82 | +0.82 | +0.85 | +0.85 | +0.82 | +0.78 | +0.75 | +0.82 |
-| v1_original | +0.82 | +1.00 | +1.00 | +0.82 | +0.82 | +0.78 | +0.96 | +0.93 | +1.00 |
-| top1 | +0.82 | +1.00 | +1.00 | +0.82 | +0.82 | +0.78 | +0.96 | +0.93 | +1.00 |
-| top2 | +0.85 | +0.82 | +0.82 | +1.00 | +1.00 | +0.96 | +0.85 | +0.75 | +0.82 |
-| top3 | +0.85 | +0.82 | +0.82 | +1.00 | +1.00 | +0.96 | +0.85 | +0.75 | +0.82 |
-| top4 | +0.82 | +0.78 | +0.78 | +0.96 | +0.96 | +1.00 | +0.82 | +0.71 | +0.78 |
-| top5 | +0.78 | +0.96 | +0.96 | +0.85 | +0.85 | +0.82 | +1.00 | +0.89 | +0.96 |
-| best_anchor | +0.75 | +0.93 | +0.93 | +0.75 | +0.75 | +0.71 | +0.89 | +1.00 | +0.93 |
-| pareto_knee | +0.82 | +1.00 | +1.00 | +0.82 | +0.82 | +0.78 | +0.96 | +0.93 | +1.00 |
+| em_only | +1.00 | +0.85 | +0.85 | +0.85 | +0.85 | +0.85 | +0.82 | +0.78 | +0.85 |
+| v1_original | +0.85 | +1.00 | +1.00 | +1.00 | +1.00 | +1.00 | +0.96 | +0.93 | +1.00 |
+| top1 | +0.85 | +1.00 | +1.00 | +1.00 | +1.00 | +1.00 | +0.96 | +0.93 | +1.00 |
+| top2 | +0.85 | +1.00 | +1.00 | +1.00 | +1.00 | +1.00 | +0.96 | +0.93 | +1.00 |
+| top3 | +0.85 | +1.00 | +1.00 | +1.00 | +1.00 | +1.00 | +0.96 | +0.93 | +1.00 |
+| top4 | +0.85 | +1.00 | +1.00 | +1.00 | +1.00 | +1.00 | +0.96 | +0.93 | +1.00 |
+| top5 | +0.82 | +0.96 | +0.96 | +0.96 | +0.96 | +0.96 | +1.00 | +0.96 | +0.96 |
+| best_anchor | +0.78 | +0.93 | +0.93 | +0.93 | +0.93 | +0.93 | +0.96 | +1.00 | +0.93 |
+| pareto_knee | +0.85 | +1.00 | +1.00 | +1.00 | +1.00 | +1.00 | +0.96 | +0.93 | +1.00 |
 
 ## Official-split estimates under the deployed rule (v1 weights)
 
@@ -193,7 +193,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | bird | claude-opus-5 | 0.293 | 0.323 [0.23, 0.42] | – | 74 |
 | bird | claude-sonnet-5 | 0.233 | 0.260 [0.17, 0.35] | – | 74 |
 | bird | deepseek-chat | 0.187 | 0.203 [0.13, 0.29] | – | 74 |
-| bird | deepseek-r1 | 0.214 | 0.254 [0.17, 0.34] | – | 74 |
+| bird | deepseek-r1 | 0.216 | 0.253 [0.17, 0.34] | – | 74 |
 | bird | gemini-3.1-pro | 0.183 | 0.228 [0.14, 0.32] | – | 74 |
 | bird | gemini-3.8-flash | 0.293 | 0.313 [0.23, 0.40] | – | 74 |
 | bird | gpt-5.4-mini | 0.178 | 0.218 [0.13, 0.31] | – | 74 |
@@ -237,7 +237,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | fintagging | claude-opus-5 | 0.909 | 0.932 [0.88, 0.98] | – | 52 |
 | fintagging | claude-sonnet-5 | 0.898 | 0.897 [0.83, 0.96] | – | 52 |
 | fintagging | deepseek-chat | 0.858 | 0.847 [0.77, 0.91] | – | 52 |
-| fintagging | deepseek-r1 | 0.873 | 0.885 [0.81, 0.95] | – | 52 |
+| fintagging | deepseek-r1 | 0.878 | 0.894 [0.83, 0.95] | – | 52 |
 | fintagging | gemini-3.1-pro | 0.887 | 0.907 [0.84, 0.96] | – | 52 |
 | fintagging | gemini-3.8-flash | 0.897 | 0.908 [0.85, 0.96] | – | 52 |
 | fintagging | gpt-5.4-mini | 0.892 | 0.863 [0.79, 0.92] | – | 52 |
@@ -248,7 +248,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | hitab | claude-opus-5 | 0.781 | 0.790 [0.71, 0.86] | – | 95 |
 | hitab | claude-sonnet-5 | 0.763 | 0.758 [0.67, 0.84] | – | 95 |
 | hitab | deepseek-chat | 0.814 | 0.822 [0.75, 0.89] | – | 95 |
-| hitab | deepseek-r1 | 0.783 | 0.781 [0.71, 0.85] | – | 95 |
+| hitab | deepseek-r1 | 0.792 | 0.787 [0.72, 0.86] | – | 95 |
 | hitab | gemini-3.1-pro | 0.778 | 0.786 [0.70, 0.86] | – | 95 |
 | hitab | gemini-3.8-flash | 0.748 | 0.757 [0.68, 0.83] | – | 95 |
 | hitab | gpt-5.4-mini | 0.784 | 0.783 [0.71, 0.85] | – | 95 |
@@ -281,7 +281,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | mmtu | claude-opus-5 | 0.882 | 0.846 [0.76, 0.93] | – | 87 |
 | mmtu | claude-sonnet-5 | 0.872 | 0.838 [0.75, 0.92] | – | 87 |
 | mmtu | deepseek-chat | 0.865 | 0.831 [0.74, 0.91] | – | 87 |
-| mmtu | deepseek-r1 | 0.842 | 0.794 [0.70, 0.88] | – | 87 |
+| mmtu | deepseek-r1 | 0.850 | 0.802 [0.71, 0.89] | – | 87 |
 | mmtu | gemini-3.1-pro | 0.914 | 0.881 [0.79, 0.95] | – | 87 |
 | mmtu | gemini-3.8-flash | 0.894 | 0.856 [0.77, 0.93] | – | 87 |
 | mmtu | gpt-5.4-mini | 0.882 | 0.851 [0.77, 0.93] | – | 87 |
@@ -292,7 +292,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | officeqa | claude-opus-5 | 0.199 | n/c | – | 100 |
 | officeqa | claude-sonnet-5 | 0.171 | n/c | – | 100 |
 | officeqa | deepseek-chat | 0.075 | n/c | – | 100 |
-| officeqa | deepseek-r1 | 0.092 | n/c | – | 100 |
+| officeqa | deepseek-r1 | 0.147 | n/c | – | 100 |
 | officeqa | gemini-3.1-pro | 0.119 | n/c | – | 100 |
 | officeqa | gemini-3.8-flash | 0.194 | n/c | – | 100 |
 | officeqa | gpt-5.4-mini | 0.107 | n/c | – | 100 |
@@ -301,9 +301,9 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | officeqa | grok-4 | 0.129 | n/c | – | 100 |
 | officeqa | llama-3.3-70b | 0.097 | n/c | – | 100 |
 | officeqa_pro_v2 | claude-opus-5 | 0.270 | 0.270 [0.21, 0.34] | – | 90 |
-| officeqa_pro_v2 | claude-sonnet-5 | 0.154 | 0.154 [0.11, 0.21] | – | 90 |
+| officeqa_pro_v2 | claude-sonnet-5 | 0.157 | 0.157 [0.11, 0.21] | – | 90 |
 | officeqa_pro_v2 | deepseek-chat | 0.121 | 0.121 [0.08, 0.16] | – | 90 |
-| officeqa_pro_v2 | deepseek-r1 | 0.050 | 0.050 [0.03, 0.08] | – | 90 |
+| officeqa_pro_v2 | deepseek-r1 | 0.148 | 0.148 [0.10, 0.20] | – | 90 |
 | officeqa_pro_v2 | gemini-3.1-pro | 0.120 | 0.120 [0.08, 0.16] | – | 90 |
 | officeqa_pro_v2 | gemini-3.8-flash | 0.198 | 0.198 [0.15, 0.25] | – | 90 |
 | officeqa_pro_v2 | gpt-5.4-mini | 0.123 | 0.123 [0.10, 0.15] | – | 90 |
@@ -336,7 +336,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | realhitbench | claude-opus-5 | 0.743 | 0.745 [0.66, 0.81] | – | 98 |
 | realhitbench | claude-sonnet-5 | 0.681 | 0.684 [0.61, 0.77] | – | 98 |
 | realhitbench | deepseek-chat | 0.662 | 0.656 [0.58, 0.74] | – | 98 |
-| realhitbench | deepseek-r1 | 0.655 | 0.655 [0.57, 0.74] | – | 98 |
+| realhitbench | deepseek-r1 | 0.672 | 0.673 [0.59, 0.75] | – | 98 |
 | realhitbench | gemini-3.1-pro | 0.699 | 0.698 [0.61, 0.78] | – | 98 |
 | realhitbench | gemini-3.8-flash | 0.746 | 0.747 [0.67, 0.82] | – | 98 |
 | realhitbench | gpt-5.4-mini | 0.661 | 0.658 [0.57, 0.74] | – | 98 |
@@ -347,7 +347,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | smat | claude-opus-5 | 0.933 | 0.931 [0.89, 0.97] | – | 98 |
 | smat | claude-sonnet-5 | 0.938 | 0.936 [0.89, 0.97] | – | 98 |
 | smat | deepseek-chat | 0.918 | 0.916 [0.86, 0.96] | – | 98 |
-| smat | deepseek-r1 | 0.921 | 0.919 [0.87, 0.96] | – | 98 |
+| smat | deepseek-r1 | 0.930 | 0.928 [0.88, 0.97] | – | 98 |
 | smat | gemini-3.1-pro | 0.883 | 0.881 [0.82, 0.93] | – | 98 |
 | smat | gemini-3.8-flash | 0.921 | 0.919 [0.87, 0.96] | – | 98 |
 | smat | gpt-5.4-mini | 0.956 | 0.958 [0.92, 0.99] | – | 98 |
@@ -391,9 +391,9 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | tablebench | claude-opus-5 | 0.846 | 0.846 [0.78, 0.91] | – | 89 |
 | tablebench | claude-sonnet-5 | 0.877 | 0.875 [0.81, 0.93] | – | 89 |
 | tablebench | deepseek-chat | 0.833 | 0.844 [0.78, 0.90] | – | 89 |
-| tablebench | deepseek-r1 | 0.793 | 0.801 [0.72, 0.87] | – | 89 |
+| tablebench | deepseek-r1 | 0.803 | 0.809 [0.73, 0.88] | – | 89 |
 | tablebench | gemini-3.1-pro | 0.858 | 0.853 [0.78, 0.92] | – | 89 |
-| tablebench | gemini-3.8-flash | 0.835 | 0.833 [0.76, 0.90] | – | 89 |
+| tablebench | gemini-3.8-flash | 0.845 | 0.843 [0.77, 0.91] | – | 89 |
 | tablebench | gpt-5.4-mini | 0.841 | 0.835 [0.76, 0.90] | – | 89 |
 | tablebench | gpt-5.5 | 0.852 | 0.850 [0.78, 0.92] | – | 89 |
 | tablebench | gpt-oss-120b | 0.813 | 0.808 [0.74, 0.88] | – | 89 |
@@ -479,7 +479,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | wikitablequestions | claude-opus-5 | 0.879 | 0.878 [0.81, 0.93] | – | 98 |
 | wikitablequestions | claude-sonnet-5 | 0.863 | 0.863 [0.80, 0.93] | – | 98 |
 | wikitablequestions | deepseek-chat | 0.843 | 0.842 [0.77, 0.90] | – | 98 |
-| wikitablequestions | deepseek-r1 | 0.846 | 0.844 [0.78, 0.91] | – | 98 |
+| wikitablequestions | deepseek-r1 | 0.857 | 0.856 [0.79, 0.92] | – | 98 |
 | wikitablequestions | gemini-3.1-pro | 0.855 | 0.855 [0.79, 0.91] | – | 98 |
 | wikitablequestions | gemini-3.8-flash | 0.881 | 0.881 [0.82, 0.94] | – | 98 |
 | wikitablequestions | gpt-5.4-mini | 0.842 | 0.839 [0.77, 0.90] | – | 98 |
@@ -492,44 +492,44 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 
 | dataset | family | mean score | spread across models | self-stability τ | mean τ to other datasets | floor | ceiling | exclude from objective |
 |---|---|---|---|---|---|---|---|---|
-| abt_buy | EM | 0.971 | 0.060 | 0.75 | +0.35 | False | False | False |
+| abt_buy | EM | 0.971 | 0.060 | 0.75 | +0.37 | False | False | False |
 | alaska_camera | EM | 0.945 | 0.190 | 0.92 | -0.20 | False | False | False |
-| alaska_schema | SM | 0.929 | 0.118 | 0.68 | -0.03 | False | False | False |
+| alaska_schema | SM | 0.929 | 0.118 | 0.68 | -0.02 | False | False | False |
 | amazon_google | EM | 0.935 | 0.100 | 0.68 | +0.01 | False | False | False |
-| bird | TQA | 0.190 | 0.209 | 0.83 | +0.30 | False | False | False |
+| bird | TQA | 0.191 | 0.209 | 0.83 | +0.33 | False | False | False |
 | dblp_acm | EM | 0.987 | 0.090 | 0.88 | +0.33 | False | False | False |
-| dblp_scholar | EM | 0.948 | 0.060 | 0.71 | -0.02 | False | False | False |
+| dblp_scholar | EM | 0.948 | 0.060 | 0.71 | -0.01 | False | False | False |
 | fetaqa | TQA | 0.387 | 0.192 | 0.91 | +0.26 | False | False | False |
-| fintagging | SM | 0.883 | 0.051 | 0.65 | +0.29 | False | False | False |
-| hitab | TQA | 0.772 | 0.068 | 0.57 | -0.18 | False | False | False |
-| machamp | EM | 0.887 | 0.070 | 0.58 | +0.37 | False | False | False |
-| magneto_gdc | SM | 0.937 | 0.225 | 0.68 | +0.25 | False | False | False |
-| mmtu | TQA | 0.873 | 0.110 | 0.77 | +0.28 | False | False | False |
-| officeqa | FIN | 0.130 | 0.124 | 0.86 | +0.29 | False | False | False |
-| officeqa_pro_v2 | FIN | 0.142 | 0.220 | 0.78 | +0.27 | False | False | False |
+| fintagging | SM | 0.884 | 0.051 | 0.64 | +0.29 | False | False | False |
+| hitab | TQA | 0.772 | 0.068 | 0.60 | -0.14 | False | False | False |
+| machamp | EM | 0.887 | 0.070 | 0.58 | +0.40 | False | False | False |
+| magneto_gdc | SM | 0.937 | 0.225 | 0.68 | +0.27 | False | False | False |
+| mmtu | TQA | 0.874 | 0.110 | 0.76 | +0.27 | False | False | False |
+| officeqa | FIN | 0.135 | 0.124 | 0.88 | +0.34 | False | False | False |
+| officeqa_pro_v2 | FIN | 0.151 | 0.166 | 0.74 | +0.35 | False | False | False |
 | opensanctions_pairs | EM | 0.835 | 0.240 | 0.90 | +0.04 | False | False | False |
-| papadakis_dn | EM | 0.940 | 0.030 | 0.74 | +0.03 | False | False | False |
-| realhitbench | TQA | 0.675 | 0.143 | 0.78 | +0.33 | False | False | False |
-| smat | SM | 0.915 | 0.150 | 0.71 | +0.18 | False | False | False |
+| papadakis_dn | EM | 0.940 | 0.030 | 0.74 | +0.02 | False | False | False |
+| realhitbench | TQA | 0.677 | 0.143 | 0.79 | +0.36 | False | False | False |
+| smat | SM | 0.916 | 0.150 | 0.71 | +0.18 | False | False | False |
 | suc | TQA | 0.917 | 0.246 | 0.82 | +0.29 | False | False | False |
-| tab_fact | TQA | 0.802 | 0.200 | 0.83 | +0.02 | False | False | False |
-| tabis | TQA | 0.918 | 0.210 | 0.84 | +0.25 | False | False | False |
-| tablebench | TQA | 0.822 | 0.218 | 0.66 | +0.22 | False | False | False |
-| tableeval | TQA | 0.755 | 0.166 | 0.74 | +0.17 | False | False | False |
-| tat_qa | FIN | 0.804 | 0.109 | 0.76 | +0.25 | False | False | False |
-| tpcdi_cells | SM | 0.456 | 0.020 | 0.78 | +0.31 | False | False | False |
-| valentine | SM | 0.985 | 0.030 | 0.72 | +0.23 | False | True | True |
-| walmart_amazon | EM | 0.959 | 0.060 | 0.76 | +0.35 | False | False | False |
-| wdc_lspc | EM | 0.982 | 0.040 | 0.79 | +0.26 | False | True | True |
-| wdc_products | EM | 0.978 | 0.020 | 0.62 | +0.19 | False | True | True |
-| wikitablequestions | TQA | 0.847 | 0.132 | 0.73 | +0.35 | False | False | False |
+| tab_fact | TQA | 0.802 | 0.200 | 0.83 | +0.00 | False | False | False |
+| tabis | TQA | 0.918 | 0.210 | 0.84 | +0.27 | False | False | False |
+| tablebench | TQA | 0.824 | 0.218 | 0.65 | +0.23 | False | False | False |
+| tableeval | TQA | 0.755 | 0.166 | 0.74 | +0.18 | False | False | False |
+| tat_qa | FIN | 0.804 | 0.109 | 0.76 | +0.27 | False | False | False |
+| tpcdi_cells | SM | 0.456 | 0.020 | 0.78 | +0.33 | False | False | False |
+| valentine | SM | 0.985 | 0.030 | 0.72 | +0.24 | False | True | True |
+| walmart_amazon | EM | 0.959 | 0.060 | 0.76 | +0.36 | False | False | False |
+| wdc_lspc | EM | 0.982 | 0.040 | 0.79 | +0.28 | False | True | True |
+| wdc_products | EM | 0.978 | 0.020 | 0.62 | +0.20 | False | True | True |
+| wikitablequestions | TQA | 0.848 | 0.132 | 0.72 | +0.36 | False | False | False |
 
 Figure: `diagnostics/fig_dataset_tau` (pairwise τ between dataset rankings under v1).
 
 ## 9. What this supports, and what it does not
 
-* Supported: over every step-0.05 weighting of v1's four ingredients, v1 sits at rank 1602 of 1,771 on the agreement objective, and the honest (out-of-bag) advantage of the best weighting over v1 is -0.007 with a confidence interval that includes zero. The plateau of statistically equivalent weightings covers 99 % of the lattice.
-* Correctness (anchors): v1 ρ 0.878 vs best-J ρ 0.876 vs exact match ρ 0.828; J and ρ correlate -0.23 across the lattice, so agreement and correctness do not pull the same way, and the Pareto knee is the defensible compromise.
+* Supported: over every step-0.05 weighting of v1's four ingredients, v1 sits at rank 1130 of 1,771 on the agreement objective, and the honest (out-of-bag) advantage of the best weighting over v1 is -0.006 with a confidence interval that includes zero. The plateau of statistically equivalent weightings covers 99 % of the lattice.
+* Correctness (anchors): v1 ρ 0.878 vs best-J ρ 0.876 vs exact match ρ 0.828; J and ρ correlate -0.14 across the lattice, so agreement and correctness do not pull the same way, and the Pareto knee is the defensible compromise.
 * Not supported: any rank claim below first place with 11 models (attainable τ values: [-1.0, -0.9636, -0.9273, -0.8909, -0.8545, -0.8182, -0.7818, -0.7455, -0.7091, -0.6727, -0.6364, -0.6, -0.5636, -0.5273, -0.4909, -0.4545, -0.4182, -0.3818, -0.3455, -0.3091, -0.2727, -0.2364, -0.2, -0.1636, -0.1273, -0.0909, -0.0545, -0.0182, 0.0182, 0.0545, 0.0909, 0.1273, 0.1636, 0.2, 0.2364, 0.2727, 0.3091, 0.3455, 0.3818, 0.4182, 0.4545, 0.4909, 0.5273, 0.5636, 0.6, 0.6364, 0.6727, 0.7091, 0.7455, 0.7818, 0.8182, 0.8545, 0.8909, 0.9273, 0.9636, 1.0]); any claim about accuracy from J alone; transfer to unseen task families until the 30-dataset run exists.
 * Next: the same pipeline on the 30-dataset, 12-model run; human labels on 300 answers to replace the synthetic anchors in section 5.
 

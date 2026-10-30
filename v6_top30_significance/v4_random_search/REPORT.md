@@ -1,72 +1,72 @@
 # v4 report: nine-component composite, three sampled designs, honest selection
 
-Generated 2026-10-16 13:04. 31 datasets × 11 models (abt_buy 100, alaska_camera 100, alaska_schema 93, amazon_google 100, bird 100, dblp_acm 100, dblp_scholar 100, fetaqa 100, fintagging 100, hitab 100, machamp 100, magneto_gdc 100, mmtu 100, officeqa 100, officeqa_pro_v2 90, opensanctions_pairs 100, papadakis_dn 100, realhitbench 100, smat 100, suc 100, tab_fact 100, tabis 100, tablebench 100, tableeval 100, tat_qa 100, tpcdi_cells 100, valentine 100, walmart_amazon 100, wdc_lspc 100, wdc_products 100, wikitablequestions 100). Candidates: 100 per design × 3 designs (Dirichlet-snapped, Latin hypercube, uniform lattice) + 5 baselines = 305 on a lattice of 3,108,105 points. Components: em, num_tol, num_decay, tok_prec, tok_rec, tok_f1, edit_sim, rouge_l, jaccard.
+Generated 2026-10-25 18:31. 31 datasets × 11 models (abt_buy 100, alaska_camera 100, alaska_schema 93, amazon_google 100, bird 100, dblp_acm 100, dblp_scholar 100, fetaqa 100, fintagging 100, hitab 100, machamp 100, magneto_gdc 100, mmtu 100, officeqa 100, officeqa_pro_v2 90, opensanctions_pairs 100, papadakis_dn 100, realhitbench 100, smat 100, suc 100, tab_fact 100, tabis 100, tablebench 100, tableeval 100, tat_qa 100, tpcdi_cells 100, valentine 100, walmart_amazon 100, wdc_lspc 100, wdc_products 100, wikitablequestions 100). Candidates: 100 per design × 3 designs (Dirichlet-snapped, Latin hypercube, uniform lattice) + 5 baselines = 305 on a lattice of 3,108,105 points. Components: em, num_tol, num_decay, tok_prec, tok_rec, tok_f1, edit_sim, rouge_l, jaccard.
 
 ## 1. Search and designs
 
-* Best: em 1.00 (design em_only), J = 0.439, τ_native 0.92; under Kemeny 0.439, Copeland 0.452, BT 0.420.
-* Best per design: dirichlet 0.432 (em 0.10, num_tol 0.30, num_decay 0.10, tok_prec 0.20, tok_rec 0.05, tok_f1 0.05, rouge_l 0.10, jaccard 0.10); lhs 0.433 (num_tol 0.35, tok_prec 0.25, tok_rec 0.20, tok_f1 0.05, edit_sim 0.05, rouge_l 0.05, jaccard 0.05); uniform_lattice 0.432 (em 0.55, num_tol 0.05, num_decay 0.15, tok_prec 0.05, rouge_l 0.05, jaccard 0.15).
-* Baselines: em_only J 0.439 (rank 1); f1_only J 0.414 (rank 164); num_tol_only J 0.428 (rank 16); uniform J 0.420 (rank 92); v1_rubric J 0.399 (rank 298). The v1 rubric is beaten by 297 candidates and tied by 0.
-* Top 5: #1 em 1.00 (em_only, J 0.439); #2 num_tol 0.35, tok_prec 0.25, tok_rec 0.20, tok_f1 0.05, edit_sim 0.05, rouge_l 0.05, jaccard 0.05 (lhs, J 0.433); #3 em 0.10, num_tol 0.30, num_decay 0.10, tok_prec 0.20, tok_rec 0.05, tok_f1 0.05, rouge_l 0.10, jaccard 0.10 (dirichlet, J 0.432); #4 em 0.55, num_tol 0.05, num_decay 0.15, tok_prec 0.05, rouge_l 0.05, jaccard 0.15 (uniform_lattice, J 0.432); #5 em 0.65, num_tol 0.15, num_decay 0.10, edit_sim 0.10 (uniform_lattice, J 0.432).
+* Best: em 1.00 (design em_only), J = 0.437, τ_native 0.92; under Kemeny 0.439, Copeland 0.439, BT 0.422.
+* Best per design: dirichlet 0.429 (em 0.35, num_tol 0.15, num_decay 0.05, tok_prec 0.10, tok_rec 0.15, tok_f1 0.10, edit_sim 0.05, jaccard 0.05); lhs 0.429 (em 0.25, num_tol 0.10, num_decay 0.30, tok_prec 0.05, tok_rec 0.05, tok_f1 0.05, rouge_l 0.05, jaccard 0.15); uniform_lattice 0.432 (em 0.65, num_tol 0.15, num_decay 0.10, edit_sim 0.10).
+* Baselines: em_only J 0.437 (rank 1); f1_only J 0.412 (rank 199); num_tol_only J 0.434 (rank 2); uniform J 0.413 (rank 187); v1_rubric J 0.411 (rank 230). The v1 rubric is beaten by 229 candidates and tied by 0.
+* Top 5: #1 em 1.00 (em_only, J 0.437); #2 num_tol 1.00 (num_tol_only, J 0.434); #3 em 0.65, num_tol 0.15, num_decay 0.10, edit_sim 0.10 (uniform_lattice, J 0.432); #4 em 0.40, num_tol 0.20, num_decay 0.10, tok_f1 0.05, rouge_l 0.20, jaccard 0.05 (uniform_lattice, J 0.431); #5 em 0.40, num_tol 0.10, num_decay 0.15, tok_prec 0.10, edit_sim 0.10, rouge_l 0.15 (uniform_lattice, J 0.431).
 
 | design (20 seeds) | best J (mean ± sd) | best J (max) | mean J of design | regret vs best over all (mean / max) | min pairwise L1 | mean nearest L1 | centred L2 discrepancy | share with a zero weight |
 |---|---|---|---|---|---|---|---|---|
-| dirichlet_lattice | 0.432 ± 0.002 | 0.438 | 0.415 | 0.007 / 0.011 | 0.20 | 0.40 | 2.674 | 0.88 |
-| lhs_simplex | 0.432 ± 0.002 | 0.437 | 0.415 | 0.007 / 0.012 | 0.21 | 0.41 | 2.672 | 0.88 |
-| uniform_lattice | 0.434 ± 0.003 | 0.439 | 0.415 | 0.005 / 0.009 | 0.23 | 0.47 | 2.590 | 0.97 |
+| dirichlet_lattice | 0.431 ± 0.003 | 0.436 | 0.416 | 0.011 / 0.015 | 0.20 | 0.40 | 2.674 | 0.88 |
+| lhs_simplex | 0.432 ± 0.003 | 0.438 | 0.416 | 0.009 / 0.014 | 0.21 | 0.41 | 2.672 | 0.88 |
+| uniform_lattice | 0.433 ± 0.003 | 0.441 | 0.416 | 0.008 / 0.013 | 0.23 | 0.47 | 2.590 | 0.97 |
 
 ## 2. Honest selection
 
-* Nested bootstrap (B = 1000): in-bag J of the selected candidate 0.380, out-of-bag 0.330 (optimism gap 0.050); v1 rubric out-of-bag 0.333.
-* Selected vs v1 rubric out of bag: -0.003 [-0.029, +0.020], one-sided p = 0.555.
-* Plateau (paired p > .05): 305 of 305; practical plateau (within 0.02): 305, v1 rubric inside: True. 211 distinct candidates selected; mean selected weights em 0.22, num_tol 0.25, num_decay 0.08, tok_prec 0.07, tok_rec 0.11, tok_f1 0.07, edit_sim 0.04, rouge_l 0.08, jaccard 0.07.
+* Nested bootstrap (B = 1000): in-bag J of the selected candidate 0.382, out-of-bag 0.334 (optimism gap 0.048); v1 rubric out-of-bag 0.339.
+* Selected vs v1 rubric out of bag: -0.005 [-0.033, +0.017], one-sided p = 0.659.
+* Plateau (paired p > .05): 305 of 305; practical plateau (within 0.02): 304, v1 rubric inside: True. 230 distinct candidates selected; mean selected weights em 0.19, num_tol 0.23, num_decay 0.09, tok_prec 0.08, tok_rec 0.09, tok_f1 0.08, edit_sim 0.05, rouge_l 0.10, jaccard 0.08.
 
 ## 3. Transfer
 
 | held out | J on rest | held-out weights | τ held-out: held-out weights | full best | v1 rubric |
 |---|---|---|---|---|---|
-| abt_buy | 0.425 | num_tol 0.40, tok_prec 0.05, tok_rec 0.15, tok_f1 0.10, edit_sim 0.10, rouge_l 0.20 | +0.68 | +0.68 | +0.68 |
-| alaska_camera | 0.460 | em 1.00 | -0.25 | -0.25 | -0.28 |
-| alaska_schema | 0.449 | em 1.00 | +0.15 | +0.15 | -0.09 |
-| amazon_google | 0.447 | em 1.00 | +0.14 | +0.14 | +0.10 |
-| bird | 0.432 | em 1.00 | +0.66 | +0.66 | +0.62 |
-| dblp_acm | 0.431 | num_tol 1.00 | +0.45 | +0.54 | +0.47 |
-| dblp_scholar | 0.450 | em 1.00 | +0.13 | +0.13 | +0.04 |
-| fetaqa | 0.433 | num_tol 0.40, tok_prec 0.05, tok_rec 0.15, tok_f1 0.10, edit_sim 0.10, rouge_l 0.20 | +0.35 | +0.63 | +0.31 |
-| fintagging | 0.430 | em 1.00 | +0.71 | +0.71 | +0.49 |
-| hitab | 0.454 | em 1.00 | +0.00 | +0.00 | -0.35 |
-| machamp | 0.428 | em 1.00 | +0.80 | +0.80 | +0.76 |
-| magneto_gdc | 0.434 | em 1.00 | +0.60 | +0.60 | +0.45 |
-| mmtu | 0.437 | em 1.00 | +0.51 | +0.51 | +0.51 |
-| officeqa | 0.434 | em 1.00 | +0.53 | +0.53 | +0.51 |
-| officeqa_pro_v2 | 0.431 | num_tol 1.00 | +0.47 | +0.52 | +0.45 |
-| opensanctions_pairs | 0.455 | em 1.00 | -0.02 | -0.02 | -0.07 |
-| papadakis_dn | 0.451 | em 1.00 | +0.08 | +0.08 | +0.08 |
-| realhitbench | 0.429 | em 0.30, num_tol 0.20, tok_prec 0.05, tok_rec 0.05, tok_f1 0.25, edit_sim 0.10, rouge_l 0.05 | +0.72 | +0.79 | +0.64 |
-| smat | 0.444 | num_tol 1.00 | +0.31 | +0.33 | +0.42 |
-| suc | 0.429 | em 1.00 | +0.54 | +0.54 | +0.40 |
-| tab_fact | 0.454 | em 1.00 | +0.02 | +0.02 | -0.06 |
-| tabis | 0.441 | em 1.00 | +0.42 | +0.42 | +0.39 |
-| tablebench | 0.439 | em 1.00 | +0.46 | +0.46 | +0.48 |
-| tableeval | 0.442 | em 1.00 | +0.36 | +0.36 | +0.24 |
-| tat_qa | 0.437 | num_tol 1.00 | +0.22 | +0.60 | +0.53 |
-| tpcdi_cells | 0.429 | em 0.65, num_tol 0.15, num_decay 0.10, edit_sim 0.10 | +0.52 | +0.56 | +0.55 |
-| valentine | 0.437 | em 0.40, num_tol 0.20, num_decay 0.10, tok_f1 0.05, rouge_l 0.20, jaccard 0.05 | +0.40 | +0.41 | +0.34 |
-| walmart_amazon | 0.427 | em 1.00 | +0.61 | +0.61 | +0.57 |
-| wdc_lspc | 0.433 | em 1.00 | +0.42 | +0.42 | +0.42 |
-| wdc_products | 0.442 | em 1.00 | +0.35 | +0.35 | +0.35 |
-| wikitablequestions | 0.430 | em 1.00 | +0.72 | +0.72 | +0.67 |
+| abt_buy | 0.427 | em 1.00 | +0.76 | +0.76 | +0.76 |
+| alaska_camera | 0.458 | em 0.40, num_tol 0.10, num_decay 0.15, tok_prec 0.10, edit_sim 0.10, rouge_l 0.15 | -0.28 | -0.25 | -0.25 |
+| alaska_schema | 0.448 | em 1.00 | +0.12 | +0.12 | -0.05 |
+| amazon_google | 0.447 | num_tol 1.00 | +0.02 | +0.06 | +0.02 |
+| bird | 0.432 | em 1.00 | +0.58 | +0.58 | +0.60 |
+| dblp_acm | 0.434 | num_tol 1.00 | +0.49 | +0.54 | +0.54 |
+| dblp_scholar | 0.449 | em 0.40, num_tol 0.10, num_decay 0.15, tok_prec 0.10, edit_sim 0.10, rouge_l 0.15 | -0.06 | +0.02 | +0.04 |
+| fetaqa | 0.435 | em 0.55, num_tol 0.05, num_decay 0.15, tok_prec 0.05, rouge_l 0.05, jaccard 0.15 | +0.42 | +0.72 | +0.39 |
+| fintagging | 0.431 | em 1.00 | +0.67 | +0.67 | +0.49 |
+| hitab | 0.452 | em 1.00 | +0.00 | +0.00 | -0.20 |
+| machamp | 0.425 | em 1.00 | +0.80 | +0.80 | +0.80 |
+| magneto_gdc | 0.433 | em 0.65, num_tol 0.15, num_decay 0.10, edit_sim 0.10 | +0.59 | +0.60 | +0.56 |
+| mmtu | 0.438 | em 1.00 | +0.43 | +0.43 | +0.44 |
+| officeqa | 0.436 | em 1.00 | +0.50 | +0.50 | +0.67 |
+| officeqa_pro_v2 | 0.427 | num_tol 1.00 | +0.66 | +0.80 | +0.66 |
+| opensanctions_pairs | 0.449 | em 1.00 | +0.07 | +0.07 | +0.04 |
+| papadakis_dn | 0.449 | em 1.00 | -0.04 | -0.04 | -0.04 |
+| realhitbench | 0.427 | em 1.00 | +0.73 | +0.73 | +0.64 |
+| smat | 0.441 | em 1.00 | +0.19 | +0.19 | +0.31 |
+| suc | 0.430 | em 1.00 | +0.66 | +0.66 | +0.51 |
+| tab_fact | 0.450 | em 0.40, num_tol 0.10, num_decay 0.15, tok_prec 0.10, edit_sim 0.10, rouge_l 0.15 | -0.06 | -0.06 | -0.02 |
+| tabis | 0.435 | em 0.40, num_tol 0.10, num_decay 0.15, tok_prec 0.10, edit_sim 0.10, rouge_l 0.15 | +0.46 | +0.45 | +0.45 |
+| tablebench | 0.438 | num_tol 1.00 | +0.41 | +0.41 | +0.45 |
+| tableeval | 0.443 | em 1.00 | +0.34 | +0.34 | +0.24 |
+| tat_qa | 0.437 | em 1.00 | +0.51 | +0.51 | +0.55 |
+| tpcdi_cells | 0.435 | em 0.65, num_tol 0.15, num_decay 0.10, edit_sim 0.10 | +0.46 | +0.61 | +0.62 |
+| valentine | 0.435 | em 1.00 | +0.49 | +0.49 | +0.40 |
+| walmart_amazon | 0.430 | em 0.65, num_tol 0.15, num_decay 0.10, edit_sim 0.10 | +0.74 | +0.72 | +0.69 |
+| wdc_lspc | 0.432 | em 0.20, num_tol 0.05, num_decay 0.20, tok_rec 0.05, tok_f1 0.10, rouge_l 0.25, jaccard 0.15 | +0.49 | +0.50 | +0.54 |
+| wdc_products | 0.437 | em 0.20, num_tol 0.05, num_decay 0.20, tok_rec 0.05, tok_f1 0.10, rouge_l 0.25, jaccard 0.15 | +0.33 | +0.35 | +0.35 |
+| wikitablequestions | 0.424 | em 1.00 | +0.72 | +0.72 | +0.71 |
 
-Mean held-out τ: held-out weights +0.39, full best +0.42, v1 rubric +0.34.
+Mean held-out τ: held-out weights +0.39, full best +0.42, v1 rubric +0.38.
 
 | held-out family | J on rest | held-out weights | τ: held-out weights | full best | v1 rubric |
 |---|---|---|---|---|---|
-| EM | 0.494 | em 1.00 | +0.33 | +0.33 | +0.33 |
-| SM | 0.428 | em 1.00 | +0.43 | +0.43 | +0.30 |
-| TQA | 0.437 | em 0.05, num_tol 0.45, num_decay 0.05, tok_prec 0.20, rouge_l 0.05, jaccard 0.20 | +0.38 | +0.44 | +0.35 |
-| FIN | 0.429 | num_tol 1.00 | +0.45 | +0.46 | +0.48 |
+| EM | 0.498 | em 0.40, num_tol 0.20, num_decay 0.10, tok_f1 0.05, rouge_l 0.20, jaccard 0.05 | +0.31 | +0.33 | +0.32 |
+| SM | 0.432 | em 0.25, num_tol 0.05, num_decay 0.10, tok_rec 0.20, tok_f1 0.25, jaccard 0.15 | +0.31 | +0.42 | +0.28 |
+| TQA | 0.444 | em 0.10, num_tol 0.45, num_decay 0.10, tok_prec 0.05, tok_rec 0.05, rouge_l 0.20, jaccard 0.05 | +0.38 | +0.41 | +0.36 |
+| FIN | 0.420 | em 1.00 | +0.52 | +0.52 | +0.56 |
 
-Per-family best: EM: em 1.00 (J 0.358; global best 0.358); SM: num_tol 0.15, num_decay 0.60, edit_sim 0.25 (J 0.580; global best 0.546); TQA: em 1.00 (J 0.512; global best 0.512); FIN: em 0.15, num_tol 0.05, num_decay 0.05, tok_prec 0.05, tok_rec 0.50, rouge_l 0.05, jaccard 0.15 (J 0.771; global best 0.706).
+Per-family best: EM: em 1.00 (J 0.358; global best 0.358); SM: num_tol 0.15, num_decay 0.60, edit_sim 0.25 (J 0.544; global best 0.541); TQA: em 1.00 (J 0.523; global best 0.523); FIN: num_tol 0.15, num_decay 0.05, tok_prec 0.25, tok_rec 0.05, rouge_l 0.15, jaccard 0.35 (J 0.881; global best 0.738).
 
 ## 4. Correctness on anchors
 
@@ -74,46 +74,46 @@ Per-family best: EM: em 1.00 (J 0.358; global best 0.358); SM: num_tol 0.15, num
 
 | rule | weights | J | ρ | per-dataset ρ | AUC | wrong mean | hedge gap | rank by J | rank by ρ |
 |---|---|---|---|---|---|---|---|---|---|
-| v1_rubric | num_decay 0.35, tok_prec 0.15, tok_rec 0.15, tok_f1 0.35 | 0.399 | 0.878 | 0.868 | 0.994 | 0.034 | -0.51 | 298 | 112 |
-| best_J | em 1.00 | 0.439 | 0.828 | 0.830 | 0.989 | 0.011 | -0.81 | 1 | 304 |
-| best_rho | em 0.20, num_decay 0.25, tok_prec 0.25, tok_rec 0.05, tok_f1 0.05, edit_sim 0.15, rouge_l 0.05 | 0.409 | 0.884 | 0.865 | 0.994 | 0.053 | -0.61 | 234 | 1 |
-| pareto_knee | em 0.55, num_tol 0.05, num_decay 0.15, tok_prec 0.05, rouge_l 0.05, jaccard 0.15 | 0.432 | 0.882 | 0.872 | 0.994 | 0.020 | -0.70 | 4 | 21 |
+| v1_rubric | num_decay 0.35, tok_prec 0.15, tok_rec 0.15, tok_f1 0.35 | 0.411 | 0.878 | 0.868 | 0.994 | 0.034 | -0.51 | 230 | 112 |
+| best_J | em 1.00 | 0.437 | 0.828 | 0.830 | 0.989 | 0.011 | -0.81 | 1 | 304 |
+| best_rho | em 0.20, num_decay 0.25, tok_prec 0.25, tok_rec 0.05, tok_f1 0.05, edit_sim 0.15, rouge_l 0.05 | 0.416 | 0.884 | 0.865 | 0.994 | 0.053 | -0.61 | 157 | 1 |
+| pareto_knee | em 0.40, num_tol 0.10, num_decay 0.15, tok_prec 0.10, edit_sim 0.10, rouge_l 0.15 | 0.431 | 0.884 | 0.865 | 0.994 | 0.039 | -0.66 | 5 | 5 |
 | exact_match | – | – | 0.828 | 0.830 | 0.989 | 0.011 | -0.81 | – | – |
 
-Spearman(J, ρ) across candidates: **-0.21**; Pareto front size 8.
+Spearman(J, ρ) across candidates: **+0.00**; Pareto front size 6.
 
 ## 5. Sensitivity
 
-* v1_rubric: 32 one-step neighbours; J centre 0.399, min 0.394 / mean 0.403 / max 0.408; 81 % better.
-* best: 8 one-step neighbours; J centre 0.439, min 0.422 / mean 0.429 / max 0.441; 12 % better.
+* v1_rubric: 32 one-step neighbours; J centre 0.411, min 0.405 / mean 0.412 / max 0.419; 62 % better.
+* best: 8 one-step neighbours; J centre 0.437, min 0.418 / mean 0.425 / max 0.438; 12 % better.
 
 ## 6. Leaderboards (Bradley–Terry rank, Borda in brackets)
 
 | rule | weights | claude-opus-5 | claude-sonnet-5 | deepseek-chat | deepseek-r1 | gemini-3.1-pro | gemini-3.8-flash | gpt-5.4-mini | gpt-5.5 | gpt-oss-120b | grok-4 | llama-3.3-70b | Friedman p | Kendall's W | significant pairs |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| em_only | em 1.00 | 1 (1) | 6 (4) | 9 (7) | 5 (5) | 8 (8) | 3 (3) | 7 (9) | 2 (2) | 10 (10) | 4 (6) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gemini-3.1-pro, claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gpt-5.5 > gemini-3.1-pro, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| v1_rubric | num_decay 0.35, tok_prec 0.15, tok_rec 0.15, tok_f1 0.35 | 2 (2) | 4 (4) | 9 (7) | 6 (5) | 8 (9) | 1 (3) | 7 (8) | 3 (1) | 10 (10) | 5 (6) | 11 (11) | 0.000 | 0.26 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gpt-5.5 > gemini-3.1-pro, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| top1 | em 1.00 | 1 (1) | 6 (4) | 9 (7) | 5 (5) | 8 (8) | 3 (3) | 7 (9) | 2 (2) | 10 (10) | 4 (6) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gemini-3.1-pro, claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gpt-5.5 > gemini-3.1-pro, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| top2 | num_tol 0.35, tok_prec 0.25, tok_rec 0.20, tok_f1 0.05, edit_sim 0.05, rouge_l 0.05, jaccard 0.05 | 2 (1) | 4 (4) | 8 (7) | 6 (5) | 9 (8) | 1 (3) | 7 (9) | 3 (2) | 10 (10) | 5 (6) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gemini-3.1-pro, claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.8-flash > gemini-3.1-pro, gpt-5.5 > gemini-3.1-pro, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.5 > gpt-5.4-mini, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| top3 | em 0.10, num_tol 0.30, num_decay 0.10, tok_prec 0.20, tok_rec 0.05, tok_f1 0.05, rouge_l 0.10, jaccard 0.10 | 2 (1) | 4 (4) | 9 (7) | 6 (5) | 8 (8) | 1 (3) | 7 (9) | 3 (1) | 10 (10) | 5 (6) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gemini-3.1-pro, claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, gpt-5.5 > deepseek-chat, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.8-flash > gemini-3.1-pro, gpt-5.5 > gemini-3.1-pro, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| top4 | em 0.55, num_tol 0.05, num_decay 0.15, tok_prec 0.05, rouge_l 0.05, jaccard 0.15 | 2 (1) | 4 (4) | 9 (7) | 6 (5) | 8 (8) | 1 (3) | 7 (9) | 3 (2) | 10 (10) | 5 (6) | 11 (11) | 0.000 | 0.29 | claude-opus-5 > gemini-3.1-pro, claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.8-flash > gemini-3.1-pro, gpt-5.5 > gemini-3.1-pro, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| top5 | em 0.65, num_tol 0.15, num_decay 0.10, edit_sim 0.10 | 1 (1) | 4 (4) | 7 (8) | 8 (5) | 9 (9) | 2 (3) | 6 (7) | 3 (2) | 10 (10) | 5 (6) | 11 (11) | 0.000 | 0.29 | claude-opus-5 > gemini-3.1-pro, claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gpt-5.5 > gemini-3.1-pro, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| best_anchor | em 0.20, num_decay 0.25, tok_prec 0.25, tok_rec 0.05, tok_f1 0.05, edit_sim 0.15, rouge_l 0.05 | 2 (2) | 4 (4) | 9 (9) | 7 (5) | 8 (8) | 1 (3) | 6 (7) | 3 (1) | 10 (10) | 5 (6) | 11 (11) | 0.000 | 0.27 | claude-opus-5 > gemini-3.1-pro, claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gpt-5.5 > gemini-3.1-pro, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
-| pareto_knee | em 0.55, num_tol 0.05, num_decay 0.15, tok_prec 0.05, rouge_l 0.05, jaccard 0.15 | 2 (1) | 4 (4) | 9 (7) | 6 (5) | 8 (8) | 1 (3) | 7 (9) | 3 (2) | 10 (10) | 5 (6) | 11 (11) | 0.000 | 0.29 | claude-opus-5 > gemini-3.1-pro, claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.8-flash > gemini-3.1-pro, gpt-5.5 > gemini-3.1-pro, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| em_only | em 1.00 | 1 (1) | 7 (5) | 9 (8) | 4 (4) | 5 (7) | 3 (3) | 8 (9) | 2 (2) | 10 (10) | 6 (6) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| v1_rubric | num_decay 0.35, tok_prec 0.15, tok_rec 0.15, tok_f1 0.35 | 2 (2) | 5 (5) | 9 (8) | 4 (4) | 6 (6) | 1 (3) | 8 (9) | 3 (1) | 10 (10) | 7 (7) | 11 (11) | 0.000 | 0.27 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| top1 | em 1.00 | 1 (1) | 7 (5) | 9 (8) | 4 (4) | 5 (7) | 3 (3) | 8 (9) | 2 (2) | 10 (10) | 6 (6) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| top2 | num_tol 1.00 | 1 (1) | 7 (5) | 9 (8) | 4 (4) | 5 (7) | 3 (3) | 8 (9) | 2 (2) | 10 (10) | 6 (6) | 11 (11) | 0.000 | 0.27 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, gpt-5.5 > deepseek-chat, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| top3 | em 0.65, num_tol 0.15, num_decay 0.10, edit_sim 0.10 | 1 (1) | 5 (5) | 9 (9) | 4 (4) | 6 (6) | 2 (3) | 8 (8) | 3 (2) | 10 (10) | 7 (7) | 11 (11) | 0.000 | 0.29 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| top4 | em 0.40, num_tol 0.20, num_decay 0.10, tok_f1 0.05, rouge_l 0.20, jaccard 0.05 | 2 (1) | 6 (5) | 9 (8) | 4 (4) | 5 (6) | 1 (3) | 8 (9) | 3 (2) | 10 (10) | 7 (7) | 11 (11) | 0.000 | 0.29 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| top5 | em 0.40, num_tol 0.10, num_decay 0.15, tok_prec 0.10, edit_sim 0.10, rouge_l 0.15 | 2 (2) | 5 (5) | 9 (9) | 4 (4) | 6 (6) | 1 (3) | 8 (8) | 3 (1) | 10 (10) | 7 (7) | 11 (11) | 0.000 | 0.29 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| best_anchor | em 0.20, num_decay 0.25, tok_prec 0.25, tok_rec 0.05, tok_f1 0.05, edit_sim 0.15, rouge_l 0.05 | 2 (2) | 5 (5) | 9 (9) | 4 (4) | 6 (6) | 1 (3) | 8 (8) | 3 (1) | 10 (10) | 7 (7) | 11 (11) | 0.000 | 0.28 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
+| pareto_knee | em 0.40, num_tol 0.10, num_decay 0.15, tok_prec 0.10, edit_sim 0.10, rouge_l 0.15 | 2 (2) | 5 (5) | 9 (9) | 4 (4) | 6 (6) | 1 (3) | 8 (8) | 3 (1) | 10 (10) | 7 (7) | 11 (11) | 0.000 | 0.29 | claude-opus-5 > gpt-oss-120b, claude-opus-5 > llama-3.3-70b, claude-sonnet-5 > llama-3.3-70b, deepseek-chat > llama-3.3-70b, deepseek-r1 > gpt-oss-120b, deepseek-r1 > llama-3.3-70b, gemini-3.1-pro > gpt-oss-120b, gemini-3.1-pro > llama-3.3-70b, gemini-3.8-flash > gpt-oss-120b, gemini-3.8-flash > llama-3.3-70b, gpt-5.4-mini > llama-3.3-70b, gpt-5.5 > gpt-oss-120b, gpt-5.5 > llama-3.3-70b, grok-4 > gpt-oss-120b, grok-4 > llama-3.3-70b |
 
 τ between BT rankings of the rules:
 
 | | em_only | v1_rubric | top1 | top2 | top3 | top4 | top5 | best_anchor | pareto_knee |
 |---|---|---|---|---|---|---|---|---|---|
-| em_only | +1.00 | +0.85 | +1.00 | +0.82 | +0.85 | +0.85 | +0.78 | +0.82 | +0.85 |
-| v1_rubric | +0.85 | +1.00 | +0.85 | +0.96 | +1.00 | +1.00 | +0.85 | +0.96 | +1.00 |
-| top1 | +1.00 | +0.85 | +1.00 | +0.82 | +0.85 | +0.85 | +0.78 | +0.82 | +0.85 |
-| top2 | +0.82 | +0.96 | +0.82 | +1.00 | +0.96 | +0.96 | +0.89 | +0.93 | +0.96 |
-| top3 | +0.85 | +1.00 | +0.85 | +0.96 | +1.00 | +1.00 | +0.85 | +0.96 | +1.00 |
-| top4 | +0.85 | +1.00 | +0.85 | +0.96 | +1.00 | +1.00 | +0.85 | +0.96 | +1.00 |
-| top5 | +0.78 | +0.85 | +0.78 | +0.89 | +0.85 | +0.85 | +1.00 | +0.89 | +0.85 |
-| best_anchor | +0.82 | +0.96 | +0.82 | +0.93 | +0.96 | +0.96 | +0.89 | +1.00 | +0.96 |
-| pareto_knee | +0.85 | +1.00 | +0.85 | +0.96 | +1.00 | +1.00 | +0.85 | +0.96 | +1.00 |
+| em_only | +1.00 | +0.85 | +1.00 | +1.00 | +0.89 | +0.89 | +0.85 | +0.85 | +0.85 |
+| v1_rubric | +0.85 | +1.00 | +0.85 | +0.85 | +0.96 | +0.96 | +1.00 | +1.00 | +1.00 |
+| top1 | +1.00 | +0.85 | +1.00 | +1.00 | +0.89 | +0.89 | +0.85 | +0.85 | +0.85 |
+| top2 | +1.00 | +0.85 | +1.00 | +1.00 | +0.89 | +0.89 | +0.85 | +0.85 | +0.85 |
+| top3 | +0.89 | +0.96 | +0.89 | +0.89 | +1.00 | +0.93 | +0.96 | +0.96 | +0.96 |
+| top4 | +0.89 | +0.96 | +0.89 | +0.89 | +0.93 | +1.00 | +0.96 | +0.96 | +0.96 |
+| top5 | +0.85 | +1.00 | +0.85 | +0.85 | +0.96 | +0.96 | +1.00 | +1.00 | +1.00 |
+| best_anchor | +0.85 | +1.00 | +0.85 | +0.85 | +0.96 | +0.96 | +1.00 | +1.00 | +1.00 |
+| pareto_knee | +0.85 | +1.00 | +0.85 | +0.85 | +0.96 | +0.96 | +1.00 | +1.00 | +1.00 |
 
 ## Official-split estimates under the v1 rubric
 
@@ -147,7 +147,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | alaska_schema | claude-sonnet-5 | 0.929 | 0.929 [0.88, 0.97] | – | 93 |
 | alaska_schema | deepseek-chat | 0.951 | 0.951 [0.91, 0.99] | – | 93 |
 | alaska_schema | deepseek-r1 | 0.957 | 0.957 [0.92, 0.99] | – | 93 |
-| alaska_schema | gemini-3.1-pro | 0.920 | 0.920 [0.87, 0.96] | – | 93 |
+| alaska_schema | gemini-3.1-pro | 0.928 | 0.928 [0.87, 0.97] | – | 93 |
 | alaska_schema | gemini-3.8-flash | 0.918 | 0.918 [0.86, 0.96] | – | 93 |
 | alaska_schema | gpt-5.4-mini | 0.958 | 0.958 [0.92, 0.99] | – | 93 |
 | alaska_schema | gpt-5.5 | 0.928 | 0.928 [0.88, 0.97] | – | 93 |
@@ -168,8 +168,8 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | bird | claude-opus-5 | 0.293 | 0.323 [0.23, 0.42] | – | 74 |
 | bird | claude-sonnet-5 | 0.233 | 0.260 [0.17, 0.35] | – | 74 |
 | bird | deepseek-chat | 0.187 | 0.203 [0.13, 0.29] | – | 74 |
-| bird | deepseek-r1 | 0.214 | 0.254 [0.17, 0.34] | – | 74 |
-| bird | gemini-3.1-pro | 0.126 | 0.168 [0.09, 0.25] | – | 74 |
+| bird | deepseek-r1 | 0.216 | 0.253 [0.17, 0.34] | – | 74 |
+| bird | gemini-3.1-pro | 0.183 | 0.228 [0.14, 0.32] | – | 74 |
 | bird | gemini-3.8-flash | 0.293 | 0.313 [0.23, 0.40] | – | 74 |
 | bird | gpt-5.4-mini | 0.178 | 0.218 [0.13, 0.31] | – | 74 |
 | bird | gpt-5.5 | 0.185 | 0.204 [0.12, 0.29] | – | 74 |
@@ -212,8 +212,8 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | fintagging | claude-opus-5 | 0.909 | 0.932 [0.88, 0.98] | – | 52 |
 | fintagging | claude-sonnet-5 | 0.898 | 0.897 [0.83, 0.96] | – | 52 |
 | fintagging | deepseek-chat | 0.858 | 0.847 [0.77, 0.91] | – | 52 |
-| fintagging | deepseek-r1 | 0.873 | 0.885 [0.81, 0.95] | – | 52 |
-| fintagging | gemini-3.1-pro | 0.862 | 0.890 [0.81, 0.95] | – | 52 |
+| fintagging | deepseek-r1 | 0.878 | 0.894 [0.83, 0.95] | – | 52 |
+| fintagging | gemini-3.1-pro | 0.887 | 0.907 [0.84, 0.96] | – | 52 |
 | fintagging | gemini-3.8-flash | 0.897 | 0.908 [0.85, 0.96] | – | 52 |
 | fintagging | gpt-5.4-mini | 0.892 | 0.863 [0.79, 0.92] | – | 52 |
 | fintagging | gpt-5.5 | 0.893 | 0.899 [0.83, 0.96] | – | 52 |
@@ -223,8 +223,8 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | hitab | claude-opus-5 | 0.781 | 0.790 [0.71, 0.86] | – | 95 |
 | hitab | claude-sonnet-5 | 0.763 | 0.758 [0.67, 0.84] | – | 95 |
 | hitab | deepseek-chat | 0.814 | 0.822 [0.75, 0.89] | – | 95 |
-| hitab | deepseek-r1 | 0.783 | 0.781 [0.71, 0.85] | – | 95 |
-| hitab | gemini-3.1-pro | 0.772 | 0.779 [0.70, 0.85] | – | 95 |
+| hitab | deepseek-r1 | 0.792 | 0.787 [0.72, 0.86] | – | 95 |
+| hitab | gemini-3.1-pro | 0.778 | 0.786 [0.70, 0.86] | – | 95 |
 | hitab | gemini-3.8-flash | 0.748 | 0.757 [0.68, 0.83] | – | 95 |
 | hitab | gpt-5.4-mini | 0.784 | 0.783 [0.71, 0.85] | – | 95 |
 | hitab | gpt-5.5 | 0.757 | 0.764 [0.68, 0.84] | – | 95 |
@@ -246,7 +246,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | magneto_gdc | claude-sonnet-5 | 0.955 | 0.955 [0.92, 0.99] | – | 93 |
 | magneto_gdc | deepseek-chat | 0.953 | 0.956 [0.92, 0.99] | – | 93 |
 | magneto_gdc | deepseek-r1 | 0.978 | 0.981 [0.96, 1.00] | – | 93 |
-| magneto_gdc | gemini-3.1-pro | 0.946 | 0.949 [0.91, 0.98] | – | 93 |
+| magneto_gdc | gemini-3.1-pro | 0.956 | 0.957 [0.92, 0.98] | – | 93 |
 | magneto_gdc | gemini-3.8-flash | 0.963 | 0.967 [0.94, 0.99] | – | 93 |
 | magneto_gdc | gpt-5.4-mini | 0.912 | 0.914 [0.86, 0.96] | – | 93 |
 | magneto_gdc | gpt-5.5 | 0.967 | 0.972 [0.94, 0.99] | – | 93 |
@@ -256,8 +256,8 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | mmtu | claude-opus-5 | 0.882 | 0.846 [0.76, 0.93] | – | 87 |
 | mmtu | claude-sonnet-5 | 0.872 | 0.838 [0.75, 0.92] | – | 87 |
 | mmtu | deepseek-chat | 0.865 | 0.831 [0.74, 0.91] | – | 87 |
-| mmtu | deepseek-r1 | 0.842 | 0.794 [0.70, 0.88] | – | 87 |
-| mmtu | gemini-3.1-pro | 0.879 | 0.822 [0.73, 0.90] | – | 87 |
+| mmtu | deepseek-r1 | 0.850 | 0.802 [0.71, 0.89] | – | 87 |
+| mmtu | gemini-3.1-pro | 0.914 | 0.881 [0.79, 0.95] | – | 87 |
 | mmtu | gemini-3.8-flash | 0.894 | 0.856 [0.77, 0.93] | – | 87 |
 | mmtu | gpt-5.4-mini | 0.882 | 0.851 [0.77, 0.93] | – | 87 |
 | mmtu | gpt-5.5 | 0.917 | 0.882 [0.80, 0.95] | – | 87 |
@@ -267,8 +267,8 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | officeqa | claude-opus-5 | 0.199 | n/c | – | 100 |
 | officeqa | claude-sonnet-5 | 0.171 | n/c | – | 100 |
 | officeqa | deepseek-chat | 0.075 | n/c | – | 100 |
-| officeqa | deepseek-r1 | 0.092 | n/c | – | 100 |
-| officeqa | gemini-3.1-pro | 0.098 | n/c | – | 100 |
+| officeqa | deepseek-r1 | 0.147 | n/c | – | 100 |
+| officeqa | gemini-3.1-pro | 0.119 | n/c | – | 100 |
 | officeqa | gemini-3.8-flash | 0.194 | n/c | – | 100 |
 | officeqa | gpt-5.4-mini | 0.107 | n/c | – | 100 |
 | officeqa | gpt-5.5 | 0.168 | n/c | – | 100 |
@@ -276,9 +276,9 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | officeqa | grok-4 | 0.129 | n/c | – | 100 |
 | officeqa | llama-3.3-70b | 0.097 | n/c | – | 100 |
 | officeqa_pro_v2 | claude-opus-5 | 0.270 | 0.270 [0.21, 0.34] | – | 90 |
-| officeqa_pro_v2 | claude-sonnet-5 | 0.154 | 0.154 [0.11, 0.21] | – | 90 |
+| officeqa_pro_v2 | claude-sonnet-5 | 0.157 | 0.157 [0.11, 0.21] | – | 90 |
 | officeqa_pro_v2 | deepseek-chat | 0.121 | 0.121 [0.08, 0.16] | – | 90 |
-| officeqa_pro_v2 | deepseek-r1 | 0.050 | 0.050 [0.03, 0.08] | – | 90 |
+| officeqa_pro_v2 | deepseek-r1 | 0.148 | 0.148 [0.10, 0.20] | – | 90 |
 | officeqa_pro_v2 | gemini-3.1-pro | 0.120 | 0.120 [0.08, 0.16] | – | 90 |
 | officeqa_pro_v2 | gemini-3.8-flash | 0.198 | 0.198 [0.15, 0.25] | – | 90 |
 | officeqa_pro_v2 | gpt-5.4-mini | 0.123 | 0.123 [0.10, 0.15] | – | 90 |
@@ -311,8 +311,8 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | realhitbench | claude-opus-5 | 0.743 | 0.745 [0.66, 0.81] | – | 98 |
 | realhitbench | claude-sonnet-5 | 0.681 | 0.684 [0.61, 0.77] | – | 98 |
 | realhitbench | deepseek-chat | 0.662 | 0.656 [0.58, 0.74] | – | 98 |
-| realhitbench | deepseek-r1 | 0.655 | 0.655 [0.57, 0.74] | – | 98 |
-| realhitbench | gemini-3.1-pro | 0.647 | 0.650 [0.56, 0.74] | – | 98 |
+| realhitbench | deepseek-r1 | 0.672 | 0.673 [0.59, 0.75] | – | 98 |
+| realhitbench | gemini-3.1-pro | 0.699 | 0.698 [0.61, 0.78] | – | 98 |
 | realhitbench | gemini-3.8-flash | 0.746 | 0.747 [0.67, 0.82] | – | 98 |
 | realhitbench | gpt-5.4-mini | 0.661 | 0.658 [0.57, 0.74] | – | 98 |
 | realhitbench | gpt-5.5 | 0.724 | 0.721 [0.64, 0.80] | – | 98 |
@@ -322,8 +322,8 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | smat | claude-opus-5 | 0.933 | 0.931 [0.89, 0.97] | – | 98 |
 | smat | claude-sonnet-5 | 0.938 | 0.936 [0.89, 0.97] | – | 98 |
 | smat | deepseek-chat | 0.918 | 0.916 [0.86, 0.96] | – | 98 |
-| smat | deepseek-r1 | 0.921 | 0.919 [0.87, 0.96] | – | 98 |
-| smat | gemini-3.1-pro | 0.876 | 0.874 [0.81, 0.93] | – | 98 |
+| smat | deepseek-r1 | 0.930 | 0.928 [0.88, 0.97] | – | 98 |
+| smat | gemini-3.1-pro | 0.883 | 0.881 [0.82, 0.93] | – | 98 |
 | smat | gemini-3.8-flash | 0.921 | 0.919 [0.87, 0.96] | – | 98 |
 | smat | gpt-5.4-mini | 0.956 | 0.958 [0.92, 0.99] | – | 98 |
 | smat | gpt-5.5 | 0.940 | 0.939 [0.90, 0.97] | – | 98 |
@@ -334,7 +334,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | suc | claude-sonnet-5 | 0.911 | 0.908 [0.86, 0.95] | – | 99 |
 | suc | deepseek-chat | 0.858 | 0.858 [0.79, 0.91] | – | 99 |
 | suc | deepseek-r1 | 0.942 | 0.939 [0.89, 0.98] | – | 99 |
-| suc | gemini-3.1-pro | 0.943 | 0.938 [0.90, 0.98] | – | 99 |
+| suc | gemini-3.1-pro | 0.945 | 0.939 [0.90, 0.98] | – | 99 |
 | suc | gemini-3.8-flash | 0.977 | 0.978 [0.95, 1.00] | – | 99 |
 | suc | gpt-5.4-mini | 0.914 | 0.910 [0.86, 0.96] | – | 99 |
 | suc | gpt-5.5 | 0.943 | 0.938 [0.89, 0.98] | – | 99 |
@@ -356,7 +356,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | tabis | claude-sonnet-5 | 0.920 | 0.917 [0.85, 0.97] | – | 77 |
 | tabis | deepseek-chat | 0.770 | 0.710 [0.60, 0.81] | – | 77 |
 | tabis | deepseek-r1 | 0.970 | 0.982 [0.96, 1.00] | – | 77 |
-| tabis | gemini-3.1-pro | 0.929 | 0.957 [0.92, 0.98] | – | 77 |
+| tabis | gemini-3.1-pro | 0.950 | 0.970 [0.94, 0.99] | – | 77 |
 | tabis | gemini-3.8-flash | 0.950 | 0.970 [0.94, 0.99] | – | 77 |
 | tabis | gpt-5.4-mini | 0.900 | 0.905 [0.84, 0.96] | – | 77 |
 | tabis | gpt-5.5 | 0.960 | 0.976 [0.95, 0.99] | – | 77 |
@@ -366,9 +366,9 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | tablebench | claude-opus-5 | 0.846 | 0.846 [0.78, 0.91] | – | 89 |
 | tablebench | claude-sonnet-5 | 0.877 | 0.875 [0.81, 0.93] | – | 89 |
 | tablebench | deepseek-chat | 0.833 | 0.844 [0.78, 0.90] | – | 89 |
-| tablebench | deepseek-r1 | 0.793 | 0.801 [0.72, 0.87] | – | 89 |
-| tablebench | gemini-3.1-pro | 0.748 | 0.717 [0.62, 0.80] | – | 89 |
-| tablebench | gemini-3.8-flash | 0.835 | 0.833 [0.76, 0.90] | – | 89 |
+| tablebench | deepseek-r1 | 0.803 | 0.809 [0.73, 0.88] | – | 89 |
+| tablebench | gemini-3.1-pro | 0.858 | 0.853 [0.78, 0.92] | – | 89 |
+| tablebench | gemini-3.8-flash | 0.845 | 0.843 [0.77, 0.91] | – | 89 |
 | tablebench | gpt-5.4-mini | 0.841 | 0.835 [0.76, 0.90] | – | 89 |
 | tablebench | gpt-5.5 | 0.852 | 0.850 [0.78, 0.92] | – | 89 |
 | tablebench | gpt-oss-120b | 0.813 | 0.808 [0.74, 0.88] | – | 89 |
@@ -378,7 +378,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | tableeval | claude-sonnet-5 | 0.733 | 0.764 [0.66, 0.85] | – | 70 |
 | tableeval | deepseek-chat | 0.711 | 0.708 [0.61, 0.80] | – | 70 |
 | tableeval | deepseek-r1 | 0.773 | 0.760 [0.66, 0.86] | – | 70 |
-| tableeval | gemini-3.1-pro | 0.760 | 0.777 [0.68, 0.87] | – | 70 |
+| tableeval | gemini-3.1-pro | 0.790 | 0.794 [0.70, 0.88] | – | 70 |
 | tableeval | gemini-3.8-flash | 0.791 | 0.805 [0.71, 0.89] | – | 70 |
 | tableeval | gpt-5.4-mini | 0.742 | 0.751 [0.65, 0.84] | – | 70 |
 | tableeval | gpt-5.5 | 0.784 | 0.794 [0.69, 0.88] | – | 70 |
@@ -389,7 +389,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | tat_qa | claude-sonnet-5 | 0.845 | 0.845 [0.78, 0.91] | – | 61 |
 | tat_qa | deepseek-chat | 0.806 | 0.774 [0.68, 0.86] | – | 61 |
 | tat_qa | deepseek-r1 | 0.815 | 0.780 [0.70, 0.86] | – | 61 |
-| tat_qa | gemini-3.1-pro | 0.799 | 0.740 [0.64, 0.83] | – | 61 |
+| tat_qa | gemini-3.1-pro | 0.802 | 0.745 [0.65, 0.83] | – | 61 |
 | tat_qa | gemini-3.8-flash | 0.829 | 0.815 [0.73, 0.89] | – | 61 |
 | tat_qa | gpt-5.4-mini | 0.789 | 0.719 [0.63, 0.81] | – | 61 |
 | tat_qa | gpt-5.5 | 0.789 | 0.748 [0.67, 0.83] | – | 61 |
@@ -400,7 +400,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | tpcdi_cells | claude-sonnet-5 | 0.462 | 0.465 [0.38, 0.56] | – | 95 |
 | tpcdi_cells | deepseek-chat | 0.462 | 0.465 [0.38, 0.56] | – | 95 |
 | tpcdi_cells | deepseek-r1 | 0.462 | 0.466 [0.37, 0.55] | – | 95 |
-| tpcdi_cells | gemini-3.1-pro | 0.459 | 0.463 [0.37, 0.55] | – | 95 |
+| tpcdi_cells | gemini-3.1-pro | 0.462 | 0.465 [0.37, 0.55] | – | 95 |
 | tpcdi_cells | gemini-3.8-flash | 0.462 | 0.465 [0.37, 0.56] | – | 95 |
 | tpcdi_cells | gpt-5.4-mini | 0.455 | 0.458 [0.37, 0.54] | – | 95 |
 | tpcdi_cells | gpt-5.5 | 0.462 | 0.466 [0.38, 0.56] | – | 95 |
@@ -444,7 +444,7 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | wdc_products | claude-sonnet-5 | 0.970 | 0.986 [0.97, 1.00] | 0.97 → 0.97 [0.94, 1.00] | 77 |
 | wdc_products | deepseek-chat | 0.970 | 0.977 [0.94, 1.00] | 0.97 → 0.96 [0.90, 1.00] | 77 |
 | wdc_products | deepseek-r1 | 0.980 | 0.990 [0.97, 1.00] | 0.98 → 0.98 [0.95, 1.00] | 77 |
-| wdc_products | gemini-3.1-pro | 0.970 | 0.985 [0.97, 1.00] | 0.97 → 0.97 [0.94, 1.00] | 77 |
+| wdc_products | gemini-3.1-pro | 0.980 | 0.990 [0.97, 1.00] | 0.98 → 0.98 [0.95, 1.00] | 77 |
 | wdc_products | gemini-3.8-flash | 0.990 | 0.995 [0.98, 1.00] | 0.99 → 0.99 [0.97, 1.00] | 77 |
 | wdc_products | gpt-5.4-mini | 0.970 | 0.986 [0.97, 1.00] | 0.97 → 0.97 [0.93, 1.00] | 77 |
 | wdc_products | gpt-5.5 | 0.980 | 0.979 [0.94, 1.00] | 0.98 → 0.96 [0.89, 1.00] | 77 |
@@ -454,8 +454,8 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 | wikitablequestions | claude-opus-5 | 0.879 | 0.878 [0.81, 0.93] | – | 98 |
 | wikitablequestions | claude-sonnet-5 | 0.863 | 0.863 [0.80, 0.93] | – | 98 |
 | wikitablequestions | deepseek-chat | 0.843 | 0.842 [0.77, 0.90] | – | 98 |
-| wikitablequestions | deepseek-r1 | 0.846 | 0.844 [0.78, 0.91] | – | 98 |
-| wikitablequestions | gemini-3.1-pro | 0.858 | 0.858 [0.79, 0.91] | – | 98 |
+| wikitablequestions | deepseek-r1 | 0.857 | 0.856 [0.79, 0.92] | – | 98 |
+| wikitablequestions | gemini-3.1-pro | 0.855 | 0.855 [0.79, 0.91] | – | 98 |
 | wikitablequestions | gemini-3.8-flash | 0.881 | 0.881 [0.82, 0.94] | – | 98 |
 | wikitablequestions | gpt-5.4-mini | 0.842 | 0.839 [0.77, 0.90] | – | 98 |
 | wikitablequestions | gpt-5.5 | 0.865 | 0.862 [0.80, 0.92] | – | 98 |
@@ -467,41 +467,41 @@ Suite score = mean over the stratified pool (equal strata; the calibration numbe
 
 | dataset | family | mean | spread | self-stability τ | τ to others | exclude |
 |---|---|---|---|---|---|---|
-| abt_buy | EM | 0.971 | 0.060 | 0.75 | +0.33 | False |
-| alaska_camera | EM | 0.945 | 0.190 | 0.92 | -0.16 | False |
-| alaska_schema | SM | 0.928 | 0.118 | 0.68 | +0.00 | False |
-| amazon_google | EM | 0.935 | 0.100 | 0.68 | +0.03 | False |
-| bird | TQA | 0.185 | 0.209 | 0.85 | +0.31 | False |
-| dblp_acm | EM | 0.987 | 0.090 | 0.88 | +0.31 | False |
-| dblp_scholar | EM | 0.948 | 0.060 | 0.71 | +0.00 | False |
-| fetaqa | TQA | 0.387 | 0.192 | 0.91 | +0.24 | False |
-| fintagging | SM | 0.881 | 0.051 | 0.65 | +0.29 | False |
-| hitab | TQA | 0.771 | 0.068 | 0.57 | -0.18 | False |
-| machamp | EM | 0.887 | 0.070 | 0.58 | +0.39 | False |
-| magneto_gdc | SM | 0.936 | 0.225 | 0.71 | +0.26 | False |
-| mmtu | TQA | 0.870 | 0.110 | 0.72 | +0.29 | False |
-| officeqa | FIN | 0.128 | 0.124 | 0.83 | +0.28 | False |
-| officeqa_pro_v2 | FIN | 0.142 | 0.220 | 0.78 | +0.29 | False |
-| opensanctions_pairs | EM | 0.835 | 0.240 | 0.90 | -0.00 | False |
-| papadakis_dn | EM | 0.940 | 0.030 | 0.74 | +0.06 | False |
-| realhitbench | TQA | 0.670 | 0.143 | 0.73 | +0.33 | False |
-| smat | SM | 0.915 | 0.150 | 0.71 | +0.22 | False |
-| suc | TQA | 0.917 | 0.246 | 0.81 | +0.26 | False |
-| tab_fact | TQA | 0.802 | 0.200 | 0.83 | +0.01 | False |
-| tabis | TQA | 0.916 | 0.210 | 0.84 | +0.26 | False |
-| tablebench | TQA | 0.812 | 0.218 | 0.72 | +0.26 | False |
-| tableeval | TQA | 0.752 | 0.166 | 0.74 | +0.19 | False |
-| tat_qa | FIN | 0.804 | 0.109 | 0.76 | +0.26 | False |
-| tpcdi_cells | SM | 0.456 | 0.020 | 0.78 | +0.32 | False |
-| valentine | SM | 0.985 | 0.030 | 0.72 | +0.19 | True |
-| walmart_amazon | EM | 0.959 | 0.060 | 0.76 | +0.33 | False |
-| wdc_lspc | EM | 0.982 | 0.040 | 0.79 | +0.27 | True |
-| wdc_products | EM | 0.977 | 0.020 | 0.62 | +0.19 | True |
-| wikitablequestions | TQA | 0.847 | 0.132 | 0.73 | +0.34 | False |
+| abt_buy | EM | 0.971 | 0.060 | 0.75 | +0.37 | False |
+| alaska_camera | EM | 0.945 | 0.190 | 0.92 | -0.20 | False |
+| alaska_schema | SM | 0.929 | 0.118 | 0.68 | -0.02 | False |
+| amazon_google | EM | 0.935 | 0.100 | 0.68 | +0.01 | False |
+| bird | TQA | 0.191 | 0.209 | 0.83 | +0.33 | False |
+| dblp_acm | EM | 0.987 | 0.090 | 0.88 | +0.33 | False |
+| dblp_scholar | EM | 0.948 | 0.060 | 0.71 | -0.01 | False |
+| fetaqa | TQA | 0.387 | 0.192 | 0.91 | +0.26 | False |
+| fintagging | SM | 0.884 | 0.051 | 0.64 | +0.29 | False |
+| hitab | TQA | 0.772 | 0.068 | 0.60 | -0.14 | False |
+| machamp | EM | 0.887 | 0.070 | 0.58 | +0.40 | False |
+| magneto_gdc | SM | 0.937 | 0.225 | 0.68 | +0.27 | False |
+| mmtu | TQA | 0.874 | 0.110 | 0.76 | +0.27 | False |
+| officeqa | FIN | 0.135 | 0.124 | 0.88 | +0.34 | False |
+| officeqa_pro_v2 | FIN | 0.151 | 0.166 | 0.74 | +0.35 | False |
+| opensanctions_pairs | EM | 0.835 | 0.240 | 0.90 | +0.04 | False |
+| papadakis_dn | EM | 0.940 | 0.030 | 0.74 | +0.02 | False |
+| realhitbench | TQA | 0.677 | 0.143 | 0.79 | +0.36 | False |
+| smat | SM | 0.916 | 0.150 | 0.71 | +0.18 | False |
+| suc | TQA | 0.917 | 0.246 | 0.82 | +0.29 | False |
+| tab_fact | TQA | 0.802 | 0.200 | 0.83 | +0.00 | False |
+| tabis | TQA | 0.918 | 0.210 | 0.84 | +0.27 | False |
+| tablebench | TQA | 0.824 | 0.218 | 0.65 | +0.23 | False |
+| tableeval | TQA | 0.755 | 0.166 | 0.74 | +0.18 | False |
+| tat_qa | FIN | 0.804 | 0.109 | 0.76 | +0.27 | False |
+| tpcdi_cells | SM | 0.456 | 0.020 | 0.78 | +0.33 | False |
+| valentine | SM | 0.985 | 0.030 | 0.72 | +0.24 | True |
+| walmart_amazon | EM | 0.959 | 0.060 | 0.76 | +0.36 | False |
+| wdc_lspc | EM | 0.982 | 0.040 | 0.79 | +0.28 | True |
+| wdc_products | EM | 0.978 | 0.020 | 0.62 | +0.20 | True |
+| wikitablequestions | TQA | 0.848 | 0.132 | 0.72 | +0.36 | False |
 
 ## 8. Reading
 
 * The three designs reach the same best J within noise (see the design table); the Latin hypercube design has the lowest discrepancy and the fewest zero weights, so it is the one to keep when a design is sampled.
-* The honest advantage of the selected weighting over the v1 rubric is -0.003 with a CI that includes zero; the optimism gap 0.050 is the size of the winner's curse on this data.
-* J and ρ correlate -0.21 across candidates: the agreement objective is not a proxy for correctness here; the anchor-optimal and Pareto-knee weightings are reported next to the J-optimal one.
+* The honest advantage of the selected weighting over the v1 rubric is -0.005 with a CI that includes zero; the optimism gap 0.048 is the size of the winner's curse on this data.
+* J and ρ correlate +0.00 across candidates: the agreement objective is not a proxy for correctness here; the anchor-optimal and Pareto-knee weightings are reported next to the J-optimal one.
 * Files: grid_candidates.csv, best.json, designs.csv, selection/, anchors/, leaderboards/<rule>/ (params with BT SE, Kemeny cost, bootstrap draws, significance), diagnostics/, run_manifest.json.

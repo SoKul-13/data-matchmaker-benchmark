@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-16 14:32",
-  "git_commit": "753c0b1",
+  "generated": "2026-10-25 18:54",
+  "git_commit": "62be518",
   "coverage": {
     "abt_buy": {
       "real_items": 100,
@@ -625,9 +625,9 @@
     },
     "deepseek-r1": {
       "rows": 3083,
-      "cost_usd": 8.68,
+      "cost_usd": 12.83,
       "in_tokens": 1751806,
-      "out_tokens": 3524653,
+      "out_tokens": 5417173,
       "decoding": [
         "temperature=0.0"
       ]

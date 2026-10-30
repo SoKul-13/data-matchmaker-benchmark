@@ -4347,7 +4347,7 @@ llama-3.3-70b,bird,TQA,bird_1,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-opus-5,bird,TQA,bird_1006,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 claude-sonnet-5,bird,TQA,bird_1006,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,bird,TQA,bird_1006,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,bird,TQA,bird_1006,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+deepseek-r1,bird,TQA,bird_1006,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,bird,TQA,bird_1006,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,bird,TQA,bird_1006,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gpt-5.4-mini,bird,TQA,bird_1006,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
@@ -4655,7 +4655,7 @@ llama-3.3-70b,bird,TQA,bird_1338,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.66
 claude-opus-5,bird,TQA,bird_1339,numeric,num_tol,0.0,0.0,0.0,0.0,0.1568388874369833,0.0,0.0,1.0
 claude-sonnet-5,bird,TQA,bird_1339,numeric,num_tol,0.0,0.0,0.0,0.0,0.1951115575499924,0.0,0.0,1.0
 deepseek-chat,bird,TQA,bird_1339,numeric,num_tol,0.0,0.0,0.0,0.0,0.7361278572543078,0.0,0.0,1.0
-deepseek-r1,bird,TQA,bird_1339,numeric,num_tol,0.0,0.0,0.0,0.0,0.03530569564409573,0.0,0.0,0.0
+deepseek-r1,bird,TQA,bird_1339,numeric,num_tol,0.0,0.0,0.0,0.0,0.5035756164301796,0.0,0.0,1.0
 gemini-3.1-pro,bird,TQA,bird_1339,numeric,num_tol,0.0,0.0,0.0,0.0,0.08490251518273542,0.0,0.0,0.0
 gemini-3.8-flash,bird,TQA,bird_1339,numeric,num_tol,0.0,0.0,0.0,0.0,0.2909995574945389,0.0,0.0,1.0
 gpt-5.4-mini,bird,TQA,bird_1339,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -4897,7 +4897,7 @@ llama-3.3-70b,bird,TQA,bird_290,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-opus-5,bird,TQA,bird_3,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-sonnet-5,bird,TQA,bird_3,text,em,0.0,0.0,0.0,0.28571428571428575,0.0,0.3333333333333333,0.25,1.0
 deepseek-chat,bird,TQA,bird_3,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,bird,TQA,bird_3,text,em,0.0,0.0,0.0,0.000600120024004801,0.0,0.0003001801080648389,0.75,0.0
+deepseek-r1,bird,TQA,bird_3,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,bird,TQA,bird_3,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,bird,TQA,bird_3,text,em,0.0,0.0,0.0,0.28571428571428575,0.0,0.3333333333333333,0.25,1.0
 gpt-5.4-mini,bird,TQA,bird_3,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -5326,7 +5326,7 @@ llama-3.3-70b,bird,TQA,bird_877,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-opus-5,bird,TQA,bird_880,numeric,num_tol,0.0,0.0,0.0,0.0,0.8705985584992263,0.0,0.0,1.0
 claude-sonnet-5,bird,TQA,bird_880,numeric,num_tol,0.0,0.0,0.0,0.0,0.12061348035364033,0.0,0.0,1.0
 deepseek-chat,bird,TQA,bird_880,numeric,num_tol,0.0,0.0,0.0,0.0,0.09427444967544049,0.0,0.0,1.0
-deepseek-r1,bird,TQA,bird_880,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,bird,TQA,bird_880,numeric,num_tol,0.0,0.0,0.0,0.0,0.057313813248820435,0.0,0.0,1.0
 gemini-3.1-pro,bird,TQA,bird_880,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,bird,TQA,bird_880,numeric,num_tol,0.0,0.0,0.0,0.0,0.9445565341433821,0.0,0.0,1.0
 gpt-5.4-mini,bird,TQA,bird_880,numeric,num_tol,0.0,0.0,0.0,0.0,0.09205306373772766,0.0,0.0,1.0
@@ -5370,7 +5370,7 @@ llama-3.3-70b,bird,TQA,bird_95,numeric,num_tol,0.0,0.0,0.0,0.0,0.233926023473437
 claude-opus-5,bird,TQA,bird_962,numeric,num_tol,0.0,0.0,0.0,0.0,0.7934240873564621,0.0,0.0,1.0
 claude-sonnet-5,bird,TQA,bird_962,numeric,num_tol,0.0,0.0,0.0,0.0,0.4856483962189099,0.0,0.0,1.0
 deepseek-chat,bird,TQA,bird_962,numeric,num_tol,0.0,0.0,0.0,0.0,0.21593209735697538,0.0,0.0,1.0
-deepseek-r1,bird,TQA,bird_962,numeric,num_tol,0.0,0.0,0.0,0.0,0.5680291338325866,0.0,0.0,1.0
+deepseek-r1,bird,TQA,bird_962,numeric,num_tol,1.0,0.0,1.0,0.0,0.9877366310546447,0.0,0.0,1.0
 gemini-3.1-pro,bird,TQA,bird_962,numeric,num_tol,0.0,0.0,0.0,0.0,0.08532296355520748,0.0,0.0,0.0
 gemini-3.8-flash,bird,TQA,bird_962,numeric,num_tol,0.0,0.0,0.0,0.0,0.9631281665022002,0.0,0.0,1.0
 gpt-5.4-mini,bird,TQA,bird_962,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -9110,7 +9110,7 @@ llama-3.3-70b,fintagging,SM,fintagging_fincl_272,text,em,1.0,1.0,1.0,1.0,1.0,1.0
 claude-opus-5,fintagging,SM,fintagging_fincl_27486,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.6666666666666666,0.6666666666666666,1.0
 claude-sonnet-5,fintagging,SM,fintagging_fincl_27486,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.6666666666666666,0.6666666666666666,1.0
 deepseek-chat,fintagging,SM,fintagging_fincl_27486,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.6666666666666666,0.6666666666666666,1.0
-deepseek-r1,fintagging,SM,fintagging_fincl_27486,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+deepseek-r1,fintagging,SM,fintagging_fincl_27486,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.6666666666666666,0.6666666666666666,1.0
 gemini-3.1-pro,fintagging,SM,fintagging_fincl_27486,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.6666666666666666,0.6666666666666666,1.0
 gemini-3.8-flash,fintagging,SM,fintagging_fincl_27486,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.6666666666666666,0.6666666666666666,1.0
 gpt-5.4-mini,fintagging,SM,fintagging_fincl_27486,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.6666666666666666,0.6666666666666666,1.0
@@ -10496,7 +10496,7 @@ llama-3.3-70b,hitab,TQA,hitab_a050593919496a1ca5f3cff60fb8e470,text,em,1.0,1.0,1
 claude-opus-5,hitab,TQA,hitab_a49aedf0036c8c9bc5b32b5705a9e92c,text,em,0.0,0.0,0.0,0.7826086956521738,0.0,0.8181818181818182,0.75,0.0
 claude-sonnet-5,hitab,TQA,hitab_a49aedf0036c8c9bc5b32b5705a9e92c,text,em,0.0,0.0,0.0,0.07692307692307693,0.0,0.5,0.041666666666666664,1.0
 deepseek-chat,hitab,TQA,hitab_a49aedf0036c8c9bc5b32b5705a9e92c,text,em,0.0,0.0,0.0,0.7826086956521738,0.0,0.8181818181818182,0.75,0.0
-deepseek-r1,hitab,TQA,hitab_a49aedf0036c8c9bc5b32b5705a9e92c,text,em,0.0,0.0,0.0,0.005564291762428934,0.0,0.0027902462695620525,0.9583333333333334,0.0
+deepseek-r1,hitab,TQA,hitab_a49aedf0036c8c9bc5b32b5705a9e92c,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0
 gemini-3.1-pro,hitab,TQA,hitab_a49aedf0036c8c9bc5b32b5705a9e92c,text,em,0.0,0.0,0.0,0.5714285714285715,0.0,0.9090909090909091,0.4166666666666667,1.0
 gemini-3.8-flash,hitab,TQA,hitab_a49aedf0036c8c9bc5b32b5705a9e92c,text,em,0.0,0.0,0.0,0.5,0.0,1.0,0.3333333333333333,1.0
 gpt-5.4-mini,hitab,TQA,hitab_a49aedf0036c8c9bc5b32b5705a9e92c,text,em,0.0,0.0,0.0,0.625,0.0,0.625,0.625,0.0
@@ -13147,7 +13147,7 @@ llama-3.3-70b,mmtu,TQA,mmtu_Cell-entity-annotation_case_33008,text,em,1.0,1.0,1.
 claude-opus-5,mmtu,TQA,mmtu_Cell-entity-annotation_case_36290,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,mmtu,TQA,mmtu_Cell-entity-annotation_case_36290,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 deepseek-chat,mmtu,TQA,mmtu_Cell-entity-annotation_case_36290,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-deepseek-r1,mmtu,TQA,mmtu_Cell-entity-annotation_case_36290,text,em,0.0,0.0,0.0,0.0014210312626877792,0.0,0.0007110208227526664,1.0,0.0
+deepseek-r1,mmtu,TQA,mmtu_Cell-entity-annotation_case_36290,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.1-pro,mmtu,TQA,mmtu_Cell-entity-annotation_case_36290,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 gemini-3.8-flash,mmtu,TQA,mmtu_Cell-entity-annotation_case_36290,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-5.4-mini,mmtu,TQA,mmtu_Cell-entity-annotation_case_36290,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
@@ -14247,7 +14247,7 @@ llama-3.3-70b,officeqa,FIN,UID0017,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa,FIN,UID0028,numeric,num_tol,0.0,0.0,0.0,0.0,0.375964381713319,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0028,numeric,num_tol,0.0,0.0,0.0,0.0,0.2569957703064485,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0028,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0028,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208500531561091,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0028,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208064689598667,0.0,0.0,0.0
 gemini-3.1-pro,officeqa,FIN,UID0028,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0028,numeric,num_tol,0.0,0.0,0.0,0.0,0.38632088115640434,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0028,numeric,num_tol,0.0,0.0,0.0,0.0,0.3969626658178018,0.0,0.0,1.0
@@ -14291,7 +14291,7 @@ llama-3.3-70b,officeqa,FIN,UID0057,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa,FIN,UID0059,numeric,num_tol,0.0,0.0,0.0,0.0,0.110928384014097,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0059,numeric,num_tol,0.0,0.0,0.0,0.0,0.0954119956846853,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0059,numeric,num_tol,0.0,0.0,0.0,0.0,0.38481054132083037,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0059,numeric,num_tol,0.0,0.0,0.0,0.0,0.14640919456642446,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0059,numeric,num_tol,0.0,0.0,0.0,0.0,0.12007007318168848,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0059,numeric,num_tol,0.0,0.0,0.0,0.0,0.10346313120242702,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0059,numeric,num_tol,0.0,0.0,0.0,0.0,0.110928384014097,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0059,numeric,num_tol,0.0,0.0,0.0,0.0,0.12789795696582293,0.0,0.0,1.0
@@ -14302,7 +14302,7 @@ llama-3.3-70b,officeqa,FIN,UID0059,numeric,num_tol,0.0,0.0,0.0,0.0,0.09541199568
 claude-opus-5,officeqa,FIN,UID0078,numeric,num_tol,0.0,0.0,0.0,0.0,0.2883046703213541,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0078,numeric,num_tol,1.0,0.0,1.0,0.0,0.9950025091777107,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0078,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0078,numeric,num_tol,0.0,0.0,0.0,0.0,0.08416720694561616,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0078,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0078,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0078,numeric,num_tol,0.0,0.0,0.0,0.0,0.08088985749499437,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0078,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -14346,7 +14346,7 @@ llama-3.3-70b,officeqa,FIN,UID0092,numeric,num_tol,0.0,0.0,0.0,0.0,0.17383955677
 claude-opus-5,officeqa,FIN,UID0093,numeric,num_tol,0.0,0.0,0.0,0.0,0.17595926621383734,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0093,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0093,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0093,numeric,num_tol,0.0,0.0,0.0,0.0,0.09163957178052018,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0093,numeric,num_tol,0.0,0.0,0.0,0.0,0.3870775774382932,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0093,numeric,num_tol,0.0,0.0,0.0,0.0,0.1225535473749886,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0093,numeric,num_tol,0.0,0.0,0.0,0.0,0.12034712213206775,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0093,numeric,num_tol,0.0,0.0,0.0,0.0,0.13310376143428257,0.0,0.0,1.0
@@ -14434,7 +14434,7 @@ llama-3.3-70b,officeqa,FIN,UID0129,numeric,num_tol,0.0,0.0,0.0,0.0,0.28382469678
 claude-opus-5,officeqa,FIN,UID0139,numeric,num_tol,0.0,0.0,0.0,0.0,0.008905505750474059,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0139,numeric,num_tol,0.0,0.0,0.0,0.0,0.911219490901441,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0139,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0139,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0139,numeric,num_tol,0.0,0.0,0.0,0.0,0.0821096999563909,0.0,0.0,0.0
 gemini-3.1-pro,officeqa,FIN,UID0139,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0139,numeric,num_tol,0.0,0.0,0.0,0.0,0.008507398249060128,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0139,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -14445,7 +14445,7 @@ llama-3.3-70b,officeqa,FIN,UID0139,numeric,num_tol,0.0,0.0,0.0,0.0,0.08579703322
 claude-opus-5,officeqa,FIN,UID0140,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0140,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0140,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0140,numeric,num_tol,0.0,0.0,0.0,0.0,0.0823793997098727,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0140,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208524728723297,0.0,0.0,0.0
 gemini-3.1-pro,officeqa,FIN,UID0140,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0140,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0140,numeric,num_tol,0.0,0.0,0.0,0.0,0.1634064248361075,0.0,0.0,1.0
@@ -14467,7 +14467,7 @@ llama-3.3-70b,officeqa,FIN,UID0147,numeric,num_tol,0.0,0.0,0.0,0.0,0.00673794699
 claude-opus-5,officeqa,FIN,UID0148,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0148,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0148,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0148,text,em,0.0,0.0,0.0,0.0002195630694917115,0.0,0.00010980564401010212,0.5,0.0
+deepseek-r1,officeqa,FIN,UID0148,text,em,0.0,0.0,0.0,0.0001153469058192514,0.0,5.768010613139528e-05,0.5,0.0
 gemini-3.1-pro,officeqa,FIN,UID0148,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0148,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0148,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -14500,7 +14500,7 @@ llama-3.3-70b,officeqa,FIN,UID0153,numeric,num_tol,0.0,0.0,0.0,0.0,0.12339171559
 claude-opus-5,officeqa,FIN,UID0158,numeric,num_tol,0.0,0.0,0.0,0.0,0.12641541909705248,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0158,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0158,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0158,numeric,num_tol,0.0,0.0,0.0,0.0,0.12357474406161391,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0158,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0158,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0158,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0158,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -14511,7 +14511,7 @@ llama-3.3-70b,officeqa,FIN,UID0158,numeric,num_tol,0.0,0.0,0.0,0.0,0.79670346989
 claude-opus-5,officeqa,FIN,UID0171,numeric,num_tol,0.0,0.0,0.0,0.0,0.14854547461250084,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0171,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0171,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0171,numeric,num_tol,0.0,0.0,0.0,0.0,0.076443392073393,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0171,numeric,num_tol,0.0,0.0,0.0,0.0,0.04673649934368689,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0171,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0171,numeric,num_tol,0.0,0.0,0.0,0.0,0.05286331964582139,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0171,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -14533,7 +14533,7 @@ llama-3.3-70b,officeqa,FIN,UID0189,numeric,num_tol,0.0,0.0,0.0,0.0,0.08880966076
 claude-opus-5,officeqa,FIN,UID0196,numeric,num_tol,0.0,0.0,0.0,0.0,0.011555003521331965,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0196,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0196,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0196,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0196,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0196,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0196,numeric,num_tol,0.0,0.0,0.0,0.0,0.4185242547629731,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0196,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -14588,7 +14588,7 @@ llama-3.3-70b,officeqa,FIN,UID0210,numeric,num_tol,0.0,0.0,0.0,0.0,0.50433032970
 claude-opus-5,officeqa,FIN,UID0212,numeric,num_tol,0.0,0.0,0.0,0.0,0.07774157613173967,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0212,numeric,num_tol,0.0,0.0,0.0,0.0,0.7425841750805116,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0212,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0212,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0212,numeric,num_tol,0.0,0.0,0.0,0.0,0.316385570051195,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0212,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0212,numeric,num_tol,0.0,0.0,0.0,0.0,0.22136629458659662,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0212,numeric,num_tol,0.0,0.0,0.0,0.0,0.45219092239655023,0.0,0.0,1.0
@@ -14599,7 +14599,7 @@ llama-3.3-70b,officeqa,FIN,UID0212,numeric,num_tol,0.0,0.0,0.0,0.0,0.78812762774
 claude-opus-5,officeqa,FIN,UID0214,numeric,num_tol,0.0,0.0,0.0,0.0,0.9679244536773774,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0214,numeric,num_tol,0.0,0.0,0.0,0.0,0.8933261880117641,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0214,numeric,num_tol,0.0,0.0,0.0,0.0,0.8683936349586218,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0214,numeric,num_tol,0.0,0.0,0.0,0.0,0.08226804421449403,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0214,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208865554139641,0.0,0.0,0.0
 gemini-3.1-pro,officeqa,FIN,UID0214,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0214,numeric,num_tol,1.0,0.0,1.0,0.0,0.9774053372750688,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0214,numeric,num_tol,0.0,0.0,0.0,0.0,0.7027678637717392,0.0,0.0,1.0
@@ -14621,7 +14621,7 @@ llama-3.3-70b,officeqa,FIN,UID0216,numeric,num_tol,0.0,0.0,0.0,0.0,0.50712675383
 claude-opus-5,officeqa,FIN,UID0225,numeric,num_tol,0.0,0.0,0.0,0.0,0.8464817248906141,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0225,numeric,num_tol,0.0,0.0,0.0,0.0,0.9218717117743022,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0225,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0225,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0225,numeric,num_tol,0.0,0.0,0.0,0.0,0.9329119603871475,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0225,numeric,num_tol,0.0,0.0,0.0,0.0,0.9706766195180195,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0225,numeric,num_tol,0.0,0.0,0.0,0.0,0.8151647170395729,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0225,numeric,num_tol,1.0,0.0,1.0,0.0,0.9842522965387104,0.0,0.0,1.0
@@ -14687,7 +14687,7 @@ llama-3.3-70b,officeqa,FIN,UID0008,numeric,num_tol,0.0,0.0,0.0,0.0,0.45490292571
 claude-opus-5,officeqa,FIN,UID0009,numeric,num_tol,0.0,0.0,0.0,0.0,0.9729291987386897,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0009,numeric,num_tol,0.0,0.0,0.0,0.0,0.8607856207712691,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0009,numeric,num_tol,0.0,0.0,0.0,0.0,0.9310180418052876,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0009,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0009,numeric,num_tol,0.0,0.0,0.0,0.0,0.813318555460273,0.0,0.0,0.0
 gemini-3.1-pro,officeqa,FIN,UID0009,numeric,num_tol,0.0,0.0,0.0,0.0,0.9608076544566992,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0009,numeric,num_tol,1.0,0.0,1.0,0.0,0.9833226046247433,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0009,numeric,num_tol,0.0,0.0,0.0,0.0,0.6753855009001525,0.0,0.0,1.0
@@ -14698,7 +14698,7 @@ llama-3.3-70b,officeqa,FIN,UID0009,numeric,num_tol,0.0,0.0,0.0,0.0,0.88183264222
 claude-opus-5,officeqa,FIN,UID0018,numeric,num_tol,0.0,0.0,0.0,0.0,0.9377167956141996,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0018,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0018,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0018,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0018,numeric,num_tol,0.0,0.0,0.0,0.0,0.9359043049422191,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0018,numeric,num_tol,0.0,0.0,0.0,0.0,0.9577402883875842,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0018,numeric,num_tol,0.0,0.0,0.0,0.0,0.8071092487181675,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0018,numeric,num_tol,0.0,0.0,0.0,0.0,0.9307736249550089,0.0,0.0,1.0
@@ -14720,7 +14720,7 @@ llama-3.3-70b,officeqa,FIN,UID0025,numeric,num_tol,0.0,0.0,0.0,0.0,0.00673794699
 claude-opus-5,officeqa,FIN,UID0030,numeric,num_tol,0.0,0.0,0.0,0.0,0.1430666827544082,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0030,numeric,num_tol,0.0,0.0,0.0,0.0,0.12451447144412296,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0030,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0030,numeric,num_tol,0.0,0.0,0.0,0.0,0.16438310725621735,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0030,numeric,num_tol,0.0,0.0,0.0,0.0,0.18887560283756186,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0030,numeric,num_tol,0.0,0.0,0.0,0.0,0.10836802322189586,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0030,numeric,num_tol,0.0,0.0,0.0,0.0,0.3782415666666056,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0030,numeric,num_tol,0.0,0.0,0.0,0.0,0.1430666827544082,0.0,0.0,1.0
@@ -14742,7 +14742,7 @@ llama-3.3-70b,officeqa,FIN,UID0031,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1
 claude-opus-5,officeqa,FIN,UID0032,numeric,num_tol,0.0,0.0,0.0,0.0,0.20294351574765132,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0032,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0032,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0032,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0032,numeric,num_tol,1.0,0.0,1.0,0.0,0.9892819895458905,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0032,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0032,numeric,num_tol,0.0,0.0,0.0,0.0,0.1484766479143607,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0032,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
@@ -14753,7 +14753,7 @@ llama-3.3-70b,officeqa,FIN,UID0032,numeric,num_tol,0.0,0.0,0.0,0.0,0.16359771407
 claude-opus-5,officeqa,FIN,UID0036,numeric,num_tol,0.0,0.0,0.0,0.0,0.37030521619744067,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0036,numeric,num_tol,0.0,0.0,0.0,0.0,0.13609000276423722,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0036,numeric,num_tol,0.0,0.0,0.0,0.0,0.13992720406226114,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0036,numeric,num_tol,0.0,0.0,0.0,0.0,0.33048996981933343,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0036,numeric,num_tol,0.0,0.0,0.0,0.0,0.15095118287541753,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0036,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0036,numeric,num_tol,0.0,0.0,0.0,0.0,0.623317227317633,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0036,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -14764,7 +14764,7 @@ llama-3.3-70b,officeqa,FIN,UID0036,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208499862
 claude-opus-5,officeqa,FIN,UID0041,numeric,num_tol,0.0,0.0,0.0,0.0,0.7967034698934614,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0041,numeric,num_tol,0.0,0.0,0.0,0.0,0.6347364189402819,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0041,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0041,numeric,num_tol,0.0,0.0,0.0,0.0,0.6302701019755976,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0041,numeric,num_tol,0.0,0.0,0.0,0.0,0.08888120772708513,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0041,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0041,numeric,num_tol,0.0,0.0,0.0,0.0,0.25572915991310047,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0041,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -14786,7 +14786,7 @@ llama-3.3-70b,officeqa,FIN,UID0043,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208547078
 claude-opus-5,officeqa,FIN,UID0049,numeric,num_tol,0.0,0.0,0.0,0.0,0.9530604719137336,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0049,numeric,num_tol,0.0,0.0,0.0,0.0,0.9530604719137336,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0049,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0049,numeric,num_tol,0.0,0.0,0.0,0.0,0.08286107208994584,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0049,numeric,num_tol,0.0,0.0,0.0,0.0,0.6698904913909169,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0049,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0049,numeric,num_tol,0.0,0.0,0.0,0.0,0.8656879508640623,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0049,numeric,num_tol,0.0,0.0,0.0,0.0,0.6698904913909169,0.0,0.0,1.0
@@ -14797,7 +14797,7 @@ llama-3.3-70b,officeqa,FIN,UID0049,numeric,num_tol,0.0,0.0,0.0,0.0,0.92299800572
 claude-opus-5,officeqa,FIN,UID0050,numeric,num_tol,0.0,0.0,0.0,0.0,0.8986225836651877,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0050,numeric,num_tol,0.0,0.0,0.0,0.0,0.5116726582154149,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0050,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0050,numeric,num_tol,0.0,0.0,0.0,0.0,0.08234733460622078,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0050,numeric,num_tol,0.0,0.0,0.0,0.0,0.009285292816342104,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0050,numeric,num_tol,0.0,0.0,0.0,0.0,0.2041248194911299,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0050,numeric,num_tol,0.0,0.0,0.0,0.0,0.5721284032860292,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0050,numeric,num_tol,0.0,0.0,0.0,0.0,0.10165041067905699,0.0,0.0,1.0
@@ -14808,7 +14808,7 @@ llama-3.3-70b,officeqa,FIN,UID0050,numeric,num_tol,0.0,0.0,0.0,0.0,0.96243405871
 claude-opus-5,officeqa,FIN,UID0053,numeric,num_tol,0.0,0.0,0.0,0.0,0.25372146473826634,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0053,numeric,num_tol,0.0,0.0,0.0,0.0,0.2778176638738109,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0053,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0053,numeric,num_tol,0.0,0.0,0.0,0.0,0.17237794059074502,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0053,numeric,num_tol,0.0,0.0,0.0,0.0,0.41569059805779796,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0053,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0053,numeric,num_tol,0.0,0.0,0.0,0.0,0.23085722731243558,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0053,numeric,num_tol,0.0,0.0,0.0,0.0,0.29596505627051983,0.0,0.0,1.0
@@ -14852,7 +14852,7 @@ llama-3.3-70b,officeqa,FIN,UID0058,numeric,num_tol,0.0,0.0,0.0,0.0,0.08240616820
 claude-opus-5,officeqa,FIN,UID0060,numeric,num_tol,1.0,0.0,1.0,0.0,0.9988476166143695,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0060,numeric,num_tol,0.0,0.0,0.0,0.0,0.13620150959345498,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0060,numeric,num_tol,0.0,0.0,0.0,0.0,0.12938919091094056,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0060,numeric,num_tol,0.0,0.0,0.0,0.0,0.09982204702282489,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0060,numeric,num_tol,0.0,0.0,0.0,0.0,0.5063685932608637,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0060,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0060,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0060,numeric,num_tol,0.0,0.0,0.0,0.0,0.9068149299988255,0.0,0.0,1.0
@@ -14885,7 +14885,7 @@ llama-3.3-70b,officeqa,FIN,UID0067,numeric,num_tol,0.0,0.0,0.0,0.0,0.08209620324
 claude-opus-5,officeqa,FIN,UID0071,numeric,num_tol,0.0,0.0,0.0,0.0,0.31602753061740796,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0071,numeric,num_tol,0.0,0.0,0.0,0.0,0.3400474113328995,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0071,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0071,numeric,num_tol,0.0,0.0,0.0,0.0,0.08677141737961366,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0071,numeric,num_tol,0.0,0.0,0.0,0.0,0.6567466388829117,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0071,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0071,numeric,num_tol,0.0,0.0,0.0,0.0,0.08639336561837851,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0071,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -14907,7 +14907,7 @@ llama-3.3-70b,officeqa,FIN,UID0072,numeric,num_tol,0.0,0.0,0.0,0.0,0.10415191110
 claude-opus-5,officeqa,FIN,UID0074,numeric,num_tol,0.0,0.0,0.0,0.0,0.30183724612467694,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0074,numeric,num_tol,0.0,0.0,0.0,0.4,0.1732724737327763,0.3333333333333333,0.5,1.0
 deepseek-chat,officeqa,FIN,UID0074,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0074,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208378103500984,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0074,numeric,num_tol,0.0,0.0,0.0,0.0,0.09948954806802388,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0074,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0074,numeric,num_tol,0.0,0.0,0.0,0.0,0.32819830078729373,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0074,numeric,num_tol,0.0,0.0,0.0,0.0,0.10667775404624838,0.0,0.0,1.0
@@ -14951,7 +14951,7 @@ llama-3.3-70b,officeqa,FIN,UID0090,numeric,num_tol,0.0,0.0,0.0,0.0,0.19969720027
 claude-opus-5,officeqa,FIN,UID0095,numeric,num_tol,0.0,0.0,0.0,0.0,0.08918472891604184,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0095,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0095,numeric,num_tol,0.0,0.0,0.0,0.0,0.5139730660481774,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0095,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0095,numeric,num_tol,0.0,0.0,0.0,0.0,0.09655308312681703,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0095,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0095,numeric,num_tol,0.0,0.0,0.0,0.0,0.08737902619542039,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0095,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -14973,7 +14973,7 @@ llama-3.3-70b,officeqa,FIN,UID0099,numeric,num_tol,0.0,0.0,0.0,0.0,0.08226230620
 claude-opus-5,officeqa,FIN,UID0106,numeric,num_tol,1.0,0.0,1.0,0.0,0.978921207618368,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0106,numeric,num_tol,0.0,0.0,0.0,0.0,0.8533185053238809,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0106,numeric,num_tol,0.0,0.0,0.0,0.0,0.18613087369572925,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0106,numeric,num_tol,0.0,0.0,0.0,0.0,0.0821404306976443,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0106,numeric,num_tol,0.0,0.0,0.0,0.0,0.8763595781947734,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0106,numeric,num_tol,0.0,0.0,0.0,0.0,0.7583765792921797,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0106,numeric,num_tol,1.0,0.0,1.0,0.0,0.9998344520536342,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0106,numeric,num_tol,0.0,0.0,0.0,0.0,0.6979619967721282,0.0,0.0,1.0
@@ -14984,7 +14984,7 @@ llama-3.3-70b,officeqa,FIN,UID0106,numeric,num_tol,0.0,0.0,0.0,0.0,0.08229129817
 claude-opus-5,officeqa,FIN,UID0107,numeric,num_tol,0.0,0.0,0.0,0.0,0.22979027467301683,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0107,numeric,num_tol,0.0,0.0,0.0,0.0,0.17123714294478817,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0107,numeric,num_tol,0.0,0.0,0.0,0.0,0.09986644170524257,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0107,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0107,numeric,num_tol,0.0,0.0,0.0,0.0,0.24133515487921112,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0107,numeric,num_tol,0.0,0.0,0.0,0.0,0.17123714294478817,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0107,numeric,num_tol,0.0,0.0,0.0,0.0,0.26619413335110603,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0107,numeric,num_tol,0.0,0.0,0.0,0.0,0.11015328833418858,0.0,0.0,1.0
@@ -14995,7 +14995,7 @@ llama-3.3-70b,officeqa,FIN,UID0107,numeric,num_tol,0.0,0.0,0.0,0.0,0.18887560283
 claude-opus-5,officeqa,FIN,UID0109,numeric,num_tol,1.0,0.0,1.0,0.0,0.9999520714887019,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0109,numeric,num_tol,0.0,0.0,0.0,0.0,0.9223422671772138,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0109,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0109,numeric,num_tol,0.0,0.0,0.0,0.0,0.08211072696404446,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0109,numeric,num_tol,0.0,0.0,0.0,0.0,0.9035075822328972,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0109,numeric,num_tol,1.0,0.0,1.0,0.0,0.9998414759988765,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0109,numeric,num_tol,1.0,0.0,1.0,0.0,0.999870966933428,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0109,numeric,num_tol,0.0,0.0,0.0,0.0,0.9703772833054697,0.0,0.0,1.0
@@ -15006,7 +15006,7 @@ llama-3.3-70b,officeqa,FIN,UID0109,numeric,num_tol,0.0,0.0,0.0,0.0,0.82226756863
 claude-opus-5,officeqa,FIN,UID0114,numeric,num_tol,0.0,0.0,0.0,0.0,0.3951177613268873,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0114,numeric,num_tol,0.0,0.0,0.0,0.0,0.3425188550930455,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0114,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0114,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0114,numeric,num_tol,0.0,0.0,0.0,0.0001238083446824316,0.0820849986238988,6.190800470500836e-05,1.0,0.0
 gemini-3.1-pro,officeqa,FIN,UID0114,numeric,num_tol,0.0,0.0,0.0,0.0,0.23965103644177585,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0114,numeric,num_tol,0.0,0.0,0.0,0.0,0.8668778997501816,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0114,numeric,num_tol,0.0,0.0,0.0,0.0,0.15611804531597107,0.0,0.0,1.0
@@ -15017,7 +15017,7 @@ llama-3.3-70b,officeqa,FIN,UID0114,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208499862
 claude-opus-5,officeqa,FIN,UID0122,numeric,num_tol,0.0,0.0,0.0,0.0,0.10670678703031895,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0122,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0122,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0122,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0122,numeric,num_tol,0.0,0.0,0.0,0.0,0.9664721141472266,0.0,0.0,0.0
 gemini-3.1-pro,officeqa,FIN,UID0122,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0122,numeric,num_tol,0.0,0.0,0.0,0.0,0.11364094144658937,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0122,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -15028,7 +15028,7 @@ llama-3.3-70b,officeqa,FIN,UID0122,numeric,num_tol,0.0,0.0,0.0,0.0,0.09358967072
 claude-opus-5,officeqa,FIN,UID0130,numeric,num_tol,1.0,0.0,1.0,0.0,0.9940671669754111,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0130,numeric,num_tol,0.0,0.0,0.0,0.0,0.9259625799877932,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0130,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0130,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208544226448437,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0130,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820852204438919,0.0,0.0,0.0
 gemini-3.1-pro,officeqa,FIN,UID0130,numeric,num_tol,0.0,0.0,0.0,0.0,0.9703657723405851,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0130,numeric,num_tol,1.0,0.0,1.0,0.0,0.9970561138275273,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0130,numeric,num_tol,0.0,0.0,0.0,0.0,0.8883820598661237,0.0,0.0,1.0
@@ -15039,7 +15039,7 @@ llama-3.3-70b,officeqa,FIN,UID0130,numeric,num_tol,0.0,0.0,0.0,0.0,0.70212289165
 claude-opus-5,officeqa,FIN,UID0137,numeric,num_tol,0.0,0.0,0.0,0.0,0.4921944398879852,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0137,numeric,num_tol,0.0,0.0,0.0,0.0,0.632520175718963,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0137,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0137,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0137,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0137,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0137,numeric,num_tol,0.0,0.0,0.0,0.0,0.44033396835271676,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0137,numeric,num_tol,0.0,0.0,0.0,0.0,0.5015928877356933,0.0,0.0,1.0
@@ -15050,7 +15050,7 @@ llama-3.3-70b,officeqa,FIN,UID0137,numeric,num_tol,0.0,0.0,0.0,0.0,0.24043971792
 claude-opus-5,officeqa,FIN,UID0141,numeric,num_tol,1.0,0.0,1.0,0.0,0.98944786487776,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0141,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0141,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0141,numeric,num_tol,0.0,0.0,0.0,0.0,0.08180971603460017,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0141,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0141,numeric,num_tol,0.0,0.0,0.0,0.0,0.8668778997501816,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0141,numeric,num_tol,0.0,0.0,0.0,0.0,0.8002970744137929,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0141,numeric,num_tol,0.0,0.0,0.0,0.0,0.9436579558154545,0.0,0.0,1.0
@@ -15072,7 +15072,7 @@ llama-3.3-70b,officeqa,FIN,UID0143,numeric,num_tol,0.0,0.0,0.0,0.0,0.13598354006
 claude-opus-5,officeqa,FIN,UID0144,numeric,num_tol,0.0,0.0,0.0,0.0,0.0097618088128802,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0144,numeric,num_tol,0.0,0.0,0.0,0.0,0.09466466740538959,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0144,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0144,numeric,num_tol,0.0,0.0,0.0,0.0,0.09200323321260372,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0144,numeric,num_tol,0.0,0.0,0.0,0.0,0.850784036998716,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0144,numeric,num_tol,0.0,0.0,0.0,0.0,0.25683649844778456,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0144,numeric,num_tol,0.0,0.0,0.0,0.0,0.08526619703567763,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0144,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -15083,7 +15083,7 @@ llama-3.3-70b,officeqa,FIN,UID0144,numeric,num_tol,0.0,0.0,0.0,0.0,0.00673794699
 claude-opus-5,officeqa,FIN,UID0152,numeric,num_tol,0.0,0.0,0.0,0.0,0.3104839530734539,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0152,numeric,num_tol,0.0,0.0,0.0,0.0,0.29537421677083947,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0152,numeric,num_tol,0.0,0.0,0.0,0.0,0.12302795405278251,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0152,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0152,numeric,num_tol,0.0,0.0,0.0,0.0,0.37280632481890524,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0152,numeric,num_tol,0.0,0.0,0.0,0.0,0.16232061118184815,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0152,numeric,num_tol,0.0,0.0,0.0,0.0,0.8328290922217452,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0152,numeric,num_tol,0.0,0.0,0.0,0.0,0.24873864558140626,0.0,0.0,1.0
@@ -15094,7 +15094,7 @@ llama-3.3-70b,officeqa,FIN,UID0152,numeric,num_tol,0.0,0.0,0.0,0.0,0.29211764336
 claude-opus-5,officeqa,FIN,UID0156,numeric,num_tol,0.0,0.0,0.0,0.0,0.9696763551648762,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0156,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0156,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0156,numeric,num_tol,0.0,0.0,0.0,0.0,0.08145551553495047,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0156,numeric,num_tol,0.0,0.0,0.0,0.0,0.06150212187259918,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0156,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0156,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0156,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -15105,7 +15105,7 @@ llama-3.3-70b,officeqa,FIN,UID0156,numeric,num_tol,0.0,0.0,0.0,0.0,0.04608041735
 claude-opus-5,officeqa,FIN,UID0157,numeric,num_tol,0.0,0.0,0.0,0.0,0.918562329647442,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0157,numeric,num_tol,0.0,0.0,0.0,0.0,0.24769345054608252,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0157,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0157,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0157,numeric,num_tol,0.0,0.0,0.0,0.0,0.252297945013178,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0157,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0157,numeric,num_tol,0.0,0.0,0.0,0.0,0.8260805348615992,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0157,numeric,num_tol,0.0,0.0,0.0,0.0,0.20550615457568275,0.0,0.0,1.0
@@ -15116,7 +15116,7 @@ llama-3.3-70b,officeqa,FIN,UID0157,numeric,num_tol,0.0,0.0,0.0,0.0,0.08215110514
 claude-opus-5,officeqa,FIN,UID0163,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0163,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0163,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0163,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0163,numeric,num_tol,0.0,0.0,0.0,0.0,0.34415378686541237,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0163,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0163,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0163,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -15138,7 +15138,7 @@ llama-3.3-70b,officeqa,FIN,UID0164,numeric,num_tol,0.0,0.0,0.0,0.0,0.12127511927
 claude-opus-5,officeqa,FIN,UID0165,numeric,num_tol,0.0,0.0,0.0,0.0,0.3816037299571033,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0165,numeric,num_tol,0.0,0.0,0.0,0.0,0.47102650668287194,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0165,numeric,num_tol,0.0,0.0,0.0,0.0,0.1561814177710848,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0165,numeric,num_tol,0.0,0.0,0.0,0.0,0.08216832518118088,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0165,numeric,num_tol,0.0,0.0,0.0,0.0,0.7312445706653312,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0165,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0165,numeric,num_tol,0.0,0.0,0.0,0.0,0.4305749249460039,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0165,numeric,num_tol,0.0,0.0,0.0,0.0,0.09674920957402704,0.0,0.0,1.0
@@ -15149,7 +15149,7 @@ llama-3.3-70b,officeqa,FIN,UID0165,numeric,num_tol,0.0,0.0,0.0,0.0,0.10578490944
 claude-opus-5,officeqa,FIN,UID0166,numeric,num_tol,0.0,0.0,0.0,0.0,0.08759774704805763,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0166,numeric,num_tol,0.0,0.0,0.0,0.0,0.0871608514619813,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0166,numeric,num_tol,0.0,0.0,0.0,0.0,0.13533528323661276,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0166,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0166,numeric,num_tol,0.0,0.0,0.0,0.00012879958784131891,0.30119421191220214,6.44039415212211e-05,1.0,0.0
 gemini-3.1-pro,officeqa,FIN,UID0166,numeric,num_tol,0.0,0.0,0.0,0.0,0.3678794411714422,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0166,numeric,num_tol,0.0,0.0,0.0,0.0,0.08803683258237255,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0166,numeric,num_tol,0.0,0.0,0.0,0.0,0.22313016014842982,0.0,0.0,1.0
@@ -15160,7 +15160,7 @@ llama-3.3-70b,officeqa,FIN,UID0166,numeric,num_tol,0.0,0.0,0.0,0.0,0.11247773365
 claude-opus-5,officeqa,FIN,UID0177,numeric,num_tol,1.0,0.0,1.0,0.0,0.9926339385121763,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0177,numeric,num_tol,0.0,0.0,0.0,0.0,0.6801043183581913,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0177,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0177,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0177,numeric,num_tol,0.0,0.0,0.0,0.0,0.6822626926788684,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0177,numeric,num_tol,0.0,0.0,0.0,0.0,0.7147173082259718,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0177,numeric,num_tol,1.0,0.0,1.0,0.0,0.9905393329629139,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0177,numeric,num_tol,0.0,0.0,0.0,0.0,0.6616821301986378,0.0,0.0,1.0
@@ -15193,7 +15193,7 @@ llama-3.3-70b,officeqa,FIN,UID0181,numeric,num_tol,0.0,0.0,0.0,0.0,0.00673794699
 claude-opus-5,officeqa,FIN,UID0191,numeric,num_tol,0.0,0.0,0.0,0.0,0.09032680780920666,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0191,numeric,num_tol,0.0,0.0,0.0,0.0,0.0902849995212195,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0191,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0191,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0191,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0191,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0191,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0191,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -15204,7 +15204,7 @@ llama-3.3-70b,officeqa,FIN,UID0191,numeric,num_tol,0.0,0.0,0.0,0.0,0.08776417845
 claude-opus-5,officeqa,FIN,UID0192,numeric,num_tol,0.0,0.0,0.0,0.0,0.19488509721556557,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0192,numeric,num_tol,0.0,0.0,0.0,0.0,0.14767795455093694,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0192,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0192,numeric,num_tol,0.0,0.0,0.0,0.0,0.7401759391925852,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0192,numeric,num_tol,0.0,0.0,0.0,0.0,0.1573195854100428,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0192,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0192,numeric,num_tol,0.0,0.0,0.0,0.0,0.17934074945603312,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0192,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -15226,7 +15226,7 @@ llama-3.3-70b,officeqa,FIN,UID0204,numeric,num_tol,0.0,0.0,0.0,0.0,0.22979027467
 claude-opus-5,officeqa,FIN,UID0209,numeric,num_tol,0.0,0.0,0.0,0.0,0.09778344405135005,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0209,numeric,num_tol,0.0,0.0,0.0,0.0,0.09536916221554961,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0209,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0209,numeric,num_tol,1.0,0.0,1.0,0.0,1.0,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0209,numeric,num_tol,0.0,0.0,0.0,0.0,0.515560819970764,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0209,numeric,num_tol,0.0,0.0,0.0,0.0,0.11943296826671962,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0209,numeric,num_tol,0.0,0.0,0.0,0.0,0.10806741863482926,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0209,numeric,num_tol,0.0,0.0,0.0,0.0,0.10025884372280375,0.0,0.0,1.0
@@ -15237,7 +15237,7 @@ llama-3.3-70b,officeqa,FIN,UID0209,numeric,num_tol,0.0,0.0,0.0,0.0,0.09778344405
 claude-opus-5,officeqa,FIN,UID0215,numeric,num_tol,0.0,0.0,0.0,0.0,0.4886820003470946,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0215,numeric,num_tol,0.0,0.0,0.0,0.0,0.4063296304296113,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0215,numeric,num_tol,0.0,0.0,0.0,0.0,0.43211012547240946,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0215,numeric,num_tol,0.0,0.0,0.0,0.0,0.08248995586390362,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0215,numeric,num_tol,0.0,0.0,0.0,0.0,0.08837367901600521,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0215,numeric,num_tol,0.0,0.0,0.0,0.0,0.15185297140031268,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0215,numeric,num_tol,0.0,0.0,0.0,0.0,0.8500997573438134,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0215,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -15248,7 +15248,7 @@ llama-3.3-70b,officeqa,FIN,UID0215,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1
 claude-opus-5,officeqa,FIN,UID0228,numeric,num_tol,0.0,0.0,0.0,0.0,0.884175415931399,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0228,numeric,num_tol,0.0,0.0,0.0,0.0,0.8872115031574136,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0228,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0228,numeric,num_tol,0.0,0.0,0.0,0.0,0.08210993491930808,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0228,numeric,num_tol,0.0,0.0,0.0,0.0,0.931414489126493,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0228,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0228,numeric,num_tol,0.0,0.0,0.0,0.0,0.9114323208956009,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0228,numeric,num_tol,0.0,0.0,0.0,0.0,0.3492405253434539,0.0,0.0,1.0
@@ -15259,7 +15259,7 @@ llama-3.3-70b,officeqa,FIN,UID0228,numeric,num_tol,0.0,0.0,0.0,0.0,0.05984832645
 claude-opus-5,officeqa,FIN,UID0236,numeric,num_tol,0.0,0.0,0.0,0.0,0.8606784601967233,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0236,numeric,num_tol,0.0,0.0,0.0,0.0,0.8001883886065323,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0236,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0236,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0236,numeric,num_tol,0.0,0.0,0.0,0.0,0.7886104129915698,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0236,numeric,num_tol,0.0,0.0,0.0,0.0,0.700015396454553,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0236,numeric,num_tol,0.0,0.0,0.0,0.0,0.7947189062929573,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0236,numeric,num_tol,0.0,0.0,0.0,0.0,0.28699648164928127,0.0,0.0,1.0
@@ -15281,7 +15281,7 @@ llama-3.3-70b,officeqa,FIN,UID0237,numeric,num_tol,0.0,0.0,0.0,0.0,0.00673794699
 claude-opus-5,officeqa,FIN,UID0238,numeric,num_tol,0.0,0.0,0.0,0.0,0.20794727569870777,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0238,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0238,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0238,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0238,numeric,num_tol,0.0,0.0,0.0,0.0,0.019546767652706753,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0238,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0238,numeric,num_tol,0.0,0.0,0.0,0.0,0.24065024180538033,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0238,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -15292,7 +15292,7 @@ llama-3.3-70b,officeqa,FIN,UID0238,numeric,num_tol,0.0,0.0,0.0,0.0,0.11189918974
 claude-opus-5,officeqa,FIN,UID0240,numeric,num_tol,0.0,0.0,0.0,0.0,0.33683610040526407,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0240,numeric,num_tol,1.0,0.0,1.0,0.0,0.999750006251146,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0240,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0240,numeric,num_tol,0.0,0.0,0.0,0.0,0.09071886056420926,0.0,0.0,0.0
+deepseek-r1,officeqa,FIN,UID0240,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0240,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0240,numeric,num_tol,1.0,0.0,1.0,0.0,0.999750006251146,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0240,numeric,num_tol,0.0,0.0,0.0,0.0,0.08816961739577986,0.0,0.0,1.0
@@ -15303,7 +15303,7 @@ llama-3.3-70b,officeqa,FIN,UID0240,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208499862
 claude-opus-5,officeqa,FIN,UID0243,numeric,num_tol,1.0,0.0,1.0,0.0,0.9982821084839094,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0243,numeric,num_tol,0.0,0.0,0.0,0.0,0.09438063403318481,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0243,numeric,num_tol,1.0,0.0,1.0,0.0,0.9984141491458762,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0243,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0243,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0243,numeric,num_tol,1.0,0.0,1.0,0.0,0.9887368591111481,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0243,numeric,num_tol,1.0,0.0,1.0,0.0,0.9988575562575057,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0243,numeric,num_tol,0.0,0.0,0.0,0.0,0.7570470250536248,0.0,0.0,1.0
@@ -15314,7 +15314,7 @@ llama-3.3-70b,officeqa,FIN,UID0243,numeric,num_tol,0.0,0.0,0.0,0.0,0.00673794699
 claude-opus-5,officeqa,FIN,UID0244,numeric,num_tol,0.0,0.0,0.0,0.0,0.38564094831219053,0.0,0.0,1.0
 claude-sonnet-5,officeqa,FIN,UID0244,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa,FIN,UID0244,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa,FIN,UID0244,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa,FIN,UID0244,numeric,num_tol,0.0,0.0,0.0,0.0,0.12559354300669806,0.0,0.0,1.0
 gemini-3.1-pro,officeqa,FIN,UID0244,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa,FIN,UID0244,numeric,num_tol,0.0,0.0,0.0,0.0,0.010207600298282342,0.0,0.0,1.0
 gpt-5.4-mini,officeqa,FIN,UID0244,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -15325,7 +15325,7 @@ llama-3.3-70b,officeqa,FIN,UID0244,numeric,num_tol,0.0,0.0,0.0,0.0,0.30500848146
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_0,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_0,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_0,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_0,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_0,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_0,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_0,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_0,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -15336,7 +15336,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_0,text,em,0.0,0.0,0.0,0.5,0.0,
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_1,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_1,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_1,numeric,num_tol,1.0,0.0,1.0,0.0,0.9809781913895214,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_1,numeric,num_tol,0.0,0.0,0.0,0.0,0.7369984845364246,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_1,numeric,num_tol,1.0,0.0,1.0,0.0,0.9998306984567754,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_1,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_1,numeric,num_tol,1.0,0.0,1.0,0.0,0.9821908120521347,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_1,numeric,num_tol,0.0,0.0,0.0,0.0,0.7017318677190777,0.0,0.0,1.0
@@ -15347,7 +15347,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_1,numeric,num_tol,0.0,0.0,0.0,
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_10,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_10,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_10,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_10,numeric,num_tol,0.0,0.0,0.0,0.0,0.08809604515605318,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_10,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_10,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_10,numeric,num_tol,0.0,0.0,0.0,0.0,0.3729706413082742,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_10,numeric,num_tol,0.0,0.0,0.0,0.0,0.6572030456527123,0.0,0.0,1.0
@@ -15369,7 +15369,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_11,text,em,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_12,numeric,num_tol,0.0,0.0,0.0,0.0,0.0880810358817639,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_12,numeric,num_tol,0.0,0.0,0.0,0.0,0.0880810358817639,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_12,numeric,num_tol,0.0,0.0,0.0,0.0,0.0880810358817639,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_12,numeric,num_tol,0.0,0.0,0.0,0.0,0.6804909348128547,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_12,numeric,num_tol,0.0,0.0,0.0,0.0,0.0880810358817639,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_12,numeric,num_tol,0.0,0.0,0.0,0.0,0.0880810358817639,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_12,numeric,num_tol,0.0,0.0,0.0,0.0,0.0880810358817639,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_12,numeric,num_tol,0.0,0.0,0.0,0.0,0.0880810358817639,0.0,0.0,1.0
@@ -15380,7 +15380,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_12,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_13,numeric,num_tol,0.0,0.0,0.0,0.0,0.2865047968601901,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_13,numeric,num_tol,0.0,0.0,0.0,0.0,0.6592406302004438,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_13,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_13,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_13,numeric,num_tol,0.0,0.0,0.0,0.0,0.12451447144412296,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_13,numeric,num_tol,0.0,0.0,0.0,0.0,0.4345982085070783,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_13,numeric,num_tol,0.0,0.0,0.0,0.0,0.2865047968601901,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_13,numeric,num_tol,0.0,0.0,0.0,0.0,0.18887560283756186,0.0,0.0,1.0
@@ -15402,7 +15402,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_14,text,em,0.0,0.0,0.0,0.5,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_15,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_15,numeric,num_tol,0.0,0.0,0.0,0.0,0.08174649037526283,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_15,numeric,num_tol,0.0,0.0,0.0,0.0,0.08105032403090592,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_15,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_15,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_15,numeric,num_tol,0.0,0.0,0.0,0.0,0.08122464277585392,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_15,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_15,numeric,num_tol,0.0,0.0,0.0,0.0,0.12069183470962287,0.0,0.0,1.0
@@ -15413,7 +15413,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_15,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_16,numeric,num_tol,0.0,0.0,0.0,0.0,0.38230427289208063,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_16,numeric,num_tol,0.0,0.0,0.0,0.0,0.1771480897843865,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_16,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_16,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_16,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_16,numeric,num_tol,0.0,0.0,0.0,0.0,0.21471117234169726,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_16,numeric,num_tol,0.0,0.0,0.0,0.0,0.38230427289208063,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_16,numeric,num_tol,0.0,0.0,0.0,0.0,0.1771480897843865,0.0,0.0,1.0
@@ -15422,9 +15422,9 @@ gpt-oss-120b,officeqa_pro_v2,FIN,officeqa_pro_v2_16,numeric,num_tol,0.0,0.0,0.0,
 grok-4,officeqa_pro_v2,FIN,officeqa_pro_v2_16,numeric,num_tol,0.0,0.0,0.0,0.0,0.1771480897843865,0.0,0.0,1.0
 llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_16,numeric,num_tol,0.0,0.0,0.0,0.0,0.38230427289208063,0.0,0.0,1.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_17,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_17,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_17,numeric,num_tol,0.0,0.0,0.0,0.0,0.05402181422079769,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_17,numeric,num_tol,0.0,0.0,0.0,0.0,0.06231767384583894,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_17,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_17,numeric,num_tol,0.0,0.0,0.0,0.0,0.23480976769331774,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_17,numeric,num_tol,0.0,0.0,0.0,0.0,0.07262478824165727,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_17,numeric,num_tol,0.0,0.0,0.0,0.0,0.19342660460039246,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_17,numeric,num_tol,0.0,0.0,0.0,0.0,0.2573951420525681,0.0,0.0,1.0
@@ -15435,7 +15435,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_17,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_18,numeric,num_tol,0.0,0.0,0.0,0.0,0.8868653936143723,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_18,numeric,num_tol,0.0,0.0,0.0,0.0,0.7906086228552163,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_18,numeric,num_tol,0.0,0.0,0.0,0.0,0.28122668486156865,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_18,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_18,numeric,num_tol,0.0,0.0,0.0,0.0,0.8817473899204541,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_18,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_18,numeric,num_tol,0.0,0.0,0.0,0.0,0.8890522677693087,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_18,numeric,num_tol,0.0,0.0,0.0,0.0,0.40690623727704983,0.0,0.0,1.0
@@ -15446,7 +15446,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_18,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_19,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_19,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_19,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_19,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_19,text,em,0.0,0.0,0.0,0.00011254290698328738,0.0,5.6277787157408974e-05,0.5,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_19,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_19,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_19,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -15479,7 +15479,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_20,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_21,numeric,num_tol,0.0,0.0,0.0,0.0,0.11736107327940776,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_21,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_21,numeric,num_tol,0.0,0.0,0.0,0.0,0.48980398427670624,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_21,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_21,numeric,num_tol,0.0,0.0,0.0,0.0001218249375647195,0.15335496684492847,6.0916179337231965e-05,1.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_21,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_21,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_21,numeric,num_tol,0.0,0.0,0.0,0.0,0.48980398427670624,0.0,0.0,1.0
@@ -15501,7 +15501,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_22,text,em,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_23,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_23,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_23,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_23,text,em,0.0,0.0,0.0,0.0005060728744939271,0.0,0.00025316455696202533,0.5,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_23,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_23,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_23,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_23,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
@@ -15512,7 +15512,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_23,text,em,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_24,numeric,num_tol,1.0,0.0,1.0,0.0,0.9985140425738903,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_24,numeric,num_tol,1.0,0.0,1.0,0.0,0.9985140425738903,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_24,numeric,num_tol,1.0,0.0,1.0,0.0,0.9987615487180694,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_24,numeric,num_tol,0.0,0.0,0.0,0.0,0.8220979689863402,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_24,numeric,num_tol,1.0,0.0,1.0,0.0,0.9985140425738903,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_24,numeric,num_tol,1.0,0.0,1.0,0.0,0.9997521869514332,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_24,numeric,num_tol,1.0,0.0,1.0,0.0,0.9955487486489913,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_24,numeric,num_tol,1.0,0.0,1.0,0.0,0.9985140425738903,0.0,0.0,1.0
@@ -15523,7 +15523,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_24,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_25,numeric,num_tol,0.0,0.0,0.0,0.0,0.20609661975929364,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_25,numeric,num_tol,0.0,0.0,0.0,0.0,0.16587714333244397,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_25,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_25,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_25,numeric,num_tol,0.0,0.0,0.0,0.0,0.2156788894627487,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_25,numeric,num_tol,0.0,0.0,0.0,0.0,0.08952932349506398,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_25,numeric,num_tol,0.0,0.0,0.0,0.0,0.26059297669161696,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_25,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -15534,7 +15534,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_25,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_26,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_26,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_26,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_26,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_26,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_26,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_26,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_26,numeric,num_tol,0.0,0.0,0.0,0.0,0.105506479284029,0.0,0.0,1.0
@@ -15545,7 +15545,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_26,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_27,numeric,num_tol,0.0,0.0,0.0,0.0,0.6475456043040937,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_27,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_27,numeric,num_tol,0.0,0.0,0.0,0.0,0.2610818862547966,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_27,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_27,numeric,num_tol,0.0,0.0,0.0,0.0,0.20885421846779179,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_27,numeric,num_tol,0.0,0.0,0.0,0.0,0.2610818862547966,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_27,numeric,num_tol,0.0,0.0,0.0,0.0,0.7495681785129943,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_27,numeric,num_tol,0.0,0.0,0.0,0.0,0.538730057246029,0.0,0.0,1.0
@@ -15556,7 +15556,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_27,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_28,numeric,num_tol,0.0,0.0,0.0,0.0,0.09697621154174822,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_28,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_28,numeric,num_tol,0.0,0.0,0.0,0.0,0.09186162888675513,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_28,numeric,num_tol,0.0,0.0,0.0,0.0,0.09901805088678237,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_28,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_28,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_28,numeric,num_tol,0.0,0.0,0.0,0.0,0.18875756296712368,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_28,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -15633,7 +15633,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_33,text,em,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_34,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_34,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_34,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_34,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_34,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_34,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_34,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_34,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -15644,7 +15644,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_34,text,em,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_35,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_35,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_35,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_35,text,em,0.0,0.0,0.0,0.10526315789473684,0.0,0.058823529411764705,0.5,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_35,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_35,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_35,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_35,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -15655,7 +15655,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_35,text,em,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_36,numeric,num_tol,1.0,0.0,1.0,0.0,0.9826039278378863,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_36,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_36,numeric,num_tol,0.0,0.0,0.0,0.0,0.9332395921823013,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_36,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_36,numeric,num_tol,0.0,0.0,0.0,0.0,0.5523881115093752,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_36,numeric,num_tol,0.0,0.0,0.0,0.0,0.27941581951119965,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_36,numeric,num_tol,0.0,0.0,0.0,0.0,0.9600463190401494,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_36,numeric,num_tol,0.0,0.0,0.0,0.0,0.11569203998149348,0.0,0.0,1.0
@@ -15677,7 +15677,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_37,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_38,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820323669164007,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_38,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_38,numeric,num_tol,0.0,0.0,0.0,0.0,0.08136629283087289,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_38,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_38,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820323669164007,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_38,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_38,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_38,numeric,num_tol,0.0,0.0,0.0,0.0,0.08172077885230974,0.0,0.0,1.0
@@ -15688,7 +15688,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_38,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_39,numeric,num_tol,0.0,0.0,0.0,0.0,0.1288708759156055,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_39,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_39,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_39,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_39,numeric,num_tol,0.0,0.0,0.0,0.0,0.8460756410773963,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_39,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_39,numeric,num_tol,0.0,0.0,0.0,0.0,0.14693186421749216,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_39,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -15708,9 +15708,9 @@ gpt-oss-120b,officeqa_pro_v2,FIN,officeqa_pro_v2_4,text,em,0.0,0.0,0.0,0.0,0.0,0
 grok-4,officeqa_pro_v2,FIN,officeqa_pro_v2_4,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_4,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_40,text,em,0.0,0.0,0.0,0.5714285714285715,0.0,1.0,0.4,1.0
-claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_40,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_40,text,em,0.0,0.0,0.0,0.3636363636363636,0.0,0.3333333333333333,0.4,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_40,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_40,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_40,text,em,0.0,0.0,0.0,0.4000000000000001,0.0,0.4,0.4,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_40,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_40,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_40,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -15732,7 +15732,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_41,text,em,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_42,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_42,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_42,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_42,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_42,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_42,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_42,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_42,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -15743,7 +15743,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_42,text,em,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_43,numeric,num_tol,0.0,0.0,0.0,0.0,0.23644285455649725,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_43,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_43,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_43,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_43,numeric,num_tol,0.0,0.0,0.0,0.0,0.06479525369190553,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_43,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_43,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_43,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -15754,7 +15754,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_43,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_44,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_44,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_44,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_44,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_44,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_44,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_44,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_44,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -15765,7 +15765,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_44,text,em,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_45,numeric,num_tol,0.0,0.0,0.0,0.0,0.930054689885465,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_45,numeric,num_tol,1.0,0.0,1.0,0.0,0.9859868012840141,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_45,numeric,num_tol,0.0,0.0,0.0,0.0,0.9414911926472295,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_45,numeric,num_tol,0.0,0.0,0.0,0.0,0.08220414077754411,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_45,numeric,num_tol,0.0,0.0,0.0,0.0,0.8757023514497096,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_45,numeric,num_tol,0.0,0.0,0.0,0.0,0.08705494969679699,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_45,numeric,num_tol,0.0,0.0,0.0,0.0,0.08731718614759604,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_45,numeric,num_tol,0.0,0.0,0.0,0.0,0.8852642456351978,0.0,0.0,1.0
@@ -15776,7 +15776,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_45,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_46,numeric,num_tol,0.0,0.0,0.0,0.0,0.22313016014842982,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_46,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_46,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_46,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_46,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_46,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_46,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_46,numeric,num_tol,0.0,0.0,0.0,0.0,0.6065306597126334,0.0,0.0,1.0
@@ -15798,7 +15798,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_47,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_48,numeric,num_tol,0.0,0.0,0.0,0.0,0.822836871169963,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_48,numeric,num_tol,0.0,0.0,0.0,0.0,0.24309794831571582,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_48,numeric,num_tol,0.0,0.0,0.0,0.0,0.11999375468404791,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_48,numeric,num_tol,0.0,0.0,0.0,0.0,0.09390054429101125,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_48,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_48,numeric,num_tol,0.0,0.0,0.0,0.0,0.5430557451763279,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_48,numeric,num_tol,0.0,0.0,0.0,0.0,0.8769169262962334,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_48,numeric,num_tol,0.0,0.0,0.0,0.0,0.23453453956387685,0.0,0.0,1.0
@@ -15809,7 +15809,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_48,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_49,numeric,num_tol,0.0,0.0,0.0,0.0,0.8259868129103018,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_49,numeric,num_tol,0.0,0.0,0.0,0.0,0.22313016014842982,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_49,numeric,num_tol,0.0,0.0,0.0,0.0,0.18703292871671054,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_49,numeric,num_tol,0.0,0.0,0.0,0.0,0.07085931663054641,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_49,numeric,num_tol,0.0,0.0,0.0,0.0,0.7451888170134806,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_49,numeric,num_tol,0.0,0.0,0.0,0.0,0.15335496684492847,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_49,numeric,num_tol,0.0,0.0,0.0,0.0,0.21038343558799175,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_49,numeric,num_tol,0.0,0.0,0.0,0.0,0.5846366675089634,0.0,0.0,1.0
@@ -15820,7 +15820,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_49,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_5,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_5,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_5,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_5,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_5,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_5,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_5,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_5,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -15831,7 +15831,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_5,text,em,0.0,0.0,0.0,0.0,0.0,
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_50,numeric,num_tol,0.0,0.0,0.0,0.0,0.2676631488584646,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_50,numeric,num_tol,0.0,0.0,0.0,0.0,0.45373395685509965,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_50,numeric,num_tol,0.0,0.0,0.0,0.0,0.5330202680562839,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_50,numeric,num_tol,0.0,0.0,0.0,0.0,0.08210258763821465,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_50,numeric,num_tol,0.0,0.0,0.0,0.0,0.07920552801706848,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_50,numeric,num_tol,0.0,0.0,0.0,0.0,0.08172408574889775,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_50,numeric,num_tol,0.0,0.0,0.0,0.0,0.08150579709483508,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_50,numeric,num_tol,0.0,0.0,0.0,0.0,0.3519956181422096,0.0,0.0,1.0
@@ -15842,7 +15842,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_50,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_51,numeric,num_tol,1.0,0.0,1.0,0.0,0.9993081558225343,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_51,numeric,num_tol,0.0,0.0,0.0,0.0,0.28728472707754615,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_51,numeric,num_tol,0.0,0.0,0.0,0.0,0.4776420717076599,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_51,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_51,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_51,numeric,num_tol,0.0,0.0,0.0,0.0,0.8688158819018345,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_51,numeric,num_tol,0.0,0.0,0.0,0.0,0.5599907627439409,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_51,numeric,num_tol,0.0,0.0,0.0,0.0,0.7566756661224586,0.0,0.0,1.0
@@ -15853,7 +15853,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_51,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_52,numeric,num_tol,0.0,0.0,0.0,0.5,0.08208499457688154,0.5,0.5,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_52,numeric,num_tol,0.0,0.0,0.0,0.5,0.08208471479891465,0.5,0.5,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_52,numeric,num_tol,0.0,0.0,0.0,0.5,0.086310648359262,0.5,0.5,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_52,numeric,num_tol,0.0,0.0,0.0,0.0,0.0831391563414835,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_52,numeric,num_tol,0.0,0.0,0.0,0.00011089548100914887,0.08210503580846898,5.545389009038984e-05,0.5,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_52,numeric,num_tol,0.0,0.0,0.0,0.0,0.13563068836385306,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_52,numeric,num_tol,0.0,0.0,0.0,0.5,0.1484914619284169,0.5,0.5,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_52,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820848911042011,0.0,0.0,1.0
@@ -15875,7 +15875,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_53,numeric,num_tol,1.0,0.0,1.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_54,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_54,numeric,num_tol,1.0,0.0,1.0,0.0,0.9987619167114233,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_54,numeric,num_tol,1.0,0.0,1.0,0.0,0.9987619167114233,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_54,numeric,num_tol,1.0,0.0,1.0,0.00038819875776397513,0.9962903467871622,0.00019413706076490002,1.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_54,numeric,num_tol,1.0,0.0,1.0,0.0,0.9987619167114233,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_54,numeric,num_tol,1.0,0.0,1.0,0.0,0.9987619167114233,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_54,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_54,numeric,num_tol,1.0,0.0,1.0,0.0,0.992594455101284,0.0,0.0,1.0
@@ -15886,7 +15886,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_54,numeric,num_tol,1.0,0.0,1.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_55,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_55,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_55,numeric,num_tol,0.0,0.0,0.0,0.0,0.22313016014842982,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_55,numeric,num_tol,0.0,0.0,0.0,0.0003963535473642489,0.006737946999085467,0.00019821605550049553,1.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_55,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_55,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_55,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_55,numeric,num_tol,0.0,0.0,0.0,0.0,0.36787944117144233,0.0,0.0,1.0
@@ -15908,7 +15908,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_56,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_57,numeric,num_tol,0.0,0.0,0.0,0.0,0.15130021931779006,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_57,numeric,num_tol,0.0,0.0,0.0,0.0,0.33383036569708374,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_57,numeric,num_tol,0.0,0.0,0.0,0.0,0.27887868367395596,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_57,numeric,num_tol,0.0,0.0,0.0,0.0,0.0821180312301887,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_57,numeric,num_tol,0.0,0.0,0.0,0.0,0.08212345810201639,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_57,numeric,num_tol,0.0,0.0,0.0,0.0,0.08223276635832984,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_57,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_57,numeric,num_tol,0.0,0.0,0.0,0.0,0.08684206185649344,0.0,0.0,1.0
@@ -15919,7 +15919,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_57,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_58,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_58,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_58,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_58,text,em,0.0,0.0,0.0,0.001142857142857143,0.0,0.0005717552887364208,1.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_58,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_58,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_58,text,em,0.0,0.0,0.0,0.5,0.0,0.5,0.5,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_58,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
@@ -15941,7 +15941,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_59,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_6,numeric,num_tol,0.0,0.0,0.0,0.0,0.8632431969112067,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_6,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_6,numeric,num_tol,0.0,0.0,0.0,0.0,0.33598583605361343,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_6,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_6,numeric,num_tol,0.0,0.0,0.0,0.0,0.811936346150635,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_6,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_6,numeric,num_tol,0.0,0.0,0.0,0.0,0.811936346150635,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_6,numeric,num_tol,0.0,0.0,0.0,0.0,0.39887083071101204,0.0,0.0,1.0
@@ -15952,7 +15952,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_6,numeric,num_tol,0.0,0.0,0.0,
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_60,numeric,num_tol,0.0,0.0,0.0,0.0,0.09396847565168,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_60,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_60,numeric,num_tol,0.0,0.0,0.0,0.0,0.10438243367060106,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_60,numeric,num_tol,0.0,0.0,0.0,0.0,0.41792680075979066,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_60,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_60,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_60,numeric,num_tol,0.0,0.0,0.0,0.0,0.0729590362309522,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_60,numeric,num_tol,0.0,0.0,0.0,0.0,0.10227377008407715,0.0,0.0,1.0
@@ -15963,7 +15963,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_60,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_61,numeric,num_tol,0.0,0.0,0.0,0.0,0.27313406429551323,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_61,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_61,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_61,numeric,num_tol,0.0,0.0,0.0,0.0,0.007489034502733415,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_61,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_61,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_61,numeric,num_tol,0.0,0.0,0.0,0.0,0.6503054612243016,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_61,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -15985,7 +15985,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_62,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_63,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_63,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_63,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_63,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_63,numeric,num_tol,0.0,0.0,0.0,0.0,0.472450293302664,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_63,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_63,numeric,num_tol,0.0,0.0,0.0,0.0,0.00832275855426581,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_63,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -16007,7 +16007,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_64,text,em,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_65,numeric,num_tol,0.0,0.0,0.0,0.0,0.07161546279520388,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_65,numeric,num_tol,0.0,0.0,0.0,0.0,0.07161546279520388,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_65,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_65,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_65,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208499864167816,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_65,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_65,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_65,numeric,num_tol,0.0,0.0,0.0,0.0,0.08210157993469341,0.0,0.0,1.0
@@ -16018,7 +16018,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_65,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_66,numeric,num_tol,0.0,0.0,0.0,0.0,0.8039648612835656,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_66,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_66,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_66,numeric,num_tol,0.0,0.0,0.0,0.0,0.32211912064062176,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_66,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_66,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_66,numeric,num_tol,0.0,0.0,0.0,0.0,0.7791486791046988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_66,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
@@ -16029,7 +16029,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_66,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_67,numeric,num_tol,0.0,0.0,0.0,0.0,0.9542522835799199,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_67,numeric,num_tol,0.0,0.0,0.0,0.0,0.7106739950052677,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_67,numeric,num_tol,0.0,0.0,0.0,0.0,0.7557456903742683,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_67,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_67,numeric,num_tol,0.0,0.0,0.0,0.0,0.08210302269786432,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_67,numeric,num_tol,0.0,0.0,0.0,0.0,0.8740227956505582,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_67,numeric,num_tol,0.0,0.0,0.0,0.0,0.9646643366697715,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_67,numeric,num_tol,0.0,0.0,0.0,0.0,0.6776857533646504,0.0,0.0,1.0
@@ -16040,7 +16040,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_67,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_68,numeric,num_tol,0.0,0.0,0.0,0.0,0.25097890779132775,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_68,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_68,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_68,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208517155430847,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_68,numeric,num_tol,0.0,0.0,0.0,0.0,0.0889166165561358,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_68,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_68,numeric,num_tol,0.0,0.0,0.0,0.0,0.6543847128769718,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_68,numeric,num_tol,0.0,0.0,0.0,0.0,0.007646363647796242,0.0,0.0,1.0
@@ -16073,7 +16073,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_7,numeric,num_tol,0.0,0.0,0.0,
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_70,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_70,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_70,numeric,num_tol,0.0,0.0,0.0,0.0,0.1533549668449285,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_70,numeric,num_tol,0.0,0.0,0.0,0.0,0.13336469748280988,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_70,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_70,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_70,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_70,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -16084,7 +16084,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_70,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_71,numeric,num_tol,0.0,0.0,0.0,0.0,0.448577550970434,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_71,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_71,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_71,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_71,numeric,num_tol,0.0,0.0,0.0,0.0,0.1395582738259765,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_71,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_71,numeric,num_tol,0.0,0.0,0.0,0.0,0.5384307409113005,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_71,numeric,num_tol,0.0,0.0,0.0,0.0,0.19188925882946123,0.0,0.0,1.0
@@ -16095,7 +16095,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_71,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_72,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_72,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_72,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_72,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_72,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_72,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_72,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_72,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -16106,7 +16106,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_72,text,em,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_73,numeric,num_tol,0.0,0.0,0.0,0.0,0.8629438442780414,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_73,numeric,num_tol,0.0,0.0,0.0,0.0,0.9384021390176177,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_73,numeric,num_tol,0.0,0.0,0.0,0.0,0.9687115871184867,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_73,numeric,num_tol,0.0,0.0,0.0,0.0,0.11262915910483953,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_73,numeric,num_tol,0.0,0.0,0.0,0.0,0.08640338152167044,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_73,numeric,num_tol,0.0,0.0,0.0,0.0,0.9384021390176177,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_73,numeric,num_tol,0.0,0.0,0.0,0.0,0.942017584708133,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_73,numeric,num_tol,0.0,0.0,0.0,0.0,0.11262915910483953,0.0,0.0,1.0
@@ -16117,7 +16117,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_73,numeric,num_tol,1.0,0.0,1.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_74,numeric,num_tol,0.0,0.0,0.0,0.0,0.7033276449415732,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_74,numeric,num_tol,0.0,0.0,0.0,0.0,0.18079497856889543,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_74,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_74,numeric,num_tol,0.0,0.0,0.0,0.0,0.11303458691531597,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_74,numeric,num_tol,0.0,0.0,0.0,0.0,0.8407955887601992,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_74,numeric,num_tol,0.0,0.0,0.0,0.0,0.15565350616204052,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_74,numeric,num_tol,0.0,0.0,0.0,0.0,0.7766608800346414,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_74,numeric,num_tol,0.0,0.0,0.0,0.0,0.18079497856889543,0.0,0.0,1.0
@@ -16128,7 +16128,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_74,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_75,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_75,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_75,numeric,num_tol,0.0,0.0,0.0,0.0,0.16553440602108538,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_75,numeric,num_tol,0.0,0.0,0.0,0.0,0.09604246667583087,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_75,numeric,num_tol,0.0,0.0,0.0,0.0,0.7012439164426664,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_75,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_75,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_75,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
@@ -16150,7 +16150,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_76,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_77,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_77,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_77,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_77,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_77,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_77,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_77,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_77,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
@@ -16161,7 +16161,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_77,text,em,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_78,numeric,num_tol,0.0,0.0,0.0,0.0,0.3400225335409976,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_78,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_78,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_78,numeric,num_tol,0.0,0.0,0.0,0.0,0.08208504010732555,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_78,numeric,num_tol,0.0,0.0,0.0,0.0,0.2915715985952516,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_78,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_78,numeric,num_tol,0.0,0.0,0.0,0.0,0.600361844802749,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_78,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
@@ -16172,7 +16172,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_78,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_79,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_79,numeric,num_tol,0.0,0.0,0.0,0.0,0.6420178148944813,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_79,numeric,num_tol,0.0,0.0,0.0,0.0,0.44666490754911276,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_79,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_79,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_79,numeric,num_tol,0.0,0.0,0.0,0.0,0.666004705715106,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_79,numeric,num_tol,0.0,0.0,0.0,0.0,0.8259890337497253,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_79,numeric,num_tol,1.0,0.0,1.0,0.0,0.9952121566339924,0.0,0.0,1.0
@@ -16183,7 +16183,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_79,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_8,numeric,num_tol,0.0,0.0,0.0,0.0,0.955164636008779,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_8,numeric,num_tol,1.0,0.0,1.0,0.0,0.9773252457645711,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_8,numeric,num_tol,1.0,0.0,1.0,0.0,0.9773252457645711,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_8,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_8,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_8,numeric,num_tol,0.0,0.0,0.0,0.0,0.23575689084410467,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_8,numeric,num_tol,0.0,0.0,0.0,0.0,0.2564411003222728,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_8,numeric,num_tol,0.0,0.0,0.0,0.0,0.9624951038962359,0.0,0.0,1.0
@@ -16216,7 +16216,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_81,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_82,numeric,num_tol,0.0,0.0,0.0,0.0,0.8042770995593201,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_82,numeric,num_tol,0.0,0.0,0.0,0.0,0.477212275897932,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_82,numeric,num_tol,0.0,0.0,0.0,0.0,0.477212275897932,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_82,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_82,numeric,num_tol,0.0,0.0,0.0,0.0,0.8249379917982397,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_82,numeric,num_tol,0.0,0.0,0.0,0.0,0.5947781543361796,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_82,numeric,num_tol,0.0,0.0,0.0,0.0,0.8184868644742243,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_82,numeric,num_tol,0.0,0.0,0.0,0.0,0.6522226070896143,0.0,0.0,1.0
@@ -16227,7 +16227,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_82,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_83,numeric,num_tol,0.0,0.0,0.0,0.0,0.8457685979531213,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_83,numeric,num_tol,0.0,0.0,0.0,0.0,0.37897282770649116,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_83,numeric,num_tol,0.0,0.0,0.0,0.0,0.09977835075372554,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_83,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_83,numeric,num_tol,0.0,0.0,0.0,0.00017193947730398897,0.006737946999085467,8.597713008339781e-05,1.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_83,numeric,num_tol,0.0,0.0,0.0,0.0,0.09483114445184183,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_83,numeric,num_tol,0.0,0.0,0.0,0.0,0.38379430033000517,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_83,numeric,num_tol,0.0,0.0,0.0,0.0,0.26348607970653537,0.0,0.0,1.0
@@ -16238,7 +16238,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_83,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_84,numeric,num_tol,0.0,0.0,0.0,0.0,0.08809636603030642,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_84,numeric,num_tol,0.0,0.0,0.0,0.0,0.09538513585496705,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_84,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_84,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_84,numeric,num_tol,0.0,0.0,0.0,0.0,0.31152968207485593,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_84,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_84,numeric,num_tol,0.0,0.0,0.0,0.0,0.8587706839915781,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_84,numeric,num_tol,0.0,0.0,0.0,0.0,0.10862498464174822,0.0,0.0,1.0
@@ -16249,7 +16249,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_84,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_85,numeric,num_tol,0.0,0.0,0.0,0.0,0.07899946677312206,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_85,numeric,num_tol,0.0,0.0,0.0,0.0,0.07899946677312206,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_85,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_85,numeric,num_tol,0.0,0.0,0.0,0.0,0.07899946677312206,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_85,numeric,num_tol,0.0,0.0,0.0,0.0,0.06277494602746009,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_85,numeric,num_tol,0.0,0.0,0.0,0.0,0.07903700800397218,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_85,numeric,num_tol,0.0,0.0,0.0,0.0,0.07904306471173607,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_85,numeric,num_tol,0.0,0.0,0.0,0.0,0.07905517951969944,0.0,0.0,1.0
@@ -16260,7 +16260,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_85,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_86,numeric,num_tol,0.0,0.0,0.0,0.0,0.3478011009767619,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_86,numeric,num_tol,0.0,0.0,0.0,0.0,0.3859574963868667,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_86,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_86,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_86,numeric,num_tol,0.0,0.0,0.0,0.0,0.41944695107974567,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_86,numeric,num_tol,0.0,0.0,0.0,0.0,0.37645480326951114,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_86,numeric,num_tol,0.0,0.0,0.0,0.0,0.8953888036358039,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_86,numeric,num_tol,0.0,0.0,0.0,0.0,0.9370504167587664,0.0,0.0,1.0
@@ -16271,7 +16271,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_86,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_87,numeric,num_tol,0.0,0.0,0.0,0.0,0.29280399170198634,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_87,numeric,num_tol,0.0,0.0,0.0,0.0,0.6513234140405699,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_87,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_87,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_87,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_87,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_87,numeric,num_tol,0.0,0.0,0.0,0.0,0.4695377269348756,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_87,numeric,num_tol,0.0,0.0,0.0,0.0,0.6513234140405699,0.0,0.0,1.0
@@ -16282,7 +16282,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_87,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_88,numeric,num_tol,0.0,0.0,0.0,0.0,0.09828766461628909,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_88,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_88,numeric,num_tol,0.0,0.0,0.0,0.0,0.08676616868172049,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_88,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_88,numeric,num_tol,0.0,0.0,0.0,0.0,0.4822354559380811,0.0,0.0,1.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_88,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_88,numeric,num_tol,0.0,0.0,0.0,0.0,0.4647269620077648,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_88,numeric,num_tol,0.0,0.0,0.0,0.0,0.0820849986238988,0.0,0.0,1.0
@@ -16304,7 +16304,7 @@ llama-3.3-70b,officeqa_pro_v2,FIN,officeqa_pro_v2_89,numeric,num_tol,0.0,0.0,0.0
 claude-opus-5,officeqa_pro_v2,FIN,officeqa_pro_v2_9,numeric,num_tol,0.0,0.0,0.0,0.0,0.7849410992176129,0.0,0.0,1.0
 claude-sonnet-5,officeqa_pro_v2,FIN,officeqa_pro_v2_9,numeric,num_tol,0.0,0.0,0.0,0.0,0.2648652609848919,0.0,0.0,1.0
 deepseek-chat,officeqa_pro_v2,FIN,officeqa_pro_v2_9,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_9,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,officeqa_pro_v2,FIN,officeqa_pro_v2_9,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
 gemini-3.1-pro,officeqa_pro_v2,FIN,officeqa_pro_v2_9,numeric,num_tol,0.0,0.0,0.0,0.0,0.2648652609848919,0.0,0.0,1.0
 gemini-3.8-flash,officeqa_pro_v2,FIN,officeqa_pro_v2_9,numeric,num_tol,0.0,0.0,0.0,0.0,0.2648652609848919,0.0,0.0,1.0
 gpt-5.4-mini,officeqa_pro_v2,FIN,officeqa_pro_v2_9,numeric,num_tol,0.0,0.0,0.0,0.0,0.2648652609848919,0.0,0.0,1.0
@@ -18966,7 +18966,7 @@ llama-3.3-70b,realhitbench,TQA,rhb_1841,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-opus-5,realhitbench,TQA,rhb_1948,numeric,num_tol,0.0,0.0,0.0,0.0,0.9749767195546524,0.0,0.0,1.0
 claude-sonnet-5,realhitbench,TQA,rhb_1948,numeric,num_tol,0.0,0.0,0.0,0.0,0.9751433015606068,0.0,0.0,1.0
 deepseek-chat,realhitbench,TQA,rhb_1948,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,realhitbench,TQA,rhb_1948,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,realhitbench,TQA,rhb_1948,numeric,num_tol,1.0,0.0,1.0,0.0,0.9930199189141877,0.0,0.0,1.0
 gemini-3.1-pro,realhitbench,TQA,rhb_1948,numeric,num_tol,0.0,0.0,0.0,0.0,0.9751433015606068,0.0,0.0,1.0
 gemini-3.8-flash,realhitbench,TQA,rhb_1948,numeric,num_tol,0.0,0.0,0.0,0.0,0.9751433015606068,0.0,0.0,1.0
 gpt-5.4-mini,realhitbench,TQA,rhb_1948,numeric,num_tol,0.0,0.0,0.0,0.0,0.9751433015606067,0.0,0.0,1.0
@@ -18999,7 +18999,7 @@ llama-3.3-70b,realhitbench,TQA,rhb_2096,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-opus-5,realhitbench,TQA,rhb_2118,boolean,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,realhitbench,TQA,rhb_2118,boolean,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 deepseek-chat,realhitbench,TQA,rhb_2118,boolean,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,realhitbench,TQA,rhb_2118,boolean,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+deepseek-r1,realhitbench,TQA,rhb_2118,boolean,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.1-pro,realhitbench,TQA,rhb_2118,boolean,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.8-flash,realhitbench,TQA,rhb_2118,boolean,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-5.4-mini,realhitbench,TQA,rhb_2118,boolean,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
@@ -19373,7 +19373,7 @@ llama-3.3-70b,realhitbench,TQA,rhb_695,text,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
 claude-opus-5,realhitbench,TQA,rhb_703,numeric,num_tol,0.0,0.0,0.0,0.0,0.3416139180901607,0.0,0.0,1.0
 claude-sonnet-5,realhitbench,TQA,rhb_703,numeric,num_tol,0.0,0.0,0.0,0.0,0.3416139180901607,0.0,0.0,1.0
 deepseek-chat,realhitbench,TQA,rhb_703,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
-deepseek-r1,realhitbench,TQA,rhb_703,numeric,num_tol,0.0,0.0,0.0,0.0,0.1984369323262588,0.0,0.0,0.0
+deepseek-r1,realhitbench,TQA,rhb_703,numeric,num_tol,0.0,0.0,0.0,0.0,0.4085823767280364,0.0,0.0,1.0
 gemini-3.1-pro,realhitbench,TQA,rhb_703,numeric,num_tol,0.0,0.0,0.0,0.0,0.3416139180901607,0.0,0.0,1.0
 gemini-3.8-flash,realhitbench,TQA,rhb_703,numeric,num_tol,0.0,0.0,0.0,0.0,0.3416139180901607,0.0,0.0,1.0
 gpt-5.4-mini,realhitbench,TQA,rhb_703,numeric,num_tol,0.0,0.0,0.0,0.0,0.3416139180901607,0.0,0.0,1.0
@@ -19494,7 +19494,7 @@ llama-3.3-70b,realhitbench,TQA,rhb_851,boolean,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.
 claude-opus-5,realhitbench,TQA,rhb_859,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.5,1.0,0.0
 claude-sonnet-5,realhitbench,TQA,rhb_859,text,em,0.0,0.0,0.0,0.22222222222222224,0.0,0.14285714285714285,0.5,0.0
 deepseek-chat,realhitbench,TQA,rhb_859,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.5,1.0,0.0
-deepseek-r1,realhitbench,TQA,rhb_859,text,em,0.0,0.0,0.0,0.00083315975838367,0.0,0.00041675349031048136,1.0,0.0
+deepseek-r1,realhitbench,TQA,rhb_859,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.5,1.0,0.0
 gemini-3.1-pro,realhitbench,TQA,rhb_859,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.5,1.0,0.0
 gemini-3.8-flash,realhitbench,TQA,rhb_859,text,em,0.0,0.0,0.0,0.6666666666666666,0.0,0.5,1.0,0.0
 gpt-5.4-mini,realhitbench,TQA,rhb_859,text,em,0.0,0.0,0.0,0.4,0.0,0.3333333333333333,0.5,0.0
@@ -20022,7 +20022,7 @@ llama-3.3-70b,smat,SM,smat_mimic_admissions-admission_location,text,em,0.0,0.0,0
 claude-opus-5,smat,SM,smat_mimic_admissions-admission_type,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,smat,SM,smat_mimic_admissions-admission_type,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 deepseek-chat,smat,SM,smat_mimic_admissions-admission_type,text,em,0.0,0.0,0.0,0.5454545454545454,0.0,0.5,0.6,1.0
-deepseek-r1,smat,SM,smat_mimic_admissions-admission_type,text,em,0.0,0.0,0.0,0.22222222222222224,0.0,0.25,0.2,1.0
+deepseek-r1,smat,SM,smat_mimic_admissions-admission_type,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.1-pro,smat,SM,smat_mimic_admissions-admission_type,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.8-flash,smat,SM,smat_mimic_admissions-admission_type,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-5.4-mini,smat,SM,smat_mimic_admissions-admission_type,text,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
@@ -24158,7 +24158,7 @@ llama-3.3-70b,tablebench,TQA,tablebench_199a04fdbb34f602ab199c202f64f5be,numeric
 claude-opus-5,tablebench,TQA,tablebench_19f5fcd6b29df032293fab57a9cd5e91,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,tablebench,TQA,tablebench_19f5fcd6b29df032293fab57a9cd5e91,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 deepseek-chat,tablebench,TQA,tablebench_19f5fcd6b29df032293fab57a9cd5e91,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-deepseek-r1,tablebench,TQA,tablebench_19f5fcd6b29df032293fab57a9cd5e91,numeric,num_tol,1.0,0.0,1.0,0.000522056904202558,1.0,0.0002610966057441253,1.0,0.0
+deepseek-r1,tablebench,TQA,tablebench_19f5fcd6b29df032293fab57a9cd5e91,numeric,num_tol,1.0,0.0,1.0,0.0,0.9764132730078583,0.0,0.0,1.0
 gemini-3.1-pro,tablebench,TQA,tablebench_19f5fcd6b29df032293fab57a9cd5e91,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.8-flash,tablebench,TQA,tablebench_19f5fcd6b29df032293fab57a9cd5e91,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-5.4-mini,tablebench,TQA,tablebench_19f5fcd6b29df032293fab57a9cd5e91,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
@@ -24600,7 +24600,7 @@ claude-sonnet-5,tablebench,TQA,tablebench_767d183aa02457793092c2e983eeb612,numer
 deepseek-chat,tablebench,TQA,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0,0.0,1.0,0.0,0.9991700556539334,0.0,0.0,1.0
 deepseek-r1,tablebench,TQA,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0,0.0,1.0,0.0,0.9999511606662759,0.0,0.0,1.0
 gemini-3.1-pro,tablebench,TQA,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-gemini-3.8-flash,tablebench,TQA,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+gemini-3.8-flash,tablebench,TQA,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-5.4-mini,tablebench,TQA,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-5.5,tablebench,TQA,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-oss-120b,tablebench,TQA,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
@@ -24609,7 +24609,7 @@ llama-3.3-70b,tablebench,TQA,tablebench_767d183aa02457793092c2e983eeb612,numeric
 claude-opus-5,tablebench,TQA,tablebench_778d5867ab2d923842d759b0fafccd12,numeric,num_tol,0.0,0.0,0.0,0.0,0.10538467570074286,0.0,0.0,1.0
 claude-sonnet-5,tablebench,TQA,tablebench_778d5867ab2d923842d759b0fafccd12,numeric,num_tol,0.0,0.0,0.0,0.0,0.8202919420863221,0.0,0.0,1.0
 deepseek-chat,tablebench,TQA,tablebench_778d5867ab2d923842d759b0fafccd12,numeric,num_tol,0.0,0.0,0.0,0.0,0.974784969327229,0.0,0.0,1.0
-deepseek-r1,tablebench,TQA,tablebench_778d5867ab2d923842d759b0fafccd12,numeric,num_tol,0.0,0.0,0.0,0.0,0.12419974489807581,0.0,0.0,1.0
+deepseek-r1,tablebench,TQA,tablebench_778d5867ab2d923842d759b0fafccd12,numeric,num_tol,0.0,0.0,0.0,0.0,0.10538467570074286,0.0,0.0,1.0
 gemini-3.1-pro,tablebench,TQA,tablebench_778d5867ab2d923842d759b0fafccd12,numeric,num_tol,0.0,0.0,0.0,0.0,0.10538467570074286,0.0,0.0,1.0
 gemini-3.8-flash,tablebench,TQA,tablebench_778d5867ab2d923842d759b0fafccd12,numeric,num_tol,0.0,0.0,0.0,0.0,0.13252514441559873,0.0,0.0,1.0
 gpt-5.4-mini,tablebench,TQA,tablebench_778d5867ab2d923842d759b0fafccd12,numeric,num_tol,0.0,0.0,0.0,0.0,0.10523929749826424,0.0,0.0,1.0
@@ -24862,7 +24862,7 @@ llama-3.3-70b,tablebench,TQA,tablebench_bdfcc7e1bb6dc5eef09456c8ba56f46d,numeric
 claude-opus-5,tablebench,TQA,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,tablebench,TQA,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 deepseek-chat,tablebench,TQA,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
-deepseek-r1,tablebench,TQA,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,0.0,0.0,0.0,0.0003677822728944465,0.006737946999085467,0.0001839249586168843,1.0,0.0
+deepseek-r1,tablebench,TQA,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.1-pro,tablebench,TQA,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.8-flash,tablebench,TQA,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-5.4-mini,tablebench,TQA,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
@@ -25060,7 +25060,7 @@ llama-3.3-70b,tablebench,TQA,tablebench_f100d3bd641b61a7b65d98cf81586752,text,em
 claude-opus-5,tablebench,TQA,tablebench_f19e3c32d88171eb59e66dc31967bf2d,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,tablebench,TQA,tablebench_f19e3c32d88171eb59e66dc31967bf2d,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 deepseek-chat,tablebench,TQA,tablebench_f19e3c32d88171eb59e66dc31967bf2d,numeric,num_tol,0.0,0.0,0.0,0.0,0.8536114026488015,0.0,0.0,1.0
-deepseek-r1,tablebench,TQA,tablebench_f19e3c32d88171eb59e66dc31967bf2d,numeric,num_tol,0.0,0.0,0.0,0.0,0.006737946999085467,0.0,0.0,0.0
+deepseek-r1,tablebench,TQA,tablebench_f19e3c32d88171eb59e66dc31967bf2d,numeric,num_tol,0.0,0.0,0.0,0.0,0.8536114026488015,0.0,0.0,1.0
 gemini-3.1-pro,tablebench,TQA,tablebench_f19e3c32d88171eb59e66dc31967bf2d,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.8-flash,tablebench,TQA,tablebench_f19e3c32d88171eb59e66dc31967bf2d,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-5.4-mini,tablebench,TQA,tablebench_f19e3c32d88171eb59e66dc31967bf2d,numeric,num_tol,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
@@ -33123,7 +33123,7 @@ llama-3.3-70b,wikitablequestions,TQA,nu-3216,boolean,em,1.0,1.0,1.0,1.0,1.0,1.0,
 claude-opus-5,wikitablequestions,TQA,nu-3255,numeric,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 claude-sonnet-5,wikitablequestions,TQA,nu-3255,numeric,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 deepseek-chat,wikitablequestions,TQA,nu-3255,numeric,em,0.0,0.0,0.0,0.0,0.3154212746389476,0.0,0.0,1.0
-deepseek-r1,wikitablequestions,TQA,nu-3255,numeric,em,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0
+deepseek-r1,wikitablequestions,TQA,nu-3255,numeric,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gemini-3.1-pro,wikitablequestions,TQA,nu-3255,numeric,em,0.0,0.0,0.0,0.0,0.21471117234169726,0.0,0.0,1.0
 gemini-3.8-flash,wikitablequestions,TQA,nu-3255,numeric,em,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
 gpt-5.4-mini,wikitablequestions,TQA,nu-3255,numeric,em,0.0,0.0,0.0,0.0,0.3154212746389476,0.0,0.0,1.0
@@ -33464,7 +33464,7 @@ llama-3.3-70b,wikitablequestions,TQA,nu-2301,numeric,em,1.0,1.0,1.0,1.0,1.0,1.0,
 claude-opus-5,wikitablequestions,TQA,nu-2445,numeric,em,0.0,0.0,0.0,0.0,0.1771480897843865,0.0,0.0,1.0
 claude-sonnet-5,wikitablequestions,TQA,nu-2445,numeric,em,0.0,0.0,0.0,0.0,0.1771480897843865,0.0,0.0,1.0
 deepseek-chat,wikitablequestions,TQA,nu-2445,numeric,em,0.0,0.0,0.0,0.0,0.1771480897843865,0.0,0.0,1.0
-deepseek-r1,wikitablequestions,TQA,nu-2445,numeric,em,0.0,0.0,0.0,0.0,0.05587627627964597,0.0,0.0,1.0
+deepseek-r1,wikitablequestions,TQA,nu-2445,numeric,em,0.0,0.0,0.0,0.0,0.1771480897843865,0.0,0.0,1.0
 gemini-3.1-pro,wikitablequestions,TQA,nu-2445,numeric,em,0.0,0.0,0.0,0.0,0.1771480897843865,0.0,0.0,1.0
 gemini-3.8-flash,wikitablequestions,TQA,nu-2445,numeric,em,0.0,0.0,0.0,0.0,0.1771480897843865,0.0,0.0,1.0
 gpt-5.4-mini,wikitablequestions,TQA,nu-2445,numeric,em,0.0,0.0,0.0,0.0,0.4633693692311753,0.0,0.0,1.0

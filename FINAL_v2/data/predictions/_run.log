@@ -160,3 +160,11 @@
 14:06:37 [claude-sonnet-5] cached=3280 todo=2
 14:20:30 [claude-sonnet-5] done ok=2 err=0 in 833s | run spend so far $0.39 (in=7011 out=24772 tokens)
 14:20:30 TOTAL estimated spend this run: $0.39
+17:33:46 models=['deepseek-r1'] items=3083 budget=$160.0
+17:33:46 [deepseek-r1] cached=2960 todo=123
+17:46:21 [deepseek-r1] done ok=123 err=0 in 755s | run spend so far $3.81 (in=209403 out=1686631 tokens)
+17:46:21 TOTAL estimated spend this run: $3.81
+17:47:43 models=['deepseek-r1'] items=3083 budget=$160.0
+17:47:43 [deepseek-r1] cached=2961 todo=122
+18:12:27 [deepseek-r1] done ok=122 err=0 in 1484s | run spend so far $6.97 (in=163815 out=3141892 tokens)
+18:12:27 TOTAL estimated spend this run: $6.97

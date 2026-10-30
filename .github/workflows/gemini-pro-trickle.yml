@@ -4,10 +4,10 @@ name: gemini-pro-trickle
 # then commit the answers to the branch gemini-pro-trickle and keep one pull request open. Resumes from the cached file every day.
 # The API key comes from the repository secret GEMINI_API_KEY (Settings -> Secrets and variables -> Actions); it never appears in logs.
 
+# Gemini 3.1 Pro finished locally on 2026-10-16 (3,083 of 3,083 in FINAL_v2/data/predictions); the daily schedule is switched off.
+# The workflow stays runnable by hand in case a model has to be re-collected under a daily quota again.
 on:
-  schedule:
-    - cron: "15 8 * * *"        # 08:15 UTC = 01:15 America/Los_Angeles, shortly after Google's daily quota resets
-  workflow_dispatch: {}          # also runnable by hand from the Actions tab
+  workflow_dispatch: {}
 
 permissions:
   contents: write

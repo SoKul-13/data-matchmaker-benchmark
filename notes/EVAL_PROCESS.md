@@ -16,7 +16,7 @@ How an answer becomes a number, and how a number becomes a claim. Written 2026-1
 * Eleven models (Claude Opus 5 / Sonnet 5, GPT-5.5 / 5.4-mini, Gemini 3.1 Pro, Gemini 3.8 Flash, Grok 4, DeepSeek chat / R1, gpt-oss-120b, Llama 3.3 70B); Gemini
   3.1 Pro was collected over three weeks under Google's daily quota (GitHub Actions trickle plus a final local run on 2026-10-16) and entered the study at full coverage.
 * Decoding: temperature 0 where the API accepts it; Claude 5 and GPT-5.5 refuse it and ran at their defaults; every row records which applied.
-* Output budget 700 tokens. Answers cut off before a final line were re-asked at 2,500, then 8,000, then 16,000 tokens (32,000 for two Claude Sonnet 5 answers); 41 DeepSeek-R1 answers never terminated at 16,000 and are scored as failures to answer, and 123 DeepSeek-R1 answers await their 16,000-token re-ask (provider balance) at their 8,000-token replies. The budget is counted in each provider's own tokens and, for reasoning models, includes the chain of thought, so it is a termination test rather than an equal text allowance. Replacement is triggered only by the mechanical condition, never by correctness; originals are archived with a reason and
+* Output budget 700 tokens. Answers cut off before a final line were re-asked at 2,500, then 8,000, then 16,000, then 32,000 tokens (1,080 / 279 / 118 / 124 answers); 55 DeepSeek-R1 answers (35 OfficeQA Pro V2, 19 OfficeQA, 1 BIRD) never terminate at 32,000 and are scored as failures to answer; every other model finished every answer. The budget is counted in each provider's own tokens and, for reasoning models, includes the chain of thought, so it is a termination test rather than an equal text allowance. Replacement is triggered only by the mechanical condition, never by correctness; originals are archived with a reason and
   replacement rows carry `attempt = 2` to `5`.
 * Every answer is cached (`data/predictions/<model>.jsonl`) with tokens, latency, cost, finish reason and decoding; reruns skip cached items.
 
@@ -59,5 +59,5 @@ pairwise tests, per-dataset means and SEs, official-split estimates and a LaTeX 
 
 ## 7. What the process cannot do
 Lexical scoring only (no semantic judge); synthetic rather than human quality labels; one prompt; defaults rather than greedy decoding on two
-providers; 41 non-terminating answers (DeepSeek-R1) scored as wrong and 123 R1 answers awaiting the 16,000-token stage; three datasets at ceiling still inside the objective; exact
+providers; 55 non-terminating DeepSeek-R1 answers scored as wrong; three datasets at ceiling still inside the objective; exact
 match (not F1) as the native metric for boolean sets inside the objective.

@@ -3610,7 +3610,7 @@ llama-3.3-70b,wikitablequestions,nu-3216,boolean,em,1.0
 claude-opus-5,wikitablequestions,nu-3255,numeric,em,1.0
 claude-sonnet-5,wikitablequestions,nu-3255,numeric,em,1.0
 deepseek-chat,wikitablequestions,nu-3255,numeric,em,0.0
-deepseek-r1,wikitablequestions,nu-3255,numeric,em,0.0
+deepseek-r1,wikitablequestions,nu-3255,numeric,em,1.0
 gemini-3.1-pro,wikitablequestions,nu-3255,numeric,em,0.0
 gemini-3.8-flash,wikitablequestions,nu-3255,numeric,em,1.0
 gpt-5.4-mini,wikitablequestions,nu-3255,numeric,em,0.0
@@ -12619,7 +12619,7 @@ llama-3.3-70b,officeqa,UID0031,numeric,num_tol,1.0
 claude-opus-5,officeqa,UID0032,numeric,num_tol,0.0
 claude-sonnet-5,officeqa,UID0032,numeric,num_tol,0.0
 deepseek-chat,officeqa,UID0032,numeric,num_tol,0.0
-deepseek-r1,officeqa,UID0032,numeric,num_tol,0.0
+deepseek-r1,officeqa,UID0032,numeric,num_tol,1.0
 gemini-3.1-pro,officeqa,UID0032,numeric,num_tol,0.0
 gemini-3.8-flash,officeqa,UID0032,numeric,num_tol,0.0
 gpt-5.4-mini,officeqa,UID0032,numeric,num_tol,0.0
@@ -13103,7 +13103,7 @@ llama-3.3-70b,officeqa,UID0204,numeric,num_tol,0.0
 claude-opus-5,officeqa,UID0209,numeric,num_tol,0.0
 claude-sonnet-5,officeqa,UID0209,numeric,num_tol,0.0
 deepseek-chat,officeqa,UID0209,numeric,num_tol,0.0
-deepseek-r1,officeqa,UID0209,numeric,num_tol,1.0
+deepseek-r1,officeqa,UID0209,numeric,num_tol,0.0
 gemini-3.1-pro,officeqa,UID0209,numeric,num_tol,0.0
 gemini-3.8-flash,officeqa,UID0209,numeric,num_tol,0.0
 gpt-5.4-mini,officeqa,UID0209,numeric,num_tol,0.0
@@ -13180,7 +13180,7 @@ llama-3.3-70b,officeqa,UID0240,numeric,num_tol,0.0
 claude-opus-5,officeqa,UID0243,numeric,num_tol,1.0
 claude-sonnet-5,officeqa,UID0243,numeric,num_tol,0.0
 deepseek-chat,officeqa,UID0243,numeric,num_tol,1.0
-deepseek-r1,officeqa,UID0243,numeric,num_tol,0.0
+deepseek-r1,officeqa,UID0243,numeric,num_tol,1.0
 gemini-3.1-pro,officeqa,UID0243,numeric,num_tol,1.0
 gemini-3.8-flash,officeqa,UID0243,numeric,num_tol,1.0
 gpt-5.4-mini,officeqa,UID0243,numeric,num_tol,0.0
@@ -13224,7 +13224,7 @@ llama-3.3-70b,mmtu,mmtu_Cell-entity-annotation_case_33008,text,em,1.0
 claude-opus-5,mmtu,mmtu_Cell-entity-annotation_case_36290,text,em,1.0
 claude-sonnet-5,mmtu,mmtu_Cell-entity-annotation_case_36290,text,em,1.0
 deepseek-chat,mmtu,mmtu_Cell-entity-annotation_case_36290,text,em,1.0
-deepseek-r1,mmtu,mmtu_Cell-entity-annotation_case_36290,text,em,0.0
+deepseek-r1,mmtu,mmtu_Cell-entity-annotation_case_36290,text,em,1.0
 gemini-3.1-pro,mmtu,mmtu_Cell-entity-annotation_case_36290,text,em,0.0
 gemini-3.8-flash,mmtu,mmtu_Cell-entity-annotation_case_36290,text,em,1.0
 gpt-5.4-mini,mmtu,mmtu_Cell-entity-annotation_case_36290,text,em,1.0
@@ -14753,7 +14753,7 @@ llama-3.3-70b,realhitbench,rhb_1841,text,em,1.0
 claude-opus-5,realhitbench,rhb_1948,numeric,num_tol,0.0
 claude-sonnet-5,realhitbench,rhb_1948,numeric,num_tol,0.0
 deepseek-chat,realhitbench,rhb_1948,numeric,num_tol,0.0
-deepseek-r1,realhitbench,rhb_1948,numeric,num_tol,0.0
+deepseek-r1,realhitbench,rhb_1948,numeric,num_tol,1.0
 gemini-3.1-pro,realhitbench,rhb_1948,numeric,num_tol,0.0
 gemini-3.8-flash,realhitbench,rhb_1948,numeric,num_tol,0.0
 gpt-5.4-mini,realhitbench,rhb_1948,numeric,num_tol,0.0
@@ -14786,7 +14786,7 @@ llama-3.3-70b,realhitbench,rhb_2096,text,em,1.0
 claude-opus-5,realhitbench,rhb_2118,boolean,em,1.0
 claude-sonnet-5,realhitbench,rhb_2118,boolean,em,1.0
 deepseek-chat,realhitbench,rhb_2118,boolean,em,0.0
-deepseek-r1,realhitbench,rhb_2118,boolean,em,0.0
+deepseek-r1,realhitbench,rhb_2118,boolean,em,1.0
 gemini-3.1-pro,realhitbench,rhb_2118,boolean,em,1.0
 gemini-3.8-flash,realhitbench,rhb_2118,boolean,em,1.0
 gpt-5.4-mini,realhitbench,rhb_2118,boolean,em,1.0
@@ -19287,7 +19287,7 @@ claude-sonnet-5,tablebench,tablebench_767d183aa02457793092c2e983eeb612,numeric,n
 deepseek-chat,tablebench,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0
 deepseek-r1,tablebench,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0
 gemini-3.1-pro,tablebench,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0
-gemini-3.8-flash,tablebench,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,0.0
+gemini-3.8-flash,tablebench,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0
 gpt-5.4-mini,tablebench,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0
 gpt-5.5,tablebench,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0
 gpt-oss-120b,tablebench,tablebench_767d183aa02457793092c2e983eeb612,numeric,num_tol,1.0
@@ -19549,7 +19549,7 @@ llama-3.3-70b,tablebench,tablebench_bdfcc7e1bb6dc5eef09456c8ba56f46d,numeric,num
 claude-opus-5,tablebench,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0
 claude-sonnet-5,tablebench,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0
 deepseek-chat,tablebench,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0
-deepseek-r1,tablebench,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,0.0
+deepseek-r1,tablebench,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0
 gemini-3.1-pro,tablebench,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0
 gemini-3.8-flash,tablebench,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0
 gpt-5.4-mini,tablebench,tablebench_be18c465eb0851ea697b232017a9c7dc,numeric,num_tol,1.0
@@ -20847,7 +20847,7 @@ llama-3.3-70b,bird,bird_95,numeric,num_tol,0.0
 claude-opus-5,bird,bird_962,numeric,num_tol,0.0
 claude-sonnet-5,bird,bird_962,numeric,num_tol,0.0
 deepseek-chat,bird,bird_962,numeric,num_tol,0.0
-deepseek-r1,bird,bird_962,numeric,num_tol,0.0
+deepseek-r1,bird,bird_962,numeric,num_tol,1.0
 gemini-3.1-pro,bird,bird_962,numeric,num_tol,0.0
 gemini-3.8-flash,bird,bird_962,numeric,num_tol,0.0
 gpt-5.4-mini,bird,bird_962,numeric,num_tol,0.0
@@ -20902,7 +20902,7 @@ llama-3.3-70b,bird,bird_994,text,em,0.0
 claude-opus-5,officeqa_pro_v2,officeqa_pro_v2_0,text,em,1.0
 claude-sonnet-5,officeqa_pro_v2,officeqa_pro_v2_0,text,em,1.0
 deepseek-chat,officeqa_pro_v2,officeqa_pro_v2_0,text,em,0.0
-deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_0,text,em,0.0
+deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_0,text,em,1.0
 gemini-3.1-pro,officeqa_pro_v2,officeqa_pro_v2_0,text,em,0.0
 gemini-3.8-flash,officeqa_pro_v2,officeqa_pro_v2_0,text,em,0.0
 gpt-5.4-mini,officeqa_pro_v2,officeqa_pro_v2_0,text,em,0.0
@@ -20913,7 +20913,7 @@ llama-3.3-70b,officeqa_pro_v2,officeqa_pro_v2_0,text,em,0.0
 claude-opus-5,officeqa_pro_v2,officeqa_pro_v2_1,numeric,num_tol,1.0
 claude-sonnet-5,officeqa_pro_v2,officeqa_pro_v2_1,numeric,num_tol,1.0
 deepseek-chat,officeqa_pro_v2,officeqa_pro_v2_1,numeric,num_tol,1.0
-deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_1,numeric,num_tol,0.0
+deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_1,numeric,num_tol,1.0
 gemini-3.1-pro,officeqa_pro_v2,officeqa_pro_v2_1,numeric,num_tol,0.0
 gemini-3.8-flash,officeqa_pro_v2,officeqa_pro_v2_1,numeric,num_tol,1.0
 gpt-5.4-mini,officeqa_pro_v2,officeqa_pro_v2_1,numeric,num_tol,0.0
@@ -20979,7 +20979,7 @@ llama-3.3-70b,officeqa_pro_v2,officeqa_pro_v2_14,text,em,0.0
 claude-opus-5,officeqa_pro_v2,officeqa_pro_v2_15,numeric,num_tol,1.0
 claude-sonnet-5,officeqa_pro_v2,officeqa_pro_v2_15,numeric,num_tol,0.0
 deepseek-chat,officeqa_pro_v2,officeqa_pro_v2_15,numeric,num_tol,0.0
-deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_15,numeric,num_tol,0.0
+deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_15,numeric,num_tol,1.0
 gemini-3.1-pro,officeqa_pro_v2,officeqa_pro_v2_15,numeric,num_tol,0.0
 gemini-3.8-flash,officeqa_pro_v2,officeqa_pro_v2_15,numeric,num_tol,1.0
 gpt-5.4-mini,officeqa_pro_v2,officeqa_pro_v2_15,numeric,num_tol,0.0
@@ -21089,7 +21089,7 @@ llama-3.3-70b,officeqa_pro_v2,officeqa_pro_v2_23,text,em,0.0
 claude-opus-5,officeqa_pro_v2,officeqa_pro_v2_24,numeric,num_tol,1.0
 claude-sonnet-5,officeqa_pro_v2,officeqa_pro_v2_24,numeric,num_tol,1.0
 deepseek-chat,officeqa_pro_v2,officeqa_pro_v2_24,numeric,num_tol,1.0
-deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_24,numeric,num_tol,0.0
+deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_24,numeric,num_tol,1.0
 gemini-3.1-pro,officeqa_pro_v2,officeqa_pro_v2_24,numeric,num_tol,1.0
 gemini-3.8-flash,officeqa_pro_v2,officeqa_pro_v2_24,numeric,num_tol,1.0
 gpt-5.4-mini,officeqa_pro_v2,officeqa_pro_v2_24,numeric,num_tol,1.0
@@ -21463,7 +21463,7 @@ llama-3.3-70b,officeqa_pro_v2,officeqa_pro_v2_54,numeric,num_tol,1.0
 claude-opus-5,officeqa_pro_v2,officeqa_pro_v2_55,numeric,num_tol,1.0
 claude-sonnet-5,officeqa_pro_v2,officeqa_pro_v2_55,numeric,num_tol,0.0
 deepseek-chat,officeqa_pro_v2,officeqa_pro_v2_55,numeric,num_tol,0.0
-deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_55,numeric,num_tol,0.0
+deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_55,numeric,num_tol,1.0
 gemini-3.1-pro,officeqa_pro_v2,officeqa_pro_v2_55,numeric,num_tol,0.0
 gemini-3.8-flash,officeqa_pro_v2,officeqa_pro_v2_55,numeric,num_tol,0.0
 gpt-5.4-mini,officeqa_pro_v2,officeqa_pro_v2_55,numeric,num_tol,0.0
@@ -21496,7 +21496,7 @@ llama-3.3-70b,officeqa_pro_v2,officeqa_pro_v2_57,numeric,num_tol,0.0
 claude-opus-5,officeqa_pro_v2,officeqa_pro_v2_58,text,em,1.0
 claude-sonnet-5,officeqa_pro_v2,officeqa_pro_v2_58,text,em,1.0
 deepseek-chat,officeqa_pro_v2,officeqa_pro_v2_58,text,em,0.0
-deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_58,text,em,0.0
+deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_58,text,em,1.0
 gemini-3.1-pro,officeqa_pro_v2,officeqa_pro_v2_58,text,em,1.0
 gemini-3.8-flash,officeqa_pro_v2,officeqa_pro_v2_58,text,em,0.0
 gpt-5.4-mini,officeqa_pro_v2,officeqa_pro_v2_58,text,em,1.0
@@ -21760,7 +21760,7 @@ llama-3.3-70b,officeqa_pro_v2,officeqa_pro_v2_79,numeric,num_tol,0.0
 claude-opus-5,officeqa_pro_v2,officeqa_pro_v2_8,numeric,num_tol,0.0
 claude-sonnet-5,officeqa_pro_v2,officeqa_pro_v2_8,numeric,num_tol,1.0
 deepseek-chat,officeqa_pro_v2,officeqa_pro_v2_8,numeric,num_tol,1.0
-deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_8,numeric,num_tol,0.0
+deepseek-r1,officeqa_pro_v2,officeqa_pro_v2_8,numeric,num_tol,1.0
 gemini-3.1-pro,officeqa_pro_v2,officeqa_pro_v2_8,numeric,num_tol,0.0
 gemini-3.8-flash,officeqa_pro_v2,officeqa_pro_v2_8,numeric,num_tol,0.0
 gpt-5.4-mini,officeqa_pro_v2,officeqa_pro_v2_8,numeric,num_tol,0.0
@@ -32122,7 +32122,7 @@ llama-3.3-70b,smat,smat_mimic_admissions-admission_location,text,em,0.0
 claude-opus-5,smat,smat_mimic_admissions-admission_type,text,em,1.0
 claude-sonnet-5,smat,smat_mimic_admissions-admission_type,text,em,1.0
 deepseek-chat,smat,smat_mimic_admissions-admission_type,text,em,0.0
-deepseek-r1,smat,smat_mimic_admissions-admission_type,text,em,0.0
+deepseek-r1,smat,smat_mimic_admissions-admission_type,text,em,1.0
 gemini-3.1-pro,smat,smat_mimic_admissions-admission_type,text,em,1.0
 gemini-3.8-flash,smat,smat_mimic_admissions-admission_type,text,em,1.0
 gpt-5.4-mini,smat,smat_mimic_admissions-admission_type,text,em,1.0

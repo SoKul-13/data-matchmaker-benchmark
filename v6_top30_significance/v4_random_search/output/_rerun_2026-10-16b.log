@@ -1,0 +1,39 @@
+[abt_buy] 100 items x 11 models
+[alaska_camera] 100 items x 11 models
+[alaska_schema] 93 items x 11 models
+[amazon_google] 100 items x 11 models
+[bird] 100 items x 11 models
+[dblp_acm] 100 items x 11 models
+[dblp_scholar] 100 items x 11 models
+[fetaqa] 100 items x 11 models
+[fintagging] 100 items x 11 models
+[hitab] 100 items x 11 models
+[machamp] 100 items x 11 models
+[magneto_gdc] 100 items x 11 models
+[mmtu] 100 items x 11 models
+[officeqa] 100 items x 11 models
+[officeqa_pro_v2] 90 items x 11 models
+[opensanctions_pairs] 100 items x 11 models
+[papadakis_dn] 100 items x 11 models
+[realhitbench] 100 items x 11 models
+[smat] 100 items x 11 models
+[suc] 100 items x 11 models
+[tab_fact] 100 items x 11 models
+[tabis] 100 items x 11 models
+[tablebench] 100 items x 11 models
+[tableeval] 100 items x 11 models
+[tat_qa] 100 items x 11 models
+[tpcdi_cells] 100 items x 11 models
+[valentine] 100 items x 11 models
+[walmart_amazon] 100 items x 11 models
+[wdc_lspc] 100 items x 11 models
+[wdc_products] 100 items x 11 models
+[wikitablequestions] 100 items x 11 models
+
+33913 rows; datasets 31, models 11
+11 models x 31 datasets; lattice has 3,108,105 points; sampling 100 per design
+best J 0.426 (em_only) {'em': 1.0, 'num_tol': 0.0, 'num_decay': 0.0, 'tok_prec': 0.0, 'tok_rec': 0.0, 'tok_f1': 0.0, 'edit_sim': 0.0, 'rouge_l': 0.0, 'jaccard': 0.0}; v1 rubric J 0.395 rank 299; EM J 0.426 rank 1
+                   best_J_mean  best_J_sd  best_J_max  mean_J  regret_mean  regret_max  min_pairwise_L1  mean_nearest_L1  discrepancy  zero_share
+dirichlet_lattice       0.4238     0.0019      0.4271  0.4087       0.0055      0.0101            0.195           0.4027       2.6738      0.8820
+lhs_simplex             0.4242     0.0018      0.4283  0.4088       0.0050      0.0097            0.215           0.4096       2.6718      0.8780
+uniform_lattice         0.4255     0.0019      0.4293  0.4089       0.0038      0.0063            0.235           0.4650       2.5904      0.9705

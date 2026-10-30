@@ -1,32 +1,32 @@
 held_out,selected_lodo,rho_heldout_lodo,rho_heldout_full,js_all_lodo,same_selection
-abt_buy,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9192745943092627,0.9192745943092627,0.05808962720906654,True
-alaska_camera,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9205659563159808,0.9205659563159808,0.05808962720906654,True
-alaska_schema,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.927207519726409,0.928393396213883,0.05791154707876492,True
-amazon_google,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9180318076530719,0.9180318076530719,0.05808962720906654,True
-bird,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8772779330177696,0.8782273727559665,0.05668468317636667,True
-dblp_acm,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9192745943092627,0.9192745943092627,0.05808962720906654,True
-dblp_scholar,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9199142158136472,0.9199142158136472,0.05808962720906654,True
-fetaqa,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8754619867039293,0.8880014187116982,0.061911990310428135,True
-fintagging,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9061866438448282,0.9062200858903537,0.05711732783285771,True
-hitab,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8861880640672423,0.8867984165701266,0.05676583644633052,True
-machamp,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9205659563159808,0.9205659563159808,0.05808962720906654,True
-magneto_gdc,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9375962468620188,0.9388324657992388,0.057716613985456036,True
-mmtu,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8925331606478236,0.8931913415007331,0.05798259299387108,True
-officeqa,"['tok_f1', 'num_tol_10', 'prefix_ratio']",0.8899019268981481,0.899153174738052,0.03766055467419081,False
-officeqa_pro_v2,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9034310260157921,0.903945414400157,0.05428854529350072,True
-opensanctions_pairs,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9192745943092627,0.9192745943092627,0.05808962720906654,True
-papadakis_dn,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.910285537772458,0.910285537772458,0.05808962720906654,True
-realhitbench,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8960571463994913,0.896362079553476,0.05705601785008707,True
-smat,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9391444247524018,0.9403756325990078,0.058346566856905056,True
-suc,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8655389314599462,0.8666456140315857,0.05674286892354068,True
-tab_fact,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9183379390576185,0.9183379390576185,0.05808962720906654,True
-tabis,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.5981005035276742,0.5979215321701694,0.08365844672684382,True
-tablebench,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8839437622247444,0.8851939243351327,0.05724175978541275,True
-tableeval,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8682597272255407,0.8690630923236153,0.05662280463087312,True
-tat_qa,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8941908523922573,0.8948043602939565,0.06575014826104285,True
-tpcdi_cells,"['tok_f1', 'num_decay_2p5', 'prefix_ratio', 'em_raw']",0.8667930575905665,0.8664596321917735,0.06517127343878591,False
-valentine,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8990269836900583,0.9014924129374322,0.058002817374535415,True
-walmart_amazon,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.916837811718863,0.916837811718863,0.05808962720906654,True
-wdc_lspc,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9208963640068139,0.9208963640068139,0.05808962720906654,True
-wdc_products,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9208963640068139,0.9208963640068139,0.05808962720906654,True
-wikitablequestions,"['tok_f1', 'num_decay_2p5', 'prefix_ratio', 'em_raw']",0.875454970942786,0.8670024699773995,0.06448856251884533,False
+abt_buy,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9192745943092627,0.9192745943092627,0.05799907792586255,True
+alaska_camera,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9205659563159808,0.9205659563159808,0.05799907792586255,True
+alaska_schema,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9274792944575466,0.9284168627067321,0.05762933926267899,True
+amazon_google,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9180318076530719,0.9180318076530719,0.05799907792586255,True
+bird,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8772165419500734,0.8783343120351794,0.056145597103902024,True
+dblp_acm,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9192745943092627,0.9192745943092627,0.05799907792586255,True
+dblp_scholar,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9199142158136472,0.9199142158136472,0.05799907792586255,True
+fetaqa,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8742634650339765,0.8878628648846376,0.06108579333638447,True
+fintagging,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9069713543778671,0.9062200858903537,0.07231261885164376,True
+hitab,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8865983672577649,0.8878513286471328,0.05673354739482879,True
+machamp,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9205659563159808,0.9205659563159808,0.05799907792586255,True
+magneto_gdc,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9381328931483202,0.9390086636072568,0.05768979971147061,True
+mmtu,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8925705427443695,0.893389951054478,0.057654689266857614,True
+officeqa,"['tok_f1', 'num_tol_10', 'prefix_ratio']",0.8899158120563812,0.9001695505951853,0.03771843098486697,False
+officeqa_pro_v2,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9033052009486179,0.904861457870184,0.056722562220379094,True
+opensanctions_pairs,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9192745943092627,0.9192745943092627,0.05799907792586255,True
+papadakis_dn,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.910285537772458,0.910285537772458,0.05799907792586255,True
+realhitbench,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8960014001455061,0.8966877115090558,0.056761949293460186,True
+smat,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9406866150631331,0.941041888969119,0.05832170960876371,True
+suc,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8654252005231071,0.8667488657997329,0.05685773668697041,True
+tab_fact,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9183379390576185,0.9183379390576185,0.05799907792586255,True
+tabis,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.5981005035276742,0.5979215321701694,0.08296907954409186,True
+tablebench,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8844686178378326,0.885367122247049,0.05724879931273269,True
+tableeval,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8689485992463212,0.8697617759308099,0.056570040658194154,True
+tat_qa,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8962367588532569,0.8958770508952485,0.05765978502494888,True
+tpcdi_cells,"['tok_f1', 'num_decay_2p5', 'prefix_ratio', 'em_raw']",0.8671557445599818,0.8680715877190113,0.06629178875953787,False
+valentine,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.8994825984214383,0.9018832102044313,0.05787372814832238,True
+walmart_amazon,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.916837811718863,0.916837811718863,0.05799907792586255,True
+wdc_lspc,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9208963640068139,0.9208963640068139,0.05799907792586255,True
+wdc_products,"['tok_f1', 'num_decay_2p5', 'prefix_ratio']",0.9208963640068139,0.9208963640068139,0.05799907792586255,True
+wikitablequestions,"['tok_f1', 'num_decay_2p5', 'prefix_ratio', 'em_raw']",0.8755857137818664,0.8672697383281406,0.06488154843707754,False
