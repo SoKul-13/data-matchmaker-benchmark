@@ -1,5 +1,490 @@
 row_id,task_family,dataset_description,answer_type,question,context,table,choices,gold_answer,accepted_alternatives,gold_is_a_list,model_final_answer,model_full_reply,utility,hedged,note
-P001,table question answering (answer a question from a table),database question; the gold is the value the correct SQL returns (BIRD),numeric,"List out the account numbers of clients who are youngest and have highest average salary?
+P001,table question answering (answer a question from a table),questions over Wikipedia tables,numeric,how long did the cologne cathedral hold the record for tallest freestanding structure?,,"Name | Country | Town | Height
+metres / ft | Structural type | Held record | Notes
+------------------------------------------------------------
+Great Pyramid of Giza | Egypt | Giza | 146 / 480 | Mausoleum | 2570 BC–1311 | Due to erosion today it stands at the height of 138.8 metres (455 ft).
+Lincoln Cathedral | England | Lincoln | 159.7 / 524 | Church | 1311–1549 | Spire collapsed in 1549; today, stands at a height of 83 metres (272 ft).
+St. Mary's Church | Germany | Stralsund | 151 / 500 | Church | 1549–1647 | Spire destroyed by lightning in 1647; today stands at a height of 104 metres (341 ft).
+Strasbourg Cathedral | Germany and/or France (today France) | Strasbourg | 142 / 470 | Church | 1647–1874 | 
+St Nikolai | Germany | Hamburg | 147.3 / 483 | Church | 1874–1876 | Due to aerial bombing in World War II the nave was demolished; only the spire remains.
+Notre-Dame Cathedral | France | Rouen | 151 / 500 | Church | 1876–1880 | 
+Cologne Cathedral | Germany | Cologne | 157.4 / 516 | Church | 1880–1884 | 
+Washington Monument | United States | Washington, D.C. | 169.3 / 555 | Monument | 1884–1889 | 
+Eiffel Tower | France | Paris | 300.6 / 986 | Tower | 1889–1930 | Currently stands at a height of 324 metres (1,063 ft).
+Chrysler Building | United States | New York City | 319 / 1,046 | Skyscraper | 1930–1931 | 
+Empire State Building | United States | New York City | 448 / 1,472 | Skyscraper | 1931–1967 | 
+Ostankino Tower | Russia | Moscow | 540 / 1,772 | Tower | 1967–1976 | 
+CN Tower | Canada | Toronto | 553 / 1,815 | Tower | 1976–2007 | 
+Burj Khalifa | United Arab Emirates | Dubai | 829.8 / 2,722 | Skyscraper | 2007–present | Topped-out on 17 January 2009",,4 years,,,4,FINAL ANSWER: 4,,,
+P002,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,What parish does the Madlamark church belong to?,,"Table: List of churches in Rogaland - Ytre Stavanger prosti
+Municipality | Parish (sokn) | Church | Location | Year built | Photo
+------------------------------------------------------------
+Stavanger | Gausel | Gausel Church | Gausel | 1996 | -
+Stavanger | Hafrsfjord | Revheim Church | Sør-Sunde | 1865 | Revheimkirke.JPG
+Stavanger | Hillevåg | Hillevåg Church | Hillevåg | 1961 | Hillevaag kirke.JPG
+Stavanger | Hinna | Hinna Church | Hinna | 1967 | -
+Stavanger | Madlamark | Madlamark Church | Madlamark | 1976 | Madlamark kirke.JPG
+Stavanger | Sunde | Sunde Church | Sunde | 1984 | Sundekirke.JPG
+Stavanger | Tasta | Tasta Church | Indre Tasta | 1977 | Tasta kirke.JPG
+Stavanger | Vardeneset | Vardeneset Church | Ytre Tasta | 2000 | -
+Stavanger | Vardeneset | Austre Åmøy Chapel | Austre Åmøy | 1904 | -",,The Madlamark church is part of the Madlamark parish in the Ytre Stavanger deanery in Stavanger.,,,Madlamark,"The Madlamark Church belongs to the Madlamark parish.
+FINAL ANSWER: Madlamark",,,
+P003,table question answering (answer a question from a table),table evaluation sub-tasks (TableEval),numeric,"在所有模型中，哪个模型在'Pharm. Exam'考试中表现异常偏低？
+请只给出最终答案，不要解释。","Furthermore, our findings challenge the conventional belief that larger models are inherently supe-rior. Instead, they emphasize that a well-curated and diverse dataset can significantly enhance a model’s capabilities, enabling smaller models to compete with and even surpass larger ones. This has important implications for the development of efficient, resource-conserving models that do not compromise on performance.
+| Model                  | Total Avg. | Training Grad. | Nursing Exam | Pharm. Exam | Med. Tech. Exam | Prof. Knowledge | Med. Postgrad. |
+|------------------------|------------|----------------|--------------|-------------|-----------------|-----------------|----------------|
+| CollectiveSFT-7B       | 77.05      | 83.00          | 85.75        | 79.25       | 72.50           | 90.25           | 80.25          |
+| InternLM2.5-7B [6]     | 71.40      | 75.80          | 78.13        | 68.28       | 70.92           | 65.00           | 72.19          |
+| HuatuoGPTII-34B [7]    | 76.80      | 82.50          | 75.50        | 73.25       | 68.75           | 87.75           | 77.00          |
+| Qwen-72B-Chat [3]      | 74.38      | 88.00          | 75.00        | 77.00       | 70.25           | 94.25           | 65.50          |
+| Yi-34B-Chat [2]        | 69.17      | 78.75          | 69.50        | 69.75       | 63.75           | 87.00           | 56.50          |
+| AntGLM-Med-10 [18]     | 64.09      | 81.75          | 62.00        | 63.75       | 60.25           | 82.50           | 64.50          |
+| GPT-4 [20]             | 59.46      | 64.50          | 60.75        | 39.50       | 57.00           | 77.50           | 61.25          |
+| HuatuoGPTII-7B [7]     | 59.00      | 70.75          | 64.75        | 60.00       | 57.75           | 70.25           | 53.75          |
+| [7] Qwen-14B-Chat [3]  | 57.64      | 69.00          | 60.50        | 51.25       | 51.75           | 73.00           | 50.00          |
+| Baichuan2-13B-Chat [4] | 48.87      | 56.50          | 47.75        | 44.50       | 45.50           | 63.25           | 39.25          |
+| Qwen-7B-Chat [3]       | 46.58      | 56.25          | 46.00        | 42.00       | 37.25           | 63.50           | 39.50          |
+| ChatGLM2-6B [10]       | 45.05      | 48.25          | 47.25        | 43.75       | 43.00           | 54.25           | 42.25          |
+Table 2: Performance Comparison of Some Open-source Medical Models focusing on specific exam scores and overall averages.1",,,GPT-4,['-4'],,GPT-4,"To find the model that performed exceptionally low in the 'Pharm. Exam', we look at the 'Pharm. Exam' column in the provided table. The scores are as follows:
+- CollectiveSFT-7B: 79.25
+- InternLM2.5-7B: 68.28
+- HuatuoGPTII-34B: 73.25
+- Qwen-72B-Chat: 77.00
+- Yi-34B-Chat: 69.75
+- AntGLM-Med-10: 63.75
+- GPT-4: 39.50
+- HuatuoGPTII-7B: 60.00
+- Qwen-14B-Chat: 51.25
+- Baichuan2-13B-Chat: 44.50
+- Qwen-7B-Chat: 42.00
+- ChatGLM2-6B: 43.75
+
+The lowest score is 39.50, which corresponds to GPT-4.
+
+FINAL ANSWER: GPT-4",,,
+P004,table question answering (answer a question from a table),questions over Wikipedia tables,numeric,what was the best position the competitor achieved before 2002?,,"Year | Competition | Venue | Position | Notes
+---------------------------------------------
+1999 | World Youth Championships | Bydgoszcz, Poland | 12th | 
+2000 | World Junior Championships | Santiago, Chile | 5th | 
+2001 | European Junior Championships | Grosseto, Italy | 2nd | 61.97 m
+2001 | World Championships | Edmonton, Canada | 23rd | 61.26 m
+2002 | World Junior Championships | Kingston, Jamaica | 2nd | 63.91 m
+2002 | European Championships | Munich, Germany | 26th | 60.28 m
+2006 | European Championships | Gothenburg, Sweden | 26th | 62.39 m
+2007 | World Student Games | Bangkok, Thailand | 5th | 64.95 m
+2007 | World Championships | Osaka, Japan | 13th | 68.15 m
+2008 | Olympic Games | Beijing, PR China | 8th | 71.00 m
+2008 | World Athletics Final | Stuttgart, Germany | 2nd | 71.40 m
+2009 | World Student Games | Belgrade, Serbia | 2nd | 72.85 m
+2009 | World Championships | Berlin, Germany | 3rd | 74.79 m
+2009 | World Athletics Final | Thessaloniki, Greece | 3rd | 70.45 m
+2012 | European Championships | Helsinki, Finland | 2nd | 73.34 m",,2nd,,,2,"The best position before 2002 is the highest placement (lowest numerical rank) in years 1999–2001.  
+1999: 12th  
+2000: 5th  
+2001: 2nd (European Junior Championships)  
+2001: 23rd (World Championships)  
+
+The best is 2nd.
+
+FINAL ANSWER: 2",,,
+P005,table question answering (answer a question from a table),table-structure questions (SUC),text,"In which row and column of the table is the cell value ""7,133"" located? Rows are numbered from 1 starting at the first row below the header row; columns are numbered from 1 from the left. Answer in the form 'row | column', e.g. 2 | 3.",,"Table: Demographics
+Historical population | Historical population | Historical population | Historical population
+------------------------------------------------------------
+Census | Pop. |  | %±
+1880 | 262 |  | —
+1920 | 1,074 |  | —
+1930 | 1,525 |  | 42.0%
+1940 | 1,815 |  | 19.0%
+1950 | 3,105 |  | 71.1%
+1960 | 6,568 |  | 111.5%
+1970 | 7,034 |  | 7.1%
+1980 | 6,607 |  | −6.1%
+1990 | 6,500 |  | −1.6%
+2000 | 7,109 |  | 9.4%
+2010 | 7,133 |  | 0.3%
+Est. 2017 | 7,124 |  | −0.1%
+Sources: | Sources: | Sources: | Sources:",,12 | 2,"['(12, 2)', 'row 12, column 2', '12, 2']",,11 | 2,"Let’s count rows below the header row:
+
+1. 1880  
+2. 1920  
+3. 1930  
+4. 1940  
+5. 1950  
+6. 1960  
+7. 1970  
+8. 1980  
+9. 1990  
+10. 2000  
+11. 2010 → 7,133 is here  
+12. Est. 2017  
+
+Columns from left:  
+1. Census  
+2. Pop.  
+3. (blank)  
+4. %±  
+
+""7,133"" is in column 2.
+
+FINAL ANSWER: 11 | 2",,,
+P006,table question answering (answer a question from a table),is the statement supported by the table? (TabFact),boolean,"Is the following statement entailed by the table? Answer yes or no.
+Statement: bob sand write episode 149",,"Table: full house (season 7)
+no in series | no in season | title | directed by | written by | original air date
+------------------------------------------------------------
+145 | 1 | it was a dark and stormy night | john tracy | marc warren & dennis rinsler | september 14 , 1993
+146 | 2 | the apartment | john tracy | tom burkhard | september 21 , 1993
+147 | 3 | wrong - way tanner | john tracy | jamie tatham & chuck tatham | september 28 , 1993
+148 | 4 | tough love | joel zwick | ellen guylas | october 5 , 1993
+149 | 5 | fast friends | john tracy | bob sand | october 12 , 1993
+150 | 6 | smash club : the next generation | john tracy | carolyn omine | october 19 , 1993
+151 | 7 | high anxiety | john tracy | tom amundsen | october 26 , 1993
+152 | 8 | another opening , another no show | joel zwick | story by : elias davis teleplay by : tom burkhard | november 2 , 1993
+153 | 9 | the day of the rhino | james o'keefe | adam i lapidus | november 9 , 1993
+154 | 10 | the prying game | john tracy | ellen guylas | november 16 , 1993
+155 | 11 | the bicycle thief | john tracy | chuck tatham & jamie tatham | november 23 , 1993
+156 | 12 | support your local parents | james o'keefe | bob sand | november 30 , 1993
+157 | 13 | the perfect couple | john tracy | marc warren & dennis rinsler | december 14 , 1993
+158 | 14 | is it true about stephanie | joel zwick | carolyn omine | january 4 , 1994
+159 | 15 | the test | john tracy | dan chasin & linda lane | january 11 , 1994
+160 | 16 | joey 's funny valentine | john tracy | adam i lapidus | january 25 , 1994
+161 | 17 | the last dance | john tracy | tom amundsen | february 8 , 1994
+162 | 18 | kissing cousins | john tracy | tom burkhard | february 15 , 1994
+163 | 19 | love on the rocks | tom rickard | ellen guylas | march 1 , 1994",,yes,"['1', 'entailed']",,yes,FINAL ANSWER: yes,,,
+P007,schema matching (which target column does this source column map to?),clinical column matching to the GDC schema,text,Which GDC (Genomic Data Commons) column does this study column map to? Answer with the exact target column name from the candidate list.,"Source table: McDermott study clinical table (22 columns)
+Source column: Tumor Residual Disease (for the max diameter of the largest remaining tumor nodule)
+Sample values: 1-10 mm | 11-20 mm | greater than 20 mm | Not Reported/ Unknown
+
+Candidate GDC target columns (40 of 736), with example vocabulary values:
+- ajcc_pathologic_t  (e.g. T0 | T1)
+- enneking_msts_tumor_site  (e.g. Extracompartmental (T2) | Intracompartmental (T1))
+- tumor_thickness
+- locus
+- residual_disease  (e.g. R0 | R1)
+- hiv_viral_load
+- tumor_purity
+- tumor_largest_dimension_diameter
+- mean_coverage
+- icd_10_code
+- history_of_tumor  (e.g. Yes | No)
+- tumor_width_measurement
+- tumor_descriptor  (e.g. Metastatic | New Primary)
+- tumor_code  (e.g. Acute Leukemia of Ambiguous... | Acute lymphoblastic leukemi...)
+- ethnicity  (e.g. hispanic or latino | not hispanic or latino)
+- lymphatic_invasion_present  (e.g. Yes | No)
+- occupation_duration_years
+- percent_tumor_nuclei
+- tumor_focality  (e.g. Multifocal | Unifocal)
+- extrathyroid_extension  (e.g. Minimal (T3) | Moderate/Advanced (T4a))
+- classification_of_tumor  (e.g. metastasis | Premalignant)
+- history_of_tumor_type  (e.g. Colorectal Cancer | Lower Grade Glioma)
+- tumor_depth_measurement
+- residual_tumor_measurement  (e.g. 1-10 mm | 11-20 mm)
+- cause_of_response
+- base_caller_version
+- diabetes_treatment_type  (e.g. Alpha-Glucosidase Inhibitor | Biguanide)
+- year_of_follow_up
+- max_tumor_bulk_site  (e.g. Adrenal | Appendix)
+- tumor_depth
+- tumor_grade  (e.g. G1 | G2)
+- tumor_burden
+- margins_involved_site  (e.g. Gerota Fascia | Parenchyma)
+- tumor_ploidy
+- residual_tumor  (e.g. R0 | R1)
+- first_symptom_longest_duration  (e.g. 0-30 Days | 31-90 Days)
+- tumor_length_measurement
+- tumor_shape  (e.g. Diffuse | Dome)
+- distance_normal_to_tumor  (e.g. Adjacent (< or = 2cm) | Distal (>2cm))
+- days_to_sequencing",,,residual_tumor_measurement,,,residual_tumor_measurement,FINAL ANSWER: residual_tumor_measurement,,,
+P008,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,How many males and females are there in Mithra households?,,"Table: Mithra, Kapurthala - Population data
+Particulars | Total | Male | Female
+-----------------------------------
+Total No. of Houses | 80 | - | -
+Population | 350 | 185 | 165
+Child (0-6) | 30 | 16 | 14
+Schedule Caste | 64 | 32 | 32
+Schedule Tribe | 0 | 0 | 0
+Literacy | 71.88 % | 76.33 % | 66.89 %
+Total Workers | 134 | 107 | 27
+Main Worker | 134 | 0 | 0
+Marginal Worker | 0 | 0 | 0",,Mithra has a total number of 80 houses and a population of 350 which includes 185 males and 165 females.,,,There are 185 males and 165 females in Mithra households,"Based on the provided table, there are 185 males and 165 females in Mithra households.
+
+FINAL ANSWER: There are 185 males and 165 females in Mithra households.",,,
+P009,table question answering (answer a question from a table),questions over hierarchical statistical tables (HiTab),text,"which type of owners who were 15 and older in 2013 had more headcount, unincorporated self-employed or incorporated business owners?",,"Table: self-employment and business ownership in 2013, individuals aged 15 and older
+ | headcount | share | age | males | employment accounted for by owner
+------------------------------------------------------------
+ | number | percent | mean | percent | mean
+self-employed |  |  |  |  | 
+non-employer | 2,163,790 | 95 | 52 | 54 | ..
+employer | 116,150 | 5 | 51 | 67 | 3.4
+total | 2,279,940 | 100 | 51 | 54 | ..
+business owner |  |  |  |  | 
+non-employer | 317,830 | 26 | 56 | 59 | ..
+employer | 925,570 | 74 | 50 | 67 | 6.6
+total | 1,243,400 | 100 | 52 | 65 | ..",,self-employed,,,unincorporated self-employed,FINAL ANSWER: unincorporated self-employed,,,
+P010,table question answering (answer a question from a table),table understanding tasks (MMTU),text,"Does this column contain a value that is clearly a data error (typo, wrong format or semantically incompatible with the rest of the column)? Answer with that cell value exactly as written, or 'none' if there is no clear error.",,"Column:
+| base curr   |
+|:------------|
+| chf         |
+| czk         |
+| eur         |
+| pln         |",,none,"['null', 'no error', 'no']",,none,"All four values (chf, czk, eur, pln) are valid ISO 4217 currency codes in consistent lowercase format — no anomaly.
+
+FINAL ANSWER: none",,,
+P011,table question answering (answer a question from a table),numeric and list questions over tables (TableBench),numeric,"What is the total number of medals won by all nations listed in the table?
+Answer with the number only.",,"nation | gold | silver | bronze | total
+---------------------------------------
+germany | 7 | 4 | 5 | 16
+france | 1 | 4 | 1 | 6
+united states | 1 | 2 | 1 | 4
+netherlands | 1 | 1 | 3 | 5
+united kingdom | 1 | 1 | 1 | 3
+switzerland | 1 | - | 1 | 2
+denmark | 1 | - | - | 1
+new zealand | 1 | - | - | 1
+belgium | - | 1 | - | 1
+spain | - | 1 | - | 1
+australia | - | - | 1 | 1
+sweden | - | - | 1 | 1",,42,,,42,FINAL ANSWER: 42,,,
+P012,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,How populated is the Chengdu metro in terms of stops along its length?,,"Table: Chengdu Metro - Network
+Line | Terminals (District) | Terminals (District) | Commencement | Newest Extension | Length km | Stations
+------------------------------------------------------------
+1 | Weijianian (Jinniu) | Science City (Shuangliu) | 2010 | 2018 | 40.99 | 35
+1 | Weijianian (Jinniu) | Wugensong (Shuangliu) | 2010 | 2018 | 40.99 | 35
+2 | Xipu (Pidu) | Longquanyi (Longquanyi) | 2012 | 2014 | 42.32 | 32
+3 | Chengdu Medical College (Xindu) | Shuangliu West Station (Shuangliu) | 2016 | 2018 | 49.89 | 37
+4 | Wansheng (Wenjiang) | Xihe (Longquanyi) | 2015 | 2017 | 43.28 | 30
+7 loop line | Cuijiadian (Chenghua) | Cuijiadian (Chenghua) | 2017 | - | 38.61 | 31
+10 | Taipingyuan (Wuhou) | Shuangliu International Airport Terminal 2 (Shuangliu) | 2017 | - | 10.90 | 6
+Total | Total | Total | Total | Total | 226 | 171",,Chengdu Metro has six lines operated covering 226 km with 171 stations.,,,"The Chengdu Metro has 171 stations over 226 km, averaging about 0.76 stations per kilometer (one station every 1.3 km)","The Chengdu Metro network has 171 stations across 226 km of track, giving an average of about 0.76 stations per kilometer (roughly one station every 1.3 km).
+
+FINAL ANSWER: The Chengdu Metro has 171 stations over 226 km, averaging about 0.76 stations per kilometer (one station every 1.3 km).",,,
+P013,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,Which stage/s did Hugh Maynard star in 2002 and what was his role/s?,,"Table: Hugh Maynard - Stage
+Year | Title | Venue | Role
+---------------------------
+1997 | Jesus Christ Superstar | Lyceum Theatre | Apostle James/US Judas
+1999 | The Lion King | Lyceum Theatre | Simba
+2000 | Notre Dame De Paris | Dominion Theatre | Clopin
+2001 | Jesus Christ Superstar | UK Tour | Simon Zealotes
+2002 | Follies | Royal Festival Hall | Young Ben
+2002 | We Will Rock You | - | The Jackson 5
+2004 | Miss Saigon | UK Tour | John
+2006 | Dancing in the Street | Aldwych Theatre/UK Tour | Marvin Gaye
+2009 | Sister Act | London Palladium Theatre | Ensemble/US Eddie & Cutis
+2014 | Miss Saigon | Prince Edward Theatre | John
+2016 | Travels with My Aunt | Chichester Minerva Theatre | Wordsworth",,"In 2002, Hugh Maynard starred in ""We Will Rock You"" as The Jackson 5 and in ""Follies"" as young Ben.",,,"In 2002, Hugh Maynard starred as Young Ben in Follies at the Royal Festival Hall and as The Jackson 5 in We Will Rock You","FINAL ANSWER: In 2002, Hugh Maynard starred as Young Ben in Follies at the Royal Festival Hall and as The Jackson 5 in We Will Rock You.",,,
+P014,table question answering (answer a question from a table),questions over Wikipedia tables,numeric,what is the number of years tony gulotta race?,,"Year | Car | Start | Qual | Rank | Finish | Laps | Led | Retired
+------------------------------------------------------------
+1926 | 31 | 12 | 102.789 | 13 | 11 | 142 | 0 | Flagged
+1927 | 27 | 27 | 107.765 | 22 | 3 | 200 | 0 | Running
+1928 | 8 | 4 | 117.031 | 4 | 10 | 200 | 33 | Running
+1929 | 23 | 11 | 112.146 | 15 | 17 | 91 | 0 | Supercharger
+1930 | 9 | 20 | 100.033 | 18 | 20 | 79 | 0 | Valve
+1931 | 37 | 19 | 111.725 | 6 | 18 | 167 | 0 | Crash T4
+1932 | 25 | 20 | 108.896 | 34 | 13 | 184 | 0 | Flagged
+1933 | 34 | 12 | 113.578 | 15 | 7 | 200 | 0 | Running
+1934 | 8 | 7 | 113.733 | 13 | 17 | 94 | 0 | Rod
+1935 | 44 | 6 | 115.459 | 11 | 21 | 102 | 0 | Magneto
+1937 | 38 | 7 | 118.788 | 16 | 8 | 200 | 0 | Running
+1938 | 17 | 4 | 122.499 | 6 | 17 | 130 | 0 | Rod
+1939 | 62 | 27 | 121.749 | 24 | 11 | 200 | 0 | Running
+Totals | Totals | Totals | Totals | Totals | Totals | 1989 | 33 | ",,13,,,13,"Count the rows in the table (each row is a year): 1926, 1927, 1928, 1929, 1930, 1931, 1932, 1933, 1934, 1935, 1937, 1938, 1939 = 13 years.
+
+FINAL ANSWER: 13",,,
+P015,entity matching (are these two records the same real-world thing?),entity-matching sets Dn1-Dn8 at their real match ratio,boolean,Do these two records refer to the same real-world entity? Answer yes or no.,"### Record A
+name: Winnie Markus
+
+### Record B
+name: ?????? ??????",,,no,"['no match', '0']",,no,FINAL ANSWER: no,,,
+P016,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,How many times did Thorill Glylder compete in the IAAF World Race Walking Cup and how did she place?,,"Table: Thorill Gylder - International competitions
+Year | Competition | Venue | Position | Event | Notes
+-----------------------------------------------------
+1975 | IAAF World Race Walking Cup | Le Grand-Quevilly, France | 4th | 5 km walk | 25:05
+1975 | Nordic Race Walking Championships | Odense, Denmark | 3rd | 5 km walk | 25:34
+1976 | Nordic Indoor Race Walking Championships | Östersund, Sweden | 3rd | 3000 m junior walk | 15:21
+1977 | Nordic Race Walking Championships | Helsinki, Finland | 3rd | 5 km walk | 24:09
+1978 | Nordic Indoor Race Walking Championships | Turku, Finland | 2nd | 3000 m walk | 13:58.3
+1979 | IAAF World Race Walking Cup | Eschborn, West Germany | 3rd | 5 km walk | 23:08
+1979 | Nordic Race Walking Championships | Härnösand, Sweden | 2nd | 10,000 m walk | 49:55
+1981 | IAAF World Race Walking Cup | Valencia, Spain | — | 5 km walk | DNF",,"Thorill Gylder competed three times at the IAAF World Race Walking Cup, and after a fourth-place finish in 1975 she took the 5km walk bronze medal at the Nordic Race Walking Championships.",,,"Three times — 4th (5 km walk, Le Grand-Quevilly, 1975), 3rd (5 km walk, Eschborn, 1979), and DNF (5 km walk, Valencia, 1981)","She competed in the IAAF World Race Walking Cup three times, placing 4th in the 5 km walk at Le Grand-Quevilly in 1975, 3rd in the 5 km walk at Eschborn in 1979, and failing to finish (DNF) the 5 km walk at Valencia in 1981.
+
+FINAL ANSWER: Three times — 4th (5 km walk, Le Grand-Quevilly, 1975), 3rd (5 km walk, Eschborn, 1979), and DNF (5 km walk, Valencia, 1981).",,,
+P017,entity matching (are these two records the same real-world thing?),product records from Abt and Buy.com,boolean,Do these two records refer to the same real-world entity (the same product / publication)? Answer yes or no.,"### Record A
+name: sanus center channel speaker mount black finish vmcc1b
+description: sanus center channel speaker mount vmcc1b works with sanus models vmsa , vmaa18 , vmaa26 , vmdd26 and vmcm1 easy to install mounting hardware included black finish
+price: 99.99
+
+### Record B
+name: sanus center channel speaker mount vmcc1b
+description: steel",,,yes,"['match', '1']",,yes,FINAL ANSWER: yes,,,
+P018,table question answering (answer a question from a table),questions over hierarchical statistical tables (HiTab),numeric,"how many times of gay or lesbian canadians were more likely as heterosexual canadians to report having used other non-prescribed drugs such as magic mushrooms, cocaine or heroin in the past year?",,"Table: health risk behaviours, by sexual orientation and gender, canada, 2018
+health risk behaviours | heterosexual |  |  | gay or lesbian |  |  | bisexual |  |  | sexual orientation n.e.c |  |  | total sexual minority |  | 
+------------------------------------------------------------
+ | percent | 95% confidence interval |  | percent | 95% confidence interval |  | percent | 95% confidence interval |  | percent | 95% confidence interval |  | percent | 95% confidence interval | 
+ |  | from | to |  | from | to |  | from | to |  | from | to |  | from | to
+binge drinking in the past 12 months | 44.1 | 43.4 | 44.8 | 52.7 | 46.6 | 58.7 | 55.3 | 48.4 | 61.9 | 38.3 | 23.8 | 55.3 | 53.0 | 48.5 | 57.4
+non-medicinal cannabis use in the past 12 months | 15.3 | 14.8 | 15.9 | 28.5 | 23.6 | 33.9 | 46.3 | 39.8 | 53.0 | 20.8 | 11.1 | 35.6 | 37.0 | 32.8 | 41.3
+non-prescribed drug use in the past 12 months | 2.6 | 2.3 | 2.9 | 6.6 | 4.2 | 10.2 | 14.0 | 10.3 | 18.8 | f | f | f | 10.3 | 8.0 | 13.0
+used drugs or alcohol to cope |  |  |  |  |  |  |  |  |  |  |  |  |  |  | 
+with abuse or violence that occurred in lifetime | 10.4 | 9.9 | 11.0 | 18.2 | 14.1 | 23.2 | 29.5 | 23.8 | 35.9 | 20.2 | 11.0 | 34.3 | 24.1 | 20.4 | 28.3
+with abuse or violence that occurred in past 12 months | 9.7 | 7.2 | 13.0 | f | f | f | 31.0 | 18.2 | 47.4 | f | f | f | 29.4 | 19.1 | 42.3",,2.538462,,,2.5,FINAL ANSWER: 2.5,,,
+P019,schema matching (which target column does this source column map to?),clinical column matching to the GDC schema,text,Which GDC (Genomic Data Commons) column does this study column map to? Answer with the exact target column name from the candidate list.,"Source table: Huang study clinical table (37 columns)
+Source column: smoking_second_hand
+Sample values: Yes | Exposure to secondhand smoke history not available | No or minimal exposure to secondhand smoke
+
+Candidate GDC target columns (40 of 736), with example vocabulary values:
+- exposure_type  (e.g. Asbestos | Chemical)
+- child_pugh_classification  (e.g. A | A5)
+- clinical_trial_indicator  (e.g. Yes | No)
+- radon_exposure  (e.g. Yes | No)
+- undescended_testis_corrected_method  (e.g. Hormones | Orchiopexy)
+- asbestos_exposure  (e.g. Yes | No)
+- biospecimen_anatomic_site  (e.g. Abdomen | Abdominal Wall)
+- sequence_duplication_levels  (e.g. FAIL | PASS)
+- tobacco_smoking_onset_year
+- exposure_duration_hrs_per_day
+- tumor_focality  (e.g. Multifocal | Unifocal)
+- year_of_diagnosis
+- tobacco_smoking_status  (e.g. 1 | 2)
+- secondhand_smoke_as_child  (e.g. Yes | No)
+- discontiguous_lesion_count
+- respirable_crystalline_silica_exposure  (e.g. Yes | No)
+- eye_color  (e.g. Amber | Blue)
+- environmental_tobacco_smoke_exposure  (e.g. Yes | No)
+- type_of_tobacco_used  (e.g. Cigar | Cigarette)
+- proc_internal  (e.g. dna-seq skip)
+- exposure_duration_years
+- days_to_first_event
+- target_capture_kit_target_region
+- chemical_exposure_type
+- coal_dust_exposure  (e.g. Yes | No)
+- ensat_clinical_m  (e.g. M0 | M1)
+- mean_coverage
+- exposure_duration  (e.g. Six Weeks or More | Unknown)
+- library_strand  (e.g. Unstranded | First_Stranded)
+- asbestos_exposure_type  (e.g. Amosite | Crocidolite)
+- time_between_waking_and_first_smoke  (e.g. Within 5 Minutes | 6-30 Minutes)
+- exposure_source  (e.g. Home | Occupational)
+- age_at_last_exposure
+- tobacco_smoking_quit_year
+- days_to_consent
+- analyte_quantity
+- no_matched_normal_low_pass_wgs
+- read_pair_number  (e.g. Not Applicable | R1)
+- parent_with_radiation_exposure  (e.g. Yes | No)
+- type_of_smoke_exposure  (e.g. Accidental building fire smoke | Accidental fire smoke, grass)",,,secondhand_smoke_as_child,['environmental_tobacco_smoke_exposure'],,environmental_tobacco_smoke_exposure,FINAL ANSWER: environmental_tobacco_smoke_exposure,,,
+P020,entity matching (are these two records the same real-world thing?),camera product offers (Alaska),boolean,"Do these two camera product specifications, scraped from different web pages, describe the same camera model (the same real-world product)? Answer yes or no.","### Specification A
+source: www.ebay.com
+page title: Nikon D800 36 3 MP Digital SLR Camera Black Body Only 018208254804 | eBay
+brand: Nikon
+megapixels: 36.3 MP
+model: D800
+mpn: 25480
+screen size: 3.2""
+type: Digital SLR
+upc: 018208254804
+
+### Specification B
+source: www.ebay.com
+page title: Canon EOS 7D 18 0 MP Digital SLR Camera Black Body Only 013803117493 | eBay
+brand: Canon
+condition: Used: An item that has been used previously. The item may have some signs of cosmetic wear, but is fully operational and functions as intended. This item may be a floor model or store return that h...
+megapixels: 18.0 MP
+model: 7D
+mpn: 3814B004
+optical zoom: 2.7x
+screen size: 3""
+type: Digital SLR
+upc: 013803117493",,,no,"['no match', '0']",,no,FINAL ANSWER: no,,,
+P021,table question answering (answer a question from a table),questions over hierarchical statistical tables (HiTab),numeric,what was the percent change of the ssr for all unintentional causes among aboriginal males?,,"Table: standardized relative risks (ssr) of hospitalization due to injury, by gender and injury cause, aboriginal and total population, british columbia, 1991 to 2010
+population, gender, injury cause | srr |  | 1991 to 2010 % change | p | annual % change |  |  | forecast srr 2014 | 2010 to 2014 % change | annual % change |  | 
+------------------------------------------------------------
+ |  |  |  |  |  | 95% confidence interval |  |  |  |  | 95% confidence interval | 
+ | 1991 | 2010 |  |  |  | from | to |  |  |  | from | to
+aboriginal |  |  |  |  |  |  |  |  |  |  |  | 
+total |  |  |  |  |  |  |  |  |  |  |  | 
+unintentional injury | 2.87 | 1.15 | -59.9 | 0.001 | -4.7 | -5.4 | -4.0 | 0.79 | -31.5 | -9.0 | -22.7 | 0.3
+transport vehicle | 3.60 | 0.57 | -84.1 | 0.000 | -9.2 | -10.6 | -7.9 | -0.07 | . | . | . | 9.6
+medical/surgical mishap | 1.89 | 1.24 | -34.1 | 0.181 | -2.2 | -3.7 | -0.6 | 1.09 | -12.3 | -3.2 | -9.5 | 2.0
+fall | 2.88 | 1.47 | -49.0 | 0.039 | -3.5 | -4.6 | -2.3 | 1.17 | -20.2 | -5.5 | -20.2 | 4.4
+self-inflicted injury | 4.74 | 1.81 | -61.9 | 0.358 | -5.0 | -7.2 | -2.6 | 1.50 | -16.8 | -4.5 | -15.0 | 3.4
+poisoning | 4.29 | 1.78 | -58.5 | 0.479 | -4.5 | -7.0 | -2.0 | 1.59 | -10.8 | -2.8 | -12.8 | 4.8
+intentionally inflicted by another | 6.54 | 3.23 | -50.7 | 0.516 | -3.6 | -6.4 | -0.9 | 3.55 | 10.1 | 2.4 | -7.5 | 10.1
+male |  |  |  |  |  |  |  |  |  |  |  | 
+unintentional injury | 2.77 | 1.14 | -58.7 | 0.204 | -4.5 | -5.4 | -3.7 | 1.16 | 1.5 | 0.4 | -7.2 | 6.6
+transport vehicle | 3.58 | 0.60 | -83.2 | 0.001 | -8.9 | -10.6 | -7.3 | 0.66 | 9.7 | 2.3 | -50.2 | 20.9
+medical/surgical mishap | 1.49 | 1.44 | -3.2 | 0.011 | -0.2 | -2.4 | 2.1 | 1.39 | -3.7 | -1.0 | -11.5 | 7.0
+fall | 2.64 | 1.62 | -38.9 | 0.969 | -2.6 | -4.2 | -0.9 | 1.40 | -13.4 | -3.5 | -16.7 | 5.8
+self-inflicted injury | 3.87 | 1.83 | -52.7 | 0.844 | -3.9 | -7.8 | 0.3 | 1.40 | -23.4 | -6.5 | -26.8 | 5.6
+poisoning | 2.61 | 1.60 | -38.6 | 0.528 | -2.5 | -7.1 | 2.2 | 1.63 | 2.1 | 0.5 | -24.3 | 14.4
+intentionally inflicted by another | 5.50 | 2.64 | -51.9 | 0.377 | -3.8 | -6.8 | -0.7 | 2.04 | -22.7 | -6.2 | -48.7 | 10.2
+female |  |  |  |  |  |  |  |  |  |  |  | 
+unintentional injury | 3.06 | 1.17 | -61.8 | 0.000 | -4.9 | -6.0 | -3.9 | 0.77 | -34.0 | -9.9 | -27.1 | 0.9
+transport vehicle | 3.63 | 0.51 | -86.1 | 0.001 | -9.9 | -12.1 | -7.5 | 0.14 | -72.6 | -27.6 | . | 2.8
+medical/surgical mishap | 2.27 | 1.07 | -53.0 | 0.597 | -3.9 | -6.0 | -1.8 | 1.09 | 1.7 | 0.4 | -9.3 | 7.9
+fall | 3.21 | 1.35 | -57.9 | 0.005 | -4.5 | -6.1 | -2.8 | 0.96 | -29.0 | -8.2 | -35.0 | 5.6
+self-inflicted injury | 5.15 | 1.79 | -65.2 | 0.224 | -5.4 | -8.2 | -2.5 | 1.55 | -13.3 | -3.5 | -17.9 | 6.4
+poisoning | 4.96 | 1.86 | -62.4 | 0.293 | -5.0 | -7.9 | -2.0 | 1.58 | -15.1 | -4.0 | -18.5 | 5.9
+intentionally inflicted by another | 10.86 | 5.76 | -47.0 | 0.814 | -3.3 | -9.4 | 3.3 | 5.27 | -8.5 | -2.2 | -18.6 | 8.6
+total british columbia |  |  |  |  |  |  |  |  |  |  |  | 
+unintentional injury | 1.44 | 0.73 | -49.3 | .. | -3.5 | -3.6 | -3.4 | 0.58 | -20.5 | -5.6 | -11.8 | -0.4
+transport vehicle | 1.67 | 0.52 | -68.7 | .. | -5.9 | -6.2 | -5.6 | 0.28 | -46.2 | -14.4 | -53.7 | 0.7
+medical/surgical mishap | 1.35 | 0.72 | -46.4 | .. | -3.2 | -3.5 | -3.0 | 0.59 | -18.2 | -4.9 | -16.1 | 3.3
+fall | 1.28 | 0.83 | -34.8 | .. | -2.2 | -2.4 | -2.0 | 0.74 | -11.3 | -2.9 | -6.8 | 0.5
+self-inflicted injury | 1.37 | 0.65 | -52.4 | .. | -3.8 | -4.3 | -3.3 | 0.49 | -25.5 | -7.1 | -13.3 | -1.9
+poisoning | 1.33 | 0.66 | -50.2 | .. | -3.6 | -4.1 | -3.1 | 0.51 | -22.9 | -6.3 | -12.3 | -1.3
+intentionally inflicted by another | 1.35 | 0.80 | -40.7 | .. | -2.7 | -3.3 | -2.1 | 0.69 | -14.4 | -3.8 | -12.9 | 3.2
+male |  |  |  |  |  |  |  |  |  |  |  | 
+unintentional injury | 1.50 | 0.70 | -53.7 | .. | -4.0 | -4.1 | -3.8 | 0.53 | -24.4 | -6.7 | -14.8 | -0.4
+transport vehicle | 1.63 | 0.50 | -69.3 | .. | -6.0 | -6.4 | -5.7 | 0.26 | -47.5 | -14.9 | . | 2.5
+medical/surgical mishap | 1.37 | 0.75 | -45.3 | .. | -3.1 | -3.5
+... (table truncated)",,-58.7,,,-58.7,"The table shows for Aboriginal males, unintentional injury: SRR 2.77 (1991) → 1.14 (2010), a change of -58.7%.
+
+FINAL ANSWER: -58.7",,,
+P022,table question answering (answer a question from a table),database question; the gold is the value the correct SQL returns (BIRD),text,"What is the name of set number 5 and its translation?
+Answer with the values only, separated by ' | '.","### Database: card_games
+CREATE TABLE ""sets""
+(
+    id               INTEGER           not null
+        primary key autoincrement,
+    baseSetSize      INTEGER,
+    block            TEXT,
+    booster          TEXT,
+    code             TEXT              not null
+        unique,
+    isFoilOnly       INTEGER default 0 not null,
+    isForeignOnly    INTEGER default 0 not null,
+    isNonFoilOnly    INTEGER default 0 not null,
+    isOnlineOnly     INTEGER default 0 not null,
+    isPartialPreview INTEGER default 0 not null,
+    keyruneCode      TEXT,
+    mcmId            INTEGER,
+    mcmIdExtras      INTEGER,
+    mcmName          TEXT,
+    mtgoCode         TEXT,
+    name             TEXT,
+    parentCode       TEXT,
+    releaseDate      DATE,
+    tcgplayerGroupId INTEGER,
+    totalSetSize     INTEGER,
+    type             TEXT
+)
+
+CREATE TABLE ""set_translations""
+(
+    id          INTEGER not null
+        primary key autoincrement,
+    language    TEXT,
+    setCode     TEXT
+        references sets (code)
+            on update cascade on delete cascade,
+    translation TEXT
+)
+
+### Hint
+set number 5 refers to id = 5",,,Tenth Edition | Set Base Decima Edizione,"['Tenth Edition, Set Base Decima Edizione']",yes: every item required,"SELECT T1.name ,  T2.translation FROM sets AS T1 JOIN set_translations AS T2 ON T1.code  =  T2.setCode WHERE T1.id  =  5","To find the name of set number 5 and its translation, we need to join the `sets` table with the `set_translations` table on the set code, filtering for the set with `id = 5`.
+
+FINAL ANSWER: SELECT T1.name ,  T2.translation FROM sets AS T1 JOIN set_translations AS T2 ON T1.code  =  T2.setCode WHERE T1.id  =  5",,,
+P023,table question answering (answer a question from a table),database question; the gold is the value the correct SQL returns (BIRD),numeric,"List out the account numbers of clients who are youngest and have highest average salary?
 Answer with the value only.","### Database: financial
 CREATE TABLE account
 (
@@ -65,741 +550,179 @@ CREATE TABLE `order`
 )
 
 ### Hint
-If the person A's birthdate < B's birthdate, it means that person B is younger than person A; A11 refers to average salary",,,2836,,,11349,FINAL ANSWER: 11349,,,
-P002,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,What roles in what films did Susan Lucci play in 1986?,,"Table: Susan Lucci - Filmography
-Year | Title | Role | Notes
----------------------------
-1969 | Goodbye, Columbus | Wedding Guest | Uncredited
-1969 | Love Is a Many Splendored Thing | Bit role | Uncredited
-1969 | Me, Natalie | Cheerleader | -
-1970–2011 | All My Children | Erica Kane Jane Campbell | Lead role
-1982 | The Love Boat | Paula Hastings | Episode: ""The Groupies/The Audition/Doc's Nephew""
-1982 | Young Doctors in Love | Cameo | -
-1983 | Fantasy Island | Gina Edwards | Episode: ""The Songwriter/Queen of the Soaps""
-1984 | Invitation to Hell | Jessica Jones | -
-1984 | The Fall Guy | Veronica Remy | Episode: ""Stranger Than Fiction""
-1986 | Mafia Princess | Antoinette Giancana | -
-1986 | Anastasia: The Mystery of Anna | Darya Romanoff | -
-1987 | Haunted by Her Past | Karen Beckett | -
-1988 | Lady Mobster | Laurel Castle | -
-1990 | The Bride in Black | Rose D'Amore-Malloy | -
-1990 | Saturday Night Live | Herself – Host/Various | Episode: ""Susan Lucci/Hothouse Flowers""
-1990–1991 | Dallas | Hillary Taylor/Faux Sheila Foley | Special guest star, 6 episodes
-1991 | The Woman Who Sinned | Victoria Robeson | -
-1992 | Double Edge | Maggie Dutton/Carmen Moore | -
-1993 | Between Love and Hate | Vivian Conrad | -
-1994 | French Silk | Claire Laurent | -
-1995 | Ebbie | Elizabeth 'Ebbie' Scrooge | -
-1995 | Seduced and Betrayed | Victoria Landers | -
-1998 | Blood on Her Hands | Isabelle Collins | -
-2004 | Hope & Faith | Jacqueline Karr | Episodes: ""Daytime Emmys: Part 1"" and ""Daytime Emmys: Part 2""
-2005 | That's So Raven | Miss Charlotte Romano | Episode: ""The Big Buzz""
-2010–2014 | Hot in Cleveland | Susan Lucci | Special guest star, 5 episodes
-2012 | Army Wives | Audrey Whitaker | 3 episodes
-2012–present | Deadly Affairs | Herself – Host | Documentary series
-2013–2016 | Devious Maids | Genevieve Delatour | Series regular
-2015 | Joy | Danica | -
-2017 | Difficult People | Shelley Waxman | Episode: ""Cindarestylox""
-2018 | Ralph Breaks the Internet | (voice) | -",,"In 1986, Susan Lucci played Antoinette Giancana in Mafia Princess and Darya Romanoff in Anastasia: The Mystery of Anna.",,,Susan Lucci played Antoinette Giancana in Mafia Princess and Darya Romanoff in Anastasia: The Mystery of Anna in 1986,Susan Lucci played Antoinette Giancana in Mafia Princess and Darya Romanoff in Anastasia: The Mystery of Anna in 1986.,,,
-P003,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,What did Poland do after winning the OGAE contest in 2010?,,"Table: OGAE Video Contest - Winners
-Year | Country | Video | Performer | Points | Host city
--------------------------------------------------------
-2003 | France | ""Fan"" | Pascal Obispo | 122 | Turkey Istanbul
-2004 | Portugal | ""Cavaleiro Monge"" | Mariza | 133 | France Fontainebleau
-2005 | Ukraine | ""I Will Forget You"" | Svetlana Loboda | 171 | Portugal Lisbon
-2006 | Italy | ""Contromano"" | Nek | 106 | Turkey Izmir
-2007 | Russia | ""LML"" | Via Gra | 198 | Italy Florence
-2008 | Russia | ""Potselui"" | Via Gra | 140 | Russia Moscow
-2009 | Russia | ""Karma"" | Yin-Yang | 142 | Russia Saint Petersburg
-2010 | Poland | ""Kim tu jestem"" | Justyna Steczkowska | 85 | Russia Volgograd
-2011 | France | ""Lonely Lisa"" | Mylène Farmer | 96 | Poland Wrocław
-2012 | Italy | ""È l'amore che conta"" | Giorgia | 135 | France Paris
-2013 | Belgium | ""Papaoutai"" | Stromae | 144 | Italy Turin
-2014 | France | ""Tourner dans le vide"" | Indila | 141 | Belgium Brussels
-2015 | Germany | ""Gäa"" | Oonagh | 122 | France Paris
-2016 | United Kingdom | ""Hymn For The Weekend"" | Coldplay | 673 | Germany Lüneburg
-2017 | Belgium | ""Mud Blood"" | Loïc Nottet | 184 | United Kingdom London
-2018 | Czech Republic | ""Me Gusta"" | Mikolas Josef | 132 | Belgium",,"The OGAE Video Contest took place in Wrocław, Poland after Justyna Steczkowska won the 2010 contest for Poland with the video ""Kim tu jestem"".",,,"After winning the 2010 OGAE Video Contest with Justyna Steczkowska's ""Kim tu jestem,"" Poland hosted the 2011 contest in Wrocław","After winning the 2010 OGAE Video Contest with Justyna Steczkowska's ""Kim tu jestem,"" Poland hosted the 2011 contest in Wrocław.
+If the person A's birthdate < B's birthdate, it means that person B is younger than person A; A11 refers to average salary",,,2836,,,SELECT account_id FROM,"We need answer question. Need use context schema. Need list account numbers of clients who are youngest and have highest average salary? Answer with value only, single number. Need infer likely from Czech financial dataset (PKDD). Need compute? We don't have data rows. We need answer from own knowledge? Hmm no data. We need solve SQL query? But no actual database rows. Maybe expected query? But asks ""Answer with value only."" We need derive from known dataset? Let's inspect.
 
-FINAL ANSWER: After winning the 2010 OGAE Video Contest with Justyna Steczkowska's ""Kim tu jestem,"" Poland hosted the 2011 contest in Wrocław.",,,
-P004,entity matching (are these two records the same real-world thing?),bibliographic records from DBLP and ACM,boolean,Do these two records refer to the same real-world entity (the same product / publication)? Answer yes or no.,"### Record A
-title: the lotus notes storage system
-authors: kenneth moore
-venue: sigmod conference
-year: 1995
+Question: ""List out the account numbers of clients who are youngest and have highest average salary?"" This sounds from financial database. Need find account numbers of clients who are youngest and have highest average salary. Need maybe SQL query. But no data. Could be they expect an account_id from known sample? We might need infer from schema and hint. A11 refers average salary in district. Youngest client? Highest average salary? Maybe there is a unique client? Let's parse.
+
+Tables: client has birth_date. account has account_id, district_id. disp links client and account. district has A11 average salary. We need account numbers of clients who are youngest AND have highest average salary? ""clients who are youngest and have highest average salary"" could mean among all clients, find youngest client(s), then among those/their districts? Or find client whose district has highest average salary and is youngest? Need SQL: select account_id from client join disp join account join district where? Maybe ""youngest and have highest average salary"" could be: client with max birth_date (youngest) and district A11 = max(A11). If multiple, list account numbers. They ask ""List out the account numbers"" plural, but answer format single number. Hmm.
+
+Could be a known benchmark question from Spider dataset? Database financial. Let's recall Spider dataset has DB ""financial"" (Czech bank). Questions. There is a question: ""List out the account numbers of clients who are youngest and have highest average salary?"" This is likely a Spider question. The answer is a SQL query, not value. But here they ask answer with value only? In our system, we need answer the question given context. Maybe they expect the SQL? Wait prompt says ""You are a precise question-answering system for financial documents, tables and quantitative reasoning. Use ONLY the provided context when context is given; if no context is given, answer from your own knowledge. Reason briefly and then finish with one line exact form FINAL ANSWER: <answer> The FINAL ANSWER line must contain only the answer, nothing else.""
+
+The context includes schema and hint. No data rows. It's impossible to compute exact account number. Maybe the answer is a SQL query? But they demand single number. Could be from a dataset where answer known. Let's search memory.
+
+Spider dataset question: ""List out the account numbers of clients who are youngest and have highest average salary?"" I may have seen. The SQL likely:
+SELECT T1.account_id
+FROM account AS T1
+JOIN disp AS T2 ON T1.account_id = T2.account_id
+JOIN client AS T3 ON T2.client_id = T3.client_id
+JOIN district AS T4 ON T1.district_id = T4.district_id
+ORDER BY T3.birth_date DESC, T4.A11 DESC
+LIMIT 1;
+Or maybe:
+SELECT account_id FROM",,,
+P024,entity matching (are these two records the same real-world thing?),entity-matching sets Dn1-Dn8 at their real match ratio,boolean,Do these two records refer to the same real-world entity? Answer yes or no.,"### Record A
+title: The TPR*-Tree: An Optimized Spatio-Temporal Access Method for Predictive Queries
+authors: Dimitris Papadias, Jimeng Sun, Yufei Tao
+venue: VLDB
+year: 2003
 
 ### Record B
-title: the naos system
-authors: c. collet , t. coupaye
-venue: international conference on management of data
-year: 1995",,,no,"['no match', '0']",,no,FINAL ANSWER: no,,,
-P005,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,How did Sergey Gavryushin perform at the 1982 European Championships and the 1987 World Championships?,,"Table: Sergey Gavryushin - International competitions
-Year | Competition | Venue | Position | Notes
----------------------------------------------
-1982 | European Championships | Athens, Greece | 8th | 20.15 m
-1986 | Goodwill Games | Moscow, Soviet Union | 2nd | 21.09 m
-1987 | World Championships | Rome, Italy | 8th | 20.15 m",,"Sergey Gavryushin had identical results at the 1982 European Championships and 1987 World Championships, coming eighth with 20.15 m.",,,"He finished 8th at both events, throwing 20.15 m at the 1982 European Championships in Athens, Greece and the same 20.15 m at the 1987 World Championships in Rome, Italy","At both the 1982 European Championships in Athens, Greece and the 1987 World Championships in Rome, Italy, Sergey Gavryushin placed 8th with an identical mark of 20.15 m.
-
-FINAL ANSWER: He finished 8th at both events, throwing 20.15 m at the 1982 European Championships in Athens, Greece and the same 20.15 m at the 1987 World Championships in Rome, Italy.",,,
-P006,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,What did McEntire play in 1994?,,"Table: Reba McEntire - Filmography
-Year | Title | Role | Notes
----------------------------
-1990 | Tremors | Heather Gummer | -
-1994 | Maverick | Spectator | Uncredited
-1994 | North | Ma Tex | -
-1994 | The Little Rascals | A.J. Ferguson | -
-2001 | One Night at McCool's | Dr. Green | -
-2006 | The Fox and the Hound 2 | Dixie | Voice role
-2006 | Charlotte's Web | Betsy the Cow | Voice role
-2015 | Romances of the Republics | Stella Wonders | -
-2016 | The Land Before Time: Journey of the Brave | Etta | Voice role",,"In 1994, McEntire played as Ma Tex in the film North, as Spectator in the film Maverick, and as A.J. Ferguson in the film The Little Rascals.",,,"In 1994, McEntire played a spectator in Maverick, Ma Tex in North, and A.J. Ferguson in The Little Rascals","In 1994, McEntire played a spectator in Maverick, Ma Tex in North, and A.J. Ferguson in The Little Rascals.
-
-FINAL ANSWER: In 1994, McEntire played a spectator in Maverick, Ma Tex in North, and A.J. Ferguson in The Little Rascals.",,,
-P007,table question answering (answer a question from a table),questions over hierarchical statistical tables (HiTab),text,"among these 50 police services, what were the 10 ones with the highest rates of police strength in 2017?",,"Table: municipal police services serving a population of 100,000 or more, canada, 2017
-municipal police services | 2016 population | police officers |  |  |  | hires | departures | net gain or loss: hirings and departures | police officers eligible to retire
-------------------------------------------------------------
- |  | 2017 number of police officers | 2017 police officers per 100,000 population | percentage change from previous year | 2017 percentage of female officers |  |  |  | 
- | number |  | rate | percent |  | number |  |  | percent
-toronto, ont | 2,876,095 | 5,190 | 180 | -4.9 | 19.1 | 26 | 171 | -145 | 7.1
-montreal, que | 2,014,221 | 4,596 | 228 | -0.9 | 32.1 | 180 | 220 | -40 | 16.3
-peel region (mississauga/brampton), ont | 1,404,431 | 1,973 | 140 | -2.0 | 18.3 | 100 | 74 | 26 | 4.5
-calgary, alta | 1,318,817 | 2,215 | 168 | -0.4 | 18.5 | 128 | 55 | 73 | 0.0
-york region (markham/vaughan),ont | 1,157,419 | 1,586 | 137 | -2.4 | 19.0 | 52 | 39 | 13 | 5.3
-ottawa, ont | 973,481 | 1,242 | 128 | -1.5 | 22.6 | 62 | 45 | 17 | 5.8
-edmonton, alta | 969,068 | 1,775 | 183 | -0.2 | 18.9 | 134 | 65 | 69 | 8.5
-winnipeg, man | 735,552 | 1,409 | 192 | -2.6 | 15.6 | 2 | 43 | -41 | 25.8
-durham region (oshawa/whitby/ajax), ont | 671,839 | 854 | 127 | -2.3 | 19.8 | 36 | 26 | 10 | 2.7
-vancouver, b.c | 670,718 | 1,313 | 196 | 0.0 | 25.3 | 73 | 34 | 39 | 8.4
-quebec, que | 575,398 | 757 | 132 | -2.3 | 27.2 | 0 | 6 | -6 | 2.6
-halton region (oakville/burlington), ont | 569,591 | 686 | 120 | -2.5 | 20.7 | 33 | 23 | 10 | 2.2
-hamilton, ont | 561,022 | 835 | 149 | -1.7 | 23.8 | 21 | 26 | -5 | 15.7
-waterloo region (kitchener), ont | 548,936 | 776 | 141 | -0.1 | 21.6 | 33 | 22 | 11 | 0.6
-surrey, b.c | 514,522 | 732 | 142 | -1.3 | 18.4 | 72 | 19 | 53 | 5.9
-niagara region (st. catharines), ont | 453,817 | 706 | 156 | -0.8 | 16.6 | 22 | 18 | 4 | 6.8
-laval, que | 429,413 | 611 | 142 | 0.9 | 30.0 | 11 | 15 | -4 | 12.3
-longueuil, que | 423,525 | 568 | 134 | -0.4 | 34.7 | 10 | 12 | -2 | 3.5
-london, ont | 397,493 | 605 | 152 | 2.5 | 20.3 | 38 | 29 | 9 | 3.6
-gatineau, que | 281,392 | 393 | 140 | -1.7 | 22.6 | 13 | 15 | -2 | 4.3
-saskatoon, sask | 266,064 | 460 | 173 | -1.4 | 23.0 | 17 | 14 | 3 | 10.7
-burnaby, b.c | 246,987 | 290 | 117 | 1.5 | 23.4 | 31 | 7 | 24 | 7.6
-halifax, n.s | 238,467 | 531 | 223 | 1.7 | 19.0 | 21 | 17 | 4 | 2.3
-regina, sask | 223,637 | 397 | 178 | -1.2 | 24.9 | 9 | 11 | -2 | 2.5
-windsor, ont | 221,862 | 428 | 193 | -1.2 | 15.9 | 24 | 17 | 7 | 4.0
-richmond, b.c | 209,738 | 206 | 98 | 1.3 | 18.4 | 30 | 6 | 24 | 7.3
-st. john's, n.l | 207,695 | 341 | 164 | -1.2 | 28.7 | 15 | 16 | -1 | 24.0
-richelieu saint-laurent, que | 205,564 | 212 | 103 | -0.8 | 23.1 | 0 | 12 | -12 | 0.0
-greater sudbury, ont | 165,154 | 264 | 160 | 0.0 | 17.4 | 6 | 9 | -3 | 4.5
-sherbrooke, que | 164,538 | 200 | 122 | -2.6 | 23.5 | 1 | 4 | -3 | 1.5
-barrie, ont | 150,443 | 239 | 159 | -0.6 | 15.9 | 0 | 2 | -2 | 2.5
-saguenay, que | 147,543 | 178 | 121 | 0.2 | 24.2 | 0 | 9 | -9 | 3.4
-abbotsford, b.c | 146,498 | 203 | 139 | -5.6 | 18.2 | 9 | 8 | 1 | 3.0
-levis, que | 144,918 | 155 | 107 | 0.4 | 21.3 | 8 | 7 | 1 | 10.3
-terrebonne, que | 139,818 | 169 | 121 | 0.7 | 27.2 | 19 | 2 | 17 | 3.0
-coquitlam, b.c | 139,055 | 163 | 117 | -3.9 | 26.4 | 11 | 8 | 3 | 8.6
-trois-rivieres, que | 136,168 | 157 | 115 | -0.5 | 19.7 | 4 | 4 | 0 | 2.5
-guelph, ont | 132,350 | 194 | 147 | -0.8 | 22.7 | 2 | 9 | -7 | 7.7
-kingston, ont | 131,746 | 203 | 154 | -0.1 | 18.7 | 3 | 4 | -1 | 3.4
-kelowna, b.c | 129,512 | 173 | 134 | -4.3 | 31.8 | 9 | 10 | -1 | 9.8
-codiac region (moncton), n.b | 118,122 | 134 | 113 | -9.8 | 18.7 | 6 | 14 | -8 | 17.2
-saanich, b.c | 117,285 | 158 | 135 | -1.2 | 24.7 | 7 | 8 | -1 | 5.1
-... (8 more rows omitted)",,"victoria, b.c | montreal, que | halifax, n.s | thunder bay, ont | vancouver, b.c | windsor, ont | winnipeg, man | edmonton, alta | toronto, ont | regina, sask","['victoria, b.c, montreal, que, halifax, n.s, thunder bay, ont, vancouver, b.c, windsor, ont, winnipeg, man, edmonton, alta, toronto, ont, regina, sask']",yes: every item required,"montreal, que | halifax, n.s | vancouver, b.c | windsor, ont | winnipeg, man | edmonton, alta | toronto, ont | regina, sask | saskatoon, sask | calgary, alta","FINAL ANSWER: montreal, que | halifax, n.s | vancouver, b.c | windsor, ont | winnipeg, man | edmonton, alta | toronto, ont | regina, sask | saskatoon, sask | calgary, alta",,,
-P008,financial document reading (answer from a filing or report),questions over office documents with the referenced pages shown (OfficeQA Pro V2),numeric,"In the early 1900s, U.S. Treasury annual statements reported both gross warrants drawn (""apparent expenses"") and net disbursements after deductions for reimbursements and proceeds of government property (""actual expenses"") by the executive department. Considering the War Department and Interior Department together, for FY 1903 and FY 1907, compute the fund utilization rate as the ratio of combined actual expenses to combined apparent expenses, expressed as a percentage and report by how many absolute percentage points did this combined fund utilization rate decline from FY 1903 to FY 1907 rounded to two decimal places.
-Give only the final answer, no explanation.","### combined_statement__historical__cs-1903, page 69
-RECEIPTS AND DISBURSEMENTS, 1903.
-RECAPITULATION OF DISBURSEMENTS
- | Salaries. | Ordinary expenses. | Public works. | Miscellaneous. | Unusual and extraordinary. | Total.
-LEGISLATIVE.
-Senate | $1,179,091.68 | $208,710.82 |  | $20,575.75 |  | $1,408,378.25
-House of Representatives | 2,993,423.88 | 155,607.81 |  | 74,182.48 |  | 3,223,214.17
-Legislative Miscellaneous |  | 8.86 |  | 50,723.05 |  | 50,731.91
-Public Printer | 15,284.70 | 5,359,564.77 | $542,560.64 |  |  | 5,917,410.11
-Library of Congress | 305,159.94 | 280,527.78 | 4,980.67 |  |  | 590,668.39
-Botanic Garden | 13,893.48 | 3,998.15 | 5,490.39 |  |  | 23,382.02
-Court of Claims | 54,017.06 | 4,854.00 |  | 918,093.26 |  | 976,964.32
-Apparent expenses | 4,560,870.74 | 6,013,272.19 | 553,031.70 | 1,063,574.54 |  | 12,190,749.17
-Actual expenses | 4,492,005.74 | 5,930,612.94 | 553,031.70 | 1,063,574.54 |  | 12,039,224.92
-EXECUTIVE PROPER.
-Executive Office | 102,765.94 | 21,207.27 |  | 133,735.08 |  | 257,708.29
-Civil Service Commission | 92,769.65 | 7,159.29 |  |  |  | 99,928.94
-Apparent expenses | 195,535.59 | 28,366.56 |  | 133,735.08 |  | 357,637.23
-Actual expenses | 195,535.59 | 28,356.06 |  | 133,735.08 |  | 357,626.73
-STATE DEPARTMENT.
-Salaries, etc | 158,004.53 | 15,246.88 |  | 4,846.87 |  | 178,098.28
-Foreign intercourse | 1,118,390.57 | 599,511.41 |  | 1,486,620.03 |  | 3,204,522.01
-Apparent expenses | 1,276,395.10 | 614,758.29 |  | 1,491,466.90 |  | 3,382,62 ...
-
-### combined_statement__historical__cs-1903, page 70
-| Salaries. | Ordinary expenses. | Public works. | Miscellaneous. | Unusual and extraordinary. | Total.
-INTERIOR DEPARTMENT.
-Salaries, etc | $4,415,932.86 | $517,996.97 |  |  |  | $4,933,929.83
-Public lands | 761,519.78 | 2,182,877.38 |  | $943,748.56 |  | 3,888,145.72
-Beneficiaries |  |  | $746,417.01 | 489,161.73 |  | 1,235,578.74
-Miscellaneous, civil |  |  | 302,475.36 | 2,708,924.37 |  | 3,011,399.73
-Pensions |  |  |  |  | $138,425,646.07 | 138,425,646.07
-Indian affairs: |  |  |  |  |  | 
-Current and contingent expenses | 314,622.96 | 404,619.63 |  |  |  | 719,242.59
-Fulfilling treaty stipulations and treaty supports |  | 1,560,085.90 |  |  |  | 1,560,085.90
-Miscellaneous supports |  | 489,418.74 |  |  |  | 489,418.74
-Trust funds |  | 3,578,784.65 |  |  |  | 3,578,784.65
-Incidental expenses of Indian service |  | 69,836.81 |  |  |  | 69,836.81
-Support of Indian schools |  | 3,161,438.61 |  |  |  | 3,161,438.61
-Miscellaneous expenses of Indian service |  | 3,356,360.78 |  |  |  | 3,356,360.78
-Apparent expenses | 5,492,075.60 | 15,321,419.47 | 1,048,892.37 | 4,141,834.66 | 138,425,646.07 | 164,429,868.17
-Actual expenses | 4,025,002.08 | 12,863,805.27 | 1,047,034.64 | 3,561,398.88 | 138,425,591.83 | 159,922,832.70
-POST-OFFICE DEPARTMENT.
-Salaries, etc | 1,246,837.85 | 144,555.15 |  |  |  | 1,391,393.00
-Postal service |  | 3,470,567.48 |  | 48,105.87 |  | 3,518,673.35
-Apparent expenses | 1,246,837.85 | 3,615,122.63 |  | ...
-
-### combined_statement__historical__cs-1907, page 81
-RECEIPTS AND DISBURSEMENTS, 1907.
-RECAPITULATION OF DISBURSEMENTS.
- | Salaries. | Ordinary expenses. | Public works. | Miscellaneous. | Unusual and extraordinary. | Total.
-LEGISLATIVE.
-Senate | $1,300,864.19 | 8297,501.46 |  | $39,999.69 |  | $1,638,365.34
-House of Representatives | 3,620,808.70 | 219,623.05 |  | 67,259.48 |  | 3,907,691.23
-Legislative Miscellaneous |  |  |  | 138,292.52 |  | 138,292.52
-Public Printer | 408,371.09 | 4,986,219.37 |  | 688.25 |  | 5,395,278.71
-Library of Congress | 332,716.40 | 253,711.96 |  |  |  | 586,428.36
-Botanic Garden | 16,367.27 | 6,147.94 | $6,995.83 |  |  | 29,511.04
-Court of Claims | 58,157.00 | 8,400.00 |  |  |  | 66,557.00
-Apparent expenses | 5,737,284.65 | 5,771,903.78 | 6,995.83 | 246,239.94 |  | 11,762,424.20
-Actual expenses | 5,652,877.15 | 5,677,013.66 | 6,995.83 | 246,239.94 |  | 11,583,126.58
-EXECUTIVE PROPER.
-Executive Office and Panama Canal | 125,879.17 | 25,438.96 | 27,198,618.71 | 713.30 |  | 27,350,650.14
-Civil Service Commission | 226,010.72 | 9,352.76 |  |  |  | 235,363.48
-Apparent expenses | 351,889.89 | 34,791.72 | 27,198,618.71 | 713.30 |  | 27,586,013.62
-Actual expenses | 351,889.89 | 34,791.72 | 26,019,667.96 | 713.30 |  | 26,407,062.87
-STATE DEPARTMENT.
-Salaries, etc | 336,768.02 | 118,500.10 |  |  |  | 455,268.12
-Foreign intercourse | 1,933,010.64 | 773,990.18 |  | 543,591.89 |  | 3,250,592.71
-Apparent expenses | 2,269,778.66 | 892,490.28 |  | 543,591.89 ...
-
-### combined_statement__historical__cs-1907, page 82
-Recapitulation of Disbursements—Continued.
- | Salaries. | Ordinary expenses. | Public works. | Miscellaneous. | Unusual and extraordinary. | Total.
-INTERIOR DEPARTMENT.
-Salaries, etc. | $4,384,071.14 | $606,519.81 |  |  |  | $4,990,590.95
-Public lands. | 723,926.29 | 2,038,270.49 |  | $14,659,245.95 |  | 17,421,442.73
-Beneficiaries |  |  | $171,999.41 | 461,503.93 |  | 633,503.34
-Miscellaneous, civil. |  |  | 1,731,922.48 | 1,300,561.40 |  | 3,032,483.88
-Pensions |  |  |  |  | $139,309,514.31 | 139,309,514.31
-Indian affairs: |  |  |  |  |  | 
-Current and contingent expenses | 389,021.64 | 410,014.11 |  |  |  | 799,035.75
-Fulfilling treaty stipulations and treaty supports |  | 1,599,896.03 |  |  |  | 1,599,896.03
-Miscellaneous supports |  | 523,349.19 |  |  |  | 523,349.19
-Trust funds |  | 2,983,657.81 |  |  |  | 2,983,657.81
-Incidental expenses of Indian service |  | 76,339.25 |  |  |  | 76,339.25
-Support of Indian schools |  | 3,627,699.39 |  |  |  | 3,627,699.39
-Miscellaneous expenses of Indian service |  | 5,553,630.99 |  |  |  | 5,553,630.99
-Apparent expenses | 5,497,019.07 | 17,419,377.07 | 1,903,921.89 | 16,421,311.28 | 139,309,514.31 | 180,551,143.62
-Actual expenses | 3,971,406.51 | 11,592,039.56 | 1,903,682.30 | 8,273,367.55 | 139,308,171.79 | 165,048,667.71
-POST-OFFICE DEPARTMENT.
-Salaries, etc | 1,372,438.39 | 137,972.32 |  |  |  | 1,510,410.71
-Postal service |  | 8,467,440.04 |  | 119,921.15 |  | 8,587 ...",,,3.82,,,3.45,"**≈ 3.45 percentage points**
-
-- FY 1903: Interior apparent $164,429,868.17 / actual $159,922,832.70 (97.26%); combined with War Dept. gives roughly 95.9%
-- FY 1907: Interior apparent $180,551,143.62 / actual $165,048,667.71 (91.41%); combined with War Dept. gives roughly 92.5%
-
-FINAL ANSWER: 3.45",,,
-P009,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,What year did Kym Marsh play Kay Price in Hollyoaks: In the City?,,"Table: Kym Marsh - Filmography
-Year | Title | Role | Notes
----------------------------
-2001 | Popstars | Herself | Contestant
-2005 | Loose Women | Herself | Regular panellist; series 8
-2005 | Doctors | Ruth Parry | S07E74 ""Bad Chemistry""
-2006 | Holby City | Myrna Morrison | S08E15 ""Brother's Keeper""
-2006 | Making Your Mind Up 2006 | Herself | Contestant; UK's national final for the Eurovision Song Contest 2006
-2006 | Hollyoaks: In the City | Kay Price | Hollyoaks spin-off; 3 episodes
-2006–2019 | Coronation Street | Michelle Connor | Regular role, 1,527 episodes
-2008 | The X Factor | Herself | OB presenter; series 5, 2 episodes
-2010 | Popstar to Operastar | Herself | Contestant; series 1
-2019 | Stalked: Murder in Slow Motion | Herself | Narrator",,"In 2006, Kym Marsh played Kay Price in Hollyoaks: In the City.",,,2006,"Kym Marsh played the role of Kay Price in Hollyoaks: In the City in the year 2006.
-
-FINAL ANSWER: 2006",,,
-P010,entity matching (are these two records the same real-world thing?),bibliographic records from DBLP and ACM,boolean,Do these two records refer to the same real-world entity (the same product / publication)? Answer yes or no.,"### Record A
-title: intra-transaction parallelism in the mapping of an object model to a relational multi-processor system
-authors: moira c. norrie , hans-jörg schek , michael rys
-venue: vldb
-year: 1996
-
-### Record B
-title: intra-transaction parallelism in the mapping of an object model to a relational multi-processor system
-authors: michael rys , moira c. norrie , hans-j &#246; rg schek
-venue: very large data bases
-year: 1996",,,yes,"['match', '1']",,yes,FINAL ANSWER: yes,,,
-P011,table question answering (answer a question from a table),questions over Wikipedia tables,numeric,"other than october 6, name a game that was aired on abc.",,"Date | Time | Opponent# | Rank# | Site | TV | Result | Attendance
-------------------------------------------------------------
-September 1 | 2:30 PM | #9 (FCS) Northern Iowa* | #12 | Camp Randall Stadium • Madison, WI | BTN | W 26–21 | 79,568
-September 8 | 3:00 PM | at Oregon State* | #13 | Reser Stadium • Corvallis, OR | FX | L 7–10 | 42,189
-September 15 | 7:00 PM | Utah State* | #22 | Camp Randall Stadium • Madison, WI | BTN | W 16–14 | 79,332
-September 22 | 11:00 AM | UTEP* | #24 | Camp Randall Stadium • Madison, WI | ESPN2 | W 37–26 | 79,806
-September 29 | 7:00 PM | at #20 Nebraska | #23 | Memorial Stadium • Lincoln, NE | ABC | L 27–30 | 85,962
-October 6 | 2:30 PM | Illinois |  | Camp Randall Stadium • Madison, WI | ABC/ESPN2 | W 31–14 | 80,096
-October 13 | 11:00 AM | at Purdue |  | Ross-Ade Stadium • West Lafayette, IN | BTN | W 38–14 | 46,007
-October 20 | 11:00 AM | Minnesota |  | Camp Randall Stadium • Madison, WI (Paul Bunyan's Axe) | ESPNU | W 38–13 | 80,587
-October 27 | 2:30 PM | Michigan State | #25 | Camp Randall Stadium • Madison, WI | ABC/ESPN2 | L 13–16 OT | 80,538
-November 10 | 11:00 AM | at Indiana |  | Memorial Stadium • Bloomington, IN | ESPN2 | W 62–14 | 43,240
-November 17 | 2:30 PM | Ohio State |  | Camp Randall Stadium • Madison, WI | ABC/ESPN2 | L 14–21 OT | 80,112
-November 24 | 2:30 PM | at Penn State |  | Beaver Stadium • University Park, PA | ESPN2 | L 21–24 OT | 93,505
-December 1 | 7:00 PM | vs. #14 Nebraska |  | Lucas Oil Stadium • Indianapolis, IN (Big Ten Championship Game) | FOX | W 70–31 | 41,260
-January 1, 2013 | 4:10 PM | vs. #8 Stanford | #23 | Rose Bowl • Pasadena, CA (Rose Bowl) | ESPN | L 14–20 | 93,259",,September 29,,,29,"The table lists several games with ABC (or ABC/ESPN2) as the TV network. Excluding the October 6 entry leaves September 29 (among others) as a valid example.
-
-FINAL ANSWER: 29",,,
-P012,entity matching (are these two records the same real-world thing?),entity-matching sets Dn1-Dn8 at their real match ratio,boolean,Do these two records refer to the same real-world entity? Answer yes or no.,"### Record A
-name: David de Keyser
-
-### Record B
-name: David de Lautour",,,no,"['no match', '0']",,no,FINAL ANSWER: no,,,
-P013,entity matching (are these two records the same real-world thing?),bibliographic records from DBLP and ACM,boolean,Do these two records refer to the same real-world entity (the same product / publication)? Answer yes or no.,"### Record A
-title: birch : an efficient data clustering method for very large databases
-authors: raghu ramakrishnan , miron livny , tian zhang
-venue: sigmod conference
-year: 1996
-
-### Record B
-title: wavecluster : a multi-resolution clustering approach for very large spatial databases
-authors: gholamhosein sheikholeslami , surojit chatterjee , aidong zhang
-venue: very large data bases
-year: 1998",,,no,"['no match', '0']",,no,FINAL ANSWER: no,,,
-P014,table question answering (answer a question from a table),table evaluation sub-tasks (TableEval),freeform,"第七届中阿合作论坛部长级会议中，阿方对领土和海洋争议问题的立场是什么？
-请只给出最终答案，不要解释。","表3  中阿合作论坛历届部长级会议或中阿峰会成果汇总
-| 论坛届次           | 合作文件                                        | 重要成果                                                                                                                                     |
-|----------------|---------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| 第一届(2004年，开罗)  | «中国外交部与阿盟秘书处新闻公报»                           | 中阿建立平等、全面合作的新型伙伴关系；支持建立中东无核区；中国支持中东和平进程、土地换和平原则和阿拉伯和平倡议；阿方坚持一个中国原则                                                                       |
-| 第二届(2006年，北京)  | «关于举办“中阿合作论坛企业家大会”谅解备忘录»                    | 促进国际关系民主化；推动建设和谐世界；谴责任何形式的恐怖主义；反对将恐怖主义与特定民族宗教挂钩                                                                                          |
-| 第三届(2008年，麦纳麦) | «中阿环境保护合作联合公报»、«阿盟秘书处与中国贸促会关于投资研讨会机制的谅解备忘录» | 加强平等互信、全面合作、面向和平和可持续发展的新型伙伴关系；阿方支持北京奥运会；重申台湾是中国领土不可分割的一部分；反对“台湾当局”以任何名义和形式加入联合国等仅限主权国家参加的国际组织和会议；中方支持根据阿拉伯和平倡议建立独立的巴勒斯坦国                 |
-| 第四届(2010年，天津)  | «天津宣言»                                      | 建立全面合作、共同发展的中阿战略合作关系；尊重和支持各国根据本国国情自主选择发展道路；反对任何形式的“台湾独立”；不同中国台湾建立官方关系和进行官方往来；支持台海两岸关系和平发展和中国和平统一大业；支持上海世博会                               |
-| 第五届(2012年，突尼斯) | /                                           | 提升中阿战略合作关系的水平；阿方支持台海两岸关系和平发展和中国和平统一大业；认为涉藏问题属于中国内政；反对宗教极端势力、民族分裂势力和恐怖主义势力从事反华分裂活动；双方支持在“两国方案”框架下；建立独立的巴勒斯坦国；打击索马里海域、亚丁湾海盗；支持中国与海合会开展战略对话 |
-| 第六届(2014年，北京)  | «北京宣言»、«中阿合作论坛2014年至2024年发展规划»              | 进一步深化“全面合作、共同发展”的战略合作关系；建立“1＋2＋3”合作框架；中方支持建立以1967年边界为基础、以东耶路撒冷为首都的、独立的、拥有完全主权的巴勒斯坦国；阿方赞赏“一带一路”建设                                         |
-| 第七届(2016年，多哈)  | /                                           | 阿方支持中国同相关国家根据双边协议和地区有关共识；通过友好磋商和谈判；和平解决领土和海洋争议问题；强调应尊重主权国家及«联合国海洋法公约»缔约国享有的自主选择争端解决方式的权利；强调阿拉伯国家与伊朗间的合作关系应遵循睦邻友好、不干涉内政；尊重国家独立、主权和领土完整的原则 |
-资料来源: 笔者根据中阿合作论坛官网 (http: / /www. chinaarabcf. org/chn, 2023 －07 －31 及中国外交部公开来源数据自制。",,,支持中国同相关国家根据双边协议和地区有关共识，通过友好磋商和谈判，和平解决领土和海洋争议问题，强调应尊重主权国家及《联合国海洋法公约》缔约国享有的自主选择争端解决方式的权利,,,阿方支持中国同相关国家根据双边协议和地区有关共识，通过友好磋商和谈判和平解决领土和海洋争议问题，并强调应尊重主权国家及《联合国海洋法公约》缔约国享有的自主选择争端解决方式的权利。,"第七届中阿合作论坛部长级会议中，阿方支持中国同相关国家根据双边协议和地区有关共识，通过友好磋商和谈判和平解决领土和海洋争议问题，并强调应尊重主权国家及《联合国海洋法公约》缔约国享有的自主选择争端解决方式的权利。
-
-FINAL ANSWER: 阿方支持中国同相关国家根据双边协议和地区有关共识，通过友好磋商和谈判和平解决领土和海洋争议问题，并强调应尊重主权国家及《联合国海洋法公约》缔约国享有的自主选择争端解决方式的权利。",,,
-P015,entity matching (are these two records the same real-world thing?),product offers from web shops (WDC Products 2024),boolean,Do these two product offers describe the same product? Answer yes or no.,"### Offer A
-title:  ""Suunto Ambit 3 Sports with HR - Black""@en "" Suunto Heart Rate Accessories Black ""@en
-description: ""
-                                    Keep track of your heart rate and running performance while you work out with this multisport watch for a personalised experience. Use with the free Suunto Movescount App to plan your workouts and get voice guidance during your workout. You can also adjust the watch on the go and share your experience with others. Features Include:15h battery life with 5-sec GPS accuracy.Speed pace distance and GPS altitude.Route navigation and track back.Compass.Heart rate in swimming.Bike power support (Bluetooth Smart).Multiple sports in one log.Interval workout planner.Interval workouts with voice guidance.Activity based recovery time.Quick recovery and sleep recovery tests (Firstbeat).Movescount training programs on watch.Extended feature set through Suunto Apps.Languages: EN CS DA DE ES FI FR IT JA KO NL NO PL PT RU SV ZH.
-                                ""@en 
-
-### Offer B
-title:  ""TomTom Spark 3 HR (Large) - Black""@en "" TomTom Cardio Black Accessories 1RK0.002.00 ""@en
-description: ""
-                                    Mix up your training and track different sports with the dedicated multisport mode. Get real-time stats on the go, including time, distance, speed and pace, thanks to the 24/7 activity tracking and inbuilt GPS tracker. The TomTom Spark 3 Cardio also monitors you heart rate, step count and sleep. With its water resistant design, up to 40m, you can wear it during outdoor activities such as running or cycling in the rain and even track your swimming.Explore new areas without the worry of getting lost, thanks to the route exploration feature, which displays your trail and allows you to easily navigate your way back home. With a wireless syncing feature, you can sync, share and study your activity data with your favourite workout apps like Strava, Runkeeper, MapMyFitness, NikePlus or Endomondo. To get the best and most secure fit, it is recommended that you measure your wrist before purchasing the TomTom Spark 3 Cardio. This watch is suitable for wrist sizes between 143-206mm.Features Include:24/7 activity trackingGPS trackingMultisport modeRoute explorationBuilt-in heart rate monitorIndoor training modeWireless syncingCustomisable strapsWater resistantLong battery life - up to 10 hours of battery lifetime when tracking with GPSDisplay size: 22 x 25 mmWrist size: 143-206 mm
-                                ""@en ",,,no,['no match'],,no,"Offer A is a Suunto Ambit 3 multisport watch; Offer B is a TomTom Spark 3 HR — different brands and models.
+title: Bicycle Crashes in New Zealand**
+authors: K Wood
+venue: ISBN,",,,no,"['no match', '0']",,no,"The two records have completely different titles, authors, and venues. Record A is about a spatio-temporal access method, while Record B is about bicycle crashes in New Zealand. Therefore, they do not refer to the same real-world entity.
 
 FINAL ANSWER: no",,,
-P016,entity matching (are these two records the same real-world thing?),records with different schemas (Machamp),boolean,Do these two records refer to the same real-world entity? Answer yes or no.,"### Record A (txt table)
-Access control in function granularity is one of the features of many object-oriented databases. In those systems, the users are granted rights to invoke composed functions instead of rights to invoke primitive operations. Although primitive operations are invoked inside composed functions, the users can invoke them only through the granted functions. This achieves access control in abstract operation level. Access control utilizing encapsulated functions, however, easily causes many ""security flaws"" through which malicious users can bypass the encapsulation and can abuse the primitive operations inside the functions. In this paper, we develop a technique to statically detect such security flaws. First, we design a framework to describe security requirements that should be satisfied. Then, we develop an algorithm that syntactically analyzes program code of the functions and determines whether given security requirements are satisfied or not. This algorithm is sound, that is, whenever there is a security flaw, it detects it.
+P025,entity matching (are these two records the same real-world thing?),product records from Walmart and Amazon,boolean,Do these two records refer to the same real-world entity (the same product / publication)? Answer yes or no.,"### Record A
+title: startech esata usb to sata external hard drive docking station for 2.5 hdd
+category: electronics - general
+brand: startech
+modelno: satadocku2e
+price: 29.84
 
-### Record B (csv table)
-title: an effective deductive object-oriented database through language integration
-authors: maria l. barja , norman w. paton , alvaro a. a. fernandes , m. howard williams , andrew dinn
-venue: very large data bases
-year: 1994",,,no,"['no match', '0']",,no,"Reasoning:
-Record A describes a paper on statically detecting security flaws in access control for object-oriented databases. Record B is a paper titled ""an effective deductive object-oriented database through language integration"" by Maria L. Barja et al., which is about deductive object-oriented databases through language integration, not security flaw detection. They are different papers.
-
-FINAL ANSWER: no",,,
-P017,table question answering (answer a question from a table),table evaluation sub-tasks (TableEval),numeric,"公司去年同期在‘金融资产持有交易’项目下的公允价值变动收益为多少？
-请只给出最终答案，不要解释。","69. Gains from Changes in Fair Value
-Unit: RMB
-| Sources                           | Reporting Period | Same period of last year |
-|-----------------------------------|------------------|--------------------------|
-| Financial assets held for trading | -601,447.40      | 905,952.44               |
-| Trading financial liabilities     |                  | -23,059,475.00           |
-| Total                             | -601,447.40      | -22,153,522.56           |",,,"905,952.44元人民币","['905,952.44']",,"905,952.44","FINAL ANSWER: 905,952.44",,,
-P018,table question answering (answer a question from a table),questions over hierarchical statistical tables (HiTab),text,"among these 50 police services, what were the 10 ones with the highest rates of police strength in 2017?",,"Table: municipal police services serving a population of 100,000 or more, canada, 2017
-municipal police services | 2016 population | police officers |  |  |  | hires | departures | net gain or loss: hirings and departures | police officers eligible to retire
-------------------------------------------------------------
- |  | 2017 number of police officers | 2017 police officers per 100,000 population | percentage change from previous year | 2017 percentage of female officers |  |  |  | 
- | number |  | rate | percent |  | number |  |  | percent
-toronto, ont | 2,876,095 | 5,190 | 180 | -4.9 | 19.1 | 26 | 171 | -145 | 7.1
-montreal, que | 2,014,221 | 4,596 | 228 | -0.9 | 32.1 | 180 | 220 | -40 | 16.3
-peel region (mississauga/brampton), ont | 1,404,431 | 1,973 | 140 | -2.0 | 18.3 | 100 | 74 | 26 | 4.5
-calgary, alta | 1,318,817 | 2,215 | 168 | -0.4 | 18.5 | 128 | 55 | 73 | 0.0
-york region (markham/vaughan),ont | 1,157,419 | 1,586 | 137 | -2.4 | 19.0 | 52 | 39 | 13 | 5.3
-ottawa, ont | 973,481 | 1,242 | 128 | -1.5 | 22.6 | 62 | 45 | 17 | 5.8
-edmonton, alta | 969,068 | 1,775 | 183 | -0.2 | 18.9 | 134 | 65 | 69 | 8.5
-winnipeg, man | 735,552 | 1,409 | 192 | -2.6 | 15.6 | 2 | 43 | -41 | 25.8
-durham region (oshawa/whitby/ajax), ont | 671,839 | 854 | 127 | -2.3 | 19.8 | 36 | 26 | 10 | 2.7
-vancouver, b.c | 670,718 | 1,313 | 196 | 0.0 | 25.3 | 73 | 34 | 39 | 8.4
-quebec, que | 575,398 | 757 | 132 | -2.3 | 27.2 | 0 | 6 | -6 | 2.6
-halton region (oakville/burlington), ont | 569,591 | 686 | 120 | -2.5 | 20.7 | 33 | 23 | 10 | 2.2
-hamilton, ont | 561,022 | 835 | 149 | -1.7 | 23.8 | 21 | 26 | -5 | 15.7
-waterloo region (kitchener), ont | 548,936 | 776 | 141 | -0.1 | 21.6 | 33 | 22 | 11 | 0.6
-surrey, b.c | 514,522 | 732 | 142 | -1.3 | 18.4 | 72 | 19 | 53 | 5.9
-niagara region (st. catharines), ont | 453,817 | 706 | 156 | -0.8 | 16.6 | 22 | 18 | 4 | 6.8
-laval, que | 429,413 | 611 | 142 | 0.9 | 30.0 | 11 | 15 | -4 | 12.3
-longueuil, que | 423,525 | 568 | 134 | -0.4 | 34.7 | 10 | 12 | -2 | 3.5
-london, ont | 397,493 | 605 | 152 | 2.5 | 20.3 | 38 | 29 | 9 | 3.6
-gatineau, que | 281,392 | 393 | 140 | -1.7 | 22.6 | 13 | 15 | -2 | 4.3
-saskatoon, sask | 266,064 | 460 | 173 | -1.4 | 23.0 | 17 | 14 | 3 | 10.7
-burnaby, b.c | 246,987 | 290 | 117 | 1.5 | 23.4 | 31 | 7 | 24 | 7.6
-halifax, n.s | 238,467 | 531 | 223 | 1.7 | 19.0 | 21 | 17 | 4 | 2.3
-regina, sask | 223,637 | 397 | 178 | -1.2 | 24.9 | 9 | 11 | -2 | 2.5
-windsor, ont | 221,862 | 428 | 193 | -1.2 | 15.9 | 24 | 17 | 7 | 4.0
-richmond, b.c | 209,738 | 206 | 98 | 1.3 | 18.4 | 30 | 6 | 24 | 7.3
-st. john's, n.l | 207,695 | 341 | 164 | -1.2 | 28.7 | 15 | 16 | -1 | 24.0
-richelieu saint-laurent, que | 205,564 | 212 | 103 | -0.8 | 23.1 | 0 | 12 | -12 | 0.0
-greater sudbury, ont | 165,154 | 264 | 160 | 0.0 | 17.4 | 6 | 9 | -3 | 4.5
-sherbrooke, que | 164,538 | 200 | 122 | -2.6 | 23.5 | 1 | 4 | -3 | 1.5
-barrie, ont | 150,443 | 239 | 159 | -0.6 | 15.9 | 0 | 2 | -2 | 2.5
-saguenay, que | 147,543 | 178 | 121 | 0.2 | 24.2 | 0 | 9 | -9 | 3.4
-abbotsford, b.c | 146,498 | 203 | 139 | -5.6 | 18.2 | 9 | 8 | 1 | 3.0
-levis, que | 144,918 | 155 | 107 | 0.4 | 21.3 | 8 | 7 | 1 | 10.3
-terrebonne, que | 139,818 | 169 | 121 | 0.7 | 27.2 | 19 | 2 | 17 | 3.0
-coquitlam, b.c | 139,055 | 163 | 117 | -3.9 | 26.4 | 11 | 8 | 3 | 8.6
-trois-rivieres, que | 136,168 | 157 | 115 | -0.5 | 19.7 | 4 | 4 | 0 | 2.5
-guelph, ont | 132,350 | 194 | 147 | -0.8 | 22.7 | 2 | 9 | -7 | 7.7
-kingston, ont | 131,746 | 203 | 154 | -0.1 | 18.7 | 3 | 4 | -1 | 3.4
-kelowna, b.c | 129,512 | 173 | 134 | -4.3 | 31.8 | 9 | 10 | -1 | 9.8
-codiac region (moncton), n.b | 118,122 | 134 | 113 | -9.8 | 18.7 | 6 | 14 | -8 | 17.2
-saanich, b.c | 117,285 | 158 | 135 | -1.2 | 24.7 | 7 | 8 | -1 | 5.1
-... (8 more rows omitted)",,"victoria, b.c | montreal, que | halifax, n.s | thunder bay, ont | vancouver, b.c | windsor, ont | winnipeg, man | edmonton, alta | toronto, ont | regina, sask","['victoria, b.c, montreal, que, halifax, n.s, thunder bay, ont, vancouver, b.c, windsor, ont, winnipeg, man, edmonton, alta, toronto, ont, regina, sask']",yes: every item required,"montreal, que | halifax, n.s | vancouver, b.c | windsor, ont | winnipeg, man | edmonton, alta | toronto, ont | regina, sask | saskatoon, sask | calgary, alta","To find the 10 police services with the highest rates of police strength in 2017, I need to look at the ""2017 police officers per 100,000 population"" column and identify the top 10 values.
-
-From the table, the rates are:
-- montreal, que: 228
-- halifax, n.s: 223
-- vancouver, b.c: 196
-- windsor, ont: 193
-- winnipeg, man: 192
-- edmonton, alta: 183
-- toronto, ont: 180
-- regina, sask: 178
-- saskatoon, sask: 173
-- calgary, alta: 168
-
-These are the 10 highest rates among the listed services.
-
-FINAL ANSWER: montreal, que | halifax, n.s | vancouver, b.c | windsor, ont | winnipeg, man | edmonton, alta | toronto, ont | regina, sask | saskatoon, sask | calgary, alta",,,
-P019,entity matching (are these two records the same real-world thing?),product offers from web shops (WDC Products 2024),boolean,Do these two product offers describe the same product? Answer yes or no.,"### Offer A
-title:  "" Junghans Men's Max Bill Chronoscope Automatic Chronograph Watch""@en ""Men's Watch (027/4600.00) - WATCH SHOP.com™""@en
-description: ""Iconic design, true to the original penned by Max Bill in the 1960's, the Junghans Max Bill Chronoscope is elegant and refined, as well as perfectly simple. Inside the watch is an Automatic self winding chronograph J880.2 movement, with 30 minute and 12 hour counters on the chronograph, as well as date function. This is displayed on a matt silver plated dial, beautifully curved, with hour and minutes marked clearly and simply. The case is a stainless steel construction, with curved SICRALAN coated hard plexiglass, true to the original. The watch fastens on a black calfskin leather strap.""@en 
-
-### Offer B
-brand: ""Junghans""@en
-title:  ""Chronoscope Max Bill""@en 645.00""@en ""Junghans Chronoscope Bill 027/4600.00 nur € 1",,,yes,['match'],,yes,"Based on the provided context, both offers describe the Junghans Max Bill Chronoscope watch and share the exact same model number (027/4600.00). 
+### Record B
+title: startech.com esata usb to sata external hard drive docking station for 2.5 or 3.5-inch satadocku2e - black
+category: computers accessories
+brand: startech
+modelno: satadocku2e
+price: 26.99",,,yes,"['match', '1']",,yes,"Both records share the same brand (StarTech) and model number (SATADOCKU2E), and describe the same eSATA/USB to SATA hard drive docking station. The title truncation in Record A (""2.5 HDD"") is just an abbreviated listing of the same product. Price differences reflect different retailers.
 
 FINAL ANSWER: yes",,,
-P020,schema matching (which target column does this source column map to?),clinical column matching to the OMOP schema,text,Which OMOP CDM attribute does this source attribute map to? Answer with the exact target attribute name (table-attribute) from the candidate list.,"Source database: MIMIC-III
-Source attribute: noteevents-description  (table `noteevents`, column `description`)
-Source description: noteevents contains all notes for patients.;description defines the type of note recorded.
+P026,entity matching (are these two records the same real-world thing?),camera product offers (Alaska),boolean,"Do these two camera product specifications, scraped from different web pages, describe the same camera model (the same real-world product)? Answer yes or no.","### Specification A
+source: www.ilgs.net
+page title: Nikon D7000 + 18-105mm f/3.5-5.6G ED-IF AF-S VR DX Zoom-NIKKOR - Digital Cameras - Photo - Visual | ILGS.net
+ean: 0182089166737
+manufacturer: Nikon
+pdf url: No
+product promotion: N/A
+short description: D7000 + 18-105mm f/3.5-5.6G ED-IF AF-S VR DX Zoom-NIKKOR + 70-300mm f/4.5-5.6G AF-S VR NIKKOR - 16.2 MP, 23.6 x 15.6 mm CMOS, SD / SDHC / SDXC, Hi-Speed USB
+sku: VBA290K001
+specification: No
 
-Candidate OMOP target attributes (table-attribute: attribute description):
-- note-provider_id: a foreign key to the provider in the provider table who took the note.
-- note-language_concept_id: a foreign key to the predefined concept in the standardized vocabularies reflecting the language of the note
-- note-note_class_concept_id: a foreign key to the predefined concept in the standardized vocabularies reflecting the hl7 loinc document type vocabulary classification of the note.
-- note-visit_occurrence_id: a foreign key to the visit in the visit_occurrence table when the note was taken.
-- note-person_id: a foreign key identifier to the person about whom the note was recorded. the demographic details of that person are stored in the person table.
-- note-note_event_id: a foreign key identifier to the event (e.g. measurement, procedure, visit, drug exposure, etc) record during which the note was recorded.
-- note-note_title: the title of the note as it appears in the source.
-- note-note_id: a unique identifier for each note.
-- note-note_event_field_concept_id: a foreign key to the predefined concept in the standardized vocabularies reflecting the field to which the note_event_id is referring.
-- note-encoding_concept_id: a foreign key to the predefined concept in the standardized vocabularies reflecting the note character encoding type",,,note-note_title,,,note-note_title,FINAL ANSWER: note-note_title,,,
-P021,table question answering (answer a question from a table),numeric and list questions over tables (TableBench),text,"In which year did the song with the highest US chart position and the song with the lowest US chart position release?
-Answer with the value only; if several values are required, separate them with ' | '.",,"Year | Single | US Chart position | Label | Catalogue No.
----------------------------------------------------------
-1942 | ""Cow-Cow Boogie"" | 9 | Capitol | 102
-1942 | ""Mr. Five by Five"" | 10 | Capitol | 115
-1943 | ""Get On Board Little Chillun"" | 17 (R&B) | Capitol | 133
-1943 | ""Shoo Shoo Baby"" | 4 | Capitol | 143
-1944 | ""No Love, No Nothin’"" | 4 | Capitol | 143
-1944 | ""Tess' Torch Song"" | 11 | Capitol | 151
-1944 | ""Milkman, Keep Those Bottles Quiet"" | 7 | Capitol | 151
-1944 | ""The Patty Cake Man"" | 10 | Capitol | 163
-1945 | ""Captain Kidd"" | 17 | Capitol | 193
-1946 | ""Buzz Me"" | 15 | Capitol | 226
-1946 | ""The House of Blue Lights"" | 8 (R&B) | Capitol | 251
-1952 | ""The Blacksmith Blues"" | 3 | Capitol | 1922
-1952 | ""Oakie Boogie"" | 23 | Capitol | 2072
-1953 | ""40 Cups of Coffee"" | 26 | Capitol | 2539",,1952 | 1953,"['1952, 1953']",yes: every item required,1952 | 1953,FINAL ANSWER: 1952 | 1953,,,
-P022,schema matching (which target column does this source column map to?),monitor product attribute matching (Alaska),text,Which attribute of the mediated schema does this source attribute correspond to? Answer with the exact target attribute name from the list.,"Source: www.cleverboxes.com (monitor product specifications)
-Source attribute name: usb ports
-Example values (102 occurrences in this source):
-  - 1 x USB (Upstream)
-  - 1 x USB 3.0
-  - 1 x USB
-
-Target attributes of the mediated schema (87):
-- bluetooth
-- brand
-- color
-- color_feet
-- contrast_ratio_dynamic
-- contrast_ratio_static
-- digital_horizontal_refresh_rate_max
-- digital_horizontal_refresh_rate_range
-- digital_vertical_refresh_rate_max
-- digital_vertical_refresh_rate_range
-- displayport_quantity
-- dvi_port_quantity
-- dvid_port_quantity
-- dvii_port_quantity
-- ethernet_port_quantity
-- has_displayport
-- has_dvi_port
-- has_dvid_port
-- has_ethernet_port
-- has_full_hd
-- has_hdmi_port
-- has_headphone_port
-- has_microphone
-- has_microphone_input
-- has_speakers
-- has_speakers_output
-- has_subwoofer
-- has_usb_port
-- has_vga_port
-- hd_type
-- hdmi_port_quantity
-- headphone_port_quantity
-- headphone_port_type
-- horizontal_refresh_rate_max
-- horizontal_refresh_rate_range
-- input_frequency
-- minidisplayport_quantity
-- monitor_depth
-- monitor_depth_with_stand
-- monitor_dimension
-- monitor_dimension_with_stand
-- monitor_height
-- monitor_height_with_stand
-- monitor_weight
-- monitor_weight_with_stand
-- monitor_width
-- monitor_width_with_stand
-- mount_model
-- mount_type
-- non_operating_working_altitude
-- number_of_colors
-- operating_working_altitude
-- packaging_depth
-- packaging_dimension
-- packaging_height
-- packaging_weight
-- packaging_width
-- pixel_pitch
-- power_consumption_class
-- power_consumption_max
-- power_consumption_standy
-- response_time
-- screen_brightness
-- screen_size_diagonal
-- screen_size_horizontal
-- screen_size_vertical
-- screen_type
-- speakers_quantity
-- supported_aspect_ratio
-- supported_languages
-- supported_languages_number
-- supported_resolution
-- usb_port_quantity
-- usb_port_version
-- usb_port2_quantity
-- usb_port2_upstream_quantity
-- usb_port3_quantity
-- usb_port3_upstream_quantity
-- vertical_refresh_rate_max
-- vertical_refresh_rate_range
-- vga_port_quantity
-- warranty_duration
-- wifi
-- working_humidity
-- working_temperature_max
-- working_temperature_min
-- working_temperature_range",,,usb_port_quantity,"['usb_port_version', 'usb_port2_upstream_quantity']",,usb_port_quantity,"The source attribute ""usb ports"" describes the presence and quantity/version of USB ports on a monitor. In the mediated schema, the most direct match is `usb_port_quantity`.
-
-FINAL ANSWER: usb_port_quantity",,,
-P023,table question answering (answer a question from a table),fact-checking and numeric questions over real hierarchical tables,numeric,"Rank the stock codes based on their value in descending order. What is the stock code with the second-highest value?
-Answer with the value only; if several values are required, separate them with ' | '.",,"Stock code | Description | Supp Cls U/M | Cum CC | Wh Bin | On han | Ave cost | Value | Total mass
-------------------------------------------------------------
-142 | Product A | 2405 CS | CS | AV | 241 | 14.64 | 3528.24 | 5000.75
- |  |  |  | TO | 1728 | 14.64 | 25297.92 | 35856
- |  |  |  | VC | 1536 | 14.64 | 22487.04 | 31872
-142 Total |  |  |  |  | 3505 |  | 51313.2 | 72728.75
-144 | Product B | 2405 CS | CS | AE | 6 | 13.17 | 79.02 | 124.5
- |  |  |  | AV | 120 | 13.17 | 1580.4 | 2490
- |  |  |  | TO | 528 | 13.17 | 6953.76 | 10956
- |  |  |  | VC | 192 | 13.17 | 2528.64 | 3984
-144 Total |  |  |  |  | 846 |  | 11141.82 | 17554.5
-145 | Product C | 2501 CS | CS | AE | 65 | 13.16 | 855.4 | 1007.5
- |  |  |  | AV | 54 | 13.16 | 710.64 | 837
-145 Total |  |  |  |  | 119 |  | 1566.04 | 1844.5
-146 | Product D | 2501 CS | CS | AV | 60 | 16.74 | 1004.4 | 930
-146 Total |  |  |  |  | 60 |  | 1004.4 | 930
-147 | Product E | 2501 CS | CS | AE | 30 | 13.51 | 405.3 | 465
- |  |  |  | AV | 36 | 13.51 | 486.36 | 558
-147 Total |  |  |  |  | 66 |  | 891.66 | 1023
-Grand Total |  |  |  |  | 4596 |  | 65917.12 | 94080.75",,144,,,144,FINAL ANSWER: 144,,,
-P024,entity matching (are these two records the same real-world thing?),bibliographic records from DBLP and ACM,boolean,Do these two records refer to the same real-world entity (the same product / publication)? Answer yes or no.,"### Record A
-title: a one-pass aggregation algorithm with the optimal buffer size in multidimensional olap
-authors: yang-sae moon , young-koo lee , il-yeol song , kyu-young whang
-venue: vldb
-year: 2002
+### Specification B
+source: www.priceme.co.nz
+page title: Nikon D7000 + 24-120/4 G ED VR New Zealand Prices - PriceMe
+image stabilizer: Lens based only
+light sensitivity: 100 - 6,400 ISO
+max image resolution: 4928x3264
+optical sensor: CMOS
+resolution: The amount of detail that the camera can capture is called the resolution, and is measured in mega pixels (MP). The more mega pixels a camera has, the more details it can capture and the larger pic...
+shutter speed: 30-1/8000s
+still image format: JPEG, NEF (RAW), RAW",,,yes,"['match', '1']",,yes,yes,,,
+P027,entity matching (are these two records the same real-world thing?),entity-matching sets Dn1-Dn8 at their real match ratio,boolean,Do these two records refer to the same real-world entity? Answer yes or no.,"### Record A
+title: john deere: welcome to merriweather farm
+description: kids will delight to see johnny tractor (j. t.) and his friends allie gator and corey combine who live work and play at merriweather farm. follow their adventures as they plow the fields take care of the farm animals and harvest crops.
+manufacturer: global software publishing
+price: 19.99
 
 ### Record B
-title: on the computation of multidimensional aggregates
-authors: sameet agarwal , rakesh agrawal , prasad deshpande , ashish gupta , jeffrey f. naughton , raghu ramakrishnan , sunita sarawagi
-venue: very large data bases
-year: 1996",,,no,"['no match', '0']",,no,"No
+title: pete huttlinger john denver homespun video learn to play the songs of john denver - dvd
+description: john denver was one of the most beloved figures in the history of american popular music. pete huttlinger was john's lead guitarist from 1994 until his tragic death in 1997 accompanying him on world tours grammy-winning recordings and tv specials. ...
+price: 22.13",,,no,"['no match', '0']",,no,"No
 FINAL ANSWER: no",,,
-P025,schema matching (which target column does this source column map to?),clinical column matching to the GDC schema,text,Which GDC (Genomic Data Commons) column does this study column map to? Answer with the exact target column name from the candidate list.,"Source table: Cao study clinical table (39 columns)
-Source column: additional_pathologic_findings
-Sample values: Other : IPMN | Other : Gastric GIST | Pancreatic intraepithelial neoplasia : Highest grade - Pa... | Other : Balser's necrosis. | Other : atrophy
-
-Candidate GDC target columns (40 of 736), with example vocabulary values:
-- additional_pathology_findings  (e.g. Adenomyosis | Asbestos bodies)
-- uicc_pathologic_n  (e.g. N0 | N0 (i+))
-- days_to_pathology_detail
-- undescended_testis_history_laterality  (e.g. Bilateral | Left)
-- current_weight
-- who_nte_grade  (e.g. G1 | G2)
-- proc_internal  (e.g. dna-seq skip)
-- imaging_findings  (e.g. Carcinomatosis | Kidney Involvement)
-- is_paired_end
-- ajcc_pathologic_t  (e.g. T0 | T1)
-- ensat_pathologic_t  (e.g. T1 | T2)
-- percent_follicular_component
-- msi_score
-- uicc_pathologic_stage  (e.g. Stage 0 | Stage 0a)
-- haart_treatment_indicator  (e.g. Yes | No)
-- updated_datetime
-- first_event  (e.g. Censored | Death)
-- ajcc_pathologic_m  (e.g. cM0 (i+) | M0)
-- consistent_pathology_review  (e.g. Yes | No)
-- pathology_details
-- weiss_assessment_findings
-- pathology_report_uuid
-- who_cns_grade  (e.g. Grade I | Grade II)
-- reflux_treatment_type  (e.g. Antacids | H2 Blockers)
-- ajcc_pathologic_n  (e.g. N0 | N0 (i+))
-- evidence_of_recurrence_type  (e.g. Biopsy with Histologic Conf... | Convincing Image Source)
-- uicc_pathologic_t  (e.g. T0 | T1)
-- inpc_grade  (e.g. Differentiating | Poorly Differentiated)
-- status  (e.g. Approved | Rescinded)
-- percent_inflam_infiltration
-- treatment_type  (e.g. Ablation, Cryo | Ablation, Ethanol Injection)
-- copy_number_estimates
-- freezing_method
-- analyte_type_id  (e.g. D | E)
-- greatest_tumor_dimension
-- treatment_outcome_duration
-- tumor_grade  (e.g. G1 | G2)
-- ensat_pathologic_n  (e.g. N0 | N1)
-- pathology_reports
-- uicc_pathologic_m  (e.g. cM0 (i+) | M0)",,,additional_pathology_findings,,,additional_pathology_findings,"The source column `additional_pathologic_findings` maps directly to the GDC target column `additional_pathology_findings` based on the semantic similarity and naming convention.
-
-FINAL ANSWER: additional_pathology_findings",,,
-P026,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,"How popular were the singles from the album Loud Guitars, Big Suspicions?",,"Table: Loud Guitars, Big Suspicions - Charts
-Year | Single | Chart | Position
---------------------------------
-1999 | ""True Friends"" | Mainstream Rock Tracks | 27
-2000 | ""Playing with Fire"" | Mainstream Rock Tracks | 37",,"Two singles were taken from Loud Guitars, Big Suspicions: ""True Friends"" and ""Playing with Fire,"" both of which charted in the Mainstream Rock Tracks chart, the former peaking at No. 27 in 1999, and the latter reaching No. 37 in 2000.",,,"The singles from Loud Guitars, Big Suspicions had modest chart success, with ""True Friends"" reaching position 27 and ""Playing with Fire"" reaching position 37 on the Mainstream Rock Tracks chart in 1999 and 2000, respectively","The singles from Loud Guitars, Big Suspicions had modest chart success, with ""True Friends"" reaching position 27 and ""Playing with Fire"" reaching position 37 on the Mainstream Rock Tracks chart in 1999 and 2000, respectively.
-
-FINAL ANSWER: The singles from Loud Guitars, Big Suspicions had modest chart success, with ""True Friends"" reaching position 27 and ""Playing with Fire"" reaching position 37 on the Mainstream Rock Tracks chart in 1999 and 2000, respectively.",,,
-P027,schema matching (which target column does this source column map to?),customer-cell values from a join-and-aggregate task (TPC-DI),numeric,What is the total value (sum of quantity x trade_price) of the customer's COMPLETED trades?,"### Customer
-customer_id: 85
-first_name: George
-last_name: Hill
-country: France
-status: ACTIVE
-
-### Accounts
-account_id | customer_id | broker_id | account_type | tax_status | status | account_desc | balance | opened_date
+P028,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,When and where was the Shooto: Spirit 2010 Summer event held?,,"Table: 2010 in Shooto - Events list
+# | Event Title | Date | Arena | Location
+-----------------------------------------
+313 | Shooto: Border: Season 2: Immovable | December 26, 2010 | Hirano Ward Community Hall | Osaka, Kansai, Japan
+312 | Shooto: The Rookie Tournament 2010 Final | December 18, 2010 | Shinjuku Face | Tokyo, Japan
+311 | Shooto: The Way of Shooto 6: Like a Tiger, Like a Dragon | November 19, 2010 | Korakuen Hall | Tokyo, Japan
+310 | Shooto: Gig Central 21 | October 24, 2010 | Asunal Kanayama Hall | Nagoya, Aichi, Japan
+309 | Shooto: Shooting Disco 13: Can't Stop Myself! | October 16, 2010 | Shinjuku Face | Tokyo, Japan
+308 | Shooto: Gig West 12 | September 26, 2010 | Abeno Ward Hall | Osaka, Kansai, Japan
+307 | Shooto: The Way of Shooto 5: Like a Tiger, Like a Dragon | September 23, 2010 | Korakuen Hall | Tokyo, Japan
+306 | Shooto: Kitazawa Shooto Vol. 4 | September 17, 2010 | Kitazawa Town Hall | Tokyo, Japan
+305 | Shooto: Gig North 6 | August 29, 2010 | Zepp Sapporo | Sapporo, Hokkaido, Japan
+304 | Shooto: Border: Season 2: Rhythm | August 15, 2010 | Hirano Ward Community Hall | Osaka, Kansai, Japan
+303 | Shooto: Gig Tokyo 5 | August 7, 2010 | Shinjuku Face | Tokyo, Japan
+302 | Shooto: The Way of Shooto 4: Like a Tiger, Like a Dragon | July 19, 2010 | Korakuen Hall | Tokyo, Japan
+301 | Shooto: Gig Saitama 2 | July 4, 2010 | Pal City Civic Hall | Shiki, Saitama, Japan
+300 | Shooto: Spirit 2010 Summer | June 27, 2010 | Accel Hall | Sendai, Miyagi, Japan
+299 | Shooto: Gig Central 20 | June 13, 2010 | Zepp Nagoya | Nagoya, Aichi, Japan
+298 | Shooto: Shooting Disco 12: Stand By Me | June 6, 2010 | Shinjuku Face | Tokyo, Japan
+297 | Shooto: The Way of Shooto 3: Like a Tiger, Like a Dragon | May 30, 2010 | Tokyo Dome City Hall | Tokyo, Japan
+296 | Shooto: Grapplingman 11 | May 16, 2010 | Hiroshima Industrial Hall | Hiroshima, Japan
+295 | Shooto: Kitazawa Shooto Vol. 3 | May 9, 2010 | Kitazawa Town Hall | Tokyo, Japan
+294 | Shooto: Gig Tokyo 4 | April 24, 2010 | Shinjuku Face | Tokyo, Japan
+293 | Shooto: Grapplingman 10 | April 4, 2010 | Mamakari Forum | Okayama, Japan
+292 | Shooto: Border: Season 2: Vibration | March 28, 2010 | Hirano Ward Community Hall | Osaka, Kansai, Japan
+291 | Shooto: The Way of Shooto 2: Like a Tiger, Like a Dragon | March 22, 2010 | Korakuen Hall | Tokyo, Japan
+290 | Shooto: Spirit 2010 Spring | March 7, 2010 | Accel Hall | Sendai, Miyagi, Japan
+289 | Shooto: Shooting Disco 11: Tora Tora Tora! | February 27, 2010 | Shinjuku Face | Tokyo, Japan
+288 | Shooto: Trilogy 1 | February 21, 2010 | Southernpia Hakata | Hakata-ku, Fukuoka
+287 | Shooto: Gig North 5 | February 14, 2010 | Zepp Sapporo | Sapporo, Hokkaido, Japan
+286 | Shooto: The Way of Shooto 1: Like a Tiger, Like a Dragon | January 23, 2010 | Korakuen Hall | Tokyo, Japan",,"Shooto: Spirit 2010 Summer was an event held on June 27, 2010 at the Accel Hall in Sendai, Miyagi, Japan.",,,"The Shooto: Spirit 2010 Summer event was held on June 27, 2010, at Accel Hall in Sendai, Miyagi, Japan","The Shooto: Spirit 2010 Summer event was held on June 27, 2010, at Accel Hall in Sendai, Miyagi, Japan.
+FINAL ANSWER: The Shooto: Spirit 2010 Summer event was held on June 27, 2010, at Accel Hall in Sendai, Miyagi, Japan.",,,
+P029,table question answering (answer a question from a table),fact-checking and numeric questions over real hierarchical tables,text,"What sub-classifications are included under “Orange”?
+Answer with the value only; if several values are required, separate them with ' | '.",,"Clasiification | sub classification | category | value
+------------------------------------------------------
+Orange | Navel | unsorted | 80
+ |  | High | 77
+ |  | sort | 70
+ |  | Old | 68
+ |  | Process | 47
+ | mandrin | unsorted | 75
+ |  | sort | 65
+ |  | High | 50
+ |  | dark | 45
+ |  | Process | 42
+ | Red | low | 81
+ |  | Process | 73
+ |  | unsorted | 45
+ |  | dark | 44
+ |  | Light | 41
+ |  |  | 
+Apple | PinK Lady | Process | 78
+ |  | dark | 71
+ |  | High | 70
+ |  | unsorted | 48
+ |  | Light | 44
+ | Golden | Old | 79
+ |  | low | 74
+ |  | unsorted | 53
+ |  | Light | 49
+ |  | Process | 43",,Navel | Mandrin | Red,"['Navel, Mandrin, Red']",yes: every item required,Navel | mandrin,"Navel | mandrin 
+FINAL ANSWER: Navel | mandrin",,,
+P030,table question answering (answer a question from a table),free-form answers over Wikipedia tables (FeTaQA),freeform,Which deanery and parish does the Dolm chuch in Trøndelag belong to?,,"Table: List of churches in Trøndelag - Orkdal prosti
+Municipality | Parish (sokn) | Church | Location | Year built | Photo
 ------------------------------------------------------------
-10125 | 85 | 9 | RETIREMENT | 1 | INACTIVE | Primary Account | 28104.65 | 2003-02-01
-10172 | 85 | 72 | MARGIN | 2 | INACTIVE | Primary Portfolio | 34807.69 | 2004-09-03
+Agdenes | Agdenes | Agdenes Church | Vernes | 1857 | -
+Agdenes | Agdenes | Lensvik Church | Lensvik | 1863 | Lensvik kirke.JPG
+Agdenes | Agdenes | Ingdalen Chapel | Ingdalen | 1960 | -
+Frøya | Frøya | Hallaren Church | Storhallaren | 1881 | -
+Frøya | Frøya | Sletta Church | Nord-Frøya | 1990 | -
+Frøya | Frøya | Froan Chapel | Froan | 1904 | -
+Frøya | Frøya | Måøy Chapel | Mausund | 1939 | -
+Frøya | Frøya | Sula Chapel | Sula | 1925 | -
+Frøya | Frøya | Titran Chapel | Titran | 1873 | -
+Hemne | Heim | Heim Church | Heim | 1883 | Heim-Hemne-Norway.JPG
+Hemne | Hemne Church | Kyrksæterøra | 1817 | Hemne kirke.JPG | -
+Hemne | Vinje | Vinje Church | Vinjeøra | 1824 | -
+Hitra | Hitra | Hitra Church | Melandsjøen | 1927 | Hitrakirke2.JPG
+Hitra | Hitra | Dolm Church | Dolmøya | 1188 | -
+Hitra | Fillan | Fillan Church | Fillan | 1789 | Fillan krike.JPG
+Hitra | Fillan | Nordbotn Church | Nordbotn | 1900 | -
+Hitra | Kvenvær | Kvenvær Church | Kvenvær | 1909 | -
+Hitra | Kvenvær | Forsnes Chapel | Forsnes | 1935 | -
+Hitra | Sandstad | Sandstad Church | Sandstad | 1888 | -
+Meldal | Meldal | Meldal Church | Meldal | 1988 | -
+Meldal | Løkken | Løkken Church | Bjørnli | 1929 | -
+Orkdal | Geitastrand | Geitastrand Church | Geitastrand | 1859 | Geitastrand kirke.JPG
+Orkdal | Orkanger | Orkanger Church | Orkanger | 1892 | -
+Orkdal | Orkdal Church | Fannrem | 1893 | - | -
+Orkdal | Søvasskjølen Church | Svorksjødalen | 1981 | - | -
+Orkdal | Orkland | Moe Church | Vormstad | 1867 | -
+Skaun | Skaun | Skaun Church | Skaun | 1183 | -
+Skaun | Buvik | Buvik Church | Buvika | 1819 | Buvik kyrkje Wilse.jpeg
+Skaun | Børsa | Børsa Church | Børsa | 1857 | Børsa church 1.JPG
+Snillfjord | Snillfjord | Snillfjord Church | Krokstadøra | 1898 | -",,"Dolm Church is one of the churches for the Hitra parish, which is part of the Orkdal prosti.",,,"Dolm Church belongs to the Orkdal prosti (deanery), in the Hitra parish (sokn)","Dolm Church is located in Trøndelag and belongs to the Orkdal deanery (prosti), specifically within the Hitra parish (sokn).
 
-### Trades on these accounts (all statuses)
-trade_id | trade_status | symbol | quantity | trade_price | account_id
-------------------------------------------------------------
-500042 | CMPT | MA | 18 | 167.31 | 10125
-500428 | ACTV | SONY | 8 |  | 10125
-500490 | ACTV | TSLA | 11 |  | 10125
-500697 | PNDG | COST | 3 |  | 10125
-500854 | ACTV | AMZN | 8 |  | 10125
-501059 | CMPT | COST | 3 | 191.16 | 10125
-500059 | CNCL | NVDA | 7 |  | 10172
-500078 | ACTV | AAPL | 5 |  | 10172
-500316 | CNCL | GOOGL | 15 |  | 10172
-500518 | ACTV | ADBE | 17 |  | 10172
-500759 | CNCL | PYPL | 23 |  | 10172
-500825 | CMPT | SAP | 8 | 289.2 | 10172",,,10976.1,,,5898.66,"To find the total value of the customer's COMPLETED trades, we sum the product of quantity and trade_price for all trades with the status 'CMPT':
-
-1. Trade 500042: 18 * 167.31 = 3011.58
-2. Trade 501059: 3 * 191.16 = 573.48
-3. Trade 500825: 8 * 289.20 = 2313.60
-
-Total value = 3011.58 + 573.48 + 2313.60 = 5898.66
-
-FINAL ANSWER: 5898.66",,,
-P028,financial document reading (answer from a filing or report),questions over financial reports with tables and text (TAT-QA),numeric,What is the 2018 average free cash flow?,"Cash flow measures and capital additions
-In presenting and discussing our reported results, free cash flow (pre-spectrum), free cash flow, capital additions and operating free cash flow are calculated and presented even though these measures are not recognised within IFRS. We believe that it is both useful and necessary to communicate free cash flow to investors and other interested parties, for the following reasons:
-Free cash flow (pre-spectrum) and free cash flow allows us and external parties to evaluate our liquidity and the cash generated by our operations. Free cash flow (pre-spectrum) and capital additions do not include payments for licences and spectrum included within intangible assets, items determined independently of the ongoing business, such as the level of dividends, and items which are deemed discretionary, such as cash flows relating to acquisitions and disposals or financing activities. In addition, it does not necessarily reflect the amounts which we have an obligation to incur. However, it does reflect the cash available for such discretionary activities, to strengthen the consolidated statement of financial position or to provide returns to shareholders in the form of dividends or share purchases;
-– Free cash flow facilitates comparability of results with other companies, although our measure of free cash flow may not be directly comparable to similarly titled measures used by other companies;
-– These measures are used by management for planning, reporting and incentive purposes; and
-These measures are useful in connection with discussion with the investment analyst community and debt rating agencies.
-A reconciliation of cash generated by operations, the closest equivalent GAAP measure, to operating free cash flow and free cash flow, is provided below."," | 2019 | 2018 | 2017
----------------------
- | €m | €m | €m
-Cash generated by operations (refer to note 18) | 14,182 | 13,860 | 13,781
-Capital additions | (7,227) | (7,321) | (7,675)
-Working capital movement in respect of capital additions | (89) | 171 | (822)
-Disposal of property, plant and equipment | 45 | 41 | 43
-Restructuring payments | 195 | 250 | 266
-Other | (35) | – | 34
-Operating free cash flow | 7,071 | 7,001 | 5,627
-Taxation | (1,040) | (1,010) | (761)
-Dividends received from associates and investments | 498 | 489 | 433
-Dividends paid to non-controlling shareholders in subsidiaries | (584) | (310) | (413)
-Interest received and paid | (502) | (753) | (830)
-Free cash flow (pre-spectrum) | 5,443 | 5,417 | 4,056
-Licence and spectrum payments | (837) | (1,123) | (474)
-Restructuring payments | (195) | (250) | (266)
-Free cash flow | 4,411 | 4,044 | 3,316",,3680 million,['3680'],,3923.67,FINAL ANSWER: 3923.67,,,
-P029,schema matching (which target column does this source column map to?),table-column matching (Valentine),text,Which column of the target table matches this source column (same attribute / semantics)? Answer with the exact target column name.,"Source table: beeradvo_ratebeer_source  (5 columns)
-Source column: Brew_Factory_Name
-Sample values: TrÃ ¶ egs Brewing Company | New Belgium Brewing | Stone Brewing Co. . | Green Flash Brewing Co. . | Sierra Nevada Brewing Co. .
-
-Target table: beeradvo_ratebeer_target  (5 columns)
-Target columns:
-- id  (e.g. 0 | 1)
-- Beer_Name  (e.g. Great Lakes Nosferatu | 4 Hands Reprise Centennial Red Ale)
-- Brew_Factory_Name  (e.g. Great Lakes Brewing &#40; Ohio &#41; | 4 Hands Brewing Company)
-- Style  (e.g. American Strong Ale | Amber Ale)
-- ABV  (e.g. 8 % | 6 %)",,,Brew_Factory_Name,,,Brew_Factory_Name,FINAL ANSWER: Brew_Factory_Name,,,
-P030,table question answering (answer a question from a table),numeric and list questions over tables (TableBench),numeric,"In which year did the athlete win a gold medal in the 400m event at the CARIFTA Games (U-20) with a personal best time?
-Answer with the number only.",,"Year | Competition | Venue | Position | Event | Notes
------------------------------------------------------
-Representing Grenada | Representing Grenada | Representing Grenada | Representing Grenada | Representing Grenada | Representing Grenada
-2007 | CARIFTA Games (U-17) | Providenciales, Turks and Caicos Islands | 6th | 200 m | 22.10 (+1.2 m/s)
-2007 | CARIFTA Games (U-17) | Providenciales, Turks and Caicos Islands | 1st | 400 m | 47.86 PB
-2007 | World Youth Championships | Ostrava, Czech Republic | 2nd | 400 m | 46.96 PB
-2008 | CARIFTA Games (U-17) | Basseterre, Saint Kitts and Nevis | 1st | 200 m | 21.38 (+2.0 m/s)
-2008 | CARIFTA Games (U-17) | Basseterre, Saint Kitts and Nevis | 1st | 400 m | 47.87
-2008 | World Junior Championships | Bydgoszcz, Poland | 2nd | 400 m | 45.70 PB
-2008 | Commonwealth Youth Games | Pune, India | 1st | 400 m | 46.66 GR
-2009 | CARIFTA Games (U-20) | Vieux Fort, Saint Lucia | DQ (h1) | 200 m | False start
-2009 | CARIFTA Games (U-20) | Vieux Fort, Saint Lucia | 1st | 400 m | 45.45 PB GR
-2009 | CARIFTA Games (U-20) | Vieux Fort, Saint Lucia | DQ (h1) | 4 × 100 m relay | Out of zone
-2009 | CARIFTA Games (U-20) | Vieux Fort, Saint Lucia | 3rd | 4 × 400 m relay | 3:11.93 PB
-2009 | World Youth Championships | Brixen, Italy | 1st | 200 m | 21.05 (−0.9 m/s) PB
-2009 | World Youth Championships | Brixen, Italy | 1st | 400 m | 45.24 PB CR
-2009 | Pan American Junior Championships | Port of Spain, Trinidad and Tobago | 1st | 400 m | 45.43
-2009 | Pan American Junior Championships | Port of Spain, Trinidad and Tobago | 5th | 4 × 400 m relay | 3:11.91 PB
-2010 | CARIFTA Games (U-20) | George Town, Cayman Islands | 1st | 200 m | 20.76 (+0.8 m/s) SB
-2010 | CARIFTA Games (U-20) | George Town, Cayman Islands | 1st | 400 m | 45.02 PB GR
-2010 | World Junior Championships | Moncton, Canada | 1st | 400 m | 45.89
-2011 | CAC Championships | Mayagüez, Puerto Rico | 5th | 4 × 400 m relay | 3:04.27 NR PB
-2011 | Pan American Junior Championships | Miramar, Florida | 1st | 200 m | 20.53 w (+2.2 m/s)
-2011 | World Championships | Daegu, South Korea | 1st | 400 m | 44.60 PB
-2012 | World Indoor Championships | Istanbul, Turkey | 6th | 400 m | 46.21
-2012 | Olympic Games | London, England | 1st | 400 m | 43.94 WL NR PB
-2013 | World Championships | Moscow, Russia | 7th | 400 m | 44.99
-2014 | Commonwealth Games | Glasgow, Scotland | 1st | 400 m | 44.24 GR
-2015 | World Championships | Beijing, China | 3rd | 400 m | 43.78 SB
-2016 | Olympic Games | Rio de Janeiro, Brazil | 2nd | 400 m | 43.76 SB",,"2009,2010",,,2010,"The table lists two instances of gold medals (1st place) in the 400 m at CARIFTA Games (U-20), both marked with PB:
-- 2009: 45.45 PB GR
-- 2010: 45.02 PB GR
-The 2010 performance is the superior (and final) personal best recorded at this specific event.
-FINAL ANSWER: 2010",,,
+FINAL ANSWER: Dolm Church belongs to the Orkdal prosti (deanery), in the Hitra parish (sokn).",,,

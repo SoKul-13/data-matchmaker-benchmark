@@ -1,6 +1,6 @@
 # Returned labels
 
-Every grader returns the same two files; name them with the grader's letter (A to T) on receipt if the grader did not:
+Every grader returns the same two files; name them with the grader's letter (A to E) on receipt if the grader did not:
 
     02_pilot_<letter>.xlsx (or .csv)      03_main_<letter>.xlsx (or .csv)
 

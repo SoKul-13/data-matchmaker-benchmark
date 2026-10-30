@@ -10,6 +10,7 @@ Everything happens in `FINAL_v2/`; commands are run from that directory with `uv
 | `data/labels/sample_master.csv`, `pilot_master.csv` | the drawn sample with its secret columns (dataset, item, model, judge scores). Researcher only. |
 | `data/labels/handoff/grader_kit.zip` | the one kit every grader receives (walkthrough, guide, pilot and main sheets as xlsx + csv) |
 | `data/labels/labeller_sheet.csv`, `assignments.csv` | the blind main sheet with its `assigned_to` column, and the same assignment in long form |
+| `data/labels/agreement_by_stratum.csv` | written by the comparison: α with bootstrap intervals per answer type, task family and dataset |
 | `data/labels/returned/` | empty folder where finished files go |
 | `notes/LABELLING_GUIDE_FOR_LABELLERS.md` | the rules (also inside each zip) |
 | `notes/WALKTHROUGH_LABELLERS.md` | the grader procedure (also inside the kit as `00_START_HERE_WALKTHROUGH`) |
@@ -21,7 +22,7 @@ If the sample ever has to be redrawn (new models, new items), run in order
 
 ## 1. Understand what is being labelled
 
-One row = one answer from one model to one benchmark item. Default layout: 20 graders (letters A to T), every row graded by 3 of them, 60 or 61 rows per grader (about an hour each); change with `02_make_label_sample.py --labellers N --per-row k`. 401 main rows: 100 per answer type (numeric, boolean, text, free-form), an equal share per model inside each type, every dataset at least 5 rows, and a quarter of the rows drawn from answers where exact match and the deployed judge disagree by at least 0.5 (these are the rows that decide which scorer humans side with). Plus 30 pilot rows from the same design, disjoint from the main rows.
+One row = one answer from one model to one benchmark item. Default layout: 100 rows from each of the 31 datasets (3,100 rows), 5 graders (letters A to E) who each grade every row, about 39 hours each, so five labels per row; change with `02_make_label_sample.py --labellers N --per-row k`, or `--stratify type --n 400` for the small design. The 3,100 rows are drawn with an equal share per model inside each dataset and a quarter from judge-versus-exact-match disagreement cases. The original small design was 401 main rows: 100 per answer type (numeric, boolean, text, free-form), an equal share per model inside each type, every dataset at least 5 rows, and a quarter of the rows drawn from answers where exact match and the deployed judge disagree by at least 0.5 (these are the rows that decide which scorer humans side with). Plus 30 pilot rows from the same design, disjoint from the main rows.
 
 Graders see the task family, the question, the material, the gold answer and alternatives, and the model's final answer. They do not see the model name, the judge's score, or any dataset id. They fill `utility` (1 / 0.75 / 0.5 / 0.25 / 0) and `hedged` (0 / 1), with an optional `note`, on the rows whose `assigned_to` contains their letter. Extra rows they label voluntarily are used as extra labels.
 
@@ -48,7 +49,7 @@ Send `grader_kit.zip` to every grader with their letter. Never send `sample_mast
 
 1. Everyone returns `03_main_<letter>`. Copy into `data/labels/returned/`.
 2. Check each: `uv run python shared/scripts/03_label_agreement.py --check A` per letter. Fix with the grader until clean (a grader fixes their own file; you never edit labels).
-3. Compare: `uv run python shared/scripts/03_label_agreement.py`. Record the printed numbers; they go in the paper. Target: α ≥ 0.75 overall; report the per-type values whatever they are.
+3. Compare: `uv run python shared/scripts/03_label_agreement.py`. Record the printed numbers; they go in the paper: α with 95% bootstrap intervals overall, per answer type and per task family on screen, per dataset in `agreement_by_stratum.csv`. Target: α ≥ 0.80 overall, 0.67 as the floor; report the per-type and per-dataset values whatever they are.
 4. `data/labels/adjudication_queue.csv` is written: rows whose labels span more than one level, whose hedged votes tie, or that are missing a label, with every label and note in one column.
 
 ## 6. Adjudication

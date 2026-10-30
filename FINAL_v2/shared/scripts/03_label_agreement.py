@@ -51,6 +51,16 @@ def krippendorff_alpha(units: list[list[float]], metric: str = "ordinal") -> flo
     return 1 - Do / De if De > 0 else 1.0
 
 
+def alpha_ci(units, metric="ordinal", B=300, seed=0):
+    """95% percentile bootstrap interval for alpha, resampling rows."""
+    units = [u for u in units if len(u) >= 2]
+    if len(units) < 5: return float("nan"), float("nan")
+    rng = np.random.default_rng(seed); vals = []
+    for _ in range(B):
+        idx = rng.integers(0, len(units), len(units)); vals.append(krippendorff_alpha([units[i] for i in idx], metric))
+    return float(np.nanpercentile(vals, 2.5)), float(np.nanpercentile(vals, 97.5))
+
+
 def auc(scores, correct):
     s, c = np.asarray(scores, float), np.asarray(correct, bool)
     if c.sum() == 0 or (~c).sum() == 0: return float("nan")
@@ -145,12 +155,23 @@ def main():
     units = [v for v in per_row if len(v) >= 2]
     pairs = [(x, y) for v in units for x, y in itertools.combinations(v, 2)]
     exact = np.mean([x == y for x, y in pairs]) if pairs else float("nan"); within = np.mean([abs(x - y) <= 0.25 for x, y in pairs]) if pairs else float("nan")
-    print(f"utility: Krippendorff alpha (ordinal) = {krippendorff_alpha(units):.3f} | pairwise exact = {exact:.3f} | pairwise within one level = {within:.3f}")
-    print(f"hedged:  Krippendorff alpha (nominal) = {krippendorff_alpha([v for v in per_row_h if len(v) >= 2], 'nominal'):.3f}")
-    for t in master.answer_type.unique():
-        ids = master.index[master.answer_type == t]; uu = [per_row[r] for r in ids if r in per_row.index and len(per_row[r]) >= 2]
+    lo, hi = alpha_ci(units); hu_units = [v for v in per_row_h if len(v) >= 2]; hlo, hhi = alpha_ci(hu_units, "nominal")
+    print(f"utility: Krippendorff alpha (ordinal) = {krippendorff_alpha(units):.3f} [95% bootstrap {lo:.3f}, {hi:.3f}] | pairwise exact = {exact:.3f} | pairwise within one level = {within:.3f}")
+    print(f"hedged:  Krippendorff alpha (nominal) = {krippendorff_alpha(hu_units, 'nominal'):.3f} [{hlo:.3f}, {hhi:.3f}]")
+    strata = [("type", t, master.index[master.answer_type == t]) for t in master.answer_type.unique()]
+    strata += [("family", f, master.index[master.task_family == f]) for f in master.task_family.unique()]
+    if not a.pilot: strata += [("dataset", d, master.index[master._dataset == d]) for d in sorted(master._dataset.unique())]
+    summary = []
+    for kind, name, ids in strata:
+        uu = [per_row[r] for r in ids if r in per_row.index and len(per_row[r]) >= 2]
         pp = [(x, y) for v in uu for x, y in itertools.combinations(v, 2)]
-        if uu: print(f"  {t:9s} rows={len(uu):3d} alpha={krippendorff_alpha(uu):.3f} exact={np.mean([x == y for x, y in pp]):.3f}")
+        if uu:
+            al = krippendorff_alpha(uu); l2, h2 = alpha_ci(uu, B=200)
+            summary.append({"stratum": kind, "name": name if kind != "family" else name.split(" (")[0], "rows": len(uu), "alpha": al, "alpha_lo": l2, "alpha_hi": h2, "exact": np.mean([x == y for x, y in pp])})
+    sm = pd.DataFrame(summary)
+    print(sm[sm.stratum != "dataset"].round(3).to_string(index=False))
+    if (sm.stratum == "dataset").any():
+        sm.to_csv(LAB / "agreement_by_stratum.csv", index=False); print(f"per-dataset agreement -> {(LAB / 'agreement_by_stratum.csv').relative_to(ROOT)}")
     # per labeller: mean absolute gap to the other labels on the rows they share (outlier check)
     print("per labeller (rows, mean label, mean |gap| to the others' mean on shared rows; a gap far above the rest flags drift):")
     others_mean = {}

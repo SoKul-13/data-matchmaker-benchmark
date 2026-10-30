@@ -1,6 +1,6 @@
 # Step-by-step walkthrough for labellers
 
-This is the practical "what do I click" companion to the labelling guide (`01_LABELLING_GUIDE`). The guide holds the rules; this page holds the procedure. Total time: about 15 minutes to read the guide, 25 minutes for the pilot, about 1 hour for the main sheet, in as many sittings as you like.
+This is the practical "what do I click" companion to the labelling guide (`01_LABELLING_GUIDE`). The guide holds the rules; this page holds the procedure. Total time: about 15 minutes to read the guide, 25 minutes for the pilot, about 39 hours (about 8 working days) for the main sheet, in as many sittings as you like.
 
 ## Step 1. Open your folder
 
@@ -19,9 +19,9 @@ Pick one format per sheet and stay with it: the `.xlsx` in Excel, Numbers or Goo
 
 Fifteen minutes. Pay most attention to section 2 (the five levels), section 4 (rules for every row) and section 5 (worked examples). Keep it open in a second window while you grade.
 
-## Step 3. Set up the sheet and find your rows
+## Step 3. Set up the sheet
 
-* In `03_main`, filter the `assigned_to` column to the rows that contain your letter: click the filter arrow on the `assigned_to` header, choose "Text filters" (Excel) or "Filter by condition, text contains" (Google Sheets), and enter your letter. About 60 to 61 rows remain. Those are yours. Leave the other rows untouched; do not delete them.
+* `03_main` holds every row and you grade all of them. The `assigned_to` column lists all graders and needs no filtering.
 * Freeze the header row if your program did not keep it frozen (View > Freeze > 1 row).
 * Widen or wrap these columns so you can read them: `question`, `gold_answer`, `accepted_alternatives`, `model_final_answer`. In the `.xlsx` this is already done.
 * Leave `context`, `table` and `model_full_reply` narrow; you only open them when needed.
@@ -44,9 +44,9 @@ Typical pace: 45 seconds a row. Some rows take 5 seconds, a few take 3 minutes. 
 
 Grade all 30 rows of `02_pilot` exactly as in step 4 (there is no `assigned_to` filter on the pilot: everyone grades all of it). Return it (step 7). You will then get a short call where the rows the labellers graded differently are discussed, and the guide may gain a clarification. Do not talk to the other labellers before that call. The pilot rows are not reused.
 
-## Step 6. The main sheet (your 60 to 61 rows)
+## Step 6. The main sheet (3100 rows)
 
-Work in sittings of at most 100 rows; fatigue shows up as drifting standards. Grade only your filtered rows. Every row is also graded by 3 people in all, so there is no need to agonise, just be consistent. If you have time left and want to grade more rows, you may: clear the filter and grade any row; extra labels are welcome. Before closing a sitting, save, and note which `row_id` you reached. The order of rows is random on purpose; do not reorder.
+Work in sittings of at most 100 rows; fatigue shows up as drifting standards. Every row is graded by 5 people in all, so there is no need to agonise, just be consistent. Before closing a sitting, save, and note which `row_id` you reached. The order of rows is random on purpose; do not reorder.
 
 ## Step 7. Check before you submit
 
@@ -54,10 +54,9 @@ Run down this list on the finished sheet:
 
 * `utility` is filled on every one of your rows and only with 1, 0.75, 0.5, 0.25 or 0. In the `.xlsx` the drop-down enforces this; in a `.csv`, filter the column for anything else.
 * `hedged` is filled on every one of your rows with 0 or 1.
-* Row count is unchanged: 31 lines including the header for the pilot, 402 for the main sheet.
+* Row count is unchanged: 31 lines including the header for the pilot, 3101 for the main sheet.
 * Column names are unchanged and in the same order.
 * No values anywhere except in `utility`, `hedged`, `note`.
-* The filter is cleared, so the file holds all 401 rows again.
 * The file is renamed with your letter: `03_main_X.xlsx` where X is your letter (same for the pilot: `02_pilot_X.xlsx`).
 
 ## Step 8. Submit

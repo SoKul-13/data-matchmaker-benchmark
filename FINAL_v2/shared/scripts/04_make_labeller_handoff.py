@@ -101,7 +101,10 @@ def write_xlsx(df: pd.DataFrame, path: Path, sheet: str):
 
 def hours(n):
     h = n * 45 / 3600
-    return "about 25 minutes" if h < 0.6 else f"about {h:.0f} hour{'s' if h >= 1.5 else ''}" if h < 1.25 or h >= 1.5 else "about an hour"
+    if h < 0.6: return "about 25 minutes"
+    if h < 1.25: return "about an hour"
+    if h < 1.75: return "about an hour and a half"
+    return f"about {h:.0f} hours" + (f" (about {h / 5:.0f} working days)" if h >= 10 else "")
 
 
 def main():
@@ -113,6 +116,13 @@ def main():
     walk = (WALK.read_text().replace("{N_MAIN}", str(len(main_df))).replace("{N_MAIN_PLUS1}", str(len(main_df) + 1))
             .replace("{N_MINE}", f"{per.min()} to {per.max()}" if per.min() != per.max() else str(per.min()))
             .replace("{HOURS}", hours(per.max())).replace("{LETTERS}", f"{letters[0]} to {letters[-1]}").replace("{K}", str(main_df.assigned_to.iloc[0].count(" ") + 1)))
+    if per.min() == len(main_df):  # everyone grades every row: no filtering step
+        walk = walk.replace("* In `03_main`, filter the `assigned_to` column to the rows that contain your letter: click the filter arrow on the `assigned_to` header, choose \"Text filters\" (Excel) or \"Filter by condition, text contains\" (Google Sheets), and enter your letter. About " + walk.split("and enter your letter. About ")[1].split(" rows remain")[0] + " rows remain. Those are yours. Leave the other rows untouched; do not delete them.",
+                            "* `03_main` holds every row and you grade all of them. The `assigned_to` column lists all graders and needs no filtering.")
+        walk = walk.replace("Grade only your filtered rows. Every row is also graded by", "Every row is graded by").replace(" If you have time left and want to grade more rows, you may: clear the filter and grade any row; extra labels are welcome.", "")
+        walk = walk.replace("## Step 3. Set up the sheet and find your rows", "## Step 3. Set up the sheet").replace("## Step 6. The main sheet (your ", "## Step 6. The main sheet (")
+        walk = "\n".join(l for l in walk.split("\n") if not l.startswith("* The filter is cleared"))
+        walk = walk.replace("you grade the " + str(len(main_df)) + " rows that carry your letter in `assigned_to`", "you grade all of them")
     (d / "00_START_HERE_WALKTHROUGH.md").write_text(walk); (d / "00_START_HERE_WALKTHROUGH.html").write_text(md_to_html(walk, "Start here"))
     (d / "01_LABELLING_GUIDE.md").write_text(guide_md); (d / "01_LABELLING_GUIDE.html").write_text(guide_html)
     pilot.to_csv(d / "02_pilot.csv", index=False); write_xlsx(pilot, d / "02_pilot.xlsx", "pilot")

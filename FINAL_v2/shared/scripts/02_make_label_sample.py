@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 """Draw the human-labelling sample and write the labellers' sheets.
 
-    uv run python shared/scripts/02_make_label_sample.py            # 400 rows + 30-row pilot, 20 labellers, every row labelled by 3 of them
-    uv run python shared/scripts/02_make_label_sample.py --labellers 2 --per-row 2      # the two-labeller layout (both label every row)
-    uv run python shared/scripts/02_make_label_sample.py --n 400 --pilot 30 --seed 20260923 --labellers 20 --per-row 3
+    uv run python shared/scripts/02_make_label_sample.py            # 100 rows per dataset (3,100) + 30-row pilot, 5 graders who all grade every row
+    uv run python shared/scripts/02_make_label_sample.py --stratify type --n 400 --labellers 2 --per-row 2   # the small two-grader layout
+    uv run python shared/scripts/02_make_label_sample.py --per-dataset 100 --pilot 30 --seed 20260923 --labellers 5 --per-row 5
 
-Sample design (FINAL_v2/notes/HUMAN_LABELLING_PROTOCOL.md section 2): 100 rows per answer type (numeric / boolean / text / free-form),
-an equal share per model inside each type, every dataset represented (at least 5 rows), and a quarter of the rows drawn from answers where
-exact match and the deployed composite disagree by >= 0.5 (the informative cases).  Rows come from the real answered items only.
+Sample design (FINAL_v2/notes/HUMAN_LABELLING_PROTOCOL.md section 2).  Default --stratify dataset: --per-dataset rows from every dataset
+(100 -> 3,100 rows), an equal share per model inside each dataset, a quarter of the rows drawn from answers where exact match and the
+deployed composite disagree by >= 0.5 (the informative cases).  --stratify type: --n rows split equally over the four answer types with a
+--per-dataset floor (the original 400-row design).  Rows come from the real answered items only.
 
 Outputs in data/labels/ :
   sample_master.csv     researcher copy: row_id + dataset, uid, model, answer_type, the judge's scores (never given to labellers)
@@ -50,9 +51,10 @@ def clip_reply(t, n=6000):
 
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--n", type=int, default=400); ap.add_argument("--pilot", type=int, default=30); ap.add_argument("--seed", type=int, default=20260923)
-    ap.add_argument("--labellers", type=int, default=20, help="number of labellers (sheets labeller_A, labeller_B, ...)")
-    ap.add_argument("--per-row", type=int, default=3, help="how many labellers grade each main row"); a = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument("--n", type=int, default=400, help="rows when --stratify type"); ap.add_argument("--pilot", type=int, default=30); ap.add_argument("--seed", type=int, default=20260923)
+    ap.add_argument("--stratify", choices=["dataset", "type"], default="dataset"); ap.add_argument("--per-dataset", type=int, default=100, help="rows per dataset (dataset mode) or floor per dataset (type mode)")
+    ap.add_argument("--labellers", type=int, default=5, help="number of graders (letters A, B, ...)")
+    ap.add_argument("--per-row", type=int, default=5, help="how many graders grade each main row (= --labellers: everyone grades everything)"); a = ap.parse_args()
     if not 1 <= a.per_row <= a.labellers <= 26: raise SystemExit("need 1 <= --per-row <= --labellers <= 26")
     rng = np.random.default_rng(a.seed); LAB.mkdir(parents=True, exist_ok=True)
     comp = pd.read_csv(OUT_V2 / "components_v1.csv"); comp["v1"] = .35 * comp.f1 + .35 * comp.decay + .15 * comp.precision + .15 * comp.recall
@@ -85,16 +87,15 @@ def main():
             parts.append(cand.sample(min(k, len(cand)), random_state=int(rng.integers(1 << 31))))
         return pd.concat([take_dis] + parts)
 
-    chosen = []
-    for t in types:
-        sub = comp[comp.atype == t]; chosen.append(draw(sub, per_type, set()))
-    main_df = pd.concat(chosen)
-    # dataset floor: every dataset at least 5 rows
-    for d in sorted(comp.dataset.unique()):
-        have = (main_df.dataset == d).sum()
-        if have < 5:
-            extra = comp[(comp.dataset == d) & ~comp.index.isin(main_df.index)].sample(5 - have, random_state=int(rng.integers(1 << 31)))
-            main_df = pd.concat([main_df, extra])
+    if a.stratify == "dataset":
+        main_df = pd.concat([draw(comp[comp.dataset == d], a.per_dataset, set()) for d in sorted(comp.dataset.unique())])
+    else:
+        main_df = pd.concat([draw(comp[comp.atype == t], per_type, set()) for t in types])
+        for d in sorted(comp.dataset.unique()):  # dataset floor
+            have = (main_df.dataset == d).sum()
+            if have < a.per_dataset:
+                extra = comp[(comp.dataset == d) & ~comp.index.isin(main_df.index)].sample(a.per_dataset - have, random_state=int(rng.integers(1 << 31)))
+                main_df = pd.concat([main_df, extra])
     pilot = pd.concat([draw(comp[comp.atype == t], a.pilot // 4 + (1 if i < a.pilot % 4 else 0), set(main_df.index)) for i, t in enumerate(types)])
 
     def rows_for(df, prefix):
@@ -126,10 +127,10 @@ def main():
         master.to_csv(LAB / ("sample_master.csv" if name == "main" else "pilot_master.csv"), index=False)
         blind = master[[c for c in master.columns if not c.startswith("_")]]
         blind.to_csv(LAB / ("labeller_sheet.csv" if name == "main" else f"pilot_{a.pilot}.csv"), index=False)
-        print(f"{name}: {len(master)} rows | by type {master.answer_type.value_counts().to_dict()} | disagreement cases {int(master._disagree_case.sum())} | datasets {master._dataset.nunique()} | models {master._model.nunique()}")
+        print(f"{name}: {len(master)} rows | by type {master.answer_type.value_counts().to_dict()} | disagreement cases {int(master._disagree_case.sum())} | datasets {master._dataset.nunique()} (rows per dataset {master._dataset.value_counts().min()}-{master._dataset.value_counts().max()}) | models {master._model.nunique()}")
     (LAB / "README.md").write_text(f"""# Human labels
 
-Generated by `shared/scripts/02_make_label_sample.py --n {a.n} --pilot {a.pilot} --seed {a.seed} --labellers {a.labellers} --per-row {a.per_row}`.
+Generated by `shared/scripts/02_make_label_sample.py --stratify {a.stratify} --per-dataset {a.per_dataset} --n {a.n} --pilot {a.pilot} --seed {a.seed} --labellers {a.labellers} --per-row {a.per_row}`.
 
 * `labeller_sheet.csv` - the one blind main sheet every grader receives: {len(main_df)} rows, `assigned_to` = the {a.per_row} grader letters ({letters[0]}-{letters[-1]}) who own each row. Graders fill `utility`, `hedged`, `note` on their rows only. `assignments.csv` is the same assignment in long form.
 * `pilot_{a.pilot}.csv` - the calibration pilot, done first by every grader and discussed before the main sheet.

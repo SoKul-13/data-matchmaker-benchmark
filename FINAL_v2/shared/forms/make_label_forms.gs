@@ -16,6 +16,12 @@
  * are shown in a separate read-only text item, cut to MAXLEN characters (Forms limits item text); the spreadsheet remains the
  * reference for anything longer.
  *
+ * Readability: tables arrive as pipe-delimited text ("No. | Event | Time" with a dashed rule), which Forms' proportional font
+ * garbles.  readableTable() rewrites each table as record-style text, one line per cell ("Event: 1500 m freestyle"), and long
+ * material is split over several read-only items of at most MAXLEN characters, so nothing is cut.  If a Drive folder named
+ * IMAGE_FOLDER exists and holds <row_id>.png (made by shared/scripts/06_render_row_images.py, uploaded by you), that image of the
+ * original table and context is shown on the row's page as well.
+ *
  * Collecting: each form > Responses > three dots > Download responses (.csv).  Put all CSVs in one folder and run
  *   uv run python shared/scripts/05_forms_to_returned.py --labeller A path/to/csvs/*.csv        (add --pilot for the pilot forms)
  * which rebuilds data/labels/returned/03_main_A.csv (or 02_pilot_A.csv) in the format the agreement script reads.
@@ -23,9 +29,47 @@
 var BATCH = 50;                       // rows per form (401 rows -> 9 forms; 30 pilot rows -> 1 form)
 var FORM_PREFIX = "Labelling, main";  // "Labelling, pilot" for the pilot sheet
 var FOLDER_NAME = "labelling_forms";  // Drive folder that receives the forms (created if absent)
-var MAXLEN = 3500;                    // characters of context/table/reply shown per row
+var MAXLEN = 3500;                    // characters per read-only item; longer material is split over several items
+var IMAGE_FOLDER = "labelling_images"; // optional Drive folder with <row_id>.png renderings of table + context
 var LEVELS = ["1", "0.75", "0.5", "0.25", "0"];
 var LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+function readableTable(text) {
+  // "Table: title\nA | B | C\n-----\n1 | x | y" -> "Table: title\n[row 1]  A: 1 | B: x | C: y" ... one line per cell when wide
+  var lines = String(text).split("\n"); var out = []; var header = null; var n = 0;
+  lines.forEach(function (ln) {
+    var t = ln.trim();
+    if (!t) { out.push(""); return; }
+    if (/^[-=+| ]+$/.test(t) && t.indexOf("-") >= 0) return;            // dashed rule under the header
+    if (t.indexOf(" | ") < 0 && t.indexOf("|") < 0) { out.push(t); header = null; return; }  // title or prose line
+    var cells = t.replace(/^\||\|$/g, "").split("|").map(function (c) { return c.trim(); });
+    if (!header) { header = cells; n = 0; out.push("columns: " + header.join(" | ")); return; }
+    n += 1;
+    var pairs = cells.map(function (c, i) { return (header[i] || ("col" + (i + 1))) + ": " + c; });
+    out.push(pairs.length <= 4 ? "[row " + n + "]  " + pairs.join("  |  ") : "[row " + n + "]\n   " + pairs.join("\n   "));
+  });
+  return out.join("\n");
+}
+
+function addChunked(form, title, text) {
+  // one read-only item per MAXLEN characters, split on line breaks
+  var parts = []; var cur = "";
+  String(text).split("\n").forEach(function (ln) {
+    if ((cur + ln).length > MAXLEN - 1 && cur) { parts.push(cur); cur = ""; }
+    cur += (cur ? "\n" : "") + ln.substring(0, MAXLEN - 1);
+  });
+  if (cur) parts.push(cur);
+  parts.forEach(function (p, i) { form.addSectionHeaderItem().setTitle(title + (parts.length > 1 ? " (" + (i + 1) + "/" + parts.length + ")" : "")).setHelpText(p); });
+}
+
+var IMAGES = null;
+function imageFor(rid) {
+  if (IMAGES === null) {
+    IMAGES = {}; var fs = DriveApp.getFoldersByName(IMAGE_FOLDER);
+    if (fs.hasNext()) { var it = fs.next().getFiles(); while (it.hasNext()) { var f = it.next(); IMAGES[f.getName().replace(/\.png$/i, "")] = f; } }
+  }
+  return IMAGES[rid] || null;
+}
 
 function buildForms() {
   var ss = SpreadsheetApp.getActiveSpreadsheet(); var sh = ss.getSheetByName("rows");
@@ -59,11 +103,11 @@ function buildForms() {
           (r[col.gold_is_a_list] ? "\nThe reference is a list: every item required." : "") +
           "\n\nSYSTEM'S FINAL ANSWER (grade this):\n" + r[col.model_final_answer];
         form.addPageBreakItem().setTitle(rid).setHelpText(desc.substring(0, MAXLEN));
-        var mat = "";
-        if (r[col.context]) mat += "CONTEXT:\n" + r[col.context] + "\n\n";
-        if (r[col.table]) mat += "TABLE:\n" + r[col.table] + "\n\n";
-        mat += "FULL REPLY (for checking the final line only):\n" + r[col.model_full_reply];
-        form.addSectionHeaderItem().setTitle("Material shown to the system (open only if needed)").setHelpText(mat.substring(0, MAXLEN) + (mat.length > MAXLEN ? "\n[... cut; the spreadsheet has the full text ...]" : ""));
+        var img = imageFor(rid);
+        if (img) form.addImageItem().setTitle("Table and context as shown to the system").setImage(img.getBlob());
+        if (r[col.table]) addChunked(form, "Table" + (img ? " (text version)" : ""), readableTable(r[col.table]));
+        if (r[col.context]) addChunked(form, "Context" + (img ? " (text version)" : ""), r[col.context]);
+        addChunked(form, "Full reply (for checking the final line only)", r[col.model_full_reply]);
         form.addMultipleChoiceItem().setTitle(rid + " | utility").setChoiceValues(LEVELS).setRequired(true);
         form.addMultipleChoiceItem().setTitle(rid + " | hedged").setChoiceValues(["0", "1"]).setRequired(true);
         form.addTextItem().setTitle(rid + " | note").setRequired(false);
