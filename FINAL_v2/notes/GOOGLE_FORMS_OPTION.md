@@ -4,7 +4,7 @@ The spreadsheet route (`data/labels/handoff/`) is the default and the simplest. 
 
 ## How it is laid out
 
-Google Forms cannot import a table of rows, so an Apps Script builds the forms from the sheet. With the default layout (5 graders who all grade every row) the `assignments` tab gives every grader all 3,100 rows, so the script builds 62 forms of 50 rows per grader (set `BATCH = 100` for 31); without the tab it builds one shared set of 62 forms that all graders fill, choosing their letter on page one, which is the simpler choice when everyone grades everything. Plus one pilot form. Each row is one page:
+Google Forms cannot import a table of rows, so an Apps Script builds the forms from the sheet. With the default layout (5 graders who all grade every row) the `assignments` tab gives every grader all 3,100 rows, so the script would build 31 forms of 100 rows per grader, five times over; leave the tab out and it builds one shared set of 31 forms that all five graders fill, choosing their letter on page one. Plus one pilot form. A run stops after five minutes and continues when re-run (or on a 10-minute trigger); the whole set takes 10 to 20 runs. Each row is one page:
 
 * page title: the `row_id`
 * page text: task family, source, answer type, choices if any, the question, the reference answer, accepted alternatives, the list flag, and the system's final answer

@@ -5,7 +5,9 @@
  *   1. In Google Drive: New > Google Sheets > File > Import > Upload > labeller_sheet.csv (the canonical main sheet) or pilot_30.csv.
  *      Keep the header row as row 1.  Name the tab "rows".
  *   2. Extensions > Apps Script.  Paste this file.  Set BATCH, FORM_PREFIX and the folder below.  Run buildForms().  Authorise when asked.
- *   3. The script writes a tab "forms" with the edit and the respondent links of every form it created.
+ *   3. The script writes a tab "forms" with the edit and the respondent links of every form it created.  A run stops itself after
+ *      five minutes (Apps Script's limit is six): run buildForms() again and it continues with the forms not yet listed in "forms".
+ *      For the default 3,100-row sheet expect 10 to 20 runs in all; a time-driven trigger (Triggers > every 10 minutes) automates them.
  *
  * Design: one form per batch of BATCH rows.  Question 1 asks the labeller's letter, so labellers can fill the SAME forms.
  * With many labellers and an "assignments" tab (columns row_id, labeller; import data/labels/assignments.csv), the script instead builds
@@ -26,7 +28,7 @@
  *   uv run python shared/scripts/05_forms_to_returned.py --labeller A path/to/csvs/*.csv        (add --pilot for the pilot forms)
  * which rebuilds data/labels/returned/03_main_A.csv (or 02_pilot_A.csv) in the format the agreement script reads.
  */
-var BATCH = 50;                       // rows per form (401 rows -> 9 forms; 30 pilot rows -> 1 form)
+var BATCH = 100;                      // rows per form (3,100 rows -> 31 forms; 30 pilot rows -> 1 form)
 var FORM_PREFIX = "Labelling, main";  // "Labelling, pilot" for the pilot sheet
 var FOLDER_NAME = "labelling_forms";  // Drive folder that receives the forms (created if absent)
 var MAXLEN = 3500;                    // characters per read-only item; longer material is split over several items
@@ -75,9 +77,14 @@ function buildForms() {
   var ss = SpreadsheetApp.getActiveSpreadsheet(); var sh = ss.getSheetByName("rows");
   var data = sh.getDataRange().getValues(); var head = data[0]; var col = {};
   head.forEach(function (h, i) { col[h] = i; });
+  data = [head].concat(data.slice(1).filter(function (r) { return String(r[col.row_id]).trim() !== ""; }));  // drop blank trailing rows
   var folders = DriveApp.getFoldersByName(FOLDER_NAME); var folder = folders.hasNext() ? folders.next() : DriveApp.createFolder(FOLDER_NAME);
-  var out = [["labeller", "form", "rows", "edit url", "respondent url"]];
-  var asg = ss.getSheetByName("assignments");
+  // resume support: forms already listed in the "forms" tab are skipped, so a run that hits the 6-minute limit is simply re-run
+  var tab = ss.getSheetByName("forms") || ss.insertSheet("forms"); var done = {};
+  if (tab.getLastRow() < 1) tab.appendRow(["labeller", "form", "rows", "edit url", "respondent url"]);
+  else tab.getDataRange().getValues().slice(1).forEach(function (r) { done[r[1]] = true; });
+  var t0 = Date.now(); var LIMIT_MS = 5 * 60 * 1000;
+  var asg = ss.getSheetByName("assignments"); var stopped = false;
   var groups = [];  // [{letter, rows}]
   if (asg) {
     var a = asg.getDataRange().getValues(); var byL = {};
@@ -85,10 +92,13 @@ function buildForms() {
     Object.keys(byL).sort().forEach(function (L) { groups.push({ letter: L, rows: data.slice(1).filter(function (r) { return byL[L][r[col.row_id]]; }) }); });
   } else { groups.push({ letter: null, rows: data.slice(1) }); }
   groups.forEach(function (g) {
+    if (stopped) return;
     var nb = Math.ceil(g.rows.length / BATCH);
     for (var b = 0; b < nb; b++) {
       var rows = g.rows.slice(b * BATCH, (b + 1) * BATCH);
       var title = FORM_PREFIX + (g.letter ? ", labeller " + g.letter : "") + ", batch " + (b + 1) + " of " + nb + " (" + rows[0][col.row_id] + " to " + rows[rows.length - 1][col.row_id] + ")";
+      if (done[title]) continue;
+      if (Date.now() - t0 > LIMIT_MS) { stopped = true; return; }
       var form = FormApp.create(title);
       form.setDescription("Grade the system's FINAL answer against the reference, following the labelling guide. utility: 1 correct, 0.75 minor defect, 0.5 partly correct, 0.25 wrong but close, 0 wrong or empty. hedged: 1 if the final answer offers more than one candidate, a range, or declines to commit.");
       form.setProgressBar(true); form.setAllowResponseEdits(true); form.setLimitOneResponsePerUser(false);
@@ -113,8 +123,9 @@ function buildForms() {
         form.addTextItem().setTitle(rid + " | note").setRequired(false);
       });
       var f = DriveApp.getFileById(form.getId()); folder.addFile(f); DriveApp.getRootFolder().removeFile(f);
-      out.push([g.letter || "all", title, rows.length, form.getEditUrl(), form.getPublishedUrl()]);
+      tab.appendRow([g.letter || "all", title, rows.length, form.getEditUrl(), form.getPublishedUrl()]); done[title] = true;
     }
   });
-  var tab = ss.getSheetByName("forms") || ss.insertSheet("forms"); tab.clear(); tab.getRange(1, 1, out.length, 5).setValues(out);
+  if (stopped) Logger.log("time limit near after " + Object.keys(done).length + " forms: run buildForms again to continue");
+  else Logger.log("all forms built: " + Object.keys(done).length);
 }
