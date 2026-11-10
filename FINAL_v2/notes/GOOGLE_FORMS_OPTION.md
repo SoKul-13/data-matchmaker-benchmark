@@ -1,48 +1,58 @@
 # Running the labelling through Google Forms
 
-The spreadsheet route (`data/labels/handoff/`) is the default and the simplest. Google Forms is the alternative when labellers would rather click than edit cells, or when you want to prevent any edit outside the three answer fields. The data, the rules and the downstream scripts are identical; only the collection step changes.
+The spreadsheet route (`data/labels/handoff/grader_kit.zip`) and the Forms route collect the same ratings and feed the same scripts. Forms suits graders who would rather click than edit cells: nothing but the answer fields can be changed, required questions cannot be skipped, each answer sits on its own page, and any number of people can take part with nothing more than the links.
 
-## How it is laid out
+## What the generator builds
 
-Google Forms cannot import a table of rows, so an Apps Script builds the forms from the sheet. With the default layout (5 graders who all grade every row) the `assignments` tab gives every grader all 3,100 rows, so the script would build 31 forms of 100 rows per grader, five times over; leave the tab out and it builds one shared set of 31 forms that all five graders fill, choosing their letter on page one. Plus one pilot form. A run stops after five minutes and continues when re-run (or on a 10-minute trigger); the whole set takes 10 to 20 runs. Each row is one page:
+`shared/forms/make_label_forms.gs` has three entry points.
 
-* page title: the `row_id`
-* page text: task family, source, answer type, choices if any, the question, the reference answer, accepted alternatives, the list flag, and the system's final answer
-* a collapsed-looking header holding the context, table and full reply (cut at 3,500 characters; the spreadsheet remains the reference for longer material)
-* `R001 | utility` (required, one of 1 / 0.75 / 0.5 / 0.25 / 0), `R001 | hedged` (required, 0 / 1), `R001 | note` (optional)
+**`buildBackgroundForm()`: "Grader background and assignment".** The description gives the background of the study and the assignment (pilot, blocks, time). Then: grader ID, role or profession, years of experience, degree, a grid on familiarity with the four task families, English level, annotation experience, the four ground rules to tick, how many blocks the grader plans to do.
 
-Required questions and fixed choices mean the file that comes back cannot contain blanks or off-scale values, which removes most of the `--check` failures of the spreadsheet route.
+**`buildForms()`: one form per block.** 31 forms of 50 answers for the main sheet (about 38 minutes each), one form for the pilot.
 
-## Making the rows readable in Forms
+| Page | Content, top to bottom |
+|---|---|
+| 1 | title and time; **Your grader ID** (required; the grader's own short ID, the same on every form); "How to grade" in four lines; the scale table |
+| 2 to 51, one per answer | "Answer 12 of 50"; the **answer card** (a two-column table with task, question, reference answer in green and the system's final answer in yellow; under it the data table as a real grid or, for entity matching, the two records side by side); the **1 to 7 legend strip** (seven coloured cells, each with its name and one-line definition); **Rating**, a 1 to 7 scale row from "Wrong or no answer" to "Correct" (required); **Hedged?** No / Yes (required); **Note** (optional); at the bottom, "Only if needed: the system's full reply" |
+| end | a confirmation naming the block, with the link to edit the response |
 
-Forms shows help text in a proportional font with no monospace option, so a pipe-delimited table (`No. | Event | Time` with a dashed rule) loses its alignment. The generator handles this in two ways:
+Graders record 1 to 7. The conversion to a 0 to 1 utility, (rating − 1) / 6, happens later in the agreement script.
 
-* **Record-style text.** Every table is rewritten as one block per row with `column: value` lines (`[row 1]  Event: 1500 m freestyle  |  Time: 15:36.53`; one line per cell when the table has more than four columns). Context blocks, which are already `field: value` text, are kept as they are. Long material is split over several read-only items of at most 3,500 characters, so nothing is cut.
-* **An image of the original.** Optionally, run `uv run python shared/scripts/06_render_row_images.py`; it writes `data/labels/forms_images/<row_id>.png`, a monospace rendering of the table and context exactly as the system saw them (419 images, 28 MB). Upload the folder's contents to a Drive folder named `labelling_images`. The generator finds it by name and puts the image at the top of each row's page, with the record-style text below it as a searchable copy.
+**`refreshAllocation()`: the work list.** Writes a tab `allocation`: every form with its respondent link, minutes, how many graders have submitted it so far, how many more it needs to reach `TARGET_PER_FORM` (3), and their IDs. Share this tab with the graders: they take the block that still needs the most graders. Run it again whenever you want fresh counts, or put it on an hourly trigger.
 
-The final answer, the reference and the question sit in the page's own description, above both, so the grader reads top-down: question, reference, final answer, then the material only if needed.
+The card, the scale table and the legend strip are pictures, made by `uv run python shared/scripts/06_render_row_images.py` into `data/labels/forms_images/` (one PNG per answer plus `scale_table.png` and `scale_strip.png`; not kept in git). Forms cannot draw tables in text, so the pictures are what makes a page readable. Without them the generator falls back to plain text.
+
+`data/labels/handoff/grader_kit/04_FORM_PREVIEW.html` shows the first page and three real answer pages in exactly this layout.
 
 ## Step by step (coordinator)
 
-1. Google Drive > New > Google Sheets. File > Import > Upload > `data/labels/labeller_sheet.csv`. Rename the tab to `rows`. Then File > Import > Upload > `data/labels/assignments.csv` as a new tab named `assignments` (this makes the script build per-grader forms; without it, it builds shared forms with a letter question listing all letters).
-2. (Optional, for images) upload `data/labels/forms_images/*.png` into a Drive folder named `labelling_images`.
-3. Extensions > Apps Script. Paste `shared/forms/make_label_forms.gs`. Leave `BATCH = 50`, `FORM_PREFIX = "Labelling, main"`. Run `buildForms`, authorise the script for Forms and Drive when asked (first run only). It takes a few minutes; forms land in a Drive folder `labelling_forms`, and a new tab `forms` lists every form's edit and respondent link.
-4. Repeat with `data/labels/pilot_30.csv` and `FORM_PREFIX = "Labelling, pilot"` (one form).
-5. Send each grader: the guide (`01_LABELLING_GUIDE.html`), the walkthrough, the pilot respondent link first, later their own main-form links from the `forms` tab, and tell them their letter. Settings worth keeping: "Allow response editing" on (set by the script), "Limit to 1 response" off (with shared forms several people answer each one), "Collect email addresses" off (anonymity in the paper).
-6. After the pilot, in the pilot form: Responses > ⋮ > Download responses (.csv). Convert and check:
-   `uv run python shared/scripts/05_forms_to_returned.py --labeller A --pilot ~/Downloads/pilot.csv` (then B), then `uv run python shared/scripts/03_label_agreement.py --pilot --check A`, then the comparison, exactly as in the coordinator walkthrough.
-7. After the main round, download every main form's response CSV into one folder and run
-   `uv run python shared/scripts/05_forms_to_returned.py --labeller A folder/*.csv` (then B). The script keeps each labeller's latest submission per form, fills the canonical sheet and writes `data/labels/returned/03_main_A.csv`. From there everything is the standard flow: `--check`, comparison, adjudication, merge, paper rebuild.
+1. `uv run python shared/scripts/06_render_row_images.py`, then in Google Drive create a folder named exactly `labelling_images` and upload everything from `data/labels/forms_images/` into it.
+2. Drive > New > Google Sheets. File > Import > Upload > `data/labels/labeller_sheet.csv`, replace the current sheet. Rename the tab `rows`.
+3. Extensions > Apps Script. Paste `shared/forms/make_label_forms.gs`, save.
+4. Run `buildBackgroundForm` once; authorise Forms and Drive when asked (first run only).
+5. Run `buildForms`. A run builds forms for about four minutes and stops; the tab `forms` lists each form as DONE. Run it again until the log says all 31 are built, or add a trigger (Triggers > Add trigger > `buildForms` > time-driven > every 10 minutes) and delete it when the tab shows 31 DONE rows. A form cut off mid-build is trashed and rebuilt on the next run.
+6. Run `refreshAllocation`.
+7. Pilot: a second spreadsheet from `data/labels/pilot_30.csv` (tab `rows`), the same script with `FORM_PREFIX = "Answer grading, pilot"`, run `buildForms` once. One form.
+8. Open one respondent link and page through two answers to confirm the layout.
+9. Send every grader: `01_LABELLING_GUIDE.html`, `00_BACKGROUND_AND_ASSIGNMENT.html`, the background-form link and the pilot link, and ask them to choose a grader ID. Keep "collect email addresses" off (anonymity in the paper).
+10. After the pilot: Responses > ⋮ > Download responses (.csv), then
+    `uv run python shared/scripts/05_forms_to_returned.py --pilot ~/Downloads/pilot.csv`,
+    `uv run python shared/scripts/03_label_agreement.py --pilot --check all`,
+    `uv run python shared/scripts/03_label_agreement.py --pilot`, and hold the review call over the queue file.
+11. Share the `allocation` tab. Collect as often as you like: download every form's responses into one folder and run
+    `uv run python shared/scripts/05_forms_to_returned.py folder/*.csv`. It writes one returned file per grader ID, lists each grader's answers and forms, and warns when two IDs look like the same person (`--alias "typed=id"` merges them).
+12. `uv run python shared/scripts/03_label_agreement.py --check all`, then the comparison; send graders to the blocks `coverage.csv` lists; adjudicate; rebuild the paper. See `notes/WALKTHROUGH_COORDINATOR.md`.
 
-## Step by step (labeller)
+## Step by step (grader)
 
-1. Read the guide, then open the pilot link. Choose your letter on the first page.
-2. Each page is one answer to grade: read the question, the reference, the final answer; pick `utility` and `hedged`; add a note only if unsure. Press Next. The progress bar shows how far you are in the batch.
-3. Press Submit at the end of each form. You can stop between forms at any time; inside a form, use "Edit your response" from the confirmation page if you need to change something.
-4. Do your main forms in order after the pilot call. Do not discuss rows with the other graders before that call.
+1. Read the background and assignment page and the guide. Choose a grader ID and fill the background form.
+2. Open the pilot form and enter your ID. The first page has the scale table.
+3. Each following page is one answer: read the card (question, reference in green, final answer in yellow, the table or the two records), choose a rating from 1 to 7 with the legend strip right above it, choose No or Yes for hedged, add a note only if unsure, press Next.
+4. Press Submit at the end of the form. "Edit your response" on the confirmation page lets you change an answer later.
+5. After the pilot call, open the allocation sheet, take the block that still needs the most graders, and do the whole block. Repeat for as many blocks as you agreed. Do not discuss answers with other graders before the pilot call.
 
 ## Trade-offs
 
-* For: no file handling by the labeller, no possible edits to read-only data, required fields, works on a phone or tablet.
-* Against: tables are shown as record-style text or an image rather than a live grid; a form cannot be saved half-done unless Google's draft autosave is available for the account; building and downloading is nine files instead of one.
-* Either way the output is the same `03_main_X.csv`, and the agreement script does not know which route was used.
+* For: no file handling by the grader, no possible edits to read-only data, required fields, the legend beside every rating, records side by side, live counts of who has done what, works on a tablet.
+* Against: about 1,600 pictures to upload to Drive once; a form cannot be saved half-done unless Google's draft autosave is available for the account, which is why a block is 50 answers; collecting means downloading 31 files instead of receiving one per grader.
+* Either way the output is the same `03_main_<grader id>` file per grader, and the agreement script does not know which route was used.

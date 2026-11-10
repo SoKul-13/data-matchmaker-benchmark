@@ -11,7 +11,7 @@ FINAL_v2/
   config/          datasets.toml (31-dataset suite; finqa / financebench disabled), models.toml (13 models, temperature 0)
   data/            pool/ (150 items per dataset, 100 flagged for answering, + _official_strata.json), predictions/ (cached model answers), raw -> ../../data_raw
   v2_gridsearch/   scripts 01-06 + run_all.sh, output/, REPORT.md
-  notes/           RUN_MODELS.md (the paid step), HUMAN_LABELLING_PROTOCOL.md + LABELLING_GUIDE_FOR_LABELLERS.md (kit: shared/scripts/02-04, data/labels/handoff), CODE_FLOW.md (v6-wide; the v2 section applies here)
+  notes/           RUN_MODELS.md (the paid step), HUMAN_LABELLING_PROTOCOL.md + LABELLING_GUIDE_FOR_LABELLERS.md + WALKTHROUGH_{LABELLERS,COORDINATOR}.md + GOOGLE_FORMS_OPTION.md (human-labelling kit: shared/scripts/02-06 + label_scale.py / label_render.py, shared/forms/make_label_forms.gs, config/labelling.toml, data/labels/handoff/grader_kit.zip), CODE_FLOW.md (v6-wide; the v2 section applies here)
 ```
 
 What v2 does: evaluates **every** weighting of v1's four ingredients (token F1, numeric decay, precision, recall) on the step-0.05 lattice

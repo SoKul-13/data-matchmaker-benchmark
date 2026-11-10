@@ -1,0 +1,18 @@
+# How the graders' ratings are turned into one human label per answer.  Read by shared/scripts/03_label_agreement.py;
+# every value can be overridden on the command line (--aggregate, --min-labels, --queue-span, --on-disagreement, --exclude).
+
+[aggregation]
+method = "mean"              # "mean" | "median" | "mode" | "trimmed"
+                             #   mean     average of the converted ratings (default; uses every label)
+                             #   median   middle rating (robust to one stray grader; with an even count, the midpoint)
+                             #   mode     the most frequent rating (ties: the tied rating nearest the median, then the lower one)
+                             #   trimmed  drop the single lowest and single highest rating when there are 4 or more, then average
+min_labels = 2               # an answer needs at least this many ratings to get a human label; fewer = "under-covered", listed for more grading
+queue_span = 2               # ratings spread over MORE than this many points (max - min on the 1-7 scale) count as a wide disagreement
+on_disagreement = "adjudicate"   # "adjudicate": wide disagreements wait for the adjudicator's rating (adjudicated.csv)
+                                 # "aggregate":  no adjudication; every answer with enough ratings is aggregated with the method above
+hedged = "majority"          # "majority" (ties: adjudicate, or not hedged under on_disagreement = "aggregate") | "any" (hedged if any grader says so)
+exclude = []                 # grader IDs whose ratings are left out (for example after a failed pilot), e.g. ["ab12"]
+
+[targets]
+labels_per_answer = 3        # what the coverage report and the allocation sheet aim for
