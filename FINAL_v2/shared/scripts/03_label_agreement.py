@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 """Agreement, coverage, adjudication queue and aggregation for the human labels.  Any number of graders, any number of ratings per answer.
 
-    uv run python shared/scripts/03_label_agreement.py --check all      # validate every returned file (or --check <grader id>)
+    uv run python shared/scripts/03_label_agreement.py --check all      # validate every returned file (or --check <grader code>)
     uv run python shared/scripts/03_label_agreement.py --pilot          # the calibration round (everyone rates the same 30 answers)
     uv run python shared/scripts/03_label_agreement.py                  # main sheet: agreement, coverage, queue, human labels
-    uv run python shared/scripts/03_label_agreement.py --aggregate median --min-labels 3 --on-disagreement aggregate --exclude ab12
+    uv run python shared/scripts/03_label_agreement.py --aggregate median --min-labels 3 --on-disagreement aggregate --exclude g03
 
-Graders are not assigned letters or rows.  Each grader picks a grader ID; the returned files are data/labels/returned/03_main_<id>.xlsx
-or .csv (pilot: 02_pilot_<id>), and the graders are whoever has a file there.  Only `row_id`, `rating`, `hedged`, `note` are read.
+Graders are not assigned letters or rows.  A grader is identified by their email address, which 05_forms_to_returned.py replaces by a
+code (g01, g02, ...); the returned files are data/labels/returned/03_main_<code>.xlsx or .csv (pilot: 02_pilot_<code>), and the
+graders are whoever has a file there.  Only `row_id`, `rating`, `hedged`, `note` are read.
 `rating` is the grader's 1-7 point and is converted here to a utility on the 0-1 line, (rating - 1) / 6.
 
 Reports: ratings per answer and per grader; Krippendorff's alpha (ordinal, any number of coders, missing values allowed) on the rating
@@ -87,12 +88,12 @@ def auc(scores, correct):
 
 # ---------------------------------------------------------------- input
 def norm_id(x) -> str:
-    """A grader ID as used in file names and tables: lower case, letters / digits / underscore."""
-    return re.sub(r"[^a-z0-9]+", "_", str(x).strip().lower()).strip("_")
+    """A grader code as used in file names and tables (g01, ...): lower case, letters and digits only."""
+    return re.sub(r"[^a-z0-9]+", "", str(x).strip().lower())
 
 
 def returned(pilot: bool) -> dict[str, Path]:
-    """grader id -> returned file.  IDs are read from the file names: 03_main_<id>.xlsx / .csv (pilot: 02_pilot_<id>)."""
+    """grader code -> returned file.  Codes are read from the file names: 03_main_<code>.xlsx / .csv (pilot: 02_pilot_<code>)."""
     pre = "02_pilot_" if pilot else "03_main_"; out = {}
     for p in sorted(RET.glob(pre + "*")):
         if p.suffix.lower() not in (".xlsx", ".csv") or p.name.startswith("~$"): continue
@@ -181,14 +182,14 @@ def settings(a) -> dict:
 
 # ---------------------------------------------------------------- main
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--pilot", action="store_true"); ap.add_argument("--check", metavar="GRADER_ID", help="validate one returned file; 'all' for every returned file")
+    ap = argparse.ArgumentParser(); ap.add_argument("--pilot", action="store_true"); ap.add_argument("--check", metavar="GRADER", help="validate one returned file; 'all' for every returned file")
     ap.add_argument("--aggregate", choices=["mean", "median", "mode", "trimmed"], help="how several ratings become one label (default: config/labelling.toml)")
     ap.add_argument("--min-labels", type=int, help="ratings an answer needs to get a human label"); ap.add_argument("--queue-span", type=int, help="ratings spread over more than this many points = wide disagreement")
-    ap.add_argument("--on-disagreement", choices=["adjudicate", "aggregate"]); ap.add_argument("--exclude", action="append", metavar="GRADER_ID", help="leave this grader out (repeatable)")
+    ap.add_argument("--on-disagreement", choices=["adjudicate", "aggregate"]); ap.add_argument("--exclude", action="append", metavar="GRADER", help="leave this grader out (repeatable)")
     a = ap.parse_args(); cfg = settings(a)
     master = pd.read_csv(LAB / ("pilot_master.csv" if a.pilot else "sample_master.csv")).set_index("row_id")
     files = returned(a.pilot)
-    if not files: raise SystemExit(f"no returned files in {RET.relative_to(ROOT)} (expected {'02_pilot' if a.pilot else '03_main'}_<grader id>.xlsx or .csv)")
+    if not files: raise SystemExit(f"no returned files in {RET.relative_to(ROOT)} (expected {'02_pilot' if a.pilot else '03_main'}_<code>.xlsx or .csv; run 05_forms_to_returned.py first)")
     if a.check:
         ids = sorted(files) if a.check == "all" else [norm_id(a.check)]
         missing = [g for g in ids if g not in files]

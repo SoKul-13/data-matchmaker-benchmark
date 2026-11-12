@@ -6,13 +6,13 @@ The spreadsheet route (`data/labels/handoff/grader_kit.zip`) and the Forms route
 
 `shared/forms/make_label_forms.gs` has three entry points.
 
-**`buildBackgroundForm()`: "Grader background and assignment".** The description gives the background of the study and the assignment (pilot, blocks, time). Then: grader ID, role or profession, years of experience, degree, a grid on familiarity with the four task families, English level, annotation experience, the four ground rules to tick, how many blocks the grader plans to do.
+**`buildBackgroundForm()`: "Grader background and assignment".** The description gives the background of the study and the assignment (pilot, blocks, time). Then: the grader's email address (recorded by the form), role or profession, years of experience, degree, a grid on familiarity with the four task families, English level, annotation experience, the four ground rules to tick, how many blocks the grader plans to do.
 
 **`buildForms()`: one form per block.** 31 forms of 50 answers for the main sheet (about 38 minutes each), one form for the pilot.
 
 | Page | Content, top to bottom |
 |---|---|
-| 1 | title and time; **Your grader ID** (required; the grader's own short ID, the same on every form); "How to grade" in four lines; the scale table |
+| 1 | title and time; the grader's **email address**, recorded by the form (it links that person's forms); "How to grade" in four lines; the scale table |
 | 2 to 51, one per answer | "Answer 12 of 50"; the **answer card** (a two-column table with task, question, reference answer in green and the system's final answer in yellow; under it the data table as a real grid or, for entity matching, the two records side by side); the **1 to 7 legend strip** (seven coloured cells, each with its name and one-line definition); **Rating**, a 1 to 7 scale row from "Wrong or no answer" to "Correct" (required); **Hedged?** No / Yes (required); **Note** (optional); at the bottom, "Only if needed: the system's full reply" |
 | end | a confirmation naming the block, with the link to edit the response |
 
@@ -34,19 +34,21 @@ The card, the scale table and the legend strip are pictures, made by `uv run pyt
 6. Run `refreshAllocation`.
 7. Pilot: a second spreadsheet from `data/labels/pilot_30.csv` (tab `rows`), the same script with `FORM_PREFIX = "Answer grading, pilot"`, run `buildForms` once. One form.
 8. Open one respondent link and page through two answers to confirm the layout.
-9. Send every grader: `01_LABELLING_GUIDE.html`, `00_BACKGROUND_AND_ASSIGNMENT.html`, the background-form link and the pilot link, and ask them to choose a grader ID. Keep "collect email addresses" off (anonymity in the paper).
+9. Send every grader: `01_LABELLING_GUIDE.html`, `00_BACKGROUND_AND_ASSIGNMENT.html`, the background-form link and the pilot link, and ask them to use the same email address on every form. The forms record the address; the converter replaces it by a code, so the paper and the repository stay anonymous. `EMAIL_MODE = "VERIFIED"` in the script asks for Google's verified mode (the grader is signed in and the address is filled in); if that is not available the form falls back to "responder input" (the grader types it). The mode each form got is in column H of the `forms` tab; run `checkEmailMode` to re-read it, or look at Settings > Responses > Collect email addresses in any form. If some graders have no Google account, set `EMAIL_MODE = "RESPONDER_INPUT"` before building.
 10. After the pilot: Responses > ⋮ > Download responses (.csv), then
     `uv run python shared/scripts/05_forms_to_returned.py --pilot ~/Downloads/pilot.csv`,
     `uv run python shared/scripts/03_label_agreement.py --pilot --check all`,
     `uv run python shared/scripts/03_label_agreement.py --pilot`, and hold the review call over the queue file.
-11. Share the `allocation` tab. Collect as often as you like: download every form's responses into one folder and run
-    `uv run python shared/scripts/05_forms_to_returned.py folder/*.csv`. It writes one returned file per grader ID, lists each grader's answers and forms, and warns when two IDs look like the same person (`--alias "typed=id"` merges them).
-12. `uv run python shared/scripts/03_label_agreement.py --check all`, then the comparison; send graders to the blocks `coverage.csv` lists; adjudicate; rebuild the paper. See `notes/WALKTHROUGH_COORDINATOR.md`.
+11. Share the `allocation` tab. Collect as often as you like: run `exportResponses` in the script (it writes one CSV per form plus `background.csv` into the Drive folder `labelling_responses`; download that folder), or download each form's responses by hand (Responses > ⋮ > Download responses), and run
+    `uv run python shared/scripts/05_forms_to_returned.py folder/*.csv`. It gives each email address a code (`g01`, `g02`, ...; the table is `data/labels/grader_registry.csv`, git-ignored, never share it), writes one returned file per code, lists each grader's answers and forms, and warns when two addresses look like the same person (`--alias "second@address=first@address"` merges them).
+12. Link backgrounds to ratings: download the background form's responses and run
+    `uv run python shared/scripts/05_forms_to_returned.py --background ~/Downloads/background.csv`. The email address links the two, and the same codes are used. The script writes `data/labels/graders.csv` (git-ignored, no addresses) and lists anyone who rated answers without a background form.
+13. `uv run python shared/scripts/03_label_agreement.py --check all`, then the comparison; send graders to the blocks `coverage.csv` lists; adjudicate; rebuild the paper. See `notes/WALKTHROUGH_COORDINATOR.md`.
 
 ## Step by step (grader)
 
-1. Read the background and assignment page and the guide. Choose a grader ID and fill the background form.
-2. Open the pilot form and enter your ID. The first page has the scale table.
+1. Read the background and assignment page and the guide, and fill the background form. Use the same email address on every form.
+2. Open the pilot form. The first page has the scale table.
 3. Each following page is one answer: read the card (question, reference in green, final answer in yellow, the table or the two records), choose a rating from 1 to 7 with the legend strip right above it, choose No or Yes for hedged, add a note only if unsure, press Next.
 4. Press Submit at the end of the form. "Edit your response" on the confirmation page lets you change an answer later.
 5. After the pilot call, open the allocation sheet, take the block that still needs the most graders, and do the whole block. Repeat for as many blocks as you agreed. Do not discuss answers with other graders before the pilot call.
@@ -55,4 +57,4 @@ The card, the scale table and the legend strip are pictures, made by `uv run pyt
 
 * For: no file handling by the grader, no possible edits to read-only data, required fields, the legend beside every rating, records side by side, live counts of who has done what, works on a tablet.
 * Against: about 1,600 pictures to upload to Drive once; a form cannot be saved half-done unless Google's draft autosave is available for the account, which is why a block is 50 answers; collecting means downloading 31 files instead of receiving one per grader.
-* Either way the output is the same `03_main_<grader id>` file per grader, and the agreement script does not know which route was used.
+* Either way the output is the same `03_main_<code>` file per grader, and the agreement script does not know which route was used.

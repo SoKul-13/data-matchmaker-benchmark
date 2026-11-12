@@ -10,14 +10,22 @@
  *      buildForms() stops itself after about four minutes (Apps Script's limit is six): run it again, or add a time-driven trigger
  *      every 10 minutes, and it continues with the forms not yet marked DONE in the "forms" tab.
  *
- * There are no grader letters and no fixed number of graders.  Every form starts with "Your grader ID": a short ID the grader
- * chooses (for example initials and two digits) and repeats on every form.  Anyone with the links can take part; each grader does
- * whole forms ("blocks"), as many as agreed.
+ * There are no grader letters, no grader IDs and no fixed number of graders.  Every form records the grader's email address:
+ * that address is the key that links a person's background form, pilot and blocks.  The converter (05_forms_to_returned.py)
+ * replaces it by a code (g01, g02, ...) before anything is saved, so no address reaches the repository or the paper.
+ * EMAIL_MODE says how the address is recorded: "VERIFIED" (the grader is signed in to Google and the address is filled in
+ * for them) or "RESPONDER_INPUT" (the grader types it).  The mode each form actually got is written to the "forms" tab, and
+ * checkEmailMode() re-reads it from every form.  Anyone with the links can take part; each grader does whole forms
+ * ("blocks"), as many as agreed.
  *
  *   buildBackgroundForm()  "Grader background and assignment": the study in a paragraph, what the grader is asked to do, then
- *                          grader ID, professional background, a familiarity grid and the ground rules.
+ *                          professional background, a familiarity grid and the ground rules.
+ * Text size: the answer cards are pictures and already use large text.  For Google's own text, make one form named
+ * "labelling_template", open Customize theme (palette icon) > Text style, raise the sizes, and build: every form copies it.
+ *
+ *   exportResponses()      collecting: one CSV per form into the Drive folder "labelling_responses", to download in one go.
  *   buildForms()           one form per block of the sheet (the `block` column; BATCH rows when the sheet has none).
- *                          Page 1: grader ID, how to grade in four lines, the scale table.
+ *                          Page 1: how to grade in four lines, the scale table.
  *                          Then one page per answer, in this order:
  *                            the answer card (question, reference, the system's final answer, the table or the two records);
  *                            the 1-7 legend strip;  "<row_id> · Rating": a 1-7 scale row, 1 = wrong or no answer ... 7 = correct;
@@ -51,11 +59,59 @@ var SCALE = [  // rating, name, definition (graders record the rating; utility =
 ];
 var SCALE_TEXT = SCALE.map(function (s) { return s[0] + "  " + s[1] + ": " + s[2]; }).join("\n");
 var SCALE_LINE = SCALE.slice().reverse().map(function (s) { return s[0] + " " + s[1].toLowerCase(); }).join("  ·  ");
-var ID_HELP = "Choose a short ID, for example your initials and two digits (ab12). Use exactly the same ID on every form.";
+var TEMPLATE_NAME = "labelling_template"; // optional: a Google Form with this name; every new form copies its theme (text sizes, font, colours)
+var EMAIL_MODE = "VERIFIED";           // "VERIFIED": grader signed in to Google, address filled in automatically. "RESPONDER_INPUT": the grader types the address
 
-function graderIdItem(form) {
-  var v = FormApp.createTextValidation().setHelpText("2 to 20 letters, digits, - or _ (no spaces)").requireTextMatchesPattern("[A-Za-z0-9_-]{2,20}").build();
-  return form.addTextItem().setTitle("Your grader ID").setHelpText(ID_HELP).setValidation(v).setRequired(true);
+function newForm(title) {
+  // Google's own form text (questions, help text) can only be enlarged in a form's theme, which a script cannot set.
+  // So: if a form called TEMPLATE_NAME exists in Drive, each new form starts as a copy of it and keeps its theme.
+  try {
+    var it = DriveApp.getFilesByName(TEMPLATE_NAME);
+    while (it.hasNext()) {
+      var f = it.next(); if (f.getMimeType() !== MimeType.GOOGLE_FORMS) continue;
+      var form = FormApp.openById(f.makeCopy(title).getId()); form.setTitle(title);
+      form.getItems().forEach(function (i) { form.deleteItem(i); });
+      return form;
+    }
+  } catch (e) { Logger.log("template not used (" + e + "): plain form created"); }
+  return FormApp.create(title);
+}
+
+function identify(form) {
+  // Every form records the grader's email address.  Returns the mode the form ended up in.
+  // setCollectEmail(true) on its own gives "responder input"; the verified mode needs setEmailCollectionType, which exists in
+  // the editor but is not in Google's reference, so it is tried and the form falls back to responder input if it is missing.
+  form.setCollectEmail(true);
+  if (EMAIL_MODE === "VERIFIED") {
+    try { form.setEmailCollectionType(FormApp.EmailCollectionType.VERIFIED); } catch (e) { Logger.log("verified email mode not available here (" + e + "): responder input is used"); }
+  }
+  return emailMode(form);
+}
+function emailMode(form) {
+  // what the form really does now: "VERIFIED", "RESPONDER_INPUT", "ON (type not readable)" or "OFF"
+  var on = false; try { on = form.collectsEmail(); } catch (e) {}
+  if (!on) return "OFF";
+  try { return String(form.getEmailCollectionType()); } catch (e) { return "ON (type not readable)"; }
+}
+function checkEmailMode() {
+  // Run any time: re-reads the email setting of the background form and of every built form and writes it to the "forms" tab (column H).
+  var ss = SpreadsheetApp.getActiveSpreadsheet(); var count = {}; var note = function (m) { count[m] = (count[m] || 0) + 1; };
+  var bg = ss.getSheetByName("background_form");
+  if (bg && bg.getLastRow() >= 2) { var m0 = emailMode(FormApp.openById(bg.getRange(2, 3).getValue())); bg.getRange(1, 4, 2, 1).setValues([["email mode"], [m0]]); note(m0); }
+  var tab = ss.getSheetByName("forms");
+  if (tab && tab.getLastRow() >= 2) {
+    tab.getRange(1, 8).setValue("email mode");
+    tab.getRange(2, 7, tab.getLastRow() - 1, 1).getValues().forEach(function (r, i) {
+      if (!r[0]) return; var m = "?"; try { m = emailMode(FormApp.openById(r[0])); } catch (e) { m = "cannot open"; }
+      tab.getRange(i + 2, 8).setValue(m); note(m);
+    });
+  }
+  Logger.log("email mode of the forms: " + JSON.stringify(count));
+}
+function maskEmail(e) {
+  // for the shared allocation tab: enough for a grader to recognise their own entry, not a full address
+  e = String(e || "").trim().toLowerCase(); var at = e.indexOf("@");
+  return at < 1 ? e.slice(0, 2) + "***" : e.slice(0, Math.min(3, at)) + "***" + e.slice(at);
 }
 
 function readableTable(text) {
@@ -120,7 +176,7 @@ function buildForms() {
   // resume support: a form is listed in the "forms" tab as BUILDING when started and DONE when finished; a BUILDING leftover from a
   // run that was cut off is trashed and rebuilt
   var tab = ss.getSheetByName("forms") || ss.insertSheet("forms"); var done = {};
-  if (tab.getLastRow() < 1) tab.appendRow(["block", "form", "answers", "edit url", "respondent url", "status", "form id"]);
+  if (tab.getLastRow() < 1) tab.appendRow(["block", "form", "answers", "edit url", "respondent url", "status", "form id", "email mode"]);
   var listed = tab.getDataRange().getValues();
   for (var i = listed.length - 1; i >= 1; i--) {
     if (listed[i][5] === "DONE") done[listed[i][1]] = true;
@@ -134,12 +190,12 @@ function buildForms() {
     var title = FORM_PREFIX + (nb > 1 ? ", block " + (b + 1) + " of " + nb : "");
     if (done[title]) continue;
     if (Date.now() - t0 > LIMIT_MS) { stopped = true; break; }
-    var form = FormApp.create(title);
+    var form = newForm(title);
     tab.appendRow([b + 1, title, rows.length, "", "", "BUILDING", form.getId()]); var tabRow = tab.getLastRow(); SpreadsheetApp.flush();
     form.setDescription(rows.length + " answers, about " + Math.round(rows.length * HOURS_PER_ROW * 60) + " minutes. One answer per page: read the card, give a rating from 1 to 7, say whether the answer hedges, press Next.");
     form.setProgressBar(true); form.setAllowResponseEdits(true); form.setLimitOneResponsePerUser(false); form.setShowLinkToRespondAgain(false);
     form.setConfirmationMessage("Thank you: " + title + " is recorded. You can edit your response with the link on this page. Pick your next block from the allocation sheet.");
-    graderIdItem(form);
+    var mode = identify(form); tab.getRange(tabRow, 8).setValue(mode);
     form.addSectionHeaderItem().setTitle("How to grade").setHelpText(
       "1. Grade the system's FINAL answer (yellow on the card) against the reference answer (green). Not the reasoning, not the writing.\n" +
       "2. Rating: 7 = I would accept it as the reference answer, 4 = half of it is right, 1 = nothing is right. Between two neighbouring ratings, choose the lower. Yes/no answers are only 7 or 1.\n" +
@@ -182,7 +238,7 @@ function buildBackgroundForm() {
   // Background + assignment: what the study is, what the grader is asked to do, who the grader is.  One response per grader.
   var n = 0, nForms = 0; try { var d = rowsData(); n = d.rows.length; nForms = d.blocks.length; } catch (e) {}
   var perForm = nForms ? Math.round(n / nForms) : BATCH;
-  var form = FormApp.create("Grader background and assignment");
+  var form = newForm("Grader background and assignment");
   form.setDescription(
     "BACKGROUND\nWe are testing an automatic scoring program that marks answers given by AI systems to questions about tables, " +
     "documents and data records (matching records, matching columns, answering questions from tables and financial filings). " +
@@ -195,10 +251,10 @@ function buildBackgroundForm() {
     (n ? " (" + nForms + " blocks of about " + perForm + " answers, about " + Math.round(perForm * HOURS_PER_ROW * 60) + " minutes each)" : "") +
     ". Take the blocks that have the fewest graders so far.\n" +
     "For each answer you give a rating from 1 (wrong or no answer) to 7 (correct) and say whether it hedges; every rating is defined on the form.\n\n" +
-    "You never see which AI system wrote an answer. Your ratings are stored under your grader ID only; you are not named in any publication.");
+    "You never see which AI system wrote an answer. Your email address is recorded on each form only to link your forms to each other and to reach you; your ratings are analysed under a code, and neither your name nor your address appears in any publication or shared file. Use the same address on every form.");
   form.setLimitOneResponsePerUser(false); form.setAllowResponseEdits(true);
   form.setConfirmationMessage("Thank you. Next: the pilot form.");
-  graderIdItem(form);
+  var bgMode = identify(form);
   form.addTextItem().setTitle("Current role or profession").setHelpText("For example: financial analyst, data engineer, accountant, data annotator, graduate student in statistics.").setRequired(true);
   form.addMultipleChoiceItem().setTitle("Years of professional work with data tables, databases or financial documents")
     .setChoiceValues(["less than 1", "1 to 3", "4 to 7", "8 to 15", "more than 15"]).setRequired(true);
@@ -221,17 +277,47 @@ function buildBackgroundForm() {
   form.addParagraphTextItem().setTitle("Anything we should know (optional)").setRequired(false);
   moveToFolder(form, targetFolder());
   var ss = SpreadsheetApp.getActiveSpreadsheet(); var tab = ss.getSheetByName("background_form") || ss.insertSheet("background_form");
-  tab.clear(); tab.getRange(1, 1, 2, 3).setValues([["edit url", "respondent url", "form id"], [form.getEditUrl(), form.getPublishedUrl(), form.getId()]]);
-  Logger.log("background form: " + form.getPublishedUrl());
+  tab.clear(); tab.getRange(1, 1, 2, 4).setValues([["edit url", "respondent url", "form id", "email mode"], [form.getEditUrl(), form.getPublishedUrl(), form.getId(), bgMode]]);
+  Logger.log("background form: " + form.getPublishedUrl() + " | email mode: " + bgMode);
+}
+
+function exportResponses() {
+  // Run whenever you want to collect.  Writes every form's responses as one CSV file each into the Drive folder
+  // "labelling_responses" ("labelling_responses_pilot" from the pilot sheet), replacing the earlier export, plus background.csv.
+  // Download that folder (right-click > Download; Drive zips it) and give the files to 05_forms_to_returned.py.
+  // Same columns as Google's own "Download responses (.csv)": Timestamp, Email Address, then one column per question.
+  var ss = SpreadsheetApp.getActiveSpreadsheet(); var name = "labelling_responses" + (/pilot/i.test(FORM_PREFIX) ? "_pilot" : "");
+  var it = DriveApp.getFoldersByName(name); var folder = it.hasNext() ? it.next() : DriveApp.createFolder(name);
+  var esc = function (v) { v = (v === null || v === undefined) ? "" : (Array.isArray(v) ? v.join("; ") : String(v)); return /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+  var skip = [FormApp.ItemType.SECTION_HEADER, FormApp.ItemType.PAGE_BREAK, FormApp.ItemType.IMAGE];
+  var one = function (formId, fileName) {
+    var form = FormApp.openById(formId); var items = form.getItems().filter(function (i) { return skip.indexOf(i.getType()) < 0; });
+    var lines = [["Timestamp", "Email Address"].concat(items.map(function (i) { return i.getTitle(); })).map(esc).join(",")];
+    form.getResponses().forEach(function (resp) {
+      var by = {}; resp.getItemResponses().forEach(function (r) { by[r.getItem().getId()] = r.getResponse(); });
+      lines.push([Utilities.formatDate(resp.getTimestamp(), "UTC", "yyyy/MM/dd HH:mm:ss"), resp.getRespondentEmail()].concat(items.map(function (i) { return by[i.getId()]; })).map(esc).join(","));
+    });
+    var old = folder.getFilesByName(fileName); while (old.hasNext()) old.next().setTrashed(true);
+    folder.createFile(fileName, lines.join("\n"), MimeType.CSV); return lines.length - 1;
+  };
+  var files = 0, subs = 0;
+  var bg = ss.getSheetByName("background_form");
+  if (bg && bg.getLastRow() >= 2) { subs += one(bg.getRange(2, 3).getValue(), "background.csv"); files++; }
+  var tab = ss.getSheetByName("forms");
+  if (tab && tab.getLastRow() >= 2) tab.getRange(2, 1, tab.getLastRow() - 1, 7).getValues().forEach(function (r) {
+    if (r[5] !== "DONE" || !r[6]) return;
+    subs += one(r[6], "block_" + ("0" + r[0]).slice(-2) + ".csv"); files++;
+  });
+  Logger.log("exported " + files + " file(s), " + subs + " submission(s), to the Drive folder " + name + ": " + folder.getUrl());
 }
 
 function gradersOf(formId) {
-  // distinct grader IDs (lower case) that have submitted this form
+  // distinct graders that have submitted this form, as masked email addresses
   var ids = {};
   try {
     FormApp.openById(formId).getResponses().forEach(function (resp) {
-      var its = resp.getItemResponses();
-      for (var i = 0; i < its.length; i++) { if (its[i].getItem().getTitle() === "Your grader ID") { ids[String(its[i].getResponse()).trim().toLowerCase()] = true; break; } }
+      var mail = ""; try { mail = resp.getRespondentEmail() || ""; } catch (e) {}
+      if (mail) ids[maskEmail(mail)] = true;
     });
   } catch (e) {}
   return Object.keys(ids).sort();

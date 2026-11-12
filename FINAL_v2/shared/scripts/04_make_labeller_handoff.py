@@ -140,18 +140,18 @@ AI systems are now asked to work with data: to decide whether two records descri
 
 You will see answers that different AI systems gave to questions, each next to a reference answer. You decide how correct each answer is. You never see which system wrote an answer, and you are not asked about style or reasoning, only about whether the final answer is right.
 
-Every answer is graded independently by several graders, and their ratings are combined. Where the ratings are far apart, an adjudicator decides. Your ratings are stored under a grader ID that you choose yourself; you are not named in any publication, which will only describe the group's professional background in a sentence.
+Every answer is graded independently by several graders, and their ratings are combined. Where the ratings are far apart, an adjudicator decides. You are identified by your email address, which links your background form to your ratings and lets us reach you. Before any analysis it is replaced by a code; neither your name nor your address appears in any publication or shared file, and the publication will only describe the group's professional background in a sentence.
 
 ## Your assignment
 
 | Step | What | Amount | Time |
 |---|---|---|---|
-| 1 | Choose a grader ID (for example initials and two digits, `ab12`) and use it everywhere | | 1 minute |
+| 1 | Decide which email address you will use, and use that one everywhere | | 1 minute |
 | 2 | Read this page, the labelling guide and the walkthrough | 3 short documents | about 30 minutes |
 | 3 | Fill the background form | one short form | 5 minutes |
 | 4 | Pilot: grade the practice answers, then join the review call | {n_pilot} answers | about 25 minutes + a 20-minute call |
 | 5 | Main round: grade whole blocks, as many as you agreed | {n_blocks} blocks of {bsize} answers exist ({n_main:,} answers); one block = one online form | about {bsize * 45 / 60:.0f} minutes per block (all {n_blocks} blocks: about {h:.0f} hours) |
-| 6 | Submit each form, or return the spreadsheet named with your grader ID | | |
+| 6 | Submit each form, or return the spreadsheet named with your email address | | |
 
 Which blocks: nobody is assigned particular blocks. The allocation sheet lists every block with the number of graders it has so far; take the one that still needs the most, and finish a block before starting another.
 
@@ -177,7 +177,7 @@ Anchors: **7** = I would accept this as the reference answer; **4** = half of it
 
 
 BACKGROUND_QUESTIONS = [
-    ("Your grader ID (your own choice, e.g. initials and two digits; the same on every form and file)", "2 to 20 letters or digits, no spaces"), ("Current role or profession", "e.g. financial analyst, data engineer, accountant, data annotator"),
+    ("Your email address (the same one on every form and in every file name)", "name@example.org"), ("Current role or profession", "e.g. financial analyst, data engineer, accountant, data annotator"),
     ("Years of professional work with data tables, databases or financial documents", "less than 1 / 1 to 3 / 4 to 7 / 8 to 15 / more than 15"),
     ("Highest degree and field", ""),
     ("Familiarity: deciding whether two records are the same product, person or publication", "never done it / occasionally / regularly / it is my job"),
@@ -223,7 +223,7 @@ h1{font-size:28px;font-weight:400;margin:0 0 8px}h2{font-size:16px;font-weight:5
     o = [f"<!doctype html><html><head><meta charset='utf-8'><title>Form preview</title><style>{css}</style></head><body>",
          "<p class='note'>Preview of an online grading form, built from real answers. Google's own styling differs slightly; the content and order are the same.</p>",
          f"<div class='card head'><h1>Answer grading, block 1 of {nb}</h1><div class='help'>{bsize} answers, about {bsize * 45 / 60:.0f} minutes. One answer per page: read the card, give a rating from 1 to 7, say whether the answer hedges, press Next.</div></div>",
-         "<div class='card'><h2>Your grader ID <span class='req'>*</span></h2><div class='help'>Choose a short ID, for example your initials and two digits (ab12). Use exactly the same ID on every form.</div><div class='short'>Your answer</div></div>",
+         "<div class='card'><h2>Email <span class='req'>*</span></h2><div class='help'>Recorded by the form. Use the same address on every form: it links your forms to each other.</div><div class='short'>your.name@example.org</div></div>",
          "<div class='card'><h2>How to grade</h2><div class='help'>1. Grade the system's FINAL answer (yellow on the card) against the reference answer (green). Not the reasoning, not the writing.\n"
          "2. Rating: 7 = I would accept it as the reference answer, 4 = half of it is right, 1 = nothing is right. Between two neighbouring ratings, choose the lower. Yes/no answers are only 7 or 1.\n"
          "3. Hedged = Yes when the final answer offers more than one candidate, a range where one value was asked, or will not commit.\n"
@@ -265,12 +265,16 @@ def main():
     (LAB / "returned").mkdir(exist_ok=True)
     (LAB / "returned" / "README.md").write_text(f"""# Returned labels
 
-One file per grader, named with the grader's own ID (lower-case letters, digits, underscore):
+One file per grader, named with the grader's code (g01, g02, ...), never with a name or an address:
 
-    02_pilot_<grader id>.xlsx (or .csv)      03_main_<grader id>.xlsx (or .csv)
+    02_pilot_<code>.xlsx (or .csv)      03_main_<code>.xlsx (or .csv)
 
-Spreadsheet route: graders send these files; rename on receipt if a grader did not. A newer file from the same grader replaces the older one.
-Google Forms route: `uv run python shared/scripts/05_forms_to_returned.py [--pilot] responses/*.csv` writes one file per grader ID found in the responses.
+Graders are identified by email address. `shared/scripts/05_forms_to_returned.py` turns addresses into codes and writes the files here;
+do not copy files in by hand. The address-to-code table is data/labels/grader_registry.csv (git-ignored, private).
+
+Google Forms route:   `uv run python shared/scripts/05_forms_to_returned.py [--pilot] responses/*.csv`
+Spreadsheet route:    `uv run python shared/scripts/05_forms_to_returned.py --sheets inbox/03_main_<address>.xlsx ...` (keep the inbox outside the repository)
+Background forms:     `uv run python shared/scripts/05_forms_to_returned.py --background background.csv [inbox/00_BACKGROUND_FORM_<address>.xlsx ...]`
 
 Then, from FINAL_v2:
 

@@ -153,7 +153,7 @@ Multiple choice: the option letter and the option text are both correct answers;
 
 ## 6. How the work runs
 
-1. **Background and assignment.** Read the one-page brief and choose your grader ID (a short ID of your own, the same on every form and file) and fill the short background form.
+1. **Background and assignment.** Read the one-page brief and fill the short background form. You are identified by your email address: use the same address on every form and in the names of files you send back.
 2. **Pilot (30 rows, about 25 minutes).** Every labeller grades the same pilot rows independently. We then compare, discuss the rows where labels differed most, and clarify the guide if a rule was unclear. Nothing from the pilot is reused.
 3. **Main round.** The answers come in blocks of 50 (one online form, or one value of the `block` column). You do whole blocks, as many as you agreed; take the blocks that still need graders. At most two blocks in one sitting. Keep a steady pace; about 45 seconds per row is typical. Fill `rating` and `hedged` on every row; use `note` sparingly.
 4. **Adjudication.** Rows where the labels are spread over more than two ratings, or where a label is missing, go to an adjudicator with all ratings and notes. The adjudicated value is final.

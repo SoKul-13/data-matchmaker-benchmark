@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 from label_scale import SCALE, SHORT
 
-W, PAD, FS = 1480, 28, 26
+W, PAD, FS = 1040, 24, 26   # a narrower picture makes the text larger on the form: Google Forms scales every picture to the form width
 REG = ["/System/Library/Fonts/Supplemental/Arial.ttf", "/Library/Fonts/Arial.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"]
 BOLD = ["/System/Library/Fonts/Supplemental/Arial Bold.ttf", "/Library/Fonts/Arial Bold.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"]
 INK, MUTED, LINE, HEAD, ZEBRA, HILITE, ACCENT = "#1f2328", "#57606a", "#c9d1d9", "#e8eef6", "#f6f8fa", "#fff4cc", "#5b3fb5"

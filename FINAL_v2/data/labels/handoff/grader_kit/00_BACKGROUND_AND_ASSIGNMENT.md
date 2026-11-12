@@ -6,18 +6,18 @@ AI systems are now asked to work with data: to decide whether two records descri
 
 You will see answers that different AI systems gave to questions, each next to a reference answer. You decide how correct each answer is. You never see which system wrote an answer, and you are not asked about style or reasoning, only about whether the final answer is right.
 
-Every answer is graded independently by several graders, and their ratings are combined. Where the ratings are far apart, an adjudicator decides. Your ratings are stored under a grader ID that you choose yourself; you are not named in any publication, which will only describe the group's professional background in a sentence.
+Every answer is graded independently by several graders, and their ratings are combined. Where the ratings are far apart, an adjudicator decides. You are identified by your email address, which links your background form to your ratings and lets us reach you. Before any analysis it is replaced by a code; neither your name nor your address appears in any publication or shared file, and the publication will only describe the group's professional background in a sentence.
 
 ## Your assignment
 
 | Step | What | Amount | Time |
 |---|---|---|---|
-| 1 | Choose a grader ID (for example initials and two digits, `ab12`) and use it everywhere | | 1 minute |
+| 1 | Decide which email address you will use, and use that one everywhere | | 1 minute |
 | 2 | Read this page, the labelling guide and the walkthrough | 3 short documents | about 30 minutes |
 | 3 | Fill the background form | one short form | 5 minutes |
 | 4 | Pilot: grade the practice answers, then join the review call | 30 answers | about 25 minutes + a 20-minute call |
 | 5 | Main round: grade whole blocks, as many as you agreed | 31 blocks of 50 answers exist (1,550 answers); one block = one online form | about 38 minutes per block (all 31 blocks: about 19 hours) |
-| 6 | Submit each form, or return the spreadsheet named with your grader ID | | |
+| 6 | Submit each form, or return the spreadsheet named with your email address | | |
 
 Which blocks: nobody is assigned particular blocks. The allocation sheet lists every block with the number of graders it has so far; take the one that still needs the most, and finish a block before starting another.
 

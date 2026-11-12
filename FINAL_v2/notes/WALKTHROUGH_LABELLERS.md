@@ -2,9 +2,9 @@
 
 The practical companion to the labelling guide (`01_LABELLING_GUIDE`). The guide holds the rules; this page holds the procedure. Time: about 15 minutes to read the guide, 25 minutes for the pilot, then about {MIN_BLOCK} minutes per block of {BLOCK} answers, for as many blocks as you agreed to do.
 
-## Step 1. Choose your grader ID
+## Step 1. Use one email address
 
-There are no assigned letters. Pick a short ID of your own, for example your initials and two digits (`ab12`): 2 to 20 letters or digits, no spaces. Use exactly the same ID everywhere: on every online form, in the background form, and in the names of the files you send back. It is the only thing that links your work together, and it keeps you anonymous in the results.
+You are identified by your email address, nothing else: there are no letters and no IDs to choose. Use the same address everywhere: on the background form, on every online form, and in the names of the files you send back. It is the only thing that links your background form to your ratings. The address is used to link your work and to reach you; before any analysis it is replaced by a code, and neither your name nor your address appears in any publication or shared file.
 
 ## Step 2. Open the kit
 
@@ -56,7 +56,7 @@ Grade all 30 pilot answers exactly as in step 4 and submit or return them (step 
 * No row has a rating without hedged, or the reverse.
 * Any filter is cleared, so the file still holds all {N_MAIN} rows ({N_MAIN_PLUS1} lines with the header; 31 lines for the pilot). Rows you did not grade stay blank; do not delete them.
 * Column names are unchanged and no values were typed anywhere except in `rating`, `hedged`, `note`.
-* The file is named with your grader ID: `03_main_<your id>.xlsx`, for example `03_main_ab12.xlsx` (the pilot: `02_pilot_<your id>.xlsx`).
+* The file is named with your email address: `03_main_<your address>.xlsx`, for example `03_main_ana.lee@example.org.xlsx` (the pilot: `02_pilot_<your address>.xlsx`; the background form: `00_BACKGROUND_FORM_<your address>.xlsx`).
 
 In the online forms none of this is needed: required questions cannot be skipped and nothing else can be edited.
 

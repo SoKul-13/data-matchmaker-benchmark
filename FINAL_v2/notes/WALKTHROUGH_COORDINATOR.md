@@ -21,7 +21,7 @@ To redraw the sample: `02_make_label_sample.py`, then `06_render_row_images.py`,
 ## 1. How the labelling is organised
 
 * **The sample.** 1,550 answers: 50 distinct questions from each of the 31 datasets, drawn at random within question sub-types in proportion to the dataset's own mix, one model's answer per question, models balanced. Plus 30 pilot answers from other questions.
-* **No letters, no fixed number of graders.** Each grader chooses a grader ID (for example `ab12`) and uses it on every form and file. Whoever returns work under an ID is a grader. People can join late or stop early.
+* **No letters, no fixed number of graders.** A grader is identified by their email address on both routes: every online form records it, and returned spreadsheets carry it in the file name. `05_forms_to_returned.py` replaces the address by a code (`g01`, `g02`, ...) before anything is stored; the address-to-code table is `data/labels/grader_registry.csv` (git-ignored: never share or commit it). Keep the files graders send outside the repository. Whoever returns work is a grader. People can join late or stop early.
 * **Blocks.** The answers are shuffled and cut into 31 blocks of 50, about 38 minutes each. One block is one online form, or one value of the `block` column in the spreadsheet. A grader does whole blocks, as many as agreed. Blocks are a random mix of datasets and answer types, so every block is equally representative.
 * **Coverage instead of assignment.** Nobody is assigned blocks. The target is a number of ratings per answer (3 by default, `[targets] labels_per_answer`). The allocation sheet (Forms route) and `coverage.csv` (any route) show, per block, how many graders it has and how many more it needs; graders take the block that needs the most.
 * **What a grader records.** `rating`, a whole number from 1 (wrong or no answer) to 7 (correct), each rating named and defined on the form and the sheet; `hedged`, 0 or 1; an optional `note`. The scripts convert the rating to a utility on the 0 to 1 line, (rating − 1) / 6. Graders never see the model name, the judge's score or the dataset id.
@@ -35,7 +35,7 @@ To redraw the sample: `02_make_label_sample.py`, then `06_render_row_images.py`,
 
 ## 3. Pilot round (everyone, 30 answers)
 
-1. Collect: spreadsheet graders send `02_pilot_<id>.xlsx`; copy it into `data/labels/returned/`. Forms route: download the pilot form's responses and run `uv run python shared/scripts/05_forms_to_returned.py --pilot path/pilot.csv`, which writes one file per grader ID.
+1. Collect. Forms route: download the pilot form's responses and run `uv run python shared/scripts/05_forms_to_returned.py --pilot path/pilot.csv`. Spreadsheet route: graders send `02_pilot_<their address>.xlsx`; save them in a folder outside the repository and run `uv run python shared/scripts/05_forms_to_returned.py --sheets inbox/*.xlsx`. Either way `data/labels/returned/` gets one file per grader code. Then link the backgrounds: `uv run python shared/scripts/05_forms_to_returned.py --background path/background.csv` (add any filled `00_BACKGROUND_FORM_<address>.xlsx`); it lists anyone who rated without a background form.
 2. Validate: `uv run python shared/scripts/03_label_agreement.py --pilot --check all`. In the pilot every answer must be rated.
 3. Compare: `uv run python shared/scripts/03_label_agreement.py --pilot`. It prints Krippendorff's α with a bootstrap interval, pairwise exact and within-one-rating agreement, agreement per answer type and task family, a line per grader (mean and gap to the others), and writes `pilot_adjudication_queue.csv` with the answers whose ratings are more than two points apart.
 4. Review call over that queue: for each answer, find the rule that was read differently and say which reading is right. If a rule was unclear, edit the guide, re-run `04_make_labeller_handoff.py` and resend the guide. A grader whose gap is far above the rest gets a one-to-one, or is left out with `exclude` in the config.
@@ -44,7 +44,7 @@ To redraw the sample: `02_make_label_sample.py`, then `06_render_row_images.py`,
 ## 4. Main round
 
 1. Share the allocation sheet (Forms route: run `refreshAllocation` whenever you want the counts updated) or tell spreadsheet graders which blocks to take.
-2. Collect as often as you like. Forms: download all forms' responses into one folder and run `uv run python shared/scripts/05_forms_to_returned.py folder/*.csv`. It lists every grader ID with answers and forms, warns when two IDs look like the same person, and `--alias "typed=id"` merges them. Spreadsheets: copy `03_main_<id>.xlsx` into `returned/`; a newer file replaces the older.
+2. Collect as often as you like. Forms: download all forms' responses into one folder and run `uv run python shared/scripts/05_forms_to_returned.py folder/*.csv`. It lists every grader code with answers and forms, warns when two addresses look like the same person, and `--alias "second@address=first@address"` merges them. Spreadsheets: `--sheets inbox/03_main_*.xlsx`; a newer file from the same address replaces the older.
 3. Validate: `uv run python shared/scripts/03_label_agreement.py --check all`. Per grader it lists the blocks completed and any block only partly rated. Problems are fixed by the grader, never by you.
 4. Run `uv run python shared/scripts/03_label_agreement.py`. It reports ratings per answer and per grader, agreement with intervals (per answer type and family on screen, per dataset in `agreement_by_stratum.csv`), the drift line per grader, and writes
    * `coverage.csv`: per block, minimum and median ratings per answer, who graded it, and how many more graders it needs for the target;
@@ -63,7 +63,7 @@ Set in `config/labelling.toml`, or per run with flags.
 | `queue_span` / `--queue-span` | points | 2 | ratings more than this many points apart are a wide disagreement |
 | `on_disagreement` / `--on-disagreement` | `adjudicate`, `aggregate` | `adjudicate` | wide disagreements wait for the adjudicator, or are aggregated like the rest |
 | `hedged` | `majority`, `any` | `majority` | hedged if most graders say so (a tie counts as a wide disagreement), or if any does |
-| `exclude` / `--exclude` | grader IDs | none | graders whose ratings are left out |
+| `exclude` / `--exclude` | grader codes (`g03`) | none | graders whose ratings are left out |
 | `[targets] labels_per_answer` | whole number | 3 | what coverage and allocation aim for |
 
 `human_labels.csv` always carries `utility_mean`, `utility_median` and `utility_mode` next to the chosen `utility`, so the paper can show that the conclusions do not depend on the choice. The settings used are stored in `human_correctness.json`.

@@ -29,3 +29,5 @@ other_older_versions/v5_metric_library_anchor_ensemble/data/raw
 
 # rendered row images for the Google Forms route (regenerate with FINAL_v2/shared/scripts/06_render_row_images.py)
 FINAL_v2/data/labels/forms_images/
+FINAL_v2/data/labels/graders.csv
+FINAL_v2/data/labels/grader_registry.csv
